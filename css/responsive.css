@@ -1,11 +1,33 @@
-/* Mobile styles (up to 768px) */
-@media screen and (max-width: 768px) {
-    /* Navigation */
-    nav {
-        padding: 1rem;
-        position: relative;
+/* Tablet and smaller desktops */
+@media (max-width: 1024px) {
+    .about-content {
+        grid-template-columns: 1fr 2fr;
+        gap: 3rem;
     }
-    
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .about-section h1 {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-content img {
+        max-width: 300px;
+        margin-bottom: 2rem;
+        position: static;
+    }
+
     .nav-links {
         display: none;
         position: absolute;
@@ -15,17 +37,13 @@
         background: white;
         flex-direction: column;
         padding: 1rem;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        box-shadow: var(--shadow-sm);
     }
-    
+
     .nav-links.active {
         display: flex;
     }
-    
-    .nav-links li {
-        margin: 0.5rem 0;
-    }
-    
+
     .mobile-menu-btn {
         display: block;
         font-size: 1.5rem;
@@ -34,42 +52,16 @@
         cursor: pointer;
     }
 
-    /* Sections */
-    section {
-        padding: 2rem 1rem;
+    .thought-bubble {
+        right: -120px;
+        top: 10px;
+        padding: 15px;
+        min-width: 120px;
+        font-size: 0.9rem;
     }
 
-    .hero {
-        padding: 4rem 1rem;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    /* Projects */
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    /* Contact form */
-    .contact-content {
-        padding: 0 1rem;
-    }
-
-    form {
-        width: 100%;
-    }
-}
-
-/* Tablet styles (768px to 1024px) */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-    section {
-        padding: 3rem 2rem;
-    }
-    
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .profile-container {
+        width: 200px;
+        height: 200px;
     }
 } 
