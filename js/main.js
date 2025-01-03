@@ -8,6 +8,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Only apply smooth scroll to hash links (not full URLs)
+document.querySelectorAll('a').forEach(anchor => {
+    if (anchor.getAttribute('href').startsWith('#')) {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    }
+});
+
 // Form submission handling
 document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
