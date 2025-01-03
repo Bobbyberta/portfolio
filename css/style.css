@@ -1,13 +1,94 @@
 /* CSS Variables */
 :root {
-    --primary-color: #007bff;
-    --primary-dark: #0056b3;
-    --text-color: #333;
-    --bg-light: #f8f9fa;
-    --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    /* Layout */
     --max-width: 1200px;
     --header-height: 60px;
+
+    /* Colors */
+    --primary: #007bff;
+    --primary-dark: #0056b3;
+    --text: #333;
+    --text-light: #666;
+    --text-dark: #2c3e50;
+    --bg: #fff;
+    --bg-light: #f8f9fa;
+    --border: #ddd;
+    --skill-bg: rgba(0, 123, 255, 0.05);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Base styles using variables */
+body {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+header {
+    background-color: var(--bg);
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-links li a {
+    color: var(--text);
+}
+
+.nav-links li a:hover {
+    color: var(--primary);
+}
+
+.hero {
+    background-color: var(--bg-light);
+}
+
+.thought-bubble {
+    background: var(--bg);
+    color: var(--text);
+}
+
+.thought-bubble::before,
+.thought-bubble::after {
+    background: var(--bg);
+}
+
+.project-card {
+    background: var(--bg);
+    color: var(--text);
+}
+
+.button {
+    background-color: var(--primary);
+    color: var(--bg);
+}
+
+.button:hover {
+    background-color: var(--primary-dark);
+}
+
+input, 
+textarea {
+    background-color: var(--bg);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+.skill-item {
+    background: var(--skill-bg);
+    border-color: var(--border);
+}
+
+.skill-text {
+    color: var(--text);
+}
+
+h1, h2, h3 {
+    color: var(--text-dark);
+}
+
+a {
+    color: var(--primary);
 }
 
 /* Reset and Base Styles */
@@ -20,7 +101,6 @@
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    color: var(--text-color);
 }
 
 /* Layout */
@@ -134,6 +214,7 @@ nav {
 /* About Section */
 .about-section {
     padding: 4rem 2rem;
+    position: relative;
 }
 
 .about-section h1 {
@@ -141,6 +222,13 @@ nav {
     margin-bottom: 3rem;
     grid-column: 1 / -1;
     font-size: 2.5rem;
+    position: sticky;
+    top: var(--header-height);
+    background: var(--bg);
+    padding: 1rem 0;
+    z-index: 10;
+    margin-top: 0;
+    border-bottom: 1px solid var(--border);
 }
 
 .about-content {
@@ -148,6 +236,7 @@ nav {
     grid-template-columns: minmax(300px, 1fr) 2fr;
     gap: 4rem;
     align-items: start;
+    padding-top: 1rem;
 }
 
 .about-content img {
@@ -253,4 +342,40 @@ textarea {
 /* Mobile Menu Button */
 .mobile-menu-btn {
     display: none;
+}
+
+/* Skills section styling */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+}
+
+.skill-item {
+    background: var(--skill-bg);
+    border-radius: 8px;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.skill-text {
+    display: block;
+    padding-left: 1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-item {
+        padding: 0.8rem;
+    }
 } 
