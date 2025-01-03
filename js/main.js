@@ -21,10 +21,38 @@ document.querySelectorAll('a').forEach(anchor => {
 });
 
 // Form submission handling
-document.getElementById('contact-form').addEventListener('submit', function(e) {
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
     e.preventDefault();
-    // Add your form submission logic here
-    alert('Thank you for your message! This is a demo alert - implement your own form handling logic.');
+    
+    const formData = new FormData(this);
+    const submitButton = this.querySelector('button[type="submit"]');
+    
+    try {
+        // Disable button during submission
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        
+        const response = await fetch('your-api-endpoint', {
+            method: 'POST',
+            body: formData
+        });
+        
+        if (response.ok) {
+            // Show success message
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset(); // Clear the form
+        } else {
+            throw new Error('Failed to send message');
+        }
+    } catch (error) {
+        // Show error message
+        alert('Sorry, there was a problem sending your message. Please try again later.');
+        console.error('Form submission error:', error);
+    } finally {
+        // Re-enable button
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Message';
+    }
 });
 
 // Add animation class when elements come into view
