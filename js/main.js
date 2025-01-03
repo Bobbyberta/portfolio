@@ -72,4 +72,42 @@ formInputs.forEach(input => {
     input.addEventListener('input', () => {
         input.removeAttribute('aria-invalid');
     });
-}); 
+});
+
+// Typing animation
+const messages = ['Hello!', 'Welcome!', 'Nice to meet you!'];
+let messageIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typingDelay = 200;
+
+function typeText() {
+    const typedTextSpan = document.querySelector('.typed-text');
+    const currentMessage = messages[messageIndex];
+    
+    if (isDeleting) {
+        typedTextSpan.textContent = currentMessage.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typedTextSpan.textContent = currentMessage.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    if (!isDeleting && charIndex === currentMessage.length) {
+        isDeleting = true;
+        typingDelay = 1000; // Pause at end
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        messageIndex = (messageIndex + 1) % messages.length;
+        typingDelay = 200;
+    }
+
+    setTimeout(typeText, isDeleting ? 100 : typingDelay);
+}
+
+// Start typing animation when page loads
+window.onload = () => {
+    if (document.querySelector('.typed-text')) {
+        typeText();
+    }
+}; 
