@@ -244,7 +244,6 @@ nav {
     max-width: 400px;
     border-radius: 8px;
     margin: 0 auto;
-    box-shadow: var(--shadow-md);
     align-self: start;
     position: sticky;
     top: 100px;
@@ -378,4 +377,20 @@ textarea {
     .skill-item {
         padding: 0.8rem;
     }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: var(--space-md);
+    background-color: var(--bg-light);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    margin: 0;
 } 
