@@ -1,0 +1,75 @@
+/* Mobile styles (up to 768px) */
+@media screen and (max-width: 768px) {
+    /* Navigation */
+    nav {
+        padding: 1rem;
+        position: relative;
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Sections */
+    section {
+        padding: 2rem 1rem;
+    }
+
+    .hero {
+        padding: 4rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    /* Projects */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Contact form */
+    .contact-content {
+        padding: 0 1rem;
+    }
+
+    form {
+        width: 100%;
+    }
+}
+
+/* Tablet styles (768px to 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    section {
+        padding: 3rem 2rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+} 
