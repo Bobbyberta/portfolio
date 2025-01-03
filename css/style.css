@@ -101,8 +101,8 @@ nav {
     position: absolute;
     top: 20px;
     right: -180px;
-    background: white;
-    padding: 20px;
+    background: var(--bg-white);
+    padding: var(--space-md);
     border-radius: 30px;
     box-shadow: var(--shadow-sm);
     min-width: 150px;
@@ -176,8 +176,8 @@ nav {
 }
 
 .project-card {
-    background: #fff;
-    border-radius: 8px;
+    background: var(--bg-white);
+    border-radius: var(--space-xs);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: transform 0.3s ease;
@@ -213,8 +213,8 @@ form {
 input, 
 textarea {
     padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 1px solid var(--border);
+    border-radius: var(--space-xs);
 }
 
 textarea {
