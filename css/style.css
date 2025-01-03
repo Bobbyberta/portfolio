@@ -4,16 +4,18 @@
     --max-width: 1200px;
     --header-height: 60px;
 
-    /* Colors */
-    --primary: #007bff;
-    --primary-dark: #0056b3;
+    /* Colors - Updated to match image */
+    --primary: #00A7E1;  /* Bright sky blue */
+    --primary-dark: #0089B8;
+    --accent: #FF5722;   /* Orange-red */
+    --accent-dark: #E64A19;
     --text: #333;
     --text-light: #666;
     --text-dark: #2c3e50;
     --bg: #fff;
     --bg-light: #f8f9fa;
     --border: #ddd;
-    --skill-bg: rgba(0, 123, 255, 0.05);
+    --skill-bg: rgba(0, 167, 225, 0.05);
 
     /* Shadows */
     --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
@@ -78,11 +80,6 @@ nav {
 
 .nav-links li a:hover {
     color: var(--primary);
-}
-
-/* Mobile Menu Button */
-.mobile-menu-btn {
-    display: none;
 }
 
 /* Hero Section */
@@ -197,7 +194,7 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
     list-style: none;
-    padding: 0;
+    padding: 1rem;
 }
 
 .skill-item {
@@ -275,6 +272,7 @@ nav {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    text-align: left;
 }
 
 .contact-links {
@@ -298,7 +296,7 @@ nav {
 }
 
 .contact-links a:hover {
-    color: var(--primary-dark);
+    color: var(--accent);
     text-decoration: underline;
 }
 
@@ -316,7 +314,7 @@ nav {
 }
 
 .button:hover {
-    background-color: var(--primary-dark);
+    background-color: var(--accent);
 }
 
 /* Accessibility */
@@ -364,4 +362,39 @@ footer p {
     .skill-item {
         padding: 0.8rem;
     }
+} 
+
+/* Hero Typography Styles */
+.hero-content {
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-name {
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #666;
+    letter-spacing: 0.05em;
+}
+
+.hero-subtitle .highlight {
+    font-weight: 500;
+    color: var(--primary);
+    transition: color 0.3s ease;
+}
+
+.hero-subtitle .highlight:hover {
+    color: var(--accent);
 } 
