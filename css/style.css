@@ -324,4 +324,75 @@ textarea:focus {
         border: none;
         cursor: pointer;
     }
+}
+
+/* About section styles */
+.about-section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-text .intro {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #2c3e50;
+}
+
+.about-text h2 {
+    color: #1a73e8;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.skills ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+}
+
+.skills li {
+    background: #f8f9fa;
+    padding: 0.8rem 1.2rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.experience p, .vision p {
+    line-height: 1.8;
+}
+
+.connect {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.connect a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.connect a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-text .intro {
+        font-size: 1.1rem;
+    }
+
+    .skills ul {
+        grid-template-columns: 1fr;
+    }
 } 
