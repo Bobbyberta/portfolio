@@ -158,25 +158,6 @@ footer {
     background-color: #f8f9fa;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .nav-links {
-        display: none;
-    }
-
-    .mobile-menu-btn {
-        display: block;
-        font-size: 1.5rem;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
-}
-
 /* Accessibility styles */
 .sr-only {
     position: absolute;
@@ -223,9 +204,9 @@ textarea:focus {
     }
 }
 
-/* Mobile menu button */
+/* Mobile menu button - hidden by default */
 .mobile-menu-btn {
-    display: none;
+    display: none; /* This ensures it's hidden on larger screens */
 }
 
 /* Responsive design */
@@ -236,10 +217,22 @@ textarea:focus {
     
     .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links.active {
+        display: flex;
     }
 
     .mobile-menu-btn {
-        display: block;
+        display: block; /* Only show on mobile */
         font-size: 1.5rem;
         background: none;
         border: none;
