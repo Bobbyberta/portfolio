@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Bobbie Allsop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/main.js" defer></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Bobbie Allsop</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="sr-only">Menu</span>
+                ☰
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html" aria-current="page">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="blog-section">
+            <h1>Latest Posts</h1>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-card-content">
+                        <h2>Getting Started with UX Design</h2>
+                        <div class="blog-meta">
+                            <span class="date">March 15, 2024</span>
+                            <span class="read-time">5 min read</span>
+                        </div>
+                        <p class="blog-excerpt">
+                            Understanding user experience design can seem overwhelming at first. 
+                            In this article, I'll share my journey and the key principles that 
+                            helped me get started in UX design...
+                        </p>
+                        <a href="blog/getting-started-ux-design.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-card-content">
+                        <h2>The Intersection of Games and UX</h2>
+                        <div class="blog-meta">
+                            <span class="date">March 10, 2024</span>
+                            <span class="read-time">7 min read</span>
+                        </div>
+                        <p class="blog-excerpt">
+                            Game design and UX design have more in common than you might think. 
+                            Both focus on creating engaging experiences that keep users coming back...
+                        </p>
+                        <a href="blog/games-and-ux.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Bobbie Allsop. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

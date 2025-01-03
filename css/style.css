@@ -4,6 +4,11 @@
     --max-width: 1200px;
     --header-height: 60px;
 
+    /* Typography */
+    --h1-font-size: 2.5rem;
+    --h1-margin-bottom: 2rem;
+    --h1-mobile-font-size: 2rem;
+
     /* Colors - Updated to match image */
     --primary: #00A7E1;  /* Bright sky blue */
     --primary-dark: #0089B8;
@@ -38,7 +43,7 @@ body {
 
 /* Layout */
 main {
-    margin-top: var(--header-height);
+    padding-top: var(--header-height);
 }
 
 section {
@@ -146,22 +151,16 @@ nav {
 
 /* About Section */
 .about-section {
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
     position: relative;
 }
 
 .about-section h1 {
     text-align: left;
-    margin-bottom: 3rem;
+    margin-bottom: var(--h1-margin-bottom);
     grid-column: 1 / -1;
-    font-size: 2.5rem;
-    position: sticky;
-    top: var(--header-height);
-    background: var(--bg);
-    padding: 1rem 0;
-    z-index: 10;
+    font-size: var(--h1-font-size);
     margin-top: 0;
-    border-bottom: 1px solid var(--border);
 }
 
 .about-content {
@@ -169,7 +168,6 @@ nav {
     grid-template-columns: minmax(300px, 1fr) 2fr;
     gap: 4rem;
     align-items: start;
-    padding-top: 1rem;
 }
 
 .about-content img {
@@ -213,48 +211,86 @@ nav {
     color: var(--text-dark);
 }
 
-/* Projects Section */
-.projects-grid {
+/* Blog Section */
+.blog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     padding: 2rem 0;
 }
 
-.project-card {
+.blog-card {
     background: var(--bg);
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: transform 0.3s ease;
+    border: 1px solid var(--border);
 }
 
-.project-card:hover {
+.blog-card:hover {
     transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
 }
 
-.project-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+.blog-card-content {
+    padding: 1.5rem;
 }
 
-.project-card h3, 
-.project-card p {
-    padding: 1rem;
+.blog-card h3 {
+    color: var(--text-dark);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.blog-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.blog-excerpt {
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.read-more {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--accent);
+}
+
+.read-more::after {
+    content: '→';
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.read-more:hover::after {
+    transform: translateX(4px);
 }
 
 /* Contact Section */
 .contact-section {
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
     max-width: 800px;
     margin: 0 auto;
 }
 
 .contact-section h1 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-size: 2.5rem;
+    text-align: left;
+    margin-bottom: var(--h1-margin-bottom);
+    font-size: var(--h1-font-size);
     color: var(--text-dark);
 }
 
@@ -262,7 +298,7 @@ nav {
     background: var(--bg);
     padding: 3rem;
     border-radius: 12px;
-    text-align: center;
+    text-align: left;
 }
 
 .contact-intro {
@@ -362,6 +398,14 @@ footer p {
     .skill-item {
         padding: 0.8rem;
     }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog-card-content {
+        padding: 1.25rem;
+    }
 } 
 
 /* Hero Typography Styles */
@@ -397,4 +441,151 @@ footer p {
 
 .hero-subtitle .highlight:hover {
     color: var(--accent);
+} 
+
+/* Blog Post Styles */
+.blog-post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.blog-post-title {
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
+.blog-post-title h1 {
+    font-size: var(--h1-font-size);
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.blog-post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text);
+}
+
+.blog-post-content h2 {
+    color: var(--text-dark);
+    font-size: 1.8rem;
+    margin: 2.5rem 0 1rem;
+}
+
+.blog-post-content p {
+    margin-bottom: 1.5rem;
+}
+
+.blog-post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+/* Responsive adjustments for blog posts */
+@media (max-width: 768px) {
+    .blog-post {
+        padding: 2rem 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .blog-post-title h1 {
+        font-size: var(--h1-mobile-font-size);
+    }
+
+    .blog-post-content {
+        font-size: 1rem;
+    }
+} 
+
+/* Blog Page Styles */
+.blog-section {
+    padding: 3rem 5%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.blog-section h1 {
+    font-size: var(--h1-font-size);
+    color: var(--text-dark);
+    margin-bottom: var(--h1-margin-bottom);
+    text-align: left;
+}
+
+/* Update blog card h2 styles (previously h3) */
+.blog-card h2 {
+    color: var(--text-dark);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .blog-section {
+        padding: 2rem 5%;
+        margin-top: 1rem;
+    }
+    
+    .blog-section h1 {
+        font-size: var(--h1-mobile-font-size);
+    }
+} 
+
+/* Blog Post Footer Styles */
+.blog-post-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+.blog-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-to-blog {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.back-to-blog:hover {
+    color: var(--accent);
+}
+
+/* Blog Post Content List Styles */
+.blog-post-content ul {
+    margin: 1rem 0 2rem 2rem;
+}
+
+.blog-post-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .blog-post-footer {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+    }
+} 
+
+/* Standardize section spacing */
+.about-section,
+.contact-section,
+.blog-section {
+    padding: 3rem 2rem;
+}
+
+@media (max-width: 768px) {
+    .about-section,
+    .contact-section,
+    .blog-section {
+        padding: 2rem 1.5rem;
+    }
 } 
