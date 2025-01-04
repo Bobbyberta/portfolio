@@ -1,14 +1,5 @@
 .about-section {
-    padding: 3rem 2rem;
-    position: relative;
-}
-
-.about-section h1 {
-    text-align: left;
-    margin-bottom: var(--h1-margin-bottom);
-    grid-column: 1 / -1;
-    font-size: var(--h1-font-size);
-    margin-top: 0;
+    /* Removed duplicated styles that are now in section-standard */
 }
 
 .about-content img {
@@ -25,4 +16,11 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    font-size: var(--body-font-size);
+    line-height: var(--body-line-height);
+    color: var(--body-color);
+}
+
+.about-text p {
+    margin-bottom: 1rem;
 } 

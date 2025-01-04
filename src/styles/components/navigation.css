@@ -1,20 +1,115 @@
+/* Navigation Container */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--nav-padding);
+    max-width: var(--section-max-width);
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+    font-weight: 500;
+    color: var(--text-dark);
+    font-size: var(--body-font-size);
+    line-height: var(--body-line-height);
+    text-decoration: none;
+}
+
+/* Navigation Links */
 .nav-links {
     display: flex;
     list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0;
 }
 
 .nav-links li a {
     color: var(--text);
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: var(--nav-link-padding);
     transition: color 0.3s ease;
+    font-size: var(--body-font-size);
+    line-height: var(--body-line-height);
+    position: relative;
 }
 
+/* Active and Hover states */
+.nav-links li a[aria-current="page"],
 .nav-links li a:hover {
     color: var(--primary);
 }
 
-.logo {
-    font-weight: 500;
-    color: var(--text-dark);
+/* Optional: Add an underline effect on hover */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a[aria-current="page"]::after {
+    width: 100%;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: calc(var(--body-font-size) * 1.4);
+    cursor: pointer;
+    color: var(--text);
+    padding: 0.5rem;
+    line-height: var(--body-line-height);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: var(--bg);
+        box-shadow: var(--shadow-sm);
+        padding: 1rem 0;
+        gap: 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 0.75rem 2rem;
+        text-align: left;
+    }
+
+    /* Adjust hover effect for mobile */
+    .nav-links li a::after {
+        display: none;
+    }
 } 

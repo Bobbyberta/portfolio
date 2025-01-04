@@ -16,6 +16,10 @@
     --h1-font-size: 2.5rem;
     --h1-margin-bottom: 2rem;
     --h1-mobile-font-size: 2rem;
+    --body-font-size: 1.1rem;
+    --body-line-height: 1.6;
+    --body-color: var(--text);
+    --footer-font-size: 0.9rem;
 
     /* Layout */
     --max-width: 1200px;
@@ -24,4 +28,16 @@
     /* Shadows */
     --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
     --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+
+    /* Section Layout */
+    --section-padding: 3rem 2rem;
+    --section-max-width: var(--max-width);
+    
+    /* Section Header */
+    --section-header-margin: 0 0 var(--h1-margin-bottom) 0;
+    --section-header-align: left;
+
+    /* Navigation */
+    --nav-padding: 1rem 2rem;
+    --nav-link-padding: 0.25rem 0;
 } 

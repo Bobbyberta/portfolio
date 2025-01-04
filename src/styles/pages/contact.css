@@ -1,31 +1,19 @@
 .contact-section {
-    padding: 3rem 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.contact-section h1 {
-    text-align: left;
-    margin-bottom: var(--h1-margin-bottom);
-    font-size: var(--h1-font-size);
-    color: var(--text-dark);
+    /* Removed duplicated styles that are now in section-standard */
 }
 
 .contact-content {
-    background: var(--bg);
-    padding: 3rem;
-    border-radius: 12px;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .contact-intro {
-    margin-bottom: 3rem;
-    color: var(--text-light);
-    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-size: var(--body-font-size);
+    line-height: var(--body-line-height);
+    color: var(--body-color);
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
 }
 
 .contact-links {
@@ -33,12 +21,11 @@
     flex-direction: column;
     gap: 1.5rem;
     max-width: 400px;
-    margin: 0 auto;
 }
 
 .contact-label {
     font-weight: 500;
-    color: var(--text-dark);
+    color: var(--body-color);
     margin-right: 1rem;
 }
 

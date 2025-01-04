@@ -1,6 +1,5 @@
 .hero {
     text-align: center;
-    padding: 6rem 2rem;
     background-color: var(--bg-light);
 }
 
@@ -26,10 +25,11 @@
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: var(--body-font-size);
     font-weight: 300;
-    color: #666;
+    color: var(--text-light);
     letter-spacing: 0.05em;
+    line-height: var(--body-line-height);
 }
 
 .hero-subtitle .highlight {

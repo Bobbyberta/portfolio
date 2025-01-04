@@ -8,6 +8,8 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: var(--body-font-size);
+    line-height: var(--body-line-height);
 }
 
 .button:hover {
@@ -18,8 +20,9 @@
     display: none;
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: calc(var(--body-font-size) * 1.4);
     cursor: pointer;
     color: var(--text);
     padding: 0.5rem;
+    line-height: var(--body-line-height);
 } 

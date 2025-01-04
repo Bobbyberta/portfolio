@@ -18,8 +18,9 @@
 
 .blog-card h2 {
     color: var(--text-dark);
-    font-size: 1.4rem;
+    font-size: calc(var(--body-font-size) * 1.2);
     margin-bottom: 0.5rem;
+    line-height: var(--body-line-height);
 }
 
 .skill-item {
@@ -35,5 +36,7 @@
     display: block;
     padding-left: 1rem;
     font-weight: 500;
-    color: var(--text-dark);
+    color: var(--body-color);
+    font-size: var(--body-font-size);
+    line-height: var(--body-line-height);
 } 
