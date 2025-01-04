@@ -27,6 +27,7 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
+        working-directory: ./portfolio
         run: npm ci
 
       - name: Build website
