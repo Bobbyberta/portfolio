@@ -9,6 +9,10 @@ on:
   # Keeps the manual trigger option
   workflow_dispatch:
 
+# Add permissions configuration
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -16,9 +20,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build website
+        run: npm run build
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: src  # The folder containing your website files
-          branch: gh-pages  # The branch to deploy to
-          clean: true  # Automatically remove deleted files from the deployment
+          folder: dist  # Change this to your build output directory (commonly 'dist' or 'build')
+          branch: gh-pages
+          clean: true
