@@ -6,6 +6,7 @@ nav {
     padding: var(--nav-padding);
     max-width: var(--section-max-width);
     margin: 0 auto;
+    height: var(--header-height);
 }
 
 /* Logo */
@@ -84,7 +85,7 @@ nav {
     .nav-links {
         display: none;
         position: absolute;
-        top: var(--header-height);
+        top: calc(var(--nav-padding) * 2 + var(--body-line-height));
         left: 0;
         right: 0;
         flex-direction: column;
@@ -92,6 +93,7 @@ nav {
         box-shadow: var(--shadow-sm);
         padding: 1rem 0;
         gap: 0;
+        z-index: 1000;
     }
 
     .nav-links.active {
