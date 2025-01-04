@@ -35,8 +35,9 @@ jobs:
         run: npm run build
 
       - name: Debug dist folder
-        run: ls -la dist
-        find dist -type f
+        run: |
+          ls -la dist
+          find dist -type f
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
