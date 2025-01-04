@@ -36,9 +36,12 @@ jobs:
 
       - name: Debug dist folder
         run: ls -la dist
+        find dist -type f
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist  # Change this to your build output directory (commonly 'dist' or 'build')
           clean: true
+          force: true
+          exclude: ''
