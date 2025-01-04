@@ -27,10 +27,11 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        working-directory: ./portfolio
+        working-directory: .
         run: npm ci
 
       - name: Build website
+        working-directory: .
         run: npm run build
 
       - name: Deploy to GitHub Pages
