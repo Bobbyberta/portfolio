@@ -1,0 +1,28 @@
+.about-section {
+    padding: 3rem 2rem;
+    position: relative;
+}
+
+.about-section h1 {
+    text-align: left;
+    margin-bottom: var(--h1-margin-bottom);
+    grid-column: 1 / -1;
+    font-size: var(--h1-font-size);
+    margin-top: 0;
+}
+
+.about-content img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    margin: 0 auto;
+    align-self: start;
+    position: sticky;
+    top: 100px;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+} 

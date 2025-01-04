@@ -1,0 +1,27 @@
+:root {
+    /* Colors */
+    --primary: #00A7E1;
+    --primary-dark: #0089B8;
+    --accent: #FF5722;
+    --accent-dark: #E64A19;
+    --text: #333;
+    --text-light: #666;
+    --text-dark: #2c3e50;
+    --bg: #fff;
+    --bg-light: #f8f9fa;
+    --border: #ddd;
+    --skill-bg: rgba(0, 167, 225, 0.05);
+
+    /* Typography */
+    --h1-font-size: 2.5rem;
+    --h1-margin-bottom: 2rem;
+    --h1-mobile-font-size: 2rem;
+
+    /* Layout */
+    --max-width: 1200px;
+    --header-height: 60px;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+} 

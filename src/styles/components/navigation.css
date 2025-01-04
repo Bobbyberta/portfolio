@@ -1,0 +1,20 @@
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--primary);
+}
+
+.logo {
+    font-weight: 500;
+    color: var(--text-dark);
+} 
