@@ -29,7 +29,7 @@ export class Navigation {
     }
 
     toggleMenu() {
-        const isExpanded = this.navLinks.classList.contains('active');
+        const isExpanded = this.mobileMenuBtn.getAttribute('aria-expanded') === 'true';
         this.navLinks.classList.toggle('active');
         this.mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
     }
