@@ -17,7 +17,6 @@
 }
 
 .mobile-menu-btn {
-    display: none;
     background: none;
     border: none;
     font-size: calc(var(--body-font-size) * 1.4);
@@ -25,4 +24,12 @@
     color: var(--text);
     padding: 0.5rem;
     line-height: var(--body-line-height);
+    display: block;
+}
+
+/* Hide button on larger screens */
+@media (min-width: 769px) {
+    .mobile-menu-btn {
+        display: none;
+    }
 } 
