@@ -28,11 +28,11 @@ export default {
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
-        about: resolve(__dirname, 'src/pages/about.html'),
-        blog: resolve(__dirname, 'src/pages/blog.html'),
-        contact: resolve(__dirname, 'src/pages/contact.html'),
-        bubbleFunction: resolve(__dirname, 'src/pages/blog/bubble-function-case-study.html'),
-        deepestOcean: resolve(__dirname, 'src/pages/blog/deepest-ocean-case-study.html')
+        'pages/about': resolve(__dirname, 'src/pages/about.html'),
+        'pages/blog': resolve(__dirname, 'src/pages/blog.html'),
+        'pages/contact': resolve(__dirname, 'src/pages/contact.html'),
+        'pages/blog/bubble-function-case-study': resolve(__dirname, 'src/pages/blog/bubble-function-case-study.html'),
+        'pages/blog/deepest-ocean-case-study': resolve(__dirname, 'src/pages/blog/deepest-ocean-case-study.html')
       },
       output: {
         dir: 'dist',
@@ -66,6 +66,8 @@ export default {
   plugins: [{
     name: 'copy-assets',
     closeBundle() {
+      // Create all necessary directories
+      mkdirSync(resolve(__dirname, 'dist/pages/blog'), { recursive: true })
       mkdirSync(resolve(__dirname, 'dist/favicon'), { recursive: true })
       mkdirSync(resolve(__dirname, 'dist/images'), { recursive: true })
       mkdirSync(resolve(__dirname, 'dist/styles'), { recursive: true })
