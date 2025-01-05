@@ -13,14 +13,6 @@ export default {
         contact: resolve(__dirname, 'src/pages/contact.html'),
         bubbleFunction: resolve(__dirname, 'src/pages/blog/bubble-function-case-study.html'),
         deepestOcean: resolve(__dirname, 'src/pages/blog/deepest-ocean-case-study.html')
-      },
-      output: {
-        entryFileNames: `assets/[name].js`,
-        chunkFileNames: `assets/[name].js`,
-        assetFileNames: `assets/[name].[ext]`,
-        dir: 'dist',
-        preserveModules: true,
-        preserveModulesRoot: 'src'
       }
     }
   },
