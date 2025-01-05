@@ -39,4 +39,8 @@
 
     /* Navigation */
     --nav-link-padding: 0.25rem 0;
+
+    /* Add these variables to your existing variables */
+    --primary-light: rgba(var(--primary-rgb), 0.1);
+    --border-color: #e0e0e0;
 } 
