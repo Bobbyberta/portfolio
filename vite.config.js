@@ -1,9 +1,9 @@
 export default {
   base: process.env.BASE_URL || '/',
   build: {
-    outDir: 'dist',
+    outDir: '../dist',
     emptyOutDir: true
   },
-  publicDir: 'src/assets',
+  publicDir: 'assets',
   root: 'src'
 } 

@@ -43,9 +43,10 @@ jobs:
 
       - name: Debug build output
         run: |
-          ls -la dist
-          find dist -type f
-          cat dist/index.html | head -n 20
+          pwd  # Print working directory
+          ls -la  # List files in current directory
+          ls -la dist  # List files in dist directory
+          cat dist/index.html | head -n 20  # Show first 20 lines of index.html
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
