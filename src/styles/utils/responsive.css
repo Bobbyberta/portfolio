@@ -126,27 +126,17 @@
         padding: 2rem;
     }
 
-    /* Hero and Overview layout */
     .hero.section-standard {
         display: grid;
-        grid-template-columns: 1fr minmax(400px, auto);
+        grid-template-columns: 1fr minmax(400px, 600px);
         gap: 2rem;
         align-items: start;
         text-align: left;
     }
 
-    .hero-content {
-        align-items: flex-start;
-    }
-
-    .hero-name {
-        align-items: flex-start;
-    }
-
     .overview.section-standard {
         padding-top: 0;
         min-width: 400px;
-        max-width: 800px;
     }
 
     .overview-card {
@@ -156,7 +146,7 @@
 }
 
 /* Tablet styles */
-@media (max-width: 1023px) {
+@media (max-width: 1023px) and (min-width: 768px) {
     .hero.section-standard {
         padding-bottom: 2rem;
         text-align: center;
@@ -165,56 +155,77 @@
     .overview.section-standard {
         padding-top: 0;
         width: 100%;
+        max-width: 600px;
         min-width: 400px;
+        margin: 0 auto;
     }
 
     .overview-card {
         margin: 0 auto;
-        width: 100%;
-        min-width: 400px;
-        max-width: 800px;
     }
 }
 
 /* Mobile styles */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
+@media (max-width: 767px) {
+    .main-wrapper {
+        padding: 1rem;
+    }
+
+    .hero.section-standard {
+        padding-bottom: 1rem;
+    }
+
+    .overview.section-standard {
+        padding-top: 0;
+        width: 100%;
+        min-width: 0;
     }
 
     .overview-card {
-        padding: 1.5rem;
-        margin: 0 -1rem;
-        width: calc(100% + 2rem);
+        width: 100%;
         min-width: 0;
-        border-radius: 0;
+        margin: 0;
+        border-radius: 12px;
+    }
+
+    .segment-label {
+        font-size: 0.75rem;
+    }
+
+    .experience-key {
+        font-size: 0.875rem;
     }
 
     .skills-list,
     .software-list {
-        grid-template-columns: 1fr;
+        gap: 0.5rem;
     }
 
     .skill-item,
     .software-item {
-        width: auto;
-        justify-content: flex-start;
+        padding: 0.375rem 0.75rem;
     }
 }
 
-/* Small mobile styles */
+/* Very small mobile styles */
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
+    .main-wrapper {
+        padding: 0.5rem;
     }
 
     .overview-card {
         padding: 1rem;
     }
 
-    .blog-meta {
-        flex-direction: column;
+    .experience-key {
         gap: 0.5rem;
-        align-items: flex-start;
+    }
+
+    .key-item {
+        flex-wrap: wrap;
+    }
+
+    .key-label {
+        min-width: 100px;
     }
 } 
