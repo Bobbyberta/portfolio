@@ -1,3 +1,4 @@
+/* Regular button styles */
 .button {
     display: inline-block;
     padding: 0.8rem 1.5rem;
@@ -16,6 +17,7 @@
     background-color: var(--accent);
 }
 
+/* Mobile menu button */
 .mobile-menu-btn {
     background: none;
     border: none;
@@ -24,12 +26,5 @@
     color: var(--text);
     padding: calc(var(--section-padding) / 4);
     line-height: var(--body-line-height);
-    display: block;
-}
-
-/* Hide button on larger screens */
-@media (min-width: 769px) {
-    .mobile-menu-btn {
-        display: none;
-    }
+    display: none;  /* Hidden by default, shown in mobile via responsive.css */
 } 

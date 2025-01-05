@@ -2,14 +2,19 @@
     /* Removed duplicated styles that are now in section-standard */
 }
 
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+}
+
 .about-content img {
     width: 100%;
     max-width: 400px;
     border-radius: 8px;
-    margin: 0 auto;
-    align-self: start;
     position: sticky;
-    top: 100px;
+    top: calc(var(--header-height) + 2rem);
 }
 
 .about-text {
