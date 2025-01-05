@@ -88,4 +88,119 @@
 
 .hero-subtitle .highlight:hover {
     color: var(--accent);
+}
+
+.overview {
+    padding-top: 2rem;
+}
+
+.overview-card {
+    background: var(--bg-light);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.overview-card h2 {
+    font-size: var(--h2-font-size);
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.collapsible-section {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.collapsible-trigger {
+    width: 100%;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-dark);
+    font-size: var(--body-font-size);
+    font-weight: 500;
+}
+
+.chevron {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    transition: transform 0.3s ease;
+}
+
+.collapsible-trigger[aria-expanded="true"] .chevron {
+    transform: rotate(180deg);
+}
+
+.collapsible-content {
+    display: none;
+    padding: 1rem 0;
+}
+
+.collapsible-trigger[aria-expanded="true"] + .collapsible-content {
+    display: block;
+}
+
+/* Skills and Software Lists */
+.skills-list,
+.software-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.skill-item,
+.software-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Custom checkbox styling */
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+}
+
+/* Experience Bar */
+.experience-bar {
+    padding: 1rem 0;
+}
+
+.bar {
+    position: relative;
+    height: 4px;
+    background-color: var(--border-color);
+    border-radius: 2px;
+    margin: 2rem 0;
+}
+
+.marker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.label {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: var(--small-font-size);
+    color: var(--text-light);
+    white-space: nowrap;
 } 
