@@ -35,14 +35,6 @@ jobs:
           BASE_URL: '/portfolio'
         run: |
           npm run build
-          # Create directory structure
-          mkdir -p dist/pages/blog
-          # Move HTML files to their correct locations
-          mv dist/about.html dist/pages/
-          mv dist/blog.html dist/pages/
-          mv dist/contact.html dist/pages/
-          mv dist/bubble-function-case-study.html dist/pages/blog/
-          mv dist/deepest-ocean-case-study.html dist/pages/blog/
           # Create 404 page
           cp dist/index.html dist/404.html
 
