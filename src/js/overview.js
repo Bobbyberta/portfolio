@@ -1,0 +1,10 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const collapsibleTriggers = document.querySelectorAll('.collapsible-trigger');
+
+    collapsibleTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+            trigger.setAttribute('aria-expanded', !isExpanded);
+        });
+    });
+}); 
