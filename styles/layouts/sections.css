@@ -1,7 +1,13 @@
 /* Add spacing for fixed header */
 main {
     margin-top: var(--header-height);
+}
+
+.main-wrapper {
+    max-width: var(--section-max-width);
+    margin: 0 auto;
     background-color: var(--bg-light);
+    padding: 0 var(--section-padding);
 }
 
 .section-standard {
