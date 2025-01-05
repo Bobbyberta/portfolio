@@ -116,4 +116,90 @@
     .about-content img {
         max-width: 100%;
     }
+}
+
+/* Desktop styles (1024px and above) */
+@media (min-width: 1024px) {
+    .main-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    /* Hero and Overview layout */
+    .hero.section-standard {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 2rem;
+        align-items: start;
+        text-align: left; /* Align hero content to the left on desktop */
+    }
+
+    .hero-content {
+        align-items: flex-start; /* Align hero content to the left */
+    }
+
+    .hero-name {
+        align-items: flex-start; /* Align name to the left */
+    }
+
+    .overview.section-standard {
+        padding-top: 0;
+    }
+
+    .overview-card {
+        height: 100%;
+        margin: 0;
+        max-width: none; /* Remove max-width constraint on desktop */
+    }
+}
+
+/* Tablet styles */
+@media (max-width: 1023px) {
+    .hero.section-standard {
+        padding-bottom: 2rem;
+        text-align: center;
+    }
+
+    .overview.section-standard {
+        padding-top: 0;
+    }
+
+    .overview-card {
+        margin: 0 auto;
+        max-width: 600px;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem; /* Smaller font size for mobile */
+    }
+
+    .overview-card {
+        padding: 1.5rem;
+    }
+
+    .skills-list,
+    .software-list {
+        grid-template-columns: 1fr; /* Stack items vertically on mobile */
+    }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .overview-card {
+        padding: 1rem;
+    }
+
+    .blog-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
 } 

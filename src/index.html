@@ -36,7 +36,8 @@
 
     <main>
         <div class="main-wrapper">
-            <section id="home" class="hero section-standard">
+            <!-- Combine hero and overview into one section for desktop layout -->
+            <section class="hero section-standard">
                 <div class="hero-content">
                     <h1 class="hero-title">
                         <span class="hero-name">
@@ -50,87 +51,88 @@
                         <span class="highlight">UI</span>
                     </p>
                 </div>
-            </section>
 
-            <section id="overview" class="overview section-standard">
-                <div class="overview-card">
-                    <h2>Overview</h2>
-                    
-                    <div class="collapsible-section">
-                        <button class="collapsible-trigger" aria-expanded="false">
-                            <span>Skills</span>
-                            <svg class="chevron" viewBox="0 0 24 24">
-                                <path d="M6 9l6 6 6-6"/>
-                            </svg>
-                        </button>
-                        <div class="collapsible-content">
-                            <div class="skills-list">
-                                <div class="skill-item">
-                                    <input type="checkbox" id="skill-1" checked disabled>
-                                    <label for="skill-1">Design Thinking</label>
+                <!-- Move overview section inside hero for desktop layout -->
+                <section class="overview section-standard">
+                    <div class="overview-card">
+                        <h2>Overview</h2>
+                        
+                        <div class="collapsible-section">
+                            <button class="collapsible-trigger" aria-expanded="false">
+                                <span>Skills</span>
+                                <svg class="chevron" viewBox="0 0 24 24">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="collapsible-content">
+                                <div class="skills-list">
+                                    <div class="skill-item">
+                                        <input type="checkbox" id="skill-1" checked disabled>
+                                        <label for="skill-1">Design Thinking</label>
+                                    </div>
+                                    <div class="skill-item">
+                                        <input type="checkbox" id="skill-2" checked disabled>
+                                        <label for="skill-2">UX Design</label>
+                                    </div>
+                                    <div class="skill-item">
+                                        <input type="checkbox" id="skill-3" checked disabled>
+                                        <label for="skill-3">UI Design</label>
+                                    </div>
+                                    <div class="skill-item">
+                                        <input type="checkbox" id="skill-4" checked disabled>
+                                        <label for="skill-4">Wireframing</label>
+                                    </div>
                                 </div>
-                                <div class="skill-item">
-                                    <input type="checkbox" id="skill-2" checked disabled>
-                                    <label for="skill-2">UX Design</label>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-section">
+                            <button class="collapsible-trigger" aria-expanded="false">
+                                <span>Software</span>
+                                <svg class="chevron" viewBox="0 0 24 24">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="collapsible-content">
+                                <div class="software-list">
+                                    <div class="software-item">
+                                        <input type="checkbox" id="software-1" checked disabled>
+                                        <label for="software-1">Figma</label>
+                                    </div>
+                                    <div class="software-item">
+                                        <input type="checkbox" id="software-2" checked disabled>
+                                        <label for="software-2">Photoshop</label>
+                                    </div>
+                                    <div class="software-item">
+                                        <input type="checkbox" id="software-3" checked disabled>
+                                        <label for="software-3">Illustrator</label>
+                                    </div>
+                                    <div class="software-item">
+                                        <input type="checkbox" id="software-4" checked disabled>
+                                        <label for="software-4">Maze</label>
+                                    </div>
                                 </div>
-                                <div class="skill-item">
-                                    <input type="checkbox" id="skill-3" checked disabled>
-                                    <label for="skill-3">UI Design</label>
-                                </div>
-                                <div class="skill-item">
-                                    <input type="checkbox" id="skill-4" checked disabled>
-                                    <label for="skill-4">Wireframing</label>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-section">
+                            <button class="collapsible-trigger" aria-expanded="false">
+                                <span>Experience</span>
+                                <svg class="chevron" viewBox="0 0 24 24">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="collapsible-content">
+                                <div class="experience-bar">
+                                    <div class="bar">
+                                        <div class="marker"></div>
+                                        <span class="label">Mid-Level Experience</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="collapsible-section">
-                        <button class="collapsible-trigger" aria-expanded="false">
-                            <span>Software</span>
-                            <svg class="chevron" viewBox="0 0 24 24">
-                                <path d="M6 9l6 6 6-6"/>
-                            </svg>
-                        </button>
-                        <div class="collapsible-content">
-                            <div class="software-list">
-                                <div class="software-item">
-                                    <input type="checkbox" id="software-1" checked disabled>
-                                    <label for="software-1">Figma</label>
-                                </div>
-                                <div class="software-item">
-                                    <input type="checkbox" id="software-2" checked disabled>
-                                    <label for="software-2">Photoshop</label>
-                                </div>
-                                <div class="software-item">
-                                    <input type="checkbox" id="software-3" checked disabled>
-                                    <label for="software-3">Illustrator</label>
-                                </div>
-                                <div class="software-item">
-                                    <input type="checkbox" id="software-4" checked disabled>
-                                    <label for="software-4">Maze</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="collapsible-section">
-                        <button class="collapsible-trigger" aria-expanded="false">
-                            <span>Experience</span>
-                            <svg class="chevron" viewBox="0 0 24 24">
-                                <path d="M6 9l6 6 6-6"/>
-                            </svg>
-                        </button>
-                        <div class="collapsible-content">
-                            <div class="experience-bar">
-                                <div class="bar">
-                                    <div class="marker"></div>
-                                    <span class="label">Mid-Level Experience</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </section>
             </section>
         </div>
     </main>
