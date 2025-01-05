@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -16,7 +16,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -35,9 +34,17 @@ jobs:
           BASE_URL: '/portfolio'
         run: |
           npm run build
-          # Create 404 page
           cp dist/index.html dist/404.html
 
+      # Deploy to gh-pages branch to preserve file structure
+      - name: Deploy to gh-pages branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
+          clean: true
+
+      # Deploy to GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
