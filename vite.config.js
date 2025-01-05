@@ -1,8 +1,7 @@
 import { resolve } from 'path'
-import { copyFileSync, mkdirSync, readdirSync, statSync } from 'fs'
+import { copyFileSync, mkdirSync, readdirSync } from 'fs'
 import { join } from 'path'
 
-// Helper function to recursively copy directories
 function copyDir(src, dest) {
   mkdirSync(dest, { recursive: true })
   
@@ -45,16 +44,17 @@ export default {
           }
           // Other assets
           if (extType === 'css') {
-            return 'styles/[name]-[hash][extname]'
+            // Don't hash CSS files to maintain consistent names
+            return 'styles/[name][extname]'
           }
           if (extType === 'js') {
-            return 'js/[name]-[hash][extname]'
+            return 'js/[name][extname]'
           }
           return 'assets/[name]-[hash][extname]'
         }
       }
     },
-    cssCodeSplit: true,
+    cssCodeSplit: false, // Prevent CSS code splitting
     cssMinify: true
   },
   publicDir: false,
@@ -91,6 +91,16 @@ export default {
         )
       } catch (err) {
         console.warn('Warning: Could not copy favicon directory', err)
+      }
+
+      // Copy styles directory
+      try {
+        copyDir(
+          resolve(__dirname, 'src/styles'),
+          resolve(__dirname, 'dist/styles')
+        )
+      } catch (err) {
+        console.warn('Warning: Could not copy styles directory', err)
       }
     }
   }]

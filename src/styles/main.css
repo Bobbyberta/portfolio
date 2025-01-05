@@ -6,6 +6,7 @@
 /* Layout styles */
 @import './layouts/grid.css';
 @import './layouts/footer.css';
+@import './layouts/header.css';
 
 /* Component styles */
 @import './components/buttons.css';
