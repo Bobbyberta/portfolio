@@ -1,19 +1,19 @@
 export default {
   base: process.env.BASE_URL || '/',
   build: {
-    outDir: 'dist',
+    outDir: '../dist',
     emptyOutDir: true,
     rollupOptions: {
       input: {
         main: 'index.html',
-        about: 'src/pages/about.html',
-        blog: 'src/pages/blog.html',
-        contact: 'src/pages/contact.html',
-        bubbleFunction: 'src/pages/blog/bubble-function-case-study.html',
-        deepestOcean: 'src/pages/blog/deepest-ocean-case-study.html'
+        about: 'pages/about.html',
+        blog: 'pages/blog.html',
+        contact: 'pages/contact.html',
+        bubbleFunction: 'pages/blog/bubble-function-case-study.html',
+        deepestOcean: 'pages/blog/deepest-ocean-case-study.html'
       }
     }
   },
-  publicDir: 'src/assets',
+  publicDir: 'assets',
   root: 'src'
 } 
