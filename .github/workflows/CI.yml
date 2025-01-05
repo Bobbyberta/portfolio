@@ -25,6 +25,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+          
+      - name: Verify Node.js installation
+        run: |
+          node --version
+          npm --version
 
       - name: Install dependencies
         working-directory: .
@@ -32,18 +37,20 @@ jobs:
 
       - name: Build website
         working-directory: .
+        env:
+          BASE_URL: '/portfolio'
         run: npm run build
 
-      - name: Debug dist folder
+      - name: Debug build output
         run: |
           ls -la dist
           find dist -type f
+          cat dist/index.html | head -n 20
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist  # Change this to your build output directory (commonly 'dist' or 'build')
+          folder: dist
           clean: true
           force: true
-          exclude: ''
