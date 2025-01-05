@@ -19,6 +19,12 @@ export default {
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.')
           const extType = info[info.length - 1]
+          if (assetInfo.name.includes('favicon/')) {
+            return assetInfo.name
+          }
+          if (assetInfo.name.includes('images/')) {
+            return assetInfo.name
+          }
           if (/\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/i.test(assetInfo.name)) {
             return `assets/media/[name]-[hash][extname]`
           }
