@@ -7,6 +7,9 @@
     grid-template-columns: 1fr 2fr;
     gap: 4rem;
     align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
 }
 
 .about-content img {
@@ -15,12 +18,13 @@
     border-radius: 8px;
     position: sticky;
     top: calc(var(--header-height) + 2rem);
+    margin: 0 auto;
 }
 
 .about-text {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     font-size: var(--body-font-size);
     line-height: var(--body-line-height);
     color: var(--body-color);
