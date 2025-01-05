@@ -18,4 +18,4 @@ export default {
   },
   publicDir: resolve(__dirname, 'src/assets'),
   root: resolve(__dirname, 'src')
-} 
+}
