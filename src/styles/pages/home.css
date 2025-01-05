@@ -99,7 +99,7 @@
     border-radius: 12px;
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 600px;
     min-width: 400px;
     margin: 0 auto;
 }
@@ -146,10 +146,13 @@
     padding: 1rem 0;
     width: 100%;
     overflow: hidden;
+    transition: opacity 0.3s ease;
+    opacity: 0;
 }
 
 .collapsible-trigger[aria-expanded="true"] + .collapsible-content {
     display: block;
+    opacity: 1;
 }
 
 /* Skills and Software Lists */

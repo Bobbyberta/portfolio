@@ -140,7 +140,7 @@
     }
 
     .overview-card {
-        height: 100%;
+        width: 600px;
         margin: 0;
     }
 }
@@ -161,6 +161,7 @@
     }
 
     .overview-card {
+        width: 600px;
         margin: 0 auto;
     }
 }
