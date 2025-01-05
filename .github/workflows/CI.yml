@@ -3,9 +3,6 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ "main" ]
-  # Remove pull_request trigger since we don't want to deploy PRs
-  
-  # Keeps the manual trigger option
   workflow_dispatch:
 
 # Add permissions configuration
