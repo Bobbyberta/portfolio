@@ -1,0 +1,10 @@
+.section-standard {
+    padding: var(--section-padding);
+    max-width: var(--section-max-width);
+    margin: 0 auto;
+}
+
+/* Remove top padding since we have header margin */
+main > .section-standard:first-child {
+    padding-top: 0;
+} 
