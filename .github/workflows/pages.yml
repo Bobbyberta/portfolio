@@ -2,11 +2,13 @@ name: GitHub Pages Deployment
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read # Important for checkout
+  pages: write    # Required for deploying to Pages
+  id-token: write # Required for deploying to Pages
 
 jobs:
   build-and-deploy:
@@ -26,19 +28,17 @@ jobs:
 
       - name: Build website
         env:
-          BASE_URL: '/portfolio'
+          BASE_URL: '/portfolio' # Important if your site is in a subdirectory
         run: npm run build
 
-      - name: Create .nojekyll file
-        run: |
-          touch dist/.nojekyll
-          ls -la dist/.nojekyll
-          echo "Created .nojekyll file"
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./dist
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: dist
-          clean: true
-          force: true 
+        id: deployment
+        uses: actions/deploy-pages@v2
