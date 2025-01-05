@@ -34,10 +34,15 @@ export default {
           return `assets/[name]-[hash][extname]`
         },
         chunkFileNames: 'assets/js/[name]-[hash].js',
-        entryFileNames: 'assets/js/[name]-[hash].js'
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        preserveModules: true,
+        preserveModulesRoot: 'src'
       }
     }
   },
   publicDir: resolve(__dirname, 'src/assets'),
-  root: resolve(__dirname, 'src')
+  root: resolve(__dirname, 'src'),
+  experimental: {
+    renderBuilderOutput: true
+  }
 }
