@@ -5,6 +5,12 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
+    height: var(--header-height);
+}
+
+/* Add spacing for fixed header */
+main {
+    margin-top: calc(var(--header-height) + 2rem);
 }
 
 nav {
@@ -14,6 +20,7 @@ nav {
     padding: var(--nav-padding);
     max-width: var(--max-width);
     margin: 0 auto;
+    height: 100%;
 }
 
 .nav-links {
