@@ -1,0 +1,41 @@
+.contact-section {
+    /* Removed duplicated styles that are now in section-standard */
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-intro {
+    margin-bottom: 2rem;
+    font-size: var(--body-font-size);
+    line-height: var(--body-line-height);
+    color: var(--body-color);
+    max-width: 600px;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 400px;
+}
+
+.contact-label {
+    font-weight: 500;
+    color: var(--body-color);
+    margin-right: 1rem;
+}
+
+.contact-links a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+} 

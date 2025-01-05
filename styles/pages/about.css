@@ -1,0 +1,26 @@
+.about-section {
+    /* Removed duplicated styles that are now in section-standard */
+}
+
+.about-content img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    margin: 0 auto;
+    align-self: start;
+    position: sticky;
+    top: 100px;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: var(--body-font-size);
+    line-height: var(--body-line-height);
+    color: var(--body-color);
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+} 

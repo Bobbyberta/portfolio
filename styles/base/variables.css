@@ -1,0 +1,43 @@
+:root {
+    /* Colors */
+    --primary: #00A7E1;
+    --primary-dark: #0089B8;
+    --accent: #FF5722;
+    --accent-dark: #E64A19;
+    --text: #333;
+    --text-light: #666;
+    --text-dark: #2c3e50;
+    --bg: #fff;
+    --bg-light: #f8f9fa;
+    --border: #ddd;
+    --skill-bg: rgba(0, 167, 225, 0.05);
+
+    /* Typography */
+    --h1-font-size: 2.5rem;
+    --h1-margin-bottom: 2rem;
+    --h1-mobile-font-size: 2rem;
+    --body-font-size: 1.1rem;
+    --body-line-height: 1.6;
+    --body-color: var(--text);
+    --footer-font-size: 0.9rem;
+
+    /* Layout */
+    --max-width: 1200px;
+    --header-height: 60px;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+
+    /* Section Layout */
+    --section-padding: 3rem 2rem;
+    --section-max-width: var(--max-width);
+    
+    /* Section Header */
+    --section-header-margin: 0 0 var(--h1-margin-bottom) 0;
+    --section-header-align: left;
+
+    /* Navigation */
+    --nav-padding: 1rem 2rem;
+    --nav-link-padding: 0.25rem 0;
+} 
