@@ -6,3 +6,7 @@ Portfolio of work
 ```bash
 npm run build
 ```
+
+```bash
+npm run deploy
+```

@@ -38,6 +38,9 @@ jobs:
           BASE_URL: '/portfolio'
         run: npm run build
 
+      - name: Create .nojekyll file
+        run: touch dist/.nojekyll
+
       - name: Debug build output
         run: |
           pwd  # Print working directory
