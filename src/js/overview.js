@@ -7,4 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
             trigger.setAttribute('aria-expanded', !isExpanded);
         });
     });
+
+    const chips = document.querySelectorAll('.skill-item, .software-item');
+    chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            chip.classList.toggle('active');
+        });
+    });
 }); 
