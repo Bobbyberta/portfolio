@@ -30,7 +30,7 @@
     --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
 
     /* Section Layout */
-    --section-padding: 3rem 2rem;
+    --section-padding: 2rem;
     --section-max-width: var(--max-width);
     
     /* Section Header */
@@ -38,6 +38,5 @@
     --section-header-align: left;
 
     /* Navigation */
-    --nav-padding: 1rem 2rem;
     --nav-link-padding: 0.25rem 0;
 } 

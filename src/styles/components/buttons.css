@@ -22,7 +22,7 @@
     font-size: calc(var(--body-font-size) * 1.4);
     cursor: pointer;
     color: var(--text);
-    padding: 0.5rem;
+    padding: calc(var(--section-padding) / 4);
     line-height: var(--body-line-height);
     display: block;
 }
