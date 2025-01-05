@@ -35,14 +35,14 @@ jobs:
           BASE_URL: '/portfolio'
         run: |
           npm run build
-          # Ensure pages directory exists
+          # Create directory structure
           mkdir -p dist/pages/blog
-          # Copy HTML files to maintain structure if they don't exist
-          cp -n dist/about.html dist/pages/about.html 2>/dev/null || true
-          cp -n dist/blog.html dist/pages/blog.html 2>/dev/null || true
-          cp -n dist/contact.html dist/pages/contact.html 2>/dev/null || true
-          cp -n dist/bubble-function-case-study.html dist/pages/blog/bubble-function-case-study.html 2>/dev/null || true
-          cp -n dist/deepest-ocean-case-study.html dist/pages/blog/deepest-ocean-case-study.html 2>/dev/null || true
+          # Move HTML files to their correct locations
+          mv dist/about.html dist/pages/
+          mv dist/blog.html dist/pages/
+          mv dist/contact.html dist/pages/
+          mv dist/bubble-function-case-study.html dist/pages/blog/
+          mv dist/deepest-ocean-case-study.html dist/pages/blog/
           # Create 404 page
           cp dist/index.html dist/404.html
 
