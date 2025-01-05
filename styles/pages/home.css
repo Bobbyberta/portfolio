@@ -227,29 +227,37 @@ input[type="checkbox"] {
 .experience-bar {
     padding: 1rem 0;
     width: 100%;
-    overflow: hidden;
 }
 
 .bar {
     position: relative;
-    height: 4px;
+    height: 8px;
     background-color: var(--border-color);
-    border-radius: 2px;
-    margin: 2rem 0;
+    border-radius: 4px;
+    margin: 3rem 0 2rem 0;
+    display: flex;
+    overflow: hidden;
 }
 
-.marker {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 12px;
-    height: 12px;
+/* Segment styles */
+.segment {
+    height: 100%;
+    position: relative;
+}
+
+.segment.games {
     background-color: var(--primary);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
 }
 
-.label {
+.segment.product {
+    background-color: var(--accent);
+}
+
+.segment.ux {
+    background-color: var(--primary-dark);
+}
+
+.segment-label {
     position: absolute;
     top: -25px;
     left: 50%;
@@ -257,4 +265,69 @@ input[type="checkbox"] {
     font-size: var(--small-font-size);
     color: var(--text-light);
     white-space: nowrap;
+}
+
+/* Experience key styles */
+.experience-key {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.key-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: var(--small-font-size);
+}
+
+.key-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.key-item.games .key-dot {
+    background-color: var(--primary);
+}
+
+.key-item.product .key-dot {
+    background-color: var(--accent);
+}
+
+.key-item.ux .key-dot {
+    background-color: var(--primary-dark);
+}
+
+.key-label {
+    color: var(--text-dark);
+    font-weight: 500;
+    min-width: 120px;
+}
+
+.key-years {
+    color: var(--text-light);
+}
+
+.key-item.total {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.key-item.total .key-years {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* Add hover effects */
+.segment:hover {
+    opacity: 0.9;
+}
+
+.key-item:hover .key-dot {
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
 } 
