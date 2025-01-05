@@ -1,6 +1,7 @@
 /* Add spacing for fixed header */
 main {
     margin-top: var(--header-height);
+    background-color: var(--bg-light);
 }
 
 .section-standard {
