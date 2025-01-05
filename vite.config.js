@@ -39,22 +39,19 @@ export default {
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.')
           const extType = info[info.length - 1]
-          if (/\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/i.test(assetInfo.name)) {
-            return `assets/media/[name]-[hash][extname]`
+          // Keep original paths for images and favicons
+          if (assetInfo.name.includes('images/') || assetInfo.name.includes('favicon/')) {
+            return assetInfo.name
           }
-          if (/\.(png|jpe?g|gif|svg|webp|ico)(\?.*)?$/i.test(assetInfo.name)) {
-            return `assets/images/[name]-[hash][extname]`
-          }
-          if (/\.(woff2?|eot|ttf|otf)(\?.*)?$/i.test(assetInfo.name)) {
-            return `assets/fonts/[name]-[hash][extname]`
-          }
+          // Other assets
           if (extType === 'css') {
-            return `styles/[name]-[hash][extname]`
+            return 'styles/[name]-[hash][extname]'
           }
-          return `assets/[name]-[hash][extname]`
-        },
-        chunkFileNames: 'assets/js/[name]-[hash].js',
-        entryFileNames: 'assets/js/[name]-[hash].js'
+          if (extType === 'js') {
+            return 'js/[name]-[hash][extname]'
+          }
+          return 'assets/[name]-[hash][extname]'
+        }
       }
     },
     cssCodeSplit: true,
@@ -66,55 +63,34 @@ export default {
   plugins: [{
     name: 'copy-assets',
     closeBundle() {
-      // Create all necessary directories
-      mkdirSync(resolve(__dirname, 'dist/pages/blog'), { recursive: true })
-      mkdirSync(resolve(__dirname, 'dist/favicon'), { recursive: true })
-      mkdirSync(resolve(__dirname, 'dist/images'), { recursive: true })
-      mkdirSync(resolve(__dirname, 'dist/styles'), { recursive: true })
-
-      const faviconFiles = [
-        'favicon.ico',
-        'apple-touch-icon.png',
-        'favicon-32x32.png',
-        'favicon-16x16.png',
-        'site.webmanifest',
-        'android-chrome-192x192.png',
-        'android-chrome-512x512.png'
-      ]
-      
-      faviconFiles.forEach(file => {
-        try {
-          copyFileSync(
-            resolve(__dirname, 'src/assets/favicon', file),
-            resolve(__dirname, 'dist/favicon', file)
-          )
-        } catch (err) {
-          console.warn(`Warning: Could not copy ${file}`)
-        }
-      })
-
-      const imageFiles = [
-        'profile-photo2.png'
-      ]
-
-      imageFiles.forEach(file => {
-        try {
-          copyFileSync(
-            resolve(__dirname, 'src/assets/images', file),
-            resolve(__dirname, 'dist/images', file)
-          )
-        } catch (err) {
-          console.warn(`Warning: Could not copy ${file}`)
-        }
-      })
-
+      // Copy entire assets directory structure
       try {
         copyDir(
-          resolve(__dirname, 'src/styles'),
-          resolve(__dirname, 'dist/styles')
+          resolve(__dirname, 'src/assets'),
+          resolve(__dirname, 'dist/assets')
         )
       } catch (err) {
-        console.warn('Warning: Could not copy styles directory', err)
+        console.warn('Warning: Could not copy assets directory', err)
+      }
+
+      // Copy images to root images directory
+      try {
+        copyDir(
+          resolve(__dirname, 'src/assets/images'),
+          resolve(__dirname, 'dist/images')
+        )
+      } catch (err) {
+        console.warn('Warning: Could not copy images directory', err)
+      }
+
+      // Copy favicon to root favicon directory
+      try {
+        copyDir(
+          resolve(__dirname, 'src/assets/favicon'),
+          resolve(__dirname, 'dist/favicon')
+        )
+      } catch (err) {
+        console.warn('Warning: Could not copy favicon directory', err)
       }
     }
   }]
