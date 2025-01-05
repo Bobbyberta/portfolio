@@ -17,4 +17,5 @@
 @import './pages/about.css';
 
 /* Utility styles */
-@import './utils/helpers.css'; 
+@import './utils/helpers.css';
+@import './utils/responsive.css'; 
