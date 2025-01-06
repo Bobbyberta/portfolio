@@ -1,6 +1,72 @@
-/* Mobile Navigation Styles */
+/* Desktop styles (1024px and above) */
+@media (min-width: 1024px) {
+    .main-wrapper {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    /* Hero section */
+    .hero.section-standard {
+        display: grid;
+        grid-template-columns: minmax(300px, 1fr) minmax(400px, 2fr);
+        gap: 4rem;
+        align-items: start;
+        text-align: left;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        align-items: flex-start;
+    }
+
+    /* Overview section */
+    .overview.section-standard {
+        padding-top: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .overview-card {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
+/* Tablet styles */
+@media (max-width: 1023px) and (min-width: 768px) {
+    /* Hero section */
+    .hero.section-standard {
+        padding-bottom: 2rem;
+        text-align: center;
+    }
+
+    /* Overview section */
+    .overview.section-standard {
+        padding-top: 0;
+        width: 100%;
+        max-width: 600px;
+        min-width: 400px;
+        margin: 0 auto;
+    }
+
+    .overview-card {
+        width: 600px;
+        margin: 0 auto;
+    }
+}
+
+/* About page responsive styles */
+@media (max-width: 1200px) {
+    .about-content {
+        gap: 3rem;
+    }
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
-    /* Show mobile menu button */
+    /* Navigation */
     .mobile-menu-btn {
         display: block;
     }
@@ -32,7 +98,7 @@
         padding: 1rem;
     }
 
-    /* About page responsive styles */
+    /* About section */
     .about-section {
         padding: 3rem 1rem;
     }
@@ -51,131 +117,18 @@
     .about-text {
         gap: 1.25rem;
     }
-}
 
-/* Tablet styles */
-@media (max-width: 1024px) {
-    .about-content {
-        grid-template-columns: 1fr 1.5fr;
-        gap: 2.5rem;
-    }
-    
-    .about-content img {
-        max-width: 350px;
-    }
-}
-
-/* About page responsive styles */
-@media (max-width: 1200px) {
-    .about-content {
-        gap: 3rem;
-    }
-}
-
-@media (max-width: 1024px) {
-    .about-content {
-        grid-template-columns: 1fr 1.5fr;
-        gap: 2.5rem;
-    }
-    
-    .about-content img {
-        max-width: 350px;
-    }
-}
-
-@media (max-width: 768px) {
-    .about-section {
-        padding: 3rem 1rem;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .about-content img {
-        max-width: 300px;
-        margin-bottom: 2rem;
-        position: static;
-    }
-    
-    .about-text {
-        gap: 1.25rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .about-section {
-        padding: 2rem 1rem;
-    }
-
-    .about-content {
-        gap: 1.5rem;
-    }
-
-    .about-content img {
-        max-width: 100%;
-    }
-}
-
-/* Desktop styles (1024px and above) */
-@media (min-width: 1024px) {
-    .main-wrapper {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 2rem;
-    }
-
-    .hero.section-standard {
-        display: grid;
-        grid-template-columns: 1fr minmax(400px, 600px);
-        gap: 2rem;
-        align-items: start;
-        text-align: left;
-    }
-
-    .overview.section-standard {
-        padding-top: 0;
-        min-width: 400px;
-    }
-
-    .overview-card {
-        width: 600px;
-        margin: 0;
-    }
-}
-
-/* Tablet styles */
-@media (max-width: 1023px) and (min-width: 768px) {
-    .hero.section-standard {
-        padding-bottom: 2rem;
-        text-align: center;
-    }
-
-    .overview.section-standard {
-        padding-top: 0;
-        width: 100%;
-        max-width: 600px;
-        min-width: 400px;
-        margin: 0 auto;
-    }
-
-    .overview-card {
-        width: 600px;
-        margin: 0 auto;
-    }
-}
-
-/* Mobile styles */
-@media (max-width: 767px) {
+    /* Main wrapper */
     .main-wrapper {
         padding: 1rem;
     }
 
+    /* Hero section */
     .hero.section-standard {
         padding-bottom: 1rem;
     }
 
+    /* Overview section */
     .overview.section-standard {
         padding-top: 0;
         width: 100%;
@@ -187,8 +140,14 @@
         min-width: 0;
         margin: 0;
         border-radius: 12px;
+        padding: 1.5rem;
+        border-radius: 0;
+        box-shadow: none;
+        border-left: none;
+        border-right: none;
     }
 
+    /* Experience section */
     .segment-label {
         font-size: 0.75rem;
     }
@@ -197,6 +156,7 @@
         font-size: 0.875rem;
     }
 
+    /* Skills section */
     .skills-list,
     .software-list {
         gap: 0.5rem;
@@ -205,6 +165,20 @@
     .skill-item,
     .software-item {
         padding: 0.375rem 0.75rem;
+    }
+
+    /* Case studies */
+    .case-studies {
+        padding-top: 2rem;
+    }
+
+    .case-studies-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .case-study-content {
+        padding: 1.5rem;
     }
 }
 
@@ -215,7 +189,7 @@
     }
 
     .overview-card {
-        padding: 1rem;
+        padding: 1.5rem 0;
     }
 
     .experience-key {
@@ -228,5 +202,18 @@
 
     .key-label {
         min-width: 100px;
+    }
+
+    /* About section */
+    .about-section {
+        padding: 2rem 1rem;
+    }
+
+    .about-content {
+        gap: 1.5rem;
+    }
+
+    .about-content img {
+        max-width: 100%;
     }
 } 
