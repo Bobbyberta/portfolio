@@ -90,6 +90,37 @@
     color: var(--accent);
 }
 
+.about-me-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: var(--bg-light);
+    text-decoration: none;
+    border-radius: 24px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.about-me-btn:hover {
+    background-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.about-me-btn .arrow-icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    transition: transform 0.3s ease;
+}
+
+.about-me-btn:hover .arrow-icon {
+    transform: translateX(4px);
+}
+
 .overview {
     padding-top: 2rem;
 }
