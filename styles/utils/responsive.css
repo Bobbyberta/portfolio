@@ -126,6 +126,11 @@
     /* Hero section */
     .hero.section-standard {
         padding-bottom: 1rem;
+        text-align: center;
+    }
+
+    .about-me-btn {
+        margin: 0 auto;
     }
 
     /* Overview section */
