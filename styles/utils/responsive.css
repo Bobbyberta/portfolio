@@ -11,13 +11,13 @@
         display: grid;
         grid-template-columns: minmax(300px, 1fr) minmax(400px, 2fr);
         gap: 4rem;
-        align-items: start;
-        text-align: left;
+        align-items: center;
+        text-align: center;
     }
 
     .hero-content {
         max-width: 100%;
-        align-items: flex-start;
+        align-items: center;
     }
 
     /* Overview section */
