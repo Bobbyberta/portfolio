@@ -1,8 +1,7 @@
+/* Blog Post Base Styles */
 .blog-post {
-    /* Remove these as they're now in section-standard */
-    /* max-width: 800px; */
-    /* margin: 0 auto; */
-    /* padding: 3rem 2rem; */
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .blog-post-title {
@@ -22,45 +21,197 @@
     color: var(--body-color);
 }
 
-.blog-post-content h2 {
+/* Case Study Specific Styles */
+.case-study {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.case-study-hero {
+    margin-bottom: 4rem;
+}
+
+.case-study-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.project-category {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-light);
+    color: var(--primary);
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.project-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    color: var(--text-light);
+}
+
+.hero-image {
+    width: 100%;
+    height: 400px;
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Case Study Section Styles */
+.case-study section {
+    margin-bottom: 4rem;
+}
+
+.case-study h2 {
+    margin-bottom: 2rem;
     color: var(--text-dark);
-    font-size: 1.8rem;
-    margin: 2.5rem 0 1rem;
+    font-size: var(--h2-font-size);
 }
 
-.blog-post-content p {
-    margin-bottom: 1.5rem;
+.case-study h3 {
+    color: var(--text-dark);
+    font-size: var(--h3-font-size);
+    margin-bottom: 1rem;
 }
 
-.blog-post-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
+.lead {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Tech Stack */
+.tech-stack {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
     margin: 2rem 0;
 }
 
-.blog-post-footer {
+.tech-item {
+    padding: 0.5rem 1rem;
+    background-color: var(--bg-light);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+/* Role Section */
+.responsibility-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.responsibility-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-light);
+}
+
+/* Approach Grid */
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.approach-item {
+    padding: 2rem;
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.approach-item:hover {
+    transform: translateY(-4px);
+}
+
+.approach-item p {
+    color: var(--text-light);
+}
+
+/* Outcomes */
+.outcomes-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.outcomes-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-light);
+}
+
+/* Images */
+.role-image,
+.challenge-image,
+.outcomes-image {
+    width: 100%;
+    height: 300px;
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+}
+
+/* CTA Section */
+.case-study-cta {
+    text-align: center;
+    padding: 4rem 0;
+    background-color: var(--bg-light);
+    border-radius: 12px;
     margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
 }
 
-.blog-nav {
+.cta-buttons {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
-.back-to-blog {
-    color: var(--primary);
+.cta-button {
+    padding: 1rem 2rem;
+    border-radius: 24px;
     text-decoration: none;
     font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    transition: color 0.3s ease;
-    font-size: var(--footer-font-size);
+    transition: all 0.3s ease;
 }
 
-.back-to-blog:hover {
-    color: var(--accent);
+.cta-button.primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.cta-button.secondary {
+    background-color: var(--bg-light);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+}
+
+.cta-button.primary:hover {
+    background-color: var(--accent);
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--primary-light);
 } 
