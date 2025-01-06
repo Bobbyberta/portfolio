@@ -38,6 +38,7 @@
 @media (max-width: 1023px) and (min-width: 768px) {
     /* Hero section */
     .hero.section-standard {
+        display: block;
         padding-bottom: 2rem;
         text-align: center;
     }
@@ -125,6 +126,7 @@
 
     /* Hero section */
     .hero.section-standard {
+        display: block;
         padding-bottom: 1rem;
         text-align: center;
     }
