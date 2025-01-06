@@ -12,6 +12,7 @@
     align-items: center;
     gap: 2rem;
     text-align: center;
+    padding-bottom: 2rem;
 }
 
 .hero-title {
@@ -461,4 +462,17 @@ input[type="checkbox"] {
 
 .case-study-link:hover .arrow-icon {
     transform: translateX(4px);
+}
+
+/* Update the hero section styles */
+.hero.section-standard {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Overview section */
+.overview.section-standard {
+    width: 100%;
+    margin-top: auto;
 }

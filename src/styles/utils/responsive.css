@@ -10,15 +10,18 @@
     .hero.section-standard {
         display: grid;
         grid-template-columns: minmax(300px, 1fr) minmax(400px, 2fr);
+        grid-template-rows: auto;
         gap: 4rem;
-        align-items: center;
+        align-items: start;
         text-align: center;
-        position: relative;
+        min-height: auto;
     }
 
     .hero-content {
-        max-width: 100%;
-        align-items: center;
+        position: sticky;
+        top: calc(var(--header-height) + 2rem);
+        align-self: start;
+        padding-bottom: 0;
     }
 
     /* Overview section */
