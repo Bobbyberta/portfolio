@@ -373,6 +373,7 @@ input[type="checkbox"] {
 /* Case Studies Section */
 .case-studies {
     padding-top: 4rem;
+    padding-bottom: var(--section-padding);
 }
 
 .case-studies h2 {
@@ -469,6 +470,7 @@ input[type="checkbox"] {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding: var(--section-padding) 0;
 }
 
 /* Overview section */
