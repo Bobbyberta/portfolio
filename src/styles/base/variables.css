@@ -14,9 +14,13 @@
 
     /* Typography */
     --h1-font-size: 2.5rem;
+    --h2-font-size: 2rem;
+    --h3-font-size: 1.5rem;
+    --body-font-size: 1.1rem;
+    --small-font-size: 0.875rem;
+    --xs-font-size: 0.75rem;
     --h1-margin-bottom: 2rem;
     --h1-mobile-font-size: 2rem;
-    --body-font-size: 1.1rem;
     --body-line-height: 1.6;
     --body-color: var(--text);
     --footer-font-size: 0.9rem;
