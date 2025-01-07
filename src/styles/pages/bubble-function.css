@@ -1,0 +1,175 @@
+/* Bubble Function Blog Page Styles */
+
+/* Layout */
+.bubble-function {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--section-padding);
+}
+
+/* Header Section */
+.bubble-function-header {
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
+.bubble-function-header h1 {
+    font-size: var(--h1-font-size);
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.bubble-meta {
+    display: flex;
+    gap: 1.5rem;
+    color: var(--text-light);
+    font-size: var(--small-font-size);
+}
+
+/* Content Sections */
+.bubble-content {
+    display: grid;
+    gap: 3rem;
+}
+
+.bubble-section {
+    margin-bottom: 2rem;
+}
+
+.bubble-section h2 {
+    font-size: var(--h2-font-size);
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+/* Team List */
+.team-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.team-list li {
+    padding: 0.75rem;
+    background-color: var(--bg-light);
+    border-radius: 8px;
+    color: var(--text-light);
+}
+
+/* Design Process */
+.design-process {
+    display: grid;
+    gap: 2rem;
+}
+
+.process-step {
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.process-step:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.process-step h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: var(--h3-font-size);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.process-step h4 {
+    color: var(--text-dark);
+    margin: 1.5rem 0 0.5rem;
+    font-size: var(--h4-font-size);
+}
+
+/* Timeline Section */
+.timeline {
+    display: grid;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--bg-light);
+    border-radius: 8px;
+}
+
+.timeline-duration {
+    color: var(--primary);
+    font-weight: 500;
+    min-width: 120px;
+}
+
+/* CTA Section */
+.bubble-cta {
+    margin-top: 4rem;
+    padding: 3rem;
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.bubble-cta h2 {
+    margin-bottom: 1rem;
+}
+
+.bubble-cta p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .bubble-function {
+        padding: 1rem;
+    }
+
+    .bubble-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .process-step {
+        padding: 1.5rem;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .timeline-duration {
+        min-width: auto;
+    }
+
+    .bubble-cta {
+        padding: 2rem 1.5rem;
+    }
+
+    .bubble-function-header h1 {
+        font-size: var(--h1-mobile-font-size);
+    }
+}
+
+/* Grid Layouts for larger screens */
+@media (min-width: 768px) {
+    .team-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .design-process {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+} 
