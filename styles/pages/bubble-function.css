@@ -138,7 +138,7 @@
 
 .overview-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
     gap: 2rem;
     max-width: var(--max-width);
     margin: 0 auto;
@@ -305,6 +305,10 @@
         grid-template-columns: 1fr;
     }
 
+    .timeline-phases {
+        grid-template-columns: 1fr;
+    }
+
     .phase {
         flex-direction: column;
         gap: 0.5rem;
@@ -323,5 +327,17 @@
 
     .design-process {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .timeline-phases {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .phase {
+        padding: 1rem;
+        background-color: var(--bg-light);
+        border-radius: 8px;
     }
 } 
