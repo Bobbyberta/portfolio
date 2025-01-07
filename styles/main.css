@@ -18,6 +18,7 @@
 @import './pages/home.css';
 @import './pages/blog.css';
 @import './pages/blog-post.css';
+@import './pages/bubble-function.css';
 
 /* Utility styles */
 @import './utils/helpers.css';
