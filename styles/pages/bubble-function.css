@@ -130,6 +130,141 @@
     margin-bottom: 2rem;
 }
 
+/* Project Overview Section */
+.project-overview {
+    padding: 4rem 0;
+    background-color: var(--bg-light);
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.overview-card {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease;
+}
+
+.overview-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.card-header {
+    margin-bottom: 2rem;
+}
+
+.card-header h2 {
+    color: var(--text-dark);
+    font-size: var(--h2-font-size);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-light);
+    font-size: var(--small-font-size);
+}
+
+/* Team Card Styles */
+.team-members {
+    list-style: none;
+    padding: 0;
+}
+
+.team-members li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.team-members li:last-child {
+    border-bottom: none;
+}
+
+.role {
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.role-type {
+    color: var(--text-light);
+    font-size: var(--small-font-size);
+}
+
+/* Role Card Styles */
+.responsibilities {
+    list-style: none;
+    padding: 0;
+}
+
+.responsibilities li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.responsibilities li:last-child {
+    border-bottom: none;
+}
+
+.responsibility-icon {
+    font-size: 1.5rem;
+    min-width: 2rem;
+    text-align: center;
+}
+
+.responsibility-text {
+    color: var(--text-dark);
+}
+
+/* Timeline Card Styles */
+.timeline-phases {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.phase {
+    display: flex;
+    gap: 1rem;
+}
+
+.phase-duration {
+    color: var(--primary);
+    font-weight: 500;
+    min-width: 80px;
+}
+
+.phase-details h3 {
+    font-size: var(--h4-font-size);
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    height: 6px;
+    background-color: var(--bg-light);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .bubble-function {
@@ -160,6 +295,23 @@
 
     .bubble-function-header h1 {
         font-size: var(--h1-mobile-font-size);
+    }
+
+    .project-overview {
+        padding: 2rem 1rem;
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .phase {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .phase-duration {
+        min-width: auto;
     }
 }
 
