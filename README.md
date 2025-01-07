@@ -22,4 +22,4 @@ npm run build
 ```bash
 npm run deploy
 ```
-5.1.25
+Last updated 7.1.25
