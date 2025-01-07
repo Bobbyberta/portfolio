@@ -1,6 +1,7 @@
 import { resolve } from 'path'
 import { copyFileSync, mkdirSync, readdirSync } from 'fs'
 import { join } from 'path'
+import { defineConfig } from 'vite'
 
 function copyDir(src, dest) {
   mkdirSync(dest, { recursive: true })
@@ -19,7 +20,7 @@ function copyDir(src, dest) {
   }
 }
 
-export default {
+export default defineConfig({
   base: process.env.BASE_URL || '/',
   build: {
     outDir: resolve(__dirname, 'dist'),
@@ -30,8 +31,9 @@ export default {
         'pages/about': resolve(__dirname, 'src/pages/about.html'),
         'pages/blog': resolve(__dirname, 'src/pages/blog.html'),
         'pages/contact': resolve(__dirname, 'src/pages/contact.html'),
-        'pages/blog/bubble-function-case-study': resolve(__dirname, 'src/pages/blog/bubble-function-case-study.html'),
-        'pages/blog/deepest-ocean-case-study': resolve(__dirname, 'src/pages/blog/deepest-ocean-case-study.html')
+        'pages/blog/deepest-ocean-case-study': resolve(__dirname, 'src/pages/blog/deepest-ocean-case-study.html'),
+        'pages/case-study/bubble-function-case-study': resolve(__dirname, 'src/pages/case-study/bubble-function-case-study.html'),
+        'pages/blog/bubble-function-blog': resolve(__dirname, 'src/pages/blog/bubble-function-blog.html'),
       },
       output: {
         dir: 'dist',
@@ -104,4 +106,4 @@ export default {
       }
     }
   }]
-}
+})
