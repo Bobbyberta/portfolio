@@ -1,0 +1,108 @@
+/* Design Process Component */
+.design-process-section {
+    margin: 4rem 0;
+}
+
+.design-process-section h2 {
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
+.design-process {
+    display: grid;
+    gap: 3rem;
+}
+
+/* Process Steps */
+.process-step {
+    margin-bottom: 3rem;
+}
+
+.process-step:last-child {
+    margin-bottom: 0;
+}
+
+.process-step h3 {
+    color: var(--primary);
+    font-size: var(--h3-font-size);
+    margin-bottom: 1.5rem;
+}
+
+/* Process Content */
+.process-content {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.process-content:last-child {
+    margin-bottom: 0;
+}
+
+/* Process Description */
+.process-description h4 {
+    color: var(--text-dark);
+    font-size: var(--h4-font-size);
+    margin-bottom: 0.5rem;
+}
+
+.process-description p {
+    color: var(--text-light);
+    line-height: var(--body-line-height);
+}
+
+/* Process Images */
+.process-image {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem;
+    max-height: 400px;
+}
+
+.process-image img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+/* Responsive Layout */
+@media (min-width: 768px) {
+    .process-content {
+        grid-template-columns: 1.5fr 1fr;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    /* Alternate layout for even-numbered steps */
+    .process-step .process-content:nth-child(even) {
+        grid-template-columns: 1fr 1.5fr;
+    }
+
+    .process-step .process-content:nth-child(even) .process-description {
+        order: 2;
+    }
+
+    .process-step .process-content:nth-child(even) .process-image {
+        order: 1;
+    }
+}
+
+@media (max-width: 767px) {
+    .process-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .process-image {
+        padding: 0.5rem;
+    }
+
+    .design-process-section {
+        margin: 3rem 0;
+    }
+} 

@@ -13,6 +13,7 @@
 @import './components/buttons.css';
 @import './components/cards.css';
 @import './components/timeline.css';
+@import './components/design-process.css';
 
 /* Page-specific styles */
 @import './pages/about.css';
