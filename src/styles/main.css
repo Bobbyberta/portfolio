@@ -16,6 +16,7 @@
 @import './components/design-process.css';
 @import './components/page-header.css';
 @import './components/tag-items.css';
+@import './components/hero-title.css';
 
 /* Page-specific styles */
 @import './pages/about.css';
