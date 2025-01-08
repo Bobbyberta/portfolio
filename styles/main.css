@@ -12,6 +12,7 @@
 /* Component styles */
 @import './components/buttons.css';
 @import './components/cards.css';
+@import './components/timeline.css';
 
 /* Page-specific styles */
 @import './pages/about.css';
