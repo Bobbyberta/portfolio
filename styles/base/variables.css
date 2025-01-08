@@ -48,4 +48,8 @@
     /* Add these variables to your existing variables */
     --primary-light: rgba(var(--primary-rgb), 0.1);
     --border-color: #e0e0e0;
+
+    /* Component-specific sizes */
+    --menu-icon-size: 1.4rem;
+    --lead-text-size: 1.25rem;
 } 
