@@ -452,11 +452,7 @@
     }
 
     .process-step {
-        padding: 3rem;
         margin-bottom: 2rem;
-        background-color: var(--bg-light);
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
     }
 
     .process-image {
@@ -473,9 +469,6 @@
 }
 
 @media (max-width: 767px) {
-    .process-step {
-        padding: 1.5rem;
-    }
 
     .process-content {
         grid-template-columns: 1fr;
