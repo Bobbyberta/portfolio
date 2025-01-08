@@ -76,6 +76,11 @@
 .process-content {
     display: grid;
     gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.process-content:last-child {
+    margin-bottom: 0;
 }
 
 .process-step h3 {
@@ -115,15 +120,15 @@
         gap: 3rem;
     }
 
-    .process-step:nth-child(even) .process-content {
+    .process-step .process-content:nth-child(even) {
         grid-template-columns: 1fr 1.5fr;
     }
 
-    .process-step:nth-child(even) .process-description {
+    .process-step .process-content:nth-child(even) .process-description {
         order: 2;
     }
 
-    .process-step:nth-child(even) .process-image {
+    .process-step .process-content:nth-child(even) .process-image {
         order: 1;
     }
 }
@@ -132,6 +137,7 @@
     .process-content {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+        margin-bottom: 2rem;
     }
 }
 
