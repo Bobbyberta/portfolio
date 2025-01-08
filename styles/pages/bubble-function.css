@@ -145,6 +145,8 @@
 .timeline-card {
     grid-column: 1 / -1;  /* Make timeline card span full width */
     padding: 2rem;
+    width: 100%;          /* Ensure card takes full width */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 /* Timeline Styles */
@@ -171,7 +173,7 @@
 
 .timeline-marker {
     position: absolute;
-    top: -1.5rem;
+    top: -2rem;
     left: 50%;
     width: 1rem;
     height: 1rem;
@@ -257,6 +259,15 @@
 
     .timeline-card {
         padding: 1rem;
+        margin: 0;        /* Remove any margins */
+        width: 100%;      /* Ensure full width on mobile */
+        max-width: 100%;  /* Prevent overflow */
+    }
+
+    .timeline-container {
+        padding: 1rem 0;  /* Reduce padding on mobile */
+        margin: 1rem 0;   /* Adjust margins */
+        width: 100%;      /* Ensure container takes full width */
     }
 }
 
