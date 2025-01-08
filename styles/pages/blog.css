@@ -41,31 +41,6 @@
     line-height: var(--body-line-height);
 }
 
-.read-more {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    transition: color 0.3s ease;
-    font-size: var(--body-font-size);
-    line-height: var(--body-line-height);
-}
-
-.read-more:hover {
-    color: var(--accent);
-}
-
-.read-more::after {
-    content: '→';
-    margin-left: 0.5rem;
-    transition: transform 0.3s ease;
-}
-
-.read-more:hover::after {
-    transform: translateX(4px);
-}
-
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .project-meta {
