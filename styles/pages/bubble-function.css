@@ -516,7 +516,7 @@
 }
 
 .conclusion-card h2 {
-    color: var(--text-dark);
+    color: var(--primary);
     font-size: var(--h2-font-size);
     margin-bottom: 1rem;
 }

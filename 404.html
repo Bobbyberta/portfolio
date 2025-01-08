@@ -35,13 +35,13 @@
 </head>
 <body>
     <header>
-        <nav class="d-flex justify-between items-center">
-            <div class="logo text-heading">Bobbie Allsop</div>
+        <nav>
+            <div class="logo">Bobbie Allsop</div>
             <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
                 <span class="sr-only">Menu</span>
                 ☰
             </button>
-            <ul class="nav-links d-flex gap-lg" id="nav-links">
+            <ul class="nav-links" id="nav-links">
                 <li><a href="/portfolio/" aria-current="page">Home</a></li>
                 <li><a href="/portfolio/pages/about.html">About</a></li>
                 <li><a href="/portfolio/pages/blog.html">Blog</a></li>
@@ -52,20 +52,21 @@
 
     <main>
         <div class="main-wrapper">
+            <!-- Combine hero and overview into one section for desktop layout -->
             <section class="hero section-standard">
-                <div class="hero-content d-flex flex-column items-center gap-lg">
+                <div class="hero-content">
                     <h1 class="hero-title">
                         <span class="hero-name">
                             <span class="first-name">Bobbie</span>
                             <span class="last-name">Allsop</span>
                         </span>
                     </h1>
-                    <p class="hero-subtitle text-secondary">
+                    <p class="hero-subtitle">
                         Designer of <span class="highlight">UX</span>, 
                         <span class="highlight">Games</span> & 
                         <span class="highlight">UI</span>
                     </p>
-                    <a href="/portfolio/pages/about.html" class="btn btn-primary d-flex items-center gap-sm">
+                    <a href="/portfolio/pages/about.html" class="about-me-btn">
                         About Me
                         <svg class="arrow-icon" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -73,12 +74,13 @@
                     </a>
                 </div>
 
+                <!-- Overview section with all content inside the card -->
                 <section class="overview section-standard">
-                    <div class="card card-overview">
-                        <h2 class="text-heading mb-lg">Overview</h2>
+                    <div class="overview-card">
+                        <h2>Overview</h2>
                         
                         <!-- Skills section -->
-                        <div class="collapsible-section mb-md">
+                        <div class="collapsible-section">
                             <button class="collapsible-trigger" aria-expanded="false">
                                 <span>Skills (10)</span>
                                 <svg class="chevron" viewBox="0 0 24 24">
@@ -86,7 +88,7 @@
                                 </svg>
                             </button>
                             <div class="collapsible-content">
-                                <div class="skills-list d-flex gap-sm">
+                                <div class="skills-list">
                                     <div class="skill-item">
                                         <label>Design Thinking</label>
                                     </div>
@@ -122,7 +124,7 @@
                         </div>
 
                         <!-- Software section -->
-                        <div class="collapsible-section mb-md">
+                        <div class="collapsible-section">
                             <button class="collapsible-trigger" aria-expanded="false">
                                 <span>Software (3)</span>
                                 <svg class="chevron" viewBox="0 0 24 24">
@@ -130,7 +132,7 @@
                                 </svg>
                             </button>
                             <div class="collapsible-content">
-                                <div class="software-list d-flex gap-sm">
+                                <div class="software-list">
                                     <div class="software-item">
                                         <label>Figma</label>
                                     </div>
@@ -145,7 +147,7 @@
                         </div>
 
                         <!-- Experience section -->
-                        <div class="collapsible-section mb-md">
+                        <div class="collapsible-section">
                             <button class="collapsible-trigger" aria-expanded="false">
                                 <span>Experience (8 years)</span>
                                 <svg class="chevron" viewBox="0 0 24 24">
@@ -195,19 +197,20 @@
                 </section>
             </section>
 
+            <!-- Add this after the hero/overview section -->
             <section class="case-studies section-standard">
-                <h2 class="text-heading mb-xl">Case Studies</h2>
-                <div class="case-studies-grid d-grid gap-lg">
-                    <article class="card card-blog">
-                        <div class="card-content">
+                <h2>Case Studies</h2>
+                <div class="case-studies-grid">
+                    <article class="case-study-card">
+                        <div class="case-study-content">
                             <span class="case-study-category">UX Design</span>
-                            <h3 class="card-title">Bubble Function</h3>
-                            <p class="text-secondary mb-md">Redesigning the core functionality of a social media scheduling tool to improve user workflow efficiency.</p>
-                            <div class="case-study-meta d-flex gap-md mb-lg">
+                            <h3>Bubble Function</h3>
+                            <p>Redesigning the core functionality of a social media scheduling tool to improve user workflow efficiency.</p>
+                            <div class="case-study-meta">
                                 <span class="duration">3 months</span>
                                 <span class="impact">32% efficiency increase</span>
                             </div>
-                            <a href="/portfolio/pages/case-study/bubble-function-case-study.html" class="btn btn-ghost d-flex items-center gap-sm">
+                            <a href="/portfolio/pages/case-study/bubble-function-case-study.html" class="case-study-link">
                                 View Case Study
                                 <svg class="arrow-icon" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -216,16 +219,16 @@
                         </div>
                     </article>
 
-                    <article class="card card-blog">
-                        <div class="card-content">
+                    <article class="case-study-card">
+                        <div class="case-study-content">
                             <span class="case-study-category">Game Design</span>
-                            <h3 class="card-title">Deepest Ocean</h3>
-                            <p class="text-secondary mb-md">Creating an educational game that teaches marine biology through interactive exploration.</p>
-                            <div class="case-study-meta d-flex gap-md mb-lg">
+                            <h3>Deepest Ocean</h3>
+                            <p>Creating an educational game that teaches marine biology through interactive exploration.</p>
+                            <div class="case-study-meta">
                                 <span class="duration">6 months</span>
                                 <span class="impact">90% user satisfaction</span>
                             </div>
-                            <a href="/portfolio/pages/blog/deepest-ocean-case-study.html" class="btn btn-ghost d-flex items-center gap-sm">
+                            <a href="/portfolio/pages/blog/deepest-ocean-case-study.html" class="case-study-link">
                                 View Case Study
                                 <svg class="arrow-icon" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -234,16 +237,16 @@
                         </div>
                     </article>
 
-                    <article class="card card-blog">
-                        <div class="card-content">
+                    <article class="case-study-card">
+                        <div class="case-study-content">
                             <span class="case-study-category">UI Design</span>
-                            <h3 class="card-title">HealthTrack App</h3>
-                            <p class="text-secondary mb-md">Designing an intuitive health monitoring interface for elderly users.</p>
-                            <div class="case-study-meta d-flex gap-md mb-lg">
+                            <h3>HealthTrack App</h3>
+                            <p>Designing an intuitive health monitoring interface for elderly users.</p>
+                            <div class="case-study-meta">
                                 <span class="duration">4 months</span>
                                 <span class="impact">45% adoption rate</span>
                             </div>
-                            <a href="/portfolio/pages/blog/health-track-case-study.html" class="btn btn-ghost d-flex items-center gap-sm">
+                            <a href="/portfolio/pages/blog/health-track-case-study.html" class="case-study-link">
                                 View Case Study
                                 <svg class="arrow-icon" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -252,16 +255,16 @@
                         </div>
                     </article>
 
-                    <article class="card card-blog">
-                        <div class="card-content">
+                    <article class="case-study-card">
+                        <div class="case-study-content">
                             <span class="case-study-category">Product Design</span>
-                            <h3 class="card-title">EduConnect</h3>
-                            <p class="text-secondary mb-md">Building a collaborative learning platform for remote education.</p>
-                            <div class="case-study-meta d-flex gap-md mb-lg">
+                            <h3>EduConnect</h3>
+                            <p>Building a collaborative learning platform for remote education.</p>
+                            <div class="case-study-meta">
                                 <span class="duration">5 months</span>
                                 <span class="impact">28% learning improvement</span>
                             </div>
-                            <a href="/portfolio/pages/blog/edu-connect-case-study.html" class="btn btn-ghost d-flex items-center gap-sm">
+                            <a href="/portfolio/pages/blog/edu-connect-case-study.html" class="case-study-link">
                                 View Case Study
                                 <svg class="arrow-icon" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -274,8 +277,8 @@
         </div>
     </main>
 
-    <footer class="d-flex justify-center items-center">
-        <p class="text-secondary m-0">&copy; 2024 Bobbie Allsop. All rights reserved.</p>
+    <footer>
+        <p>&copy; 2024 Bobbie Allsop. All rights reserved.</p>
     </footer>
 </body>
 </html> 

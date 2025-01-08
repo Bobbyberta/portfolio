@@ -1,55 +1,51 @@
 :root {
-  /* Color System */
-  --color-primary-100: rgba(0, 167, 225, 0.1);
-  --color-primary-500: #00A7E1;
-  --color-primary-700: #0089B8;
-  
-  --color-accent-500: #FF5722;
-  --color-accent-700: #E64A19;
-  
-  --color-neutral-100: #f8f9fa;
-  --color-neutral-200: #e0e0e0;
-  --color-neutral-300: #ddd;
-  --color-neutral-400: #666;
-  --color-neutral-500: #333;
-  --color-neutral-600: #2c3e50;
-  
-  /* Semantic Colors */
-  --color-text-primary: var(--color-neutral-500);
-  --color-text-secondary: var(--color-neutral-400);
-  --color-text-heading: var(--color-neutral-600);
-  --color-background: #fff;
-  --color-background-light: var(--color-neutral-100);
-  --color-border: var(--color-neutral-300);
-  
-  /* Typography Scale */
-  --font-scale-xs: 0.75rem;   /* 12px */
-  --font-scale-sm: 0.875rem;  /* 14px */
-  --font-scale-base: 1.1rem;  /* 16px */
-  --font-scale-lg: 1.2rem;    /* 19px */
-  --font-scale-xl: 1.5rem;    /* 24px */
-  --font-scale-2xl: 2rem;     /* 32px */
-  --font-scale-3xl: 2.5rem;   /* 40px */
-  
-  /* Spacing Scale */
-  --space-xs: 0.25rem;   /* 4px */
-  --space-sm: 0.5rem;    /* 8px */
-  --space-md: 1rem;      /* 16px */
-  --space-lg: 1.5rem;    /* 24px */
-  --space-xl: 2rem;      /* 32px */
-  --space-2xl: 3rem;     /* 48px */
-  
-  /* Layout */
-  --layout-max-width: 800px;
-  --layout-header-height: 60px;
-  
-  /* Component-specific */
-  --button-padding: 0.8rem 1.5rem;
-  --button-radius: 4px;
-  --card-radius: 12px;
-  --nav-link-padding: var(--space-xs) 0;
-  
-  /* Shadows */
-  --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    /* Colors */
+    --primary: #00A7E1;
+    --primary-dark: #0089B8;
+    --accent: #FF5722;
+    --accent-dark: #E64A19;
+    --text: #333;
+    --text-light: #666;
+    --text-dark: #2c3e50;
+    --bg: #fff;
+    --bg-light: #f8f9fa;
+    --border: #ddd;
+    --skill-bg: rgba(0, 167, 225, 0.05);
+
+    /* Typography */
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 2rem;
+    --h3-font-size: 1.5rem;
+    --h4-font-size: 1.2rem;
+    --body-font-size: 1.1rem;
+    --small-font-size: 0.875rem;
+    --xs-font-size: 0.75rem;
+    --h1-margin-bottom: 2rem;
+    --h1-mobile-font-size: 2rem;
+    --body-line-height: 1.6;
+    --body-color: var(--text);
+    --footer-font-size: 0.9rem;
+
+    /* Layout */
+    --max-width: 800px;
+    --header-height: 60px;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+
+    /* Section Layout */
+    --section-padding: 2rem;
+    --section-max-width: var(--max-width);
+    
+    /* Section Header */
+    --section-header-margin: 0 0 var(--h1-margin-bottom) 0;
+    --section-header-align: left;
+
+    /* Navigation */
+    --nav-link-padding: 0.25rem 0;
+
+    /* Add these variables to your existing variables */
+    --primary-light: rgba(var(--primary-rgb), 0.1);
+    --border-color: #e0e0e0;
 } 

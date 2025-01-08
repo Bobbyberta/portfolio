@@ -1,29 +1,25 @@
-/* Design Tokens */
-@import './base/variables.css';
-
-/* Reset & Base Styles */
+/* Base styles */
 @import './base/reset.css';
+@import './base/variables.css';
 @import './base/typography.css';
 
-/* Utilities */
-@import './utils/utilities.css';
-@import './utils/helpers.css';
-@import './utils/responsive.css';
-
-/* Layout Components */
+/* Layout styles */
 @import './layouts/grid.css';
-@import './layouts/header.css';
 @import './layouts/footer.css';
+@import './layouts/header.css';
 @import './layouts/sections.css';
 
-/* UI Components */
+/* Component styles */
 @import './components/buttons.css';
 @import './components/cards.css';
-@import './components/navigation.css';
 
-/* Page-specific Styles */
-@import './pages/home.css';
+/* Page-specific styles */
 @import './pages/about.css';
+@import './pages/home.css';
 @import './pages/blog.css';
 @import './pages/blog-post.css';
-@import './pages/bubble-function.css'; 
+@import './pages/bubble-function.css';
+
+/* Utility styles */
+@import './utils/helpers.css';
+@import './utils/responsive.css'; 
