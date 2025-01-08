@@ -151,18 +151,67 @@
     margin: 2rem 0;
 }
 
-.timeline-item {
-    display: flex;
-    gap: 1rem;
-    padding: 1rem;
-    background-color: var(--bg-light);
-    border-radius: 8px;
+.timeline-container {
+    position: relative;
+    padding: 1rem 0;
 }
 
-.timeline-duration {
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--primary);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: var(--primary);
+    border: 2px solid var(--bg);
+    transform: translateX(0.5rem);
+}
+
+.timeline-content {
+    background-color: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.timeline-date {
+    display: inline-block;
+    font-size: var(--small-font-size);
     color: var(--primary);
     font-weight: 500;
-    min-width: 120px;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content h3 {
+    color: var(--text-dark);
+    font-size: var(--h4-font-size);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    color: var(--text-light);
+    font-size: var(--small-font-size);
+    margin: 0;
 }
 
 /* CTA Section */
@@ -451,5 +500,45 @@
         height: auto;
         min-height: auto;
         padding: 0.5rem;
+    }
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .timeline-container::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 3rem;
+        width: 100%;
+    }
+
+    .timeline-marker {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline-content {
+        width: calc(50% - 2rem);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+        margin-right: auto;
+        margin-left: 0;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-left: auto;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .timeline-container {
+        padding-left: 1rem;
     }
 } 
