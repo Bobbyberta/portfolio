@@ -4,17 +4,6 @@
     margin: 0 auto;
 }
 
-.blog-post-title {
-    text-align: left;
-    margin-bottom: 3rem;
-}
-
-.blog-post-title h1 {
-    font-size: var(--h1-font-size);
-    color: var(--text-dark);
-    margin-bottom: 1rem;
-}
-
 .blog-post-content {
     font-size: var(--body-font-size);
     line-height: var(--body-line-height);
@@ -29,11 +18,6 @@
 
 .case-study-hero {
     margin-bottom: 4rem;
-}
-
-.case-study-header {
-    text-align: center;
-    margin-bottom: 2rem;
 }
 
 .project-category {
