@@ -15,6 +15,7 @@
 @import './components/timeline.css';
 @import './components/design-process.css';
 @import './components/page-header.css';
+@import './components/tag-items.css';
 
 /* Page-specific styles */
 @import './pages/about.css';
