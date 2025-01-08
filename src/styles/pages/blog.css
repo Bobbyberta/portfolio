@@ -76,8 +76,4 @@
     .approach-grid {
         grid-template-columns: 1fr;
     }
-
-    .cta-buttons {
-        flex-direction: column;
-    }
 } 
