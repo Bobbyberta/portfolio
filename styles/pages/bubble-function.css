@@ -393,7 +393,6 @@
 /* Updated CTA Section - keep this styled as a card for emphasis */
 .blog-cta {
     text-align: center;
-    padding: 4rem 2rem;
     background-color: var(--bg-light);
     border-radius: 12px;
     margin: 4rem 0;
