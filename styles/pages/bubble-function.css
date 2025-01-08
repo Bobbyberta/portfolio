@@ -498,4 +498,84 @@
         display: block;  /* Make role type appear on new line */
         margin-top: 0.25rem;  /* Add some spacing between role and role type */
     }
+}
+
+/* Project Conclusion */
+.project-conclusion {
+    margin: 4rem 0;
+}
+
+.conclusion-grid {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.conclusion-card {
+    padding: 2rem;
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.conclusion-card h2 {
+    color: var(--primary);
+    font-size: var(--h2-font-size);
+    margin-bottom: 1rem;
+}
+
+.conclusion-card p {
+    color: var(--text-light);
+    line-height: var(--body-line-height);
+}
+
+/* Updated CTA Section */
+.blog-cta {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    margin: 4rem 0;
+}
+
+.cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.blog-cta h2 {
+    color: var(--text-dark);
+    font-size: var(--h2-font-size);
+    margin-bottom: 1.5rem;
+}
+
+.cta-text {
+    margin-bottom: 2rem;
+}
+
+.cta-text p {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .conclusion-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .blog-cta {
+        padding: 6rem 2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .project-conclusion {
+        margin: 3rem 0;
+    }
+
+    .blog-cta {
+        padding: 3rem 1.5rem;
+        margin: 3rem 0;
+    }
 } 
