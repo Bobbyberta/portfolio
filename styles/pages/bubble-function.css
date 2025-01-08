@@ -73,17 +73,24 @@
 }
 
 .process-step {
-    background-color: var(--bg-light);
-    border-radius: 12px;
-    padding: 3rem;
-    border: 1px solid var(--border-color);
+    padding: 2rem 0;
     transition: transform 0.3s ease;
-    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.process-step:last-child {
+    border-bottom: none;
 }
 
 .process-step:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+    transform: none;
+    box-shadow: none;
+}
+
+.process-step {
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
 }
 
 .process-content {
@@ -549,5 +556,17 @@
         height: auto;
         min-height: auto;
         padding: 0.5rem;
+    }
+}
+
+/* Add mobile styles */
+@media (max-width: 480px) {
+    .team-members li {
+        display: block;  /* Remove flex on mobile */
+    }
+
+    .role-type {
+        display: block;  /* Make role type appear on new line */
+        margin-top: 0.25rem;  /* Add some spacing between role and role type */
     }
 } 
