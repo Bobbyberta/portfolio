@@ -125,7 +125,7 @@
 
 .process-image {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     background-color: var(--bg);
     border-radius: 8px;
@@ -400,7 +400,7 @@
 
     .process-content {
         grid-template-columns: 1.5fr 1fr;
-        align-items: center;
+        align-items: flex-start;
         gap: 3rem;
     }
 
