@@ -507,15 +507,12 @@
 
 .conclusion-grid {
     display: grid;
-    gap: 2rem;
+    gap: 3rem;
     margin-bottom: 4rem;
 }
 
 .conclusion-card {
-    padding: 2rem;
-    background-color: var(--bg-light);
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
+    padding: 0;  /* Remove padding */
 }
 
 .conclusion-card h2 {
@@ -527,9 +524,10 @@
 .conclusion-card p {
     color: var(--text-light);
     line-height: var(--body-line-height);
+    max-width: 600px;  /* Limit text width for better readability */
 }
 
-/* Updated CTA Section */
+/* Updated CTA Section - keep this styled as a card for emphasis */
 .blog-cta {
     text-align: center;
     padding: 4rem 2rem;
@@ -562,10 +560,7 @@
 @media (min-width: 768px) {
     .conclusion-grid {
         grid-template-columns: 1fr 1fr;
-    }
-
-    .blog-cta {
-        padding: 6rem 2rem;
+        gap: 4rem;  /* Increased gap between columns */
     }
 }
 
