@@ -271,24 +271,6 @@
     }
 }
 
-/* CTA Section */
-.bubble-cta {
-    margin-top: 4rem;
-    padding: 3rem;
-    background-color: var(--bg-light);
-    border-radius: 12px;
-    text-align: center;
-}
-
-.bubble-cta h2 {
-    margin-bottom: 1rem;
-}
-
-.bubble-cta p {
-    color: var(--text-light);
-    margin-bottom: 2rem;
-}
-
 /* Project Overview Section */
 .project-overview {
     padding: 4rem 0 0 0;

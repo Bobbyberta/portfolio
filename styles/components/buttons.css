@@ -17,6 +17,33 @@
     background-color: var(--accent);
 }
 
+/* CTA Buttons */
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cta-button.primary {
+    background-color: var(--primary);
+    color: var(--bg);
+}
+
+.cta-button.primary:hover {
+    background-color: var(--accent);
+    transform: translateY(-2px);
+}
+
 /* Mobile menu button */
 .mobile-menu-btn {
     background: none;
@@ -27,4 +54,17 @@
     padding: calc(var(--section-padding) / 4);
     line-height: var(--body-line-height);
     display: none;  /* Hidden by default, shown in mobile via responsive.css */
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
 } 
