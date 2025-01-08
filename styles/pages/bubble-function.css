@@ -132,10 +132,13 @@
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     padding: 1rem;
+    max-height: 400px;
 }
 
 .process-image img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
     height: auto;
     object-fit: contain;
     border-radius: 4px;
@@ -397,7 +400,7 @@
 
     .process-content {
         grid-template-columns: 1.5fr 1fr;
-        align-items: start;
+        align-items: center;
         gap: 3rem;
     }
 
@@ -422,9 +425,8 @@
     }
 
     .process-image {
-        min-height: 300px;
-        display: flex;
-        align-items: center;
+        height: auto;
+        min-height: auto;
     }
 
     .process-image img {
@@ -446,6 +448,7 @@
     }
 
     .process-image {
+        height: auto;
         min-height: auto;
         padding: 0.5rem;
     }
