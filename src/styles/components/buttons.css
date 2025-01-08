@@ -63,7 +63,7 @@
 .mobile-menu-btn {
     background: none;
     border: none;
-    font-size: calc(var(--body-font-size) * 1.4);
+    font-size: var(--h3-font-size);
     cursor: pointer;
     color: var(--text);
     padding: calc(var(--section-padding) / 4);
