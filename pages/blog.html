@@ -35,13 +35,13 @@
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">Bobbie Allsop</div>
+        <nav class="d-flex justify-between items-center">
+            <div class="logo text-heading">Bobbie Allsop</div>
             <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
                 <span class="sr-only">Menu</span>
                 ☰
             </button>
-            <ul class="nav-links" id="nav-links">
+            <ul class="nav-links d-flex gap-lg" id="nav-links">
                 <li><a href="/portfolio/">Home</a></li>
                 <li><a href="/portfolio/pages/about.html">About</a></li>
                 <li><a href="/portfolio/pages/blog.html" aria-current="page">Blog</a></li>
@@ -53,35 +53,39 @@
     <main>
         <div class="main-wrapper">
             <section class="blog-section section-standard">
-                <h1>Latest Posts</h1>
-                <div class="blog-grid">
-                    <article class="blog-card">
-                        <div class="blog-card-content">
-                            <h2>Deepest Ocean: A Dive into Educational Game Design</h2>
-                            <div class="blog-meta">
+                <h1 class="text-heading mb-xl">Latest Posts</h1>
+                <div class="blog-grid d-grid gap-lg">
+                    <article class="card card-blog">
+                        <div class="card-content">
+                            <h2 class="card-title">Deepest Ocean: A Dive into Educational Game Design</h2>
+                            <div class="blog-meta d-flex gap-md mb-md">
                                 <span class="date">February 15, 2017</span>
                                 <span class="read-time">2 min read</span>
                             </div>
-                            <p class="blog-excerpt">
+                            <p class="blog-excerpt text-secondary mb-md">
                                 The challenge was clear: create a math game that not only taught children about greater than and less than 
                                 but also captivated their imaginations. I wanted to build something more than just flashcards...
                             </p>
-                            <a href="/portfolio/pages/blog/deepest-ocean-case-study.html" class="read-more">Read More</a>
+                            <a href="/portfolio/pages/blog/deepest-ocean-case-study.html" class="btn btn-ghost d-flex items-center gap-sm">
+                                Read More
+                            </a>
                         </div>
                     </article>
                     
-                    <article class="blog-card">
-                        <div class="blog-card-content">
-                            <h2>Bubble Function: A Game Design Case Study</h2>
-                            <div class="blog-meta">
+                    <article class="card card-blog">
+                        <div class="card-content">
+                            <h2 class="card-title">Bubble Function: A Game Design Case Study</h2>
+                            <div class="blog-meta d-flex gap-md mb-md">
                                 <span class="date">November 10, 2019</span>
                                 <span class="read-time">2 min read</span>
                             </div>
-                            <p class="blog-excerpt">
+                            <p class="blog-excerpt text-secondary mb-md">
                                 In 2019, I led the design and development of "Bubble Function," an educational math game for 9-12-year-olds. 
                                 This project was born from a need to replace Mangahigh's discontinued "Algebra Meltdown"...
                             </p>
-                            <a href="/portfolio/pages/blog/bubble-function-blog.html" class="read-more">Read More</a>
+                            <a href="/portfolio/pages/blog/bubble-function-blog.html" class="btn btn-ghost d-flex items-center gap-sm">
+                                Read More
+                            </a>
                         </div>
                     </article>
                 </div>
@@ -89,8 +93,8 @@
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Bobbie Allsop. All rights reserved.</p>
+    <footer class="d-flex justify-center items-center">
+        <p class="text-secondary m-0">&copy; 2024 Bobbie Allsop. All rights reserved.</p>
     </footer>
 </body>
 </html> 
