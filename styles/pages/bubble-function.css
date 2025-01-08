@@ -84,7 +84,7 @@
 }
 
 .process-step h3 {
-    color: var(--primary);
+    color: var(--text-dark);
     font-size: var(--h3-font-size);
     margin-bottom: 1.5rem;
 }
