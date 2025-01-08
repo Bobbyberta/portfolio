@@ -1,28 +1,86 @@
-.blog-card {
+/* Content Cards (Blog & Case Studies) */
+.content-card {
     background: var(--bg);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow-sm);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid var(--border);
 }
 
-.blog-card:hover {
-    transform: translateY(-5px);
+.content-card:hover {
+    transform: translateY(-4px);
     box-shadow: var(--shadow-md);
 }
 
-.blog-card-content {
-    padding: 1.5rem;
+.content-card-content {
+    padding: 2rem;
 }
 
-.blog-card h2 {
+.content-card h2,
+.content-card h3 {
     color: var(--text-dark);
-    font-size: calc(var(--body-font-size) * 1.2);
-    margin-bottom: 0.5rem;
-    line-height: var(--body-line-height);
+    font-size: var(--h3-font-size);
+    margin-bottom: 1rem;
 }
 
+.content-card p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: var(--body-line-height);
+    font-size: var(--body-font-size);
+}
+
+/* Card Category/Tag */
+.content-category {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--primary-light);
+    color: var(--primary);
+    border-radius: 16px;
+    font-size: var(--small-font-size);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+/* Card Meta Information */
+.content-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: var(--small-font-size);
+    color: var(--text-light);
+}
+
+/* Card Link */
+.content-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.content-link:hover {
+    color: var(--accent);
+}
+
+.content-link .arrow-icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    transition: transform 0.3s ease;
+}
+
+.content-link:hover .arrow-icon {
+    transform: translateX(4px);
+}
+
+/* Skill Cards (keeping existing styles) */
 .skill-item {
     background: var(--skill-bg);
     border-radius: 8px;
@@ -39,4 +97,11 @@
     color: var(--body-color);
     font-size: var(--body-font-size);
     line-height: var(--body-line-height);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+    .content-card-content {
+        padding: 1.5rem;
+    }
 } 
