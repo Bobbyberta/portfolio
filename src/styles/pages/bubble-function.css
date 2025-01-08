@@ -364,7 +364,9 @@
     }
 
     .design-process {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: 1fr;
+        max-width: var(--max-width);
+        margin: 0 auto;
     }
 
     .timeline-phases {
@@ -380,12 +382,13 @@
     }
 
     .process-content {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 2fr 1fr;
+        gap: 3rem;
         align-items: start;
     }
 
     .process-step:nth-child(even) .process-content {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 2fr;
     }
 
     .process-step:nth-child(even) .process-description {
@@ -394,6 +397,17 @@
 
     .process-step:nth-child(even) .process-image {
         order: 1;
+    }
+
+    .process-step {
+        padding: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .process-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
     }
 }
 
