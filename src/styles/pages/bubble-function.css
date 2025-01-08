@@ -58,9 +58,18 @@
 }
 
 /* Design Process */
+.design-process-section {
+    margin: 4rem 0;
+}
+
+.design-process-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
 .design-process {
     display: grid;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .process-step {
@@ -76,19 +85,48 @@
     box-shadow: var(--shadow-md);
 }
 
+.process-content {
+    display: grid;
+    gap: 2rem;
+}
+
 .process-step h3 {
     color: var(--primary);
-    margin-bottom: 1rem;
     font-size: var(--h3-font-size);
+    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.process-step h4 {
+.process-step h3::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 24px;
+    background-color: var(--primary);
+    border-radius: 2px;
+}
+
+.process-description {
+    color: var(--text-light);
+}
+
+.process-description h4 {
     color: var(--text-dark);
-    margin: 1.5rem 0 0.5rem;
     font-size: var(--h4-font-size);
+    margin: 1.5rem 0 1rem;
+}
+
+.process-description p {
+    margin-bottom: 1rem;
+}
+
+.process-image {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--bg);
+    box-shadow: var(--shadow-sm);
 }
 
 /* Timeline Section */
@@ -339,5 +377,36 @@
         padding: 1rem;
         background-color: var(--bg-light);
         border-radius: 8px;
+    }
+
+    .process-content {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+
+    .process-step:nth-child(even) .process-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .process-step:nth-child(even) .process-description {
+        order: 2;
+    }
+
+    .process-step:nth-child(even) .process-image {
+        order: 1;
+    }
+}
+
+@media (max-width: 767px) {
+    .process-step {
+        padding: 1.5rem;
+    }
+
+    .process-content {
+        grid-template-columns: 1fr;
+    }
+
+    .process-image {
+        margin-top: 1.5rem;
     }
 } 
