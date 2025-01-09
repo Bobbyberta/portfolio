@@ -17,7 +17,7 @@
     background-color: var(--accent);
 }
 
-/* CTA Buttons */
+/* CTA Button Container */
 .cta-buttons {
     display: flex;
     gap: 1rem;
@@ -25,6 +25,7 @@
     margin: 2rem 0;
 }
 
+/* CTA Button Base */
 .cta-button {
     display: inline-flex;
     align-items: center;
@@ -32,10 +33,12 @@
     padding: 1rem 2rem;
     border-radius: 24px;
     font-weight: 500;
-    text-decoration: none;
     transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
 }
 
+/* Primary CTA */
 .cta-button.primary {
     background-color: var(--primary);
     color: var(--bg-light);
@@ -71,6 +74,12 @@
     display: none;  /* Hidden by default, shown in mobile via responsive.css */
 }
 
+@media (max-width: 768px) {
+        .cta-buttons {
+            flex-direction: column;
+        }
+    }
+
 /* Responsive adjustments */
 @media (max-width: 480px) {
     .cta-buttons {
@@ -81,5 +90,6 @@
     .cta-button {
         width: 100%;
         text-align: center;
+        justify-content: center;
     }
 } 
