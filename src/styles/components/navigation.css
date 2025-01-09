@@ -66,6 +66,7 @@ nav {
 
 /* Mobile Menu Button */
 .mobile-menu-btn {
+    display: none;
     background: none;
     border: none;
     font-size: var(--h3-font-size);
@@ -73,7 +74,6 @@ nav {
     color: var(--text);
     padding: calc(var(--section-padding) / 4);
     line-height: var(--body-line-height);
-    display: none;
 }
 
 /* Responsive Styles */
