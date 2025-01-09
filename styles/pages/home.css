@@ -24,7 +24,7 @@
 
 .case-studies h2 {
     text-align: left;
-    margin-bottom: var(--h2-margin-bottom);
+    margin-bottom: 2rem;
     font-size: var(--h2-font-size);
     color: var(--text-dark);
 }
