@@ -80,25 +80,6 @@
     transform: translateX(4px);
 }
 
-/* Skill Cards (keeping existing styles) */
-.skill-item {
-    background: var(--skill-bg);
-    border-radius: 8px;
-    padding: 1rem;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid var(--border);
-}
-
-.skill-text {
-    display: block;
-    padding-left: 1rem;
-    font-weight: 500;
-    color: var(--body-color);
-    font-size: var(--body-font-size);
-    line-height: var(--body-line-height);
-}
-
 /* Responsive Adjustments */
 @media (max-width: 767px) {
     .content-card-content {

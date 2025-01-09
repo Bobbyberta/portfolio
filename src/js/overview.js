@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const chips = document.querySelectorAll('.skill-item, .software-item');
+    const chips = document.querySelectorAll('.tag-item');
     chips.forEach(chip => {
         chip.addEventListener('click', () => {
             chip.classList.toggle('active');
