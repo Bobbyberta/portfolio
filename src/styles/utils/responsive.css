@@ -190,10 +190,6 @@
         grid-template-columns: 1fr;
     }
 
-    .cta-buttons {
-        flex-direction: column;
-    }
-
     .role-image,
     .challenge-image,
     .outcomes-image {

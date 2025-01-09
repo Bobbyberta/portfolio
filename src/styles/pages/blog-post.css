@@ -170,44 +170,6 @@
     margin-top: 4rem;
 }
 
-.cta-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.cta-button {
-    padding: 1rem 2rem;
-    border-radius: 24px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.cta-button.primary {
-    background-color: var(--primary);
-    color: white;
-}
-
-.cta-button.secondary {
-    background-color: var(--bg-light);
-    color: var(--primary);
-    border: 1px solid var(--primary);
-}
-
-.cta-button:hover {
-    transform: translateY(-2px);
-}
-
-.cta-button.primary:hover {
-    background-color: var(--accent);
-}
-
-.cta-button.secondary:hover {
-    background-color: var(--primary-light);
-}
-
 /* Update image styling */
 .case-study img {
     width: 100%;
