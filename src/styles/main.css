@@ -8,6 +8,7 @@
 @import './layouts/footer.css';
 @import './layouts/header.css';
 @import './layouts/sections.css';
+@import './layouts/wrapper.css';
 
 /* Component styles */
 @import './components/buttons.css';

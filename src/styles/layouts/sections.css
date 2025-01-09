@@ -3,13 +3,6 @@ main {
     margin-top: var(--header-height);
 }
 
-.main-wrapper {
-    max-width: var(--section-max-width);
-    margin: 0 auto;
-    background-color: var(--bg-light);
-    padding: 0 var(--section-padding);
-}
-
 .section-standard {
     padding: var(--section-padding) 0;
     max-width: var(--section-max-width);
