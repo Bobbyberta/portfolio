@@ -1,11 +1,5 @@
 /* Desktop styles (1024px and above) */
 @media (min-width: 1024px) {
-    /* Layout */
-    .main-wrapper {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 2rem;
-    }
 
     /* Hero section */
     .hero.section-standard {
@@ -85,10 +79,6 @@
 
 /* Mobile styles (up to 768px) */
 @media (max-width: 768px) {
-    /* Layout */
-    .main-wrapper {
-        padding: 1rem;
-    }
 
     /* Navigation */
     .mobile-menu-btn {
@@ -233,10 +223,6 @@
 
 /* Very small mobile styles (up to 480px) */
 @media (max-width: 480px) {
-    /* Layout */
-    .main-wrapper {
-        padding: 0.5rem;
-    }
 
     /* Overview */
     .overview-card {
