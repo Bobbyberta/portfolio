@@ -80,11 +80,6 @@
 /* Mobile styles (up to 768px) */
 @media (max-width: 768px) {
 
-    /* Navigation */
-    .mobile-menu-btn {
-        display: block;
-    }
-
     .nav-links {
         display: none;
         position: absolute;

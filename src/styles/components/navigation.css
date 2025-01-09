@@ -66,14 +66,14 @@ nav {
 
 /* Mobile Menu Button */
 .mobile-menu-btn {
-    display: none;
     background: none;
     border: none;
     font-size: var(--h3-font-size);
     cursor: pointer;
     color: var(--text);
-    padding: 0.5rem;
+    padding: calc(var(--section-padding) / 4);
     line-height: var(--body-line-height);
+    display: none;
 }
 
 /* Responsive Styles */
