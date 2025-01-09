@@ -17,4 +17,10 @@
     .main-wrapper {
         padding: 0 1rem;
     }
+}
+
+@media (max-width: 480px) {
+    .main-wrapper {
+        padding: 0.5rem;
+    }
 } 
