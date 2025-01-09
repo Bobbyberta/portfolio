@@ -6,7 +6,6 @@
 /* Overview section */
 .overview.section-standard {
     width: 100%;
-    margin-top: auto;
 }
 
 .overview-card {
@@ -180,86 +179,68 @@
     transition: transform 0.2s ease;
 } 
 
+/* Desktop styles */
 @media (min-width: 1024px) {
-
-
-    /* Overview section */
     .overview.section-standard {
         padding-top: 0;
         width: 100%;
-        max-width: 100%;
     }
 
     .overview-card {
         width: 100%;
-        max-width: 100%;
         margin: 0;
     }
 }
-@media (min-width: 1024px) {
 
-    /* Overview section */
-        .overview.section-standard {
-            padding-top: 0;
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-        }
-    
-        .overview-card {
-            width: 100%;
-            margin: 0 auto;
-        }
-    }
- @media (max-width: 768px) {
-        /* Overview section */
-            .overview.section-standard {
-                padding-top: 0;
-                width: 100%;
-                min-width: 0;
-            }
-        
-        .overview-card {
+/* Mobile styles */
+@media (max-width: 768px) {
+    .overview.section-standard {
+        padding-top: 0;
         width: 100%;
-        min-width: 0;
+    }
+
+    .overview-card {
+        width: 100%;
         margin: 0;
         padding: 1.5rem;
     }
-        /* Experience section */
-        .segment-label {
-            font-size: 0.75rem;
-        }
-    
-        .experience-key {
-            font-size: 0.875rem;
-        }
-    
-        /* Skills section */
-        .skills-list,
-        .software-list {
-            gap: 0.5rem;
-        }
-    
-        .skill-item,
-        .software-item {
+
+    /* Experience section */
+    .segment-label {
+        font-size: 0.75rem;
+    }
+
+    .experience-key {
+        font-size: 0.875rem;
+    }
+
+    /* Skills section */
+    .skills-list,
+    .software-list {
+        gap: 0.5rem;
+    }
+
+    .skill-item,
+    .software-item {
         padding: 0.375rem 0.75rem;
     }
 }
+
 @media (max-width: 480px) {
-        /* Overview */
-            .overview-card {
-                padding: 1.5rem;
-            }
-        
-            .experience-key {
-                gap: 0.5rem;
-            }
-        
-            .key-item {
-                flex-wrap: wrap;
-            }
-        
-        .key-label {
-            min-width: 100px;
-        }
+    /* Overview */
+    .overview-card {
+        padding: 1.5rem;
+    }
+
+    .experience-key {
+        gap: 0.5rem;
+    }
+
+    .key-item {
+        flex-wrap: wrap;
+    }
+
+    .key-label {
+        min-width: 100px;
+    }
 }
