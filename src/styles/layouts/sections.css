@@ -14,6 +14,14 @@ main {
 .section-standard h1 {
     text-align: var(--section-header-align);
     margin: var(--section-header-margin);
+    padding-top: 2rem;
     grid-column: 1 / -1;
     font-size: var(--h1-font-size);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-standard h1 {
+        padding-top: 1.5rem;
+    }
 } 
