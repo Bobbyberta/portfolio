@@ -18,6 +18,7 @@
 @import './components/tag-items.css';
 @import './components/hero-title.css';
 @import './components/navigation.css';
+@import './components/overview.css';
 
 /* Page-specific styles */
 @import './pages/about.css';
