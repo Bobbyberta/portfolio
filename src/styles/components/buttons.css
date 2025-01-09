@@ -65,7 +65,7 @@
 /* Secondary CTA */
 .cta-button.secondary {
     background-color: transparent;
-    color: var(--text);
+    color: var(--primary);
     border: 2px solid var(--primary);
 }
 
@@ -73,18 +73,6 @@
     background-color: var(--primary-light);
     border-color: var(--primary-dark);
     transform: translateY(-2px);
-}
-
-/* Mobile menu button */
-.mobile-menu-btn {
-    background: none;
-    border: none;
-    font-size: var(--h3-font-size);
-    cursor: pointer;
-    color: var(--text);
-    padding: calc(var(--section-padding) / 4);
-    line-height: var(--body-line-height);
-    display: none;  /* Hidden by default, shown in mobile via responsive.css */
 }
 
 @media (max-width: 768px) {

@@ -69,7 +69,7 @@ nav {
     display: none;
     background: none;
     border: none;
-    font-size: calc(var(--body-font-size) * 1.4);
+    font-size: var(--h3-font-size);
     cursor: pointer;
     color: var(--text);
     padding: 0.5rem;
@@ -102,11 +102,12 @@ nav {
 
     .nav-links li {
         width: 100%;
+        text-align: center;
     }
 
     .nav-links li a {
         display: block;
-        padding: 0.75rem 2rem;
+        padding: 1rem;
         text-align: left;
     }
 
