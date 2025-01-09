@@ -5,13 +5,17 @@
     align-items: flex-start;
     justify-content: center;
     min-height: 100vh;
-    padding: var(--section-padding) 0;
+    width: 100%;
 }
 
 .hero.section-standard {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--section-padding);
 }
 
 /* Case Studies Section */
@@ -120,6 +124,7 @@
 
 @media (max-width: 768px) {
     .hero.section-standard {
-        padding-bottom: 1rem;
+        padding: var(--section-padding) var(--section-padding) 1rem;
+        text-align: center;
     }
 }

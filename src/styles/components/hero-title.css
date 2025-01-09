@@ -6,6 +6,9 @@
     gap: 2rem;
     text-align: center;
     padding-bottom: 2rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 /* Desktop styles */
@@ -14,6 +17,15 @@
         position: sticky;
         top: calc(var(--header-height) + 2rem);
         padding-bottom: 0;
+        margin: 0;
+        max-width: none;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 0 1rem;
     }
 }
 
