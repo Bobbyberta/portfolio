@@ -5,6 +5,7 @@ main {
 
 .section-standard {
     padding: var(--section-padding) 0;
+    position: relative;
     max-width: var(--section-max-width);
     margin: 0 auto;
 }
