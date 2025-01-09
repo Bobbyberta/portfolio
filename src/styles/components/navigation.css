@@ -29,7 +29,7 @@ nav {
     text-decoration: none;
 }
 
-/* Navigation Links */
+/* Navigation Links - Desktop Default */
 .nav-links {
     display: flex;
     list-style: none;
@@ -75,30 +75,30 @@ nav {
     width: 100%;
 }
 
-/* Mobile Menu Button - Hidden by default */
+/* Mobile Menu Button - Always Hidden by Default */
 .mobile-menu-btn {
-    display: none;  /* Hidden on desktop */
-    background: none;
-    border: none;
-    font-size: var(--h3-font-size);
-    cursor: pointer;
-    color: var(--text);
-    padding: calc(var(--section-padding) / 4);
-    line-height: var(--body-line-height);
+    display: none;
 }
 
-/* Responsive Styles */
+/* Mobile Styles */
 @media (max-width: 768px) {
     /* Show mobile menu button */
     .mobile-menu-btn {
         display: block;
+        background: none;
+        border: none;
+        font-size: var(--h3-font-size);
+        cursor: pointer;
+        color: var(--text);
+        padding: calc(var(--section-padding) / 4);
+        line-height: var(--body-line-height);
     }
 
-    /* Hide navigation links by default on mobile */
+    /* Hide desktop navigation */
     .nav-links {
-        display: none;  /* Hidden by default on mobile */
+        display: none;
         position: absolute;
-        top: var(--header-height);  /* Position below header */
+        top: var(--header-height);
         left: 0;
         right: 0;
         flex-direction: column;
@@ -109,7 +109,7 @@ nav {
         z-index: 1000;
     }
 
-    /* Show navigation when active */
+    /* Show mobile navigation when active */
     .nav-links.active {
         display: flex;
     }
