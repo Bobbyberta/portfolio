@@ -2,15 +2,16 @@
     text-align: center;
     background-color: var(--bg-light);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    min-height: 100vh;
+    padding: var(--section-padding) 0;
 }
 
 .hero.section-standard {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: var(--section-padding) 0;
+    gap: 2rem;
 }
 
 /* Case Studies Section */
@@ -109,52 +110,16 @@
 }
 
 @media (min-width: 1024px) {
-
-    /* Hero section */
     .hero.section-standard {
         display: grid;
         grid-template-columns: minmax(300px, 1fr) minmax(400px, 2fr);
-        grid-template-rows: auto;
         gap: 4rem;
         align-items: start;
-        text-align: center;
-        min-height: auto;
-    }
-
-    .hero-content {
-        position: sticky;
-        top: calc(var(--header-height) + 2rem);
-        align-self: start;
-        padding-bottom: 0;
-    }
-}
-
-@media (min-width: 1024px) {
-
-    /* Hero section */
-    .hero.section-standard {
-        display: block;
-        padding-bottom: 2rem;
-        text-align: center;
-        position: relative;
-    }
-
-    .hero-image {
-        height: 350px;
     }
 }
 
 @media (max-width: 768px) {
-
-    /* Hero section */
     .hero.section-standard {
-        display: block;
         padding-bottom: 1rem;
-        text-align: center;
-        position: relative;
-    }
-
-    .hero-image {
-        height: 300px;
     }
 }
