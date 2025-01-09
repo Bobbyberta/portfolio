@@ -1,4 +1,13 @@
 /* Hero Title Component */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
 .hero-title {
     font-size: 3.5rem;
     margin-bottom: 1rem;
@@ -62,3 +71,21 @@
 .hero-subtitle .highlight:hover {
     color: var(--accent);
 } 
+
+@media (min-width: 1024px) {
+
+    /* Hero section */
+    .hero.section-standard {
+        display: grid;
+        grid-template-columns: minmax(300px, 1fr) minmax(400px, 2fr);
+        grid-template-rows: auto;
+        gap: 4rem;
+        align-items: start;
+        text-align: center;
+        min-height: auto;
+    }
+
+    .hero-image {
+        height: 350px;
+    }
+}
