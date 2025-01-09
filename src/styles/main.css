@@ -6,7 +6,6 @@
 /* Layout styles */
 @import './layouts/grid.css';
 @import './layouts/footer.css';
-@import './layouts/header.css';
 @import './layouts/sections.css';
 @import './layouts/wrapper.css';
 
@@ -18,6 +17,7 @@
 @import './components/page-header.css';
 @import './components/tag-items.css';
 @import './components/hero-title.css';
+@import './components/navigation.css';
 
 /* Page-specific styles */
 @import './pages/about.css';
