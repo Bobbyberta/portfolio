@@ -1,12 +1,23 @@
+/* Header */
+header {
+    background-color: var(--bg);
+    box-shadow: var(--shadow-sm);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: var(--header-height);
+}
+
 /* Navigation Container */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--nav-padding);
-    max-width: var(--section-max-width);
+    padding: 0 var(--section-padding);
+    max-width: var(--max-width);
     margin: 0 auto;
-    height: var(--header-height);
+    height: 100%;
 }
 
 /* Logo */
@@ -18,7 +29,7 @@ nav {
     text-decoration: none;
 }
 
-/* Navigation Links */
+/* Navigation Links - Desktop Default */
 .nav-links {
     display: flex;
     list-style: none;
@@ -47,7 +58,7 @@ nav {
     color: var(--primary);
 }
 
-/* Optional: Add an underline effect on hover */
+/* Underline effect on hover */
 .nav-links li a::after {
     content: '';
     position: absolute;
@@ -64,28 +75,30 @@ nav {
     width: 100%;
 }
 
-/* Mobile Menu Button */
+/* Mobile Menu Button - Always Hidden by Default */
 .mobile-menu-btn {
     display: none;
-    background: none;
-    border: none;
-    font-size: var(--h3-font-size);
-    cursor: pointer;
-    color: var(--text);
-    padding: calc(var(--section-padding) / 4);
-    line-height: var(--body-line-height);
 }
 
-/* Responsive Styles */
+/* Mobile Styles */
 @media (max-width: 768px) {
+    /* Show mobile menu button */
     .mobile-menu-btn {
         display: block;
+        background: none;
+        border: none;
+        font-size: var(--h3-font-size);
+        cursor: pointer;
+        color: var(--text);
+        padding: calc(var(--section-padding) / 4);
+        line-height: var(--body-line-height);
     }
 
+    /* Hide desktop navigation */
     .nav-links {
         display: none;
         position: absolute;
-        top: calc(var(--nav-padding) * 2 + var(--body-line-height));
+        top: var(--header-height);
         left: 0;
         right: 0;
         flex-direction: column;
@@ -96,10 +109,12 @@ nav {
         z-index: 1000;
     }
 
+    /* Show mobile navigation when active */
     .nav-links.active {
         display: flex;
     }
 
+    /* Mobile navigation items */
     .nav-links li {
         width: 100%;
         text-align: center;
@@ -111,7 +126,7 @@ nav {
         text-align: left;
     }
 
-    /* Adjust hover effect for mobile */
+    /* Remove hover underline effect on mobile */
     .nav-links li a::after {
         display: none;
     }
