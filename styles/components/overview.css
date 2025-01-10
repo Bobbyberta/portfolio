@@ -1,11 +1,6 @@
 /* Overview Section */
 .overview {
-    padding-top: var(--spacing-md);
-}
-
-/* Overview section */
-.overview.section-standard {
-    padding: 0;
+    width: 100%;
 }
 
 .overview-card {
@@ -14,13 +9,6 @@
     padding: var(--spacing-md);
     box-shadow: var(--shadow-md);
     width: 100%;
-    margin: 0;
-}
-
-.overview-card h2 {
-    font-size: var(--h2-font-size);
-    margin-bottom: var(--spacing-sm-md);
-    color: var(--text-dark);
 }
 
 /* Collapsible Section */
@@ -179,48 +167,10 @@
     transition: transform 0.2s ease;
 } 
 
-/* Desktop styles */
-@media (min-width: 1024px) {
-    .overview.section-standard {
-        padding: 0;
-    }
-
-    .overview-card {
-        width: 100%;
-    }
-}
-
 /* Mobile styles */
 @media (max-width: 768px) {
-    .overview.section-standard {
-        padding-top: 0;
-        width: 100%;
-    }
-
     .overview-card {
-        width: 100%;
-        margin: 0;
         padding: var(--spacing-sm-md);
-    }
-
-    /* Experience section */
-    .segment-label {
-        font-size: var(--xs-font-size);
-    }
-
-    .experience-key {
-        font-size: var(--small-font-size);
-    }
-
-    /* Skills section */
-    .skills-list,
-    .software-list {
-        gap: var(--spacing-xsm);
-    }
-
-    .skill-item,
-    .software-item {
-        padding: var(--spacing-xxsm) var(--spacing-xsm);
     }
 }
 
