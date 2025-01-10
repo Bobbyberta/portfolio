@@ -1,21 +1,21 @@
 /* Design Process Component */
 .design-process-section {
-    margin: 4rem 0;
+    margin: var(--spacing-xl) 0;
 }
 
 .design-process-section h2 {
     text-align: left;
-    margin-bottom: 3rem;
+    margin-bottom: var(--spacing-lg);
 }
 
 .design-process {
     display: grid;
-    gap: 3rem;
+    gap: var(--spacing-lg);
 }
 
 /* Process Steps */
 .process-step {
-    margin-bottom: 3rem;
+    margin-bottom: var(--spacing-lg);
 }
 
 .process-step:last-child {
@@ -25,14 +25,14 @@
 .process-step h3 {
     color: var(--text-dark);
     font-size: var(--h3-font-size);
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--spacing-sm-md);
 }
 
 /* Process Content */
 .process-content {
     display: grid;
-    gap: 2rem;
-    margin-bottom: 3rem;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
 }
 
 .process-content:last-child {
@@ -42,14 +42,14 @@
 .process-step h3 {
     color: var(--text-dark);
     font-size: var(--h3-font-size);
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--spacing-sm-md);
 }
 
 /* Process Description */
 .process-description h4 {
     color: var(--text-dark);
     font-size: var(--h4-font-size);
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--spacing-xs);
 }
 
 .process-description p {
@@ -62,7 +62,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 1rem;
+    padding: var(--spacing-sm);
     max-height: 400px;
 }
 
@@ -72,7 +72,7 @@
     width: auto;
     height: auto;
     object-fit: contain;
-    border-radius: 4px;
+    border-radius: var(--border-radius-small);
 }
 
 /* Responsive Layout */
@@ -82,17 +82,17 @@
         grid-template-columns: 1fr;
         max-width: var(--max-width);
         margin: 0 auto;
-        gap: 3rem;
+        gap: var(--spacing-lg);
     }
 
     .process-content {
         grid-template-columns: 1.5fr 1fr;
         align-items: flex-start;
-        gap: 3rem;
+        gap: var(--spacing-lg);
         }
 
         .process-step {
-        margin-bottom: 2rem;
+        margin-bottom: var(--spacing-md);
         }
         
         .process-image {
@@ -104,7 +104,7 @@
         width: 100%;
         height: auto;
         object-fit: contain;
-        border-radius: 4px;
+        border-radius: var(--border-radius-small);
         }
 
     /* Alternate layout for even-numbered steps */
@@ -125,17 +125,17 @@
     
     .process-content {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin-bottom: 2rem;
+        gap: var(--spacing-sm-md);
+        margin-bottom: var(--spacing-md);
     }
 
 .process-image {
      height: auto;
         min-height: auto;
-        padding: 0.5rem;
+        padding: var(--spacing-xxs);
     }
 
     .design-process-section {
-        margin: 3rem 0;
+        margin: var(--spacing-lg) 0;
     }
 } 

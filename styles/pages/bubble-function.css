@@ -1,14 +1,14 @@
 /* Bubble Function Blog Page Styles */
 /* Project Overview Section */
 .project-overview {
-    padding: 4rem 0 0 0;
+    padding: var(--spacing-xl) 0 0 0;
     background-color: var(--bg-light);
 }
 
 .overview-card {
     background: var(--bg);
-    border-radius: 12px;
-    padding: 2rem;
+    border-radius: var(--border-radius-medium);
+    padding: var(--spacing-md);
     box-shadow: var(--shadow-sm);
     transition: transform 0.3s ease;
 }
@@ -19,13 +19,13 @@
 }
 
 .card-header {
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-md);
 }
 
 .card-header h2 {
     color: var(--text-dark);
     font-size: var(--h2-font-size);
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--spacing-xsm);
 }
 
 .subtitle {
@@ -43,7 +43,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: var(--spacing-sm) 0;
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -70,8 +70,8 @@
 .responsibilities li {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 0;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -80,7 +80,7 @@
 }
 
 .responsibility-icon {
-    font-size: 1.5rem;
+    font-size: var(--h3-font-size);
     min-width: 2rem;
     text-align: center;
 }
@@ -92,24 +92,24 @@
 /* Timeline Card Styles */
 .timeline-phases {
     display: grid;
-    gap: 1.5rem;
+    gap: var(--spacing-sm-md);
 }
 
 .phase {
     display: flex;
-    gap: 1rem;
+    gap: var(--spacing-sm);
 }
 
 .phase-duration {
     color: var(--primary);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     min-width: 80px;
 }
 
 .phase-details h3 {
     font-size: var(--h4-font-size);
     color: var(--text-dark);
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--spacing-xsm);
 }
 
 .progress-bar {
@@ -135,13 +135,13 @@
     .timeline-phases {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
+        gap: var(--spacing-md);
     }
 
     .phase {
-        padding: 1rem;
+        padding: var(--spacing-sm);
         background-color: var(--bg-light);
-        border-radius: 8px;
+        border-radius: var(--border-radius-small);
     }
 }
 
@@ -154,13 +154,13 @@
 
     .role-type {
         display: block;  /* Make role type appear on new line */
-        margin-top: 0.25rem;  /* Add some spacing between role and role type */
+        margin-top: var(--spacing-xsm);  /* Add some spacing between role and role type */
     }
 }
 
 /* Project Conclusion */
 .project-conclusion {
-    margin: 4rem 0;
+    margin: var(--spacing-xl) 0;
 }
 
 .conclusion-card {
@@ -169,7 +169,7 @@
 
 .conclusion-card h2 {
     font-size: var(--h2-font-size);
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-sm);
 }
 
 .conclusion-card p {
@@ -182,8 +182,8 @@
 .blog-cta {
     text-align: center;
     background-color: var(--bg-light);
-    border-radius: 12px;
-    margin: 4rem 0;
+    border-radius: var(--border-radius-medium);
+    margin: var(--spacing-xl) 0;
 }
 
 .cta-content {
@@ -194,50 +194,50 @@
 .blog-cta h2 {
     color: var(--text-dark);
     font-size: var(--h2-font-size);
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--spacing-sm-md);
 }
 
 .cta-text {
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-md);
 }
 
 .cta-text p {
     color: var(--text-light);
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--spacing-xsm);
 }
 
 @media (max-width: 767px) {
     .project-conclusion {
-        margin: 3rem 0;
+        margin: var(--spacing-lg) 0;
     }
 
     .blog-cta {
-        padding: 3rem 1.5rem;
-        margin: 3rem 0;
+        padding: var(--spacing-lg) var(--spacing-sm);
+        margin: var(--spacing-lg) 0;
     }
 
     .overview-card {
-        padding: 1.5rem;  /* Reduce padding on mobile */
+        padding: var(--spacing-sm-md);  /* Reduce padding on mobile */
     }
 
     /* Adjust team members list spacing */
     .team-members li {
         flex-direction: column;
         align-items: flex-start;
-        padding: 0.75rem 0;
+        padding: var(--spacing-xsm) 0;
     }
 
     .role-type {
-        margin-top: 0.25rem;
+        margin-top: var(--spacing-xxsm);
     }
 
     /* Adjust responsibilities list spacing */
     .responsibilities li {
-        padding: 0.75rem 0;
+        padding: var(--spacing-xsm) 0;
     }
 
     .responsibility-icon {
-        font-size: 1.25rem;
+        font-size: var(--h4-font-size);
         min-width: 1.5rem;
     }
 }
@@ -245,6 +245,6 @@
 /* Additional adjustments for very small screens */
 @media (max-width: 480px) {
     .overview-card {
-        padding: 1rem;
+        padding: var(--spacing-sm);
     }
 } 
