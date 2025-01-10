@@ -32,7 +32,7 @@ main {
     flex-direction: column;
     gap: var(--spacing-md);
     align-items: center;
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-md) var(--spacing-md);
 }
 
 /* Responsive Styles */
@@ -42,6 +42,7 @@ main {
         grid-template-columns: minmax(300px, 1fr) minmax(400px, 2fr);
         gap: var(--spacing-xl);
         align-items: start;
+        padding: var(--spacing-md) var(--spacing-md);
     }
 }
 
