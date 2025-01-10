@@ -1,4 +1,3 @@
-
 .about-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -6,7 +5,7 @@
     align-items: start;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--spacing-md);
+    padding: 0 2rem;
 }
 
 .about-content img {
@@ -32,37 +31,13 @@
 } 
 
 @media (max-width: 768px) {
-        /* About section */
-            .about-section {
-                padding: 3rem 1rem;
-            }
-        
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        
-            .about-content img {
-                max-width: 300px;
-                margin-bottom: 2rem;
-                position: static;
-            }
-        
-        .about-text {
-            gap: 1.25rem;
-        }
+    .about-section {
+        padding: 3rem 1rem;
+    }
 }
+
 @media (max-width: 480px) {
-        /* About section */
-            .about-section {
-                padding: 2rem 1rem;
-            }
-        
-            .about-content {
-                gap: 1.5rem;
-            }
-        
-            .about-content img {
-                max-width: 100%;
-            }
+    .about-section {
+        padding: 2rem 1rem;
+    }
 }

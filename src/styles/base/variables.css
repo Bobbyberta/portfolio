@@ -2,6 +2,7 @@
     /* Colors */
     --primary: #00A7E1;
     --primary-dark: #0089B8;
+    --primary-light: rgba(0, 167, 225, 0.1);
     --accent: #FF5722;
     --accent-dark: #E64A19;
     --text: #333;
@@ -34,6 +35,10 @@
     --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
     --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
 
+     /* Spacing */
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+
     /* Section Layout */
     --section-padding: 2rem;
     --section-max-width: var(--max-width);
@@ -45,11 +50,10 @@
     /* Navigation */
     --nav-link-padding: 0.25rem 0;
 
-    /* Add these variables to your existing variables */
-    --primary-light: rgba(var(--primary-rgb), 0.1);
+    /* Border */
     --border-color: #e0e0e0;
+    --border-radius: 12px;
 
     /* Component-specific sizes */
     --menu-icon-size: 1.4rem;
-    --lead-text-size: 1.25rem;
 } 

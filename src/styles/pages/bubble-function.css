@@ -215,10 +215,6 @@
         padding: 3rem 1.5rem;
         margin: 3rem 0;
     }
-}
-
-/* Add responsive breakpoints for overview cards */
-@media (max-width: 767px) {
 
     .overview-card {
         padding: 1.5rem;  /* Reduce padding on mobile */
