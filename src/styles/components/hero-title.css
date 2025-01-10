@@ -1,4 +1,14 @@
 /* Hero Title Component */
+/* .hero {
+    text-align: center;
+    background-color: var(--bg-light);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+} */
+
 .hero-content {
     display: flex;
     flex-direction: column;
