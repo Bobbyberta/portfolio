@@ -39,9 +39,10 @@ main {
 @media (min-width: 1024px) {
     .hero.section-standard {
         display: grid;
-        grid-template-columns: minmax(300px, 1fr) minmax(400px, 2fr);
+        grid-template-columns: 1fr 2fr;
         gap: var(--spacing-xl);
         align-items: start;
+        max-width: 100%;
     }
 }
 
