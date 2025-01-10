@@ -1,6 +1,6 @@
 /* Overview Section */
 .overview {
-    padding-top: 2rem;
+    padding-top: var(--spacing-md);
 }
 
 /* Overview section */
@@ -10,16 +10,16 @@
 
 .overview-card {
     background: var(--bg-light);
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius-medium);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-md);
     width: 100%;
     margin: 0 auto;
 }
 
 .overview-card h2 {
     font-size: var(--h2-font-size);
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--spacing-sm-md);
     color: var(--text-dark);
 }
 
@@ -30,7 +30,7 @@
 
 .collapsible-trigger {
     width: 100%;
-    padding: 0.75rem 0;
+    padding: var(--spacing-xsm) 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,7 +39,7 @@
     cursor: pointer;
     color: var(--text-dark);
     font-size: var(--body-font-size);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
 }
 
 .chevron {
@@ -57,7 +57,7 @@
 
 .collapsible-content {
     display: none;
-    padding: 0.5rem 0;
+    padding: var(--spacing-xsm) 0;
     width: 100%;
     overflow: hidden;
     transition: opacity 0.3s ease;
@@ -71,7 +71,7 @@
 
 /* Experience Bar */
 .experience-bar {
-    padding: 0.5rem 0 1rem 0;
+    padding: var(--spacing-xsm) 0 var(--spacing-sm) 0;
     width: 100%;
 }
 
@@ -79,8 +79,8 @@
     position: relative;
     height: 8px;
     background-color: var(--border-color);
-    border-radius: 4px;
-    margin: 1rem 0;
+    border-radius: var(--border-radius-small);
+    margin: var(--spacing-sm) 0;
     display: flex;
     overflow: hidden;
 }
@@ -117,14 +117,14 @@
 .experience-key {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    margin-top: 1.5rem;
+    gap: var(--spacing-xsm);
+    margin-top: var(--spacing-sm-md);
 }
 
 .key-item {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: var(--spacing-xsm);
     font-size: var(--small-font-size);
 }
 
@@ -149,7 +149,7 @@
 
 .key-label {
     color: var(--text-dark);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     min-width: 120px;
     text-align: left;
 }
@@ -159,14 +159,14 @@
 }
 
 .key-item.total {
-    margin-top: 0.5rem;
-    padding-top: 0.5rem;
+    margin-top: var(--spacing-xsm);
+    padding-top: var(--spacing-xsm);
     border-top: 1px solid var(--border-color);
 }
 
 .key-item.total .key-years {
     color: var(--text-dark);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
 }
 
 /* Hover effects */
@@ -202,38 +202,38 @@
     .overview-card {
         width: 100%;
         margin: 0;
-        padding: 1.5rem;
+        padding: var(--spacing-sm-md);
     }
 
     /* Experience section */
     .segment-label {
-        font-size: 0.75rem;
+        font-size: var(--xs-font-size);
     }
 
     .experience-key {
-        font-size: 0.875rem;
+        font-size: var(--small-font-size);
     }
 
     /* Skills section */
     .skills-list,
     .software-list {
-        gap: 0.5rem;
+        gap: var(--spacing-xsm);
     }
 
     .skill-item,
     .software-item {
-        padding: 0.375rem 0.75rem;
+        padding: var(--spacing-xxsm) var(--spacing-xsm);
     }
 }
 
 @media (max-width: 480px) {
     /* Overview */
     .overview-card {
-        padding: 1.5rem;
+        padding: var(--spacing-sm-md);
     }
 
     .experience-key {
-        gap: 0.5rem;
+        gap: var(--spacing-xsm);
     }
 
     .key-item {

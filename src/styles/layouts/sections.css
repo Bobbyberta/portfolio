@@ -7,14 +7,14 @@ main {
     width: 100%;
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 var(--section-padding);
+    padding: 0 var(--spacing-md);
 }
 
 /* Section headers */
 .section-standard h1 {
     text-align: var(--section-header-align);
     margin: var(--section-header-margin);
-    padding-top: 2rem;
+    padding-top: var(--spacing-md);
     grid-column: 1 / -1;
     font-size: var(--h1-font-size);
 }
@@ -30,9 +30,9 @@ main {
 .hero.section-standard {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: var(--spacing-md);
     align-items: center;
-    padding: var(--section-padding) 0;
+    padding: var(--spacing-md) 0;
 }
 
 /* Responsive Styles */
@@ -40,7 +40,7 @@ main {
     .hero.section-standard {
         display: grid;
         grid-template-columns: minmax(300px, 1fr) minmax(400px, 2fr);
-        gap: 4rem;
+        gap: var(--spacing-xl);
         align-items: start;
     }
 }
@@ -48,11 +48,11 @@ main {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .section-standard h1 {
-        padding-top: 1.5rem;
+        padding-top: var(--spacing-sm-md);
     }
 
     .hero.section-standard {
-        padding-bottom: 1rem;
+        padding-bottom: var(--spacing-sm);
         text-align: center;
     }
 } 

@@ -22,7 +22,7 @@ nav {
 
 /* Logo */
 .logo {
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     color: var(--text-dark);
     font-size: var(--body-font-size);
     line-height: var(--body-line-height);
@@ -33,7 +33,7 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: var(--spacing-sm-md);
     margin: 0;
     padding: 0;
 }
@@ -105,7 +105,7 @@ nav {
         background-color: var(--bg);
         box-shadow: var(--shadow-sm);
         padding: var(--section-padding);
-        gap: 1rem;
+        gap: var(--spacing-sm);
         z-index: 1000;
     }
 
@@ -122,7 +122,7 @@ nav {
 
     .nav-links li a {
         display: block;
-        padding: 1rem;
+        padding: var(--spacing-sm);
         text-align: center;
     }
 

@@ -17,23 +17,23 @@
 }
 
 .case-study-hero {
-    margin-bottom: 4rem;
+    margin-bottom: var(--spacing-xl);
 }
 
 .project-category {
     display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: rgba(0, 167, 225, 0.05);
+    padding: var(--spacing-xsm) var(--spacing-sm);
+    background-color: var(--primary-light);
     color: var(--primary);
-    border-radius: 20px;
-    margin-bottom: 1rem;
+    border-radius: var(--border-radius-large);
+    margin-bottom: var(--spacing-sm);
 }
 
 .project-meta {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    margin-top: 1rem;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
     color: var(--text-light);
 }
 
@@ -41,13 +41,13 @@
     width: 100%;
     height: auto;
     background-color: var(--bg-light);
-    border-radius: 12px;
+    border-radius: var(--border-radius-large);
     overflow: hidden;
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-md);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: var(--spacing-sm);
 }
 
 .hero-image img {
@@ -58,11 +58,11 @@
 
 /* Case Study Section Styles */
 .case-study section {
-    margin-bottom: 4rem;
+    margin-bottom: var(--spacing-xl);
 }
 
 .case-study h2 {
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-md);
     color: var(--text-dark);
     font-size: var(--h2-font-size);
 }
@@ -70,28 +70,28 @@
 .case-study h3 {
     color: var(--text-dark);
     font-size: var(--h3-font-size);
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-sm);
 }
 
 .lead {
     font-size: var(--h4-font-size);
     color: var(--text-light);
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-md);
     line-height: 1.6;
 }
 
 /* Tech Stack */
 .tech-stack {
     display: flex;
-    gap: 1rem;
+    gap: var(--spacing-sm);
     flex-wrap: wrap;
-    margin: 2rem 0;
+    margin: var(--spacing-md) 0;
 }
 
 .tech-item {
-    padding: 0.5rem 1rem;
+    padding: var(--spacing-xsm) var(--spacing-sm);
     background-color: var(--bg-light);
-    border-radius: 20px;
+    border-radius: var(--border-radius-large);
     font-size: var(--small-font-size);
     color: var(--text-light);
 }
@@ -100,19 +100,19 @@
 .responsibility-list {
     list-style: none;
     padding: 0;
-    margin: 2rem 0;
+    margin: var(--spacing-md) 0;
 }
 
 .responsibility-list li {
-    padding: 0.75rem 0;
+    padding: var(--spacing-xsm) 0;
     border-bottom: 1px solid var(--border-color);
     color: var(--text-light);
 }
 
 .approach-item {
-    padding: 2rem;
+    padding: var(--spacing-md);
     background-color: var(--bg-light);
-    border-radius: 12px;
+    border-radius: var(--border-radius-medium);
     transition: transform 0.3s ease;
 }
 
@@ -128,11 +128,11 @@
 .outcomes-list {
     list-style: none;
     padding: 0;
-    margin: 2rem 0;
+    margin: var(--spacing-md) 0;
 }
 
 .outcomes-list li {
-    padding: 1rem 0;
+    padding: var(--spacing-sm) 0;
     border-bottom: 1px solid var(--border-color);
     color: var(--text-light);
 }
@@ -144,22 +144,22 @@
     width: 100%;
     height: auto;
     background-color: var(--bg-light);
-    border-radius: 12px;
+    border-radius: var(--border-radius-medium);
     overflow: hidden;
-    margin: 2rem 0;
+    margin: var(--spacing-md) 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: var(--spacing-sm);
 }
 
 /* CTA Section */
 .case-study-cta {
     text-align: center;
-    padding: 4rem 0;
+    padding: var(--spacing-xl) 0;
     background-color: var(--bg-light);
-    border-radius: 12px;
-    margin-top: 4rem;
+    border-radius: var(--border-radius-medium);
+    margin-top: var(--spacing-xl);
 }
 
 /* Update image styling */
@@ -178,12 +178,12 @@
 /* Add image container styles */
 .case-study-image-container {
     width: 100%;
-    margin: 2rem 0;
-    border-radius: 12px;
+    margin: var(--spacing-md) 0;
+    border-radius: var(--border-radius-medium);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     background-color: var(--bg-light);
-    padding: 1rem;
+    padding: var(--spacing-sm);
 }
 
 /* Update responsive styles */
@@ -192,11 +192,11 @@
     .role-image,
     .challenge-image,
     .outcomes-image {
-        padding: 0.5rem;
+    padding: var(--spacing-xsm);
     }
 
     .project-meta {
         flex-direction: column;
-        gap: 1rem;
+        gap: var(--spacing-sm);
     }
 }

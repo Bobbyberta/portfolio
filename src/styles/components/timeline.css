@@ -1,7 +1,7 @@
 /* Timeline Card Styles */
 .timeline-card {
     grid-column: 1 / -1;  /* Make timeline card span full width */
-    padding: 2rem;
+    padding: var(--spacing-md);
     width: 100%;          /* Ensure card takes full width */
     box-sizing: border-box; /* Include padding in width calculation */
 }
@@ -9,8 +9,8 @@
 /* Timeline Styles */
 .timeline-container {
     position: relative;
-    padding: 2rem 1rem;
-    margin: 2rem auto;
+    padding: var(--spacing-md) var(--spacing-sm);
+    margin: var(--spacing-md) auto;
 }
 
 .timeline-container::before {
@@ -18,14 +18,14 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 2.5rem;
+    top: var(--spacing-sm-md);
     height: 2px;
     background-color: var(--primary);
 }
 
 .timeline-item {
     position: relative;
-    margin-top: 2rem;
+    margin-top: var(--spacing-md);
 }
 
 .timeline-marker {
@@ -43,25 +43,25 @@
 
 .timeline-content {
     background-color: var(--bg-light);
-    padding: 1.5rem;
-    border-radius: 8px;
+    padding: var(--spacing-sm-md);
+    border-radius: var(--border-radius-small);
     border: 1px solid var(--border-color);
     text-align: center;
-    margin-top: 1rem;
+    margin-top: var(--spacing-sm);
 }
 
 .timeline-date {
     display: inline-block;
     font-size: var(--small-font-size);
     color: var(--primary);
-    font-weight: 500;
-    margin-bottom: 0.5rem;
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-xsm);
 }
 
 .timeline-content h3 {
     color: var(--text-dark);
     font-size: var(--h4-font-size);
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--spacing-xsm);
 }
 
 .timeline-content p {
@@ -75,8 +75,8 @@
     .timeline-container {
         display: flex;
         justify-content: space-between;
-        gap: 2rem;
-        padding: 2rem;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
     }
 
     .timeline-item {
@@ -84,13 +84,13 @@
     }
 
     .timeline-content {
-        margin: 0 1rem;
+        margin: 0 var(--spacing-sm);
     }
 }
 
 @media (max-width: 767px) {
     .timeline-container::before {
-        left: 1rem;
+        left: var(--spacing-sm);
         right: auto;
         top: 0;
         bottom: 0;
@@ -99,14 +99,14 @@
     }
 
     .timeline-item {
-        padding-left: 3rem;
-        margin-bottom: 2rem;
+        padding-left: var(--spacing-lg);
+        margin-bottom: var(--spacing-md);
         margin-top: 0;
     }
 
     .timeline-marker {
-        left: 0.5rem;
-        top: 1rem;
+        left: var(--spacing-xsm);
+        top: var(--spacing-sm);
         transform: translateX(0);
     }
 
@@ -115,15 +115,15 @@
     }
 
     .timeline-card {
-        padding: 1rem;
+        padding: var(--spacing-sm);
         margin: 0;        /* Remove any margins */
         width: 100%;      /* Ensure full width on mobile */
         max-width: 100%;  /* Prevent overflow */
     }
 
     .timeline-container {
-        padding: 1rem 0;  /* Reduce padding on mobile */
-        margin: 1rem 0;   /* Adjust margins */
+        padding: var(--spacing-sm) 0;  /* Reduce padding on mobile */
+        margin: var(--spacing-sm) 0;   /* Adjust margins */
         width: 100%;      /* Ensure container takes full width */
     }
 } 
