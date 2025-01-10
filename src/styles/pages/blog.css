@@ -1,7 +1,3 @@
-.blog-section {
-    /* Removed duplicated styles that are now in section-standard */
-}
-
 .blog-section h1 {
     text-align: left;
     margin-bottom: var(--h1-margin-bottom);
