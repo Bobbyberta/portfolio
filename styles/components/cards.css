@@ -35,7 +35,7 @@
 .content-category {
     display: inline-block;
     padding: 0.25rem 0.75rem;
-    background-color: var(--primary-light);
+    background-color: rgba(0, 167, 225, 0.05);
     color: var(--primary);
     border-radius: 16px;
     font-size: var(--small-font-size);

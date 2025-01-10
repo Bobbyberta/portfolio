@@ -1,6 +1,6 @@
 footer {
     text-align: center;
-    padding: var(--space-md);
+    padding: 2rem;
     background-color: var(--bg);
     max-width: var(--max-width);
     margin: 0 auto;
