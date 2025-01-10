@@ -1,6 +1,7 @@
 /* Overview Section */
 .overview {
     width: 100%;
+    max-width: 100%;
 }
 
 .overview-card {
