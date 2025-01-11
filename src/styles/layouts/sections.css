@@ -33,6 +33,8 @@ main {
     gap: var(--spacing-md);
     align-items: center;
     width: 100%;
+    max-width: inherit;
+    padding: 0;
 }
 
 /* Responsive Styles */
@@ -42,7 +44,6 @@ main {
         grid-template-columns: 1fr 2fr;
         gap: var(--spacing-xl);
         align-items: start;
-        max-width: 100%;
     }
 }
 
