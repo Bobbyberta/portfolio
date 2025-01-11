@@ -94,18 +94,7 @@
 } 
 
 @media (min-width: 1024px) {
-
-    /* Hero section */
-    .hero.section-standard {
-        display: grid;
-        grid-template-columns: minmax(300px, 1fr) minmax(400px, 2fr);
-        grid-template-rows: auto;
-        gap: var(--spacing-xl);
-        align-items: start;
-        text-align: center;
-        min-height: auto;
-    }
-
+    
     .hero-image {
         height: 350px;
     }
