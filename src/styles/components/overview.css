@@ -169,8 +169,15 @@
     transform: scale(1.2);
     transition: transform 0.2s ease;
 } 
+@media (min-width: 1024px) {
+    .overview-card {
+        margin-left: 0;
+        margin-right: var(--spacing-md);
+        width: auto;
+    }
+}
 
-@media (min-width: 768px) {
+@media (mx-width: 769px) {
     .overview-card {
         margin-left: var(--spacing-md);
         margin-right: var(--spacing-md);
