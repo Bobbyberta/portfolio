@@ -23,8 +23,8 @@ jobs:
         run: |
           echo "Event name: ${{ github.event_name }}"
           echo "Event type: ${{ github.event.action }}"
-          echo "Payload content length: ${{ length(github.event.client_payload.content) }}"
           echo "Page ID: ${{ github.event.client_payload.pageId }}"
+          echo "Content received: true"
 
       - name: Checkout repository
         uses: actions/checkout@v4
