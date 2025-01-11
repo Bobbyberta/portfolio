@@ -50,7 +50,7 @@ main {
     display: grid;
     grid-template-columns: minmax(300px, 1fr) minmax(400px, 2fr);
     grid-template-rows: auto;
-    gap: var(--spacing-xl);
+        gap: 0;
         align-items: start;
         text-align: center;
         min-height: auto;
