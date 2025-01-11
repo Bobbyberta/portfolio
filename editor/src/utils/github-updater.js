@@ -35,6 +35,14 @@ export class GitHubUpdater {
         const { githubToken: token, owner, repo } = config;
 
         console.log('Sending repository dispatch event to:', `${owner}/${repo}`);
+        console.log('Event payload:', {
+            event_type: 'content-update',
+            client_payload: {
+                pageId: pageId,
+                contentLength: content.length // Don't log full content
+            }
+        });
+
         try {
             // Trigger repository dispatch event
             const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/dispatches`, {
@@ -66,6 +74,20 @@ export class GitHubUpdater {
             await new Promise(resolve => setTimeout(resolve, 2000));
 
             // Get the latest workflow run
+            // Check workflow runs after dispatch
+            const runsResponse = await fetch(
+                `https://api.github.com/repos/${owner}/${repo}/actions/runs?event=repository_dispatch`,
+                {
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                }
+            );
+            
+            const runsData = await runsResponse.json();
+            console.log('Recent workflow runs:', runsData);
+
             const workflowUrl = `https://github.com/${owner}/${repo}/actions`;
             console.log('Check workflow status at:', workflowUrl);
 
