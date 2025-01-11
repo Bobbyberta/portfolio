@@ -25,7 +25,7 @@
 /* Mobile styles */
 @media (max-width: 768px) {
     .hero-content {
-        padding: 0 var(--spacing-sm);
+        padding: var(--spacing-sm);
     }
 }
 
@@ -94,7 +94,7 @@
 } 
 
 @media (min-width: 1024px) {
-    
+
     .hero-image {
         height: 350px;
     }
