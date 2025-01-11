@@ -12,13 +12,6 @@
     width: 100%;
 }
 
-/* Desktop styles */
-@media (min-width: 1024px) {
-    .overview-card {
-        padding-right: var(--spacing-xl);
-    }
-}
-
 /* Collapsible Section */
 .collapsible-section {
     border-bottom: 1px solid var(--border-color);
@@ -175,10 +168,21 @@
     transition: transform 0.2s ease;
 } 
 
+/* Desktop styles */
+@media (min-width: 1024px) {
+    .overview-card {
+        padding-right: var(--spacing-xl);
+        margin-left: 0;
+        margin-right: var(--spacing-xl);
+    }
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
     .overview-card {
         padding: var(--spacing-sm-md);
+        margin-left: var(--spacing-md);
+        margin-right: var(--spacing-md);
     }
 }
 
