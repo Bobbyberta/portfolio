@@ -69,3 +69,11 @@ main {
         text-align: center;
     }
 } 
+
+@media (max-width: 480px) {
+    .section-standard  {
+        padding-top: var(--spacing-sm-md);
+        max-width: none;
+        margin: 0;
+    }
+}
