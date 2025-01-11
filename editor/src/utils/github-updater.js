@@ -34,6 +34,7 @@ export class GitHubUpdater {
         // GitHub configuration
         const { githubToken: token, owner, repo } = config;
 
+        console.log('Sending repository dispatch event to:', `${owner}/${repo}`);
         try {
             // Trigger repository dispatch event
             const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/dispatches`, {
@@ -52,11 +53,13 @@ export class GitHubUpdater {
                 })
             });
 
+            // Log the full response for debugging
+            console.log('Response status:', response.status);
+            const responseText = await response.text();
+            console.log('Response body:', responseText);
+
             if (!response.ok) {
-                const errorText = await response.text();
-                console.error('Response status:', response.status);
-                console.error('Response text:', errorText);
-                throw new Error(`GitHub API Error: ${response.status} - ${errorText}`);
+                throw new Error(`GitHub API Error: ${response.status} - ${responseText}`);
             }
 
             // Wait a moment for the workflow to start

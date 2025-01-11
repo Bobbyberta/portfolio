@@ -21,6 +21,12 @@ jobs:
       contents: write
       actions: write
     steps:
+      - name: Debug Event
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Event type: ${{ github.event.action }}"
+          echo "Payload: ${{ toJSON(github.event.client_payload) }}"
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -32,8 +38,10 @@ jobs:
           CONTENT_UPDATE: ${{ github.event.client_payload.content }}
           PAGE_ID: ${{ github.event.client_payload.pageId }}
         run: |
+          echo "Updating page: $PAGE_ID"
           mkdir -p "src/pages/$(dirname ${PAGE_ID})"
           echo "$CONTENT_UPDATE" > "src/pages/${PAGE_ID}.html"
+          echo "Content written to: src/pages/${PAGE_ID}.html"
 
       - name: Commit changes
         env:
