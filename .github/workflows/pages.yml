@@ -7,11 +7,15 @@ on:
   repository_dispatch:
     types: 
       - content-update
+  repository_dispatch:
+    types: 
+      - content-update
 
 permissions:
   contents: write
   pages: write
   id-token: write
+  actions: write
   actions: write
 
 jobs:
@@ -48,11 +52,14 @@ jobs:
   build-and-deploy:
     needs: [update-content]
     if: always()
+    needs: [update-content]
+    if: always()
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/checkout@v4
       - name: Setup Node.js
         uses: actions/setup-node@v4
