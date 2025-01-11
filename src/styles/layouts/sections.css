@@ -61,7 +61,7 @@ main {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .section-standard h1 {
-        padding-top: var(--spacing-sm-md);
+        padding-top: 0;
     }
 
     .hero.section-standard {
