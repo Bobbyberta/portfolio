@@ -78,6 +78,15 @@
             width: 100%;
             max-width: 300px;
         }
+        
+        #update-site {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        #update-site:hover {
+            background-color: var(--primary-dark);
+        }
     </style>
 </head>
 <body>
@@ -112,6 +121,8 @@
                     </select>
                 </div>
                 <button class="button" id="export-content">Export All Content</button>
+                <button class="button" id="import-content">Import Content</button>
+                <input type="file" id="import-file" accept=".json" style="display: none">
             </div>
 
             <div class="editor-instructions">
@@ -134,6 +145,7 @@
             <div class="button-group">
                 <button class="button" id="save-content">Save Content</button>
                 <button class="button" id="export-current">Export Current Page</button>
+                <button class="button" id="update-site">Update Site</button>
             </div>
         </div>
     </main>
@@ -142,6 +154,8 @@
         import { WYSIWYGEditor } from './components/wysiwyg-editor.js';
         import { ContentManager } from './components/content-manager.js';
         import { ContentExport } from './components/content-export.js';
+        import { ContentUpdater } from './utils/content-updater.js';
+        import { GitHubUpdater } from './utils/github-updater.js';
 
         // Initialize editor
         const editor = new WYSIWYGEditor('#editor', {
@@ -186,12 +200,47 @@
 
         // Handle export current page
         document.getElementById('export-current').addEventListener('click', () => {
-            ContentExport.exportPage(pageSelect.value);
+            const pageId = pageSelect.value;
+            if (!pageId) {
+                alert('Please select a page first');
+                return;
+            }
+            ContentExport.exportPage(pageId);
         });
 
         // Handle export all content
-        document.getElementById('export-content').addEventListener('click', () => {
-            ContentExport.exportContent();
+        document.getElementById('export-content').addEventListener('click', async () => {
+            try {
+                await ContentExport.exportContent();
+            } catch (error) {
+                console.error('Export failed:', error);
+                alert('Export failed. Check console for details.');
+            }
+        });
+
+        // Handle content import
+        document.getElementById('import-content').addEventListener('click', () => {
+            document.getElementById('import-file').click();
+        });
+
+        document.getElementById('import-file').addEventListener('change', async (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            try {
+                const success = await ContentUpdater.updatePage(file);
+                if (success) {
+                    alert('Content updated successfully!');
+                } else {
+                    alert('Failed to update content. Check console for details.');
+                }
+            } catch (error) {
+                console.error('Import failed:', error);
+                alert('Import failed. Check console for details.');
+            }
+
+            // Reset the file input
+            event.target.value = '';
         });
 
         // Load initial content
@@ -201,6 +250,31 @@
                 editor.setContent(initialContent);
             }
         })();
+
+        // Handle site update
+        document.getElementById('update-site').addEventListener('click', async () => {
+            const pageId = pageSelect.value;
+            if (!pageId) {
+                alert('Please select a page first');
+                return;
+            }
+
+            try {
+                // Test repository access first
+                await GitHubUpdater.testAccess();
+                
+                const content = editor.getContent();
+                const success = await GitHubUpdater.updateContent(pageId, content);
+                if (success) {
+                    alert('Content update triggered! Check GitHub Actions for build progress.');
+                    // Open GitHub Actions page
+                    window.open(`https://github.com/${config.owner}/${config.repo}/actions`, '_blank');
+                }
+            } catch (error) {
+                console.error('Update failed:', error);
+                alert(`Failed to update site: ${error.message}`);
+            }
+        });
     </script>
 </body>
 </html> 
