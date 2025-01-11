@@ -178,12 +178,7 @@
 /* Add image container styles */
 .case-study-image-container {
     width: 100%;
-    margin: var(--spacing-md) 0;
-    border-radius: var(--border-radius-medium);
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    background-color: var(--bg-light);
-    padding: var(--spacing-sm);
 }
 
 /* Update responsive styles */

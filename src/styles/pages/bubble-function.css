@@ -5,7 +5,7 @@
     background-color: var(--bg-light);
 }
 
-.overview-card {
+/* .information-card {
     background: var(--bg);
     border-radius: var(--border-radius-medium);
     padding: var(--spacing-md);
@@ -13,10 +13,10 @@
     transition: transform 0.3s ease;
 }
 
-.overview-card:hover {
+.information-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
-}
+} */
 
 .card-header {
     margin-bottom: var(--spacing-md);
@@ -215,10 +215,7 @@
         padding: var(--spacing-lg) var(--spacing-sm);
         margin: var(--spacing-lg) 0;
     }
-
-    .overview-card {
-        padding: var(--spacing-sm-md);  /* Reduce padding on mobile */
-    }
+}
 
     /* Adjust team members list spacing */
     .team-members li {
@@ -240,11 +237,3 @@
         font-size: var(--h4-font-size);
         min-width: 1.5rem;
     }
-}
-
-/* Additional adjustments for very small screens */
-@media (max-width: 480px) {
-    .overview-card {
-        padding: var(--spacing-sm);
-    }
-} 
