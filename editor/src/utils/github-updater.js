@@ -1,4 +1,5 @@
 import { config } from '../config.js';
+import { ContentManager } from '../components/content-manager.js';
 
 export class GitHubUpdater {
     static async getFile(owner, repo, path) {
@@ -34,6 +35,9 @@ export class GitHubUpdater {
         // GitHub configuration
         const { githubToken: token, owner, repo } = config;
 
+        // Get the full page content
+        const fullPageContent = ContentManager.getFullPageContent(content);
+
         console.log('Sending repository dispatch event to:', `${owner}/${repo}`);
         console.log('Event payload:', {
             event_type: 'content-update',
@@ -56,7 +60,7 @@ export class GitHubUpdater {
                     event_type: 'content-update',
                     client_payload: {
                         pageId: pageId,
-                        content: content
+                        content: fullPageContent
                     }
                 })
             });

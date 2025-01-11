@@ -16,7 +16,6 @@ export class ContentManager {
 
     static async fetchPageContent(pageId) {
         try {
-            // Use fetch with raw text request
             const pagePath = `/website-content/${pageId}.html`;
             const response = await fetch(pagePath, {
                 headers: {
@@ -37,8 +36,16 @@ export class ContentManager {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
             
-            // Get the main content
-            const mainContent = doc.querySelector('main');
+            // Get the entire document structure
+            const docClone = doc.cloneNode(true);
+            
+            // Store template parts
+            this.templateHead = docClone.head.innerHTML;
+            this.templateHeader = docClone.querySelector('header').outerHTML;
+            this.templateFooter = docClone.querySelector('footer').outerHTML;
+            
+            // Get the main content for editing
+            const mainContent = docClone.querySelector('main');
             if (!mainContent) {
                 console.error('No main content found');
                 return '';
@@ -47,25 +54,11 @@ export class ContentManager {
             // Create a container for the content
             const container = document.createElement('div');
             
-            // Get the main wrapper and its contents
-            const mainWrapper = mainContent.querySelector('.main-wrapper');
-            if (!mainWrapper) {
-                console.error('No main-wrapper found');
-                return '';
-            }
-
-            // Clone all content from main wrapper
-            Array.from(mainWrapper.children).forEach(child => {
+            // Get all sections from main
+            Array.from(mainContent.children).forEach(child => {
                 console.log('Processing element:', child.tagName, child.className);
                 container.appendChild(child.cloneNode(true));
             });
-
-            // Log what we found
-            console.log('Found elements with classes:', 
-                Array.from(container.querySelectorAll('*'))
-                    .filter(el => el.className)
-                    .map(el => `${el.tagName}: ${el.className}`)
-            );
 
             // Process each element to add class annotations
             const processedContent = this.annotateContent(container);
@@ -138,5 +131,25 @@ export class ContentManager {
             'case-study/bubble-function-case-study': 'Bubble Function Case Study'
         };
         return titles[pageId] || pageId;
+    }
+
+    static getFullPageContent(editedContent) {
+        // Create a new HTML document
+        const fullPage = `
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                ${this.templateHead}
+            </head>
+            <body>
+                ${this.templateHeader}
+                <main>
+                    ${editedContent}
+                </main>
+                ${this.templateFooter}
+            </body>
+            </html>
+        `;
+        return fullPage;
     }
 } 
