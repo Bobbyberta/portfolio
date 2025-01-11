@@ -182,6 +182,8 @@
 @media (max-width: 768px) {
     .overview-card {
         padding: var(--spacing-sm-md);
+        margin-left: var(--spacing-md);
+        margin-right: var(--spacing-md);
     }
 }
 
@@ -189,6 +191,8 @@
     /* Overview */
     .overview-card {
         padding: var(--spacing-sm-md);
+        margin-left: var(--spacing-md);
+        margin-right: var(--spacing-md);
     }
 
     .experience-key {
