@@ -169,6 +169,8 @@
     transform: scale(1.2);
     transition: transform 0.2s ease;
 } 
+
+/* Desktop styles */
 @media (min-width: 1024px) {
     .overview-card {
         margin-left: 0;
@@ -176,8 +178,8 @@
         width: auto;
     }
 }
-
-@media (mx-width: 769px) {
+/* Large Screen styles */
+@media (max-width: 769px) {
     .overview-card {
         margin-left: var(--spacing-md);
         margin-right: var(--spacing-md);
