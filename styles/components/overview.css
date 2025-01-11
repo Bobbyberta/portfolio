@@ -175,6 +175,7 @@
     .overview-card {
         margin-left: 0;
         margin-right: var(--spacing-md);
+        margin-top: var(--spacing-md);
         width: auto;
     }
 }
