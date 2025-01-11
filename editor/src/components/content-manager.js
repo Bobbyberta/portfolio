@@ -47,19 +47,17 @@ export class ContentManager {
             // Create a container for the content
             const container = document.createElement('div');
             
-            // Get all sections
-            const sections = mainContent.querySelectorAll('section');
-            console.log('Found sections:', sections.length);
-            
-            if (sections.length === 0) {
-                console.error('No sections found');
+            // Get the main wrapper and its contents
+            const mainWrapper = mainContent.querySelector('.main-wrapper');
+            if (!mainWrapper) {
+                console.error('No main-wrapper found');
                 return '';
             }
 
-            // Add each child of main to our container
-            Array.from(sections).forEach(section => {
-                console.log('Processing section:', section.className);
-                container.appendChild(section.cloneNode(true));
+            // Clone all content from main wrapper
+            Array.from(mainWrapper.children).forEach(child => {
+                console.log('Processing element:', child.tagName, child.className);
+                container.appendChild(child.cloneNode(true));
             });
 
             // Log what we found
