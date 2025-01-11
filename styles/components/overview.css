@@ -172,8 +172,8 @@
 
 @media (min-width: 768px) {
     .overview-card {
-        /* margin-left: var(--spacing-md);
-        margin-right: var(--spacing-md); */
+        margin-left: var(--spacing-md);
+        margin-right: var(--spacing-md);
         width: auto;
     }
 }
