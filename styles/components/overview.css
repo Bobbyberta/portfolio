@@ -170,12 +170,17 @@
     transition: transform 0.2s ease;
 } 
 
+@media (min-width: 768px) {
+    .overview-card {
+        margin-left: var(--spacing-md);
+        margin-right: var(--spacing-md);
+    }
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
     .overview-card {
         padding: var(--spacing-sm-md);
-        margin-left: var(--spacing-md);
-        margin-right: var(--spacing-md);
     }
 }
 
