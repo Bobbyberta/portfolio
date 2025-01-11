@@ -32,9 +32,6 @@
 
 @media (max-width: 768px) {
         /* About section */
-            .about-section {
-                padding: var(--spacing-lg) var(--spacing-sm);
-            }
         
             .about-content {
                 grid-template-columns: 1fr;
@@ -53,9 +50,6 @@
 }
 @media (max-width: 480px) {
         /* About section */
-            .about-section {
-                padding: var(--spacing-md) var(--spacing-sm);
-            }
         
             .about-content {
                 gap: var(--spacing-sm-md);
