@@ -6,6 +6,7 @@
     box-shadow: var(--shadow-sm);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid var(--border);
+    padding: var(--spacing-md);
 }
 
 .content-card:hover {
@@ -85,7 +86,7 @@
     .content-card-content {
         padding: var(--spacing-sm-md);
     }
-    
+
     .content-card {
         padding: var(--spacing-sm-md);
     }
