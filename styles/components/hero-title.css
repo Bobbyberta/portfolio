@@ -15,10 +15,14 @@
 @media (min-width: 1024px) {
     .hero-content {
         position: sticky;
-        top: calc(var(--header-height) + 2rem);
+        top: var(--header-height);
         padding-bottom: 0;
         margin: 0;
         max-width: none;
+    }
+
+    .hero-image {
+        height: 350px;
     }
 }
 
@@ -92,10 +96,3 @@
 .hero-subtitle .highlight:hover {
     color: var(--accent);
 } 
-
-@media (min-width: 1024px) {
-
-    .hero-image {
-        height: 350px;
-    }
-}
