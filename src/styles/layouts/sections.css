@@ -39,11 +39,21 @@ main {
 
 /* Responsive Styles */
 @media (min-width: 1024px) {
-    .hero.section-standard {
+    /* .hero.section-standard {
         display: grid;
         grid-template-columns: 1fr 2fr;
         gap: var(--spacing-xl);
         align-items: start;
+    } */
+                /* Hero section */
+    .hero.section-standard {
+    display: grid;
+    grid-template-columns: minmax(300px, 1fr) minmax(400px, 2fr);
+    grid-template-rows: auto;
+    gap: var(--spacing-xl);
+        align-items: start;
+        text-align: center;
+        min-height: auto;
     }
 }
 
