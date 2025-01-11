@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Editor</title>
+    <link rel="stylesheet" href="../../../src/styles/main.css">
+    <link rel="stylesheet" href="./styles/wysiwyg-editor.css">
+    <style>
+        .editor-wrapper {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--spacing-md);
+        }
+        
+        .editor-controls {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .page-selector {
+            flex: 1;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xsm);
+            margin-bottom: var(--spacing-sm);
+            padding: var(--spacing-sm);
+            background: var(--bg-light);
+            border-radius: var(--border-radius-small);
+        }
+        
+        .breadcrumb span {
+            color: var(--text-light);
+        }
+        
+        .breadcrumb strong {
+            color: var(--text-dark);
+        }
+        
+        .wysiwyg-container {
+            min-height: 500px;
+            background: var(--bg);
+            margin: var(--spacing-md) 0;
+            border: 2px solid var(--border-color);
+        }
+        
+        .wysiwyg-content:empty::before {
+            content: 'Select a page and start editing...';
+            color: var(--text-light);
+            font-style: italic;
+            padding: var(--spacing-sm);
+            display: block;
+        }
+        
+        .wysiwyg-toolbar {
+            padding: var(--spacing-sm);
+            background: var(--bg-light);
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        #page-select {
+            padding: var(--spacing-xsm) var(--spacing-sm);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-small);
+            width: 100%;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Content Editor</div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="editor-wrapper">
+            <div class="breadcrumb">
+                <span>Editing:</span>
+                <strong id="current-page">No page selected</strong>
+            </div>
+            <div class="editor-controls">
+                <div class="page-selector">
+                    <label for="page-select">Select Page:</label>
+                    <select id="page-select">
+                        <optgroup label="Pages">
+                            <option value="about">About</option>
+                            <option value="blog">Blog</option>
+                            <option value="contact">Contact</option>
+                        </optgroup>
+                        <optgroup label="Blog Posts">
+                            <option value="blog/bubble-function-blog">Bubble Function Blog</option>
+                            <option value="blog/deepest-ocean-case-study">Deepest Ocean Case Study</option>
+                        </optgroup>
+                        <optgroup label="Case Studies">
+                            <option value="case-study/bubble-function-case-study">Bubble Function Case Study</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <button class="button" id="export-content">Export All Content</button>
+            </div>
+
+            <div class="editor-instructions">
+                <p>Use the toolbar above to format your content. Available tools:</p>
+                <ul>
+                    <li>H2 - Create headings</li>
+                    <li>¶ - Create paragraphs</li>
+                    <li>B - Bold text</li>
+                    <li>I - Italic text</li>
+                    <li>🔗 - Add links</li>
+                    <li>• - Create bullet lists</li>
+                    <li>1. - Create numbered lists</li>
+                    <li>📷 - Add images</li>
+                    <li> - Add code blocks</li>
+                </ul>
+            </div>
+
+            <div id="editor" class="wysiwyg-container"></div>
+            
+            <div class="button-group">
+                <button class="button" id="save-content">Save Content</button>
+                <button class="button" id="export-current">Export Current Page</button>
+            </div>
+        </div>
+    </main>
+
+    <script type="module">
+        import { WYSIWYGEditor } from './components/wysiwyg-editor.js';
+        import { ContentManager } from './components/content-manager.js';
+        import { ContentExport } from './components/content-export.js';
+
+        // Initialize editor
+        const editor = new WYSIWYGEditor('#editor', {
+            customStyles: [
+                {
+                    name: 'content-card',
+                    label: 'Content Card',
+                    html: '<div class="content-card"><div class="content-card-content"></div></div>'
+                },
+                {
+                    name: 'cta-button',
+                    label: 'CTA Button',
+                    html: '<a href="#" class="cta-button primary">Button Text</a>'
+                }
+            ]
+        });
+
+        // Handle page selection
+        const pageSelect = document.getElementById('page-select');
+        const currentPageElement = document.getElementById('current-page');
+        
+        pageSelect.addEventListener('change', async () => {
+            currentPageElement.textContent = ContentManager.getPageTitle(pageSelect.value);
+            
+            // Show loading state
+            editor.setContent('Loading...');
+            
+            const content = await ContentManager.loadContent(pageSelect.value);
+            if (content) {
+                editor.setContent(content);
+            } else {
+                editor.setContent('');
+            }
+        });
+
+        // Handle save button
+        document.getElementById('save-content').addEventListener('click', () => {
+            const content = editor.getContent();
+            ContentManager.saveContent(pageSelect.value, content);
+            alert('Content saved!');
+        });
+
+        // Handle export current page
+        document.getElementById('export-current').addEventListener('click', () => {
+            ContentExport.exportPage(pageSelect.value);
+        });
+
+        // Handle export all content
+        document.getElementById('export-content').addEventListener('click', () => {
+            ContentExport.exportContent();
+        });
+
+        // Load initial content
+        (async () => {
+            const initialContent = await ContentManager.loadContent(pageSelect.value);
+            if (initialContent) {
+                editor.setContent(initialContent);
+            }
+        })();
+    </script>
+</body>
+</html> 

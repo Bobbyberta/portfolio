@@ -34,6 +34,7 @@ export default defineConfig({
         'pages/blog/deepest-ocean-case-study': resolve(__dirname, 'src/pages/blog/deepest-ocean-case-study.html'),
         'pages/case-study/bubble-function-case-study': resolve(__dirname, 'src/pages/case-study/bubble-function-case-study.html'),
         'pages/blog/bubble-function-blog': resolve(__dirname, 'src/pages/blog/bubble-function-blog.html'),
+        'editor/index': resolve(__dirname, 'src/editor/index.html'),
       },
       output: {
         dir: 'dist',

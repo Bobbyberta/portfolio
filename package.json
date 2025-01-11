@@ -6,7 +6,10 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "editor": "vite --config vite.editor.config.js --host",
+    "build:editor": "vite build --config vite.editor.config.js",
+    "preview:editor": "vite preview --config vite.editor.config.js"
   },
   "dependencies": {
     "serve": "^14.2.1"
