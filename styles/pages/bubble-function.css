@@ -126,6 +126,17 @@
     transition: width 0.3s ease;
 }
 
+@media (max-width: 767px) {
+    .project-conclusion {
+        margin: var(--spacing-lg) 0;
+    }
+
+    .blog-cta {
+        padding: var(--spacing-lg) var(--spacing-sm);
+        margin: var(--spacing-lg) 0;
+    }
+}
+
 /* Responsive Adjustments */
 @media (min-width: 768px) {
     .team-list {
@@ -143,6 +154,10 @@
         background-color: var(--bg-light);
         border-radius: var(--border-radius-small);
     }
+
+    .project-overview {
+    padding: var(--spacing-md) 0 0 0;
+    }
 }
 
 
@@ -155,6 +170,10 @@
     .role-type {
         display: block;  /* Make role type appear on new line */
         margin-top: var(--spacing-xsm);  /* Add some spacing between role and role type */
+    }
+
+    .project-overview {
+    padding: var(--spacing-sm) 0 0 0;
     }
 }
 
@@ -204,17 +223,6 @@
 .cta-text p {
     color: var(--text-light);
     margin-bottom: var(--spacing-xsm);
-}
-
-@media (max-width: 767px) {
-    .project-conclusion {
-        margin: var(--spacing-lg) 0;
-    }
-
-    .blog-cta {
-        padding: var(--spacing-lg) var(--spacing-sm);
-        margin: var(--spacing-lg) 0;
-    }
 }
 
     /* Adjust team members list spacing */
