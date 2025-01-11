@@ -12,6 +12,13 @@
     width: 100%;
 }
 
+/* Desktop styles */
+@media (min-width: 1024px) {
+    .overview-card {
+        padding-right: var(--spacing-xl);
+    }
+}
+
 /* Collapsible Section */
 .collapsible-section {
     border-bottom: 1px solid var(--border-color);
