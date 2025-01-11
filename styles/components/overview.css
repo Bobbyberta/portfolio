@@ -9,6 +9,8 @@
     border-radius: var(--border-radius-medium);
     padding: var(--spacing-md);
     box-shadow: var(--shadow-md);
+    margin-left: 0;
+    margin-right: var(--spacing-xl);
     width: 100%;
 }
 
@@ -167,15 +169,6 @@
     transform: scale(1.2);
     transition: transform 0.2s ease;
 } 
-
-/* Desktop styles */
-@media (min-width: 1024px) {
-    .overview-card {
-        padding-right: var(--spacing-xl);
-        margin-left: 0;
-        margin-right: var(--spacing-xl);
-    }
-}
 
 /* Mobile styles */
 @media (max-width: 768px) {
