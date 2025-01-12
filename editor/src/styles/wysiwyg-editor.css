@@ -114,3 +114,31 @@
     content: '🎨';
     margin-right: var(--spacing-xxs);
 } 
+
+.head-section {
+    border: 2px dashed var(--border-color);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background-color: var(--bg-light);
+}
+
+.head-section::before {
+    content: '<head>';
+    display: block;
+    color: var(--text-light);
+    font-family: monospace;
+    margin-bottom: var(--spacing-sm);
+}
+
+.body-section {
+    border: 2px dashed var(--border-color);
+    padding: var(--spacing-sm);
+}
+
+.body-section::before {
+    content: '<body>';
+    display: block;
+    color: var(--text-light);
+    font-family: monospace;
+    margin-bottom: var(--spacing-sm);
+} 

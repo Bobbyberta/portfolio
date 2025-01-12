@@ -36,29 +36,20 @@ export class ContentManager {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
             
-            // Get the entire document structure
-            const docClone = doc.cloneNode(true);
-            
-            // Store template parts
-            this.templateHead = docClone.head.innerHTML;
-            this.templateHeader = docClone.querySelector('header').outerHTML;
-            this.templateFooter = docClone.querySelector('footer').outerHTML;
-            
-            // Get the main content for editing
-            const mainContent = docClone.querySelector('main');
-            if (!mainContent) {
-                console.error('No main content found');
-                return '';
-            }
-
-            // Create a container for the content
+            // Create a container for the entire document
             const container = document.createElement('div');
             
-            // Get all sections from main
-            Array.from(mainContent.children).forEach(child => {
-                console.log('Processing element:', child.tagName, child.className);
-                container.appendChild(child.cloneNode(true));
-            });
+            // Add head content
+            const headSection = document.createElement('div');
+            headSection.className = 'head-section';
+            headSection.innerHTML = doc.head.innerHTML;
+            container.appendChild(headSection);
+            
+            // Add body content
+            const bodySection = document.createElement('div');
+            bodySection.className = 'body-section';
+            bodySection.innerHTML = doc.body.innerHTML;
+            container.appendChild(bodySection);
 
             // Process each element to add class annotations
             const processedContent = this.annotateContent(container);
@@ -133,20 +124,23 @@ export class ContentManager {
         return titles[pageId] || pageId;
     }
 
-    static getFullPageContent(editedContent) {
+    static getFullPageContent(content) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(content, 'text/html');
+        
+        // Extract head and body content
+        const headContent = doc.querySelector('.head-section')?.innerHTML || '';
+        const bodyContent = doc.querySelector('.body-section')?.innerHTML || '';
+        
         // Create a new HTML document
         const fullPage = `
             <!DOCTYPE html>
             <html lang="en">
             <head>
-                ${this.templateHead}
+                ${headContent}
             </head>
             <body>
-                ${this.templateHeader}
-                <main>
-                    ${editedContent}
-                </main>
-                ${this.templateFooter}
+                ${bodyContent}
             </body>
             </html>
         `;
