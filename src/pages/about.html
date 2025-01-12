@@ -3,116 +3,164 @@
             <html lang="en">
             <head>
                 
+  <script type="module" src="/@vite/client"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get in touch with Bobbie Allsop - UX, Games &amp; UI Designer. Connect for collaboration opportunities, design projects, or to discuss your next digital experience.">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bobbieallsop.github.io/portfolio/pages/contact.html">
-    <meta property="og:title" content="Contact - Bobbie Allsop">
-    <meta property="og:description" content="Get in touch with Bobbie Allsop - UX, Games &amp; UI Designer. Connect for collaboration opportunities or to discuss your next digital experience.">
-    <meta property="og:image" content="https://bobbieallsop.github.io/portfolio/images/social-share.png">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://bobbieallsop.github.io/portfolio/pages/contact.html">
-    <meta property="twitter:title" content="Contact - Bobbie Allsop">
-    <meta property="twitter:description" content="Get in touch with Bobbie Allsop - UX, Games &amp; UI Designer. Connect for collaboration opportunities or to discuss your next digital experience.">
-    <meta property="twitter:image" content="https://bobbieallsop.github.io/portfolio/images/social-share.png">
-
-    <title>Contact - Bobbie Allsop</title>
-    <link rel="stylesheet" href="../styles/main.css">
-    <script type="module" src="../js/main.js" defer=""></script>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../favicon/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
-    <link rel="manifest" href="../favicon/site.webmanifest">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+    <title>Content Editor</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <link rel="stylesheet" href="/styles/wysiwyg-editor.css">
+    <style>
+        .editor-wrapper {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--spacing-md);
+        }
+        
+        .editor-controls {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .page-selector {
+            flex: 1;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xsm);
+            margin-bottom: var(--spacing-sm);
+            padding: var(--spacing-sm);
+            background: var(--bg-light);
+            border-radius: var(--border-radius-small);
+        }
+        
+        .breadcrumb span {
+            color: var(--text-light);
+        }
+        
+        .breadcrumb strong {
+            color: var(--text-dark);
+        }
+        
+        .wysiwyg-container {
+            min-height: 500px;
+            background: var(--bg);
+            margin: var(--spacing-md) 0;
+            border: 2px solid var(--border-color);
+        }
+        
+        .wysiwyg-content:empty::before {
+            content: 'Select a page and start editing...';
+            color: var(--text-light);
+            font-style: italic;
+            padding: var(--spacing-sm);
+            display: block;
+        }
+        
+        .wysiwyg-toolbar {
+            padding: var(--spacing-sm);
+            background: var(--bg-light);
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        #page-select {
+            padding: var(--spacing-xsm) var(--spacing-sm);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-small);
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        #update-site {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        #update-site:hover {
+            background-color: var(--primary-dark);
+        }
+    </style>
 
             </head>
             <body>
-                <header>
+                
+    <header>
         <nav>
-            <div class="logo">Bobbie Allsop</div>
-            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-                <span class="sr-only">Menu</span>
-                ☰
-            </button>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="/portfolio/">Home</a></li>
-                <li><a href="/portfolio/pages/about.html">About</a></li>
-                <li><a href="/portfolio/pages/blog.html">Blog</a></li>
-                <li><a href="/portfolio/pages/contact.html" aria-current="page">Contact</a></li>
-            </ul>
+            <div class="logo">Content Editor</div>
         </nav>
     </header>
-                <main>
-                    <!-- CSS Classes: about-section section-standard --><section class="about-section section-standard">
-                <h1>About Me</h1>
-                <!-- CSS Classes: about-content --><div class="about-content">
-                    <img src="../images/profile-photo2.png" alt="Profile photo showing a person wearing glasses and a red sweater">
-                    <!-- CSS Classes: about-text --><div class="about-text">
-                        <!-- CSS Classes: intro --><p class="intro">Hi, I'm Bobbie, a designer and creative problem-solver passionate about visually bringing ideas to life, especially in ed tech and health tech. With 8+ years of experience, I thrive in collaborative environments, facilitating design thinking and working closely with teams to create impactful user experiences.</p>
-                        
-                        <!-- CSS Classes: experience section-header --><div class="experience section-header">
-                            <h2>Experience</h2>
-                            <p>My background spans game design, product design, and UX. At Mangahigh, I released three original game titles, contributed to releasing a new Learn To Code product, and spent nearly four years refining their platform's UX. At Mayden (health tech), I've focused on complex UX challenges like designing UI/UX for multifactor authentication through user research and close collaboration.</p>
-                        </div>
 
-                        <!-- CSS Classes: skills --><div class="skills">
-                            <h2>Skills &amp; Expertise</h2>
-                            <!-- CSS Classes: tags-grid --><ul class="tags-grid">
-                                <!-- CSS Classes: tag-item --><li class="tag-item">
-                                    <!-- CSS Classes: tag-text --><span class="tag-text">Strong Communication</span>
-                                </li>
-                                <!-- CSS Classes: tag-item --><li class="tag-item">
-                                    <!-- CSS Classes: tag-text --><span class="tag-text">Visual Thinking</span>
-                                </li>
-                                <!-- CSS Classes: tag-item --><li class="tag-item">
-                                    <!-- CSS Classes: tag-text --><span class="tag-text">Workshop Facilitation</span>
-                                </li>
-                                <!-- CSS Classes: tag-item --><li class="tag-item">
-                                    <!-- CSS Classes: tag-text --><span class="tag-text">User Research</span>
-                                </li>
-                                <!-- CSS Classes: tag-item --><li class="tag-item">
-                                    <!-- CSS Classes: tag-text --><span class="tag-text">Collaborative Tools (Miro)</span>
-                                </li>
-                                <!-- CSS Classes: tag-item --><li class="tag-item">
-                                    <!-- CSS Classes: tag-text --><span class="tag-text">Usability Testing (Maze)</span>
-                                </li>
-                                <!-- CSS Classes: tag-item --><li class="tag-item">
-                                    <!-- CSS Classes: tag-text --><span class="tag-text">UI/UX Design</span>
-                                </li>
-                                <!-- CSS Classes: tag-item --><li class="tag-item">
-                                    <!-- CSS Classes: tag-text --><span class="tag-text">Game Design</span>
-                                </li>
-                                <!-- CSS Classes: tag-item --><li class="tag-item">
-                                    <!-- CSS Classes: tag-text --><span class="tag-text">Basic Coding Knowledge</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- CSS Classes: vision section-header --><div class="vision section-header">
-                            <h2>Vision</h2>
-                            <p>I'm seeking creative projects where I can contribute my skills and passion. My long-term goal is to run a studio supporting others in realizing their creative visions, with a strong focus on user experience.</p>
-                        </div>
-
-                        <!-- CSS Classes: connect section-header --><div class="connect section-header">
-                            <p>Connect with me on <a href="https://www.linkedin.com/in/bobbieallsop/" target="_blank" rel="noopener noreferrer">LinkedIn</a> to discuss your next project.</p>
-                        </div>
-                    </div>
+    <main>
+        <div class="editor-wrapper">
+            <div class="breadcrumb">
+                <span>Editing:</span>
+                <strong id="current-page">No page selected</strong>
+            </div>
+            <div class="editor-controls">
+                <div class="page-selector">
+                    <label for="page-select">Select Page:</label>
+                    <select id="page-select">
+                        <optgroup label="Pages">
+                            <option value="about">About</option>
+                            <option value="blog">Blog</option>
+                            <option value="contact">Contact</option>
+                        </optgroup>
+                        <optgroup label="Blog Posts">
+                            <option value="blog/bubble-function-blog">Bubble Function Blog</option>
+                            <option value="blog/deepest-ocean-case-study">Deepest Ocean Case Study</option>
+                        </optgroup>
+                        <optgroup label="Case Studies">
+                            <option value="case-study/bubble-function-case-study">Bubble Function Case Study</option>
+                        </optgroup>
+                    </select>
                 </div>
-            </section>
-                </main>
-                <footer>
-        <p>© 2024 Bobbie Allsop. All rights reserved.</p>
-    </footer>
+                <button class="button" id="export-content">Export All Content</button>
+                <button class="button" id="import-content">Import Content</button>
+                <input type="file" id="import-file" accept=".json" style="display: none">
+                <button id="reload-about" style="display: none;">Reload About Page</button>
+            </div>
+
+            <div class="editor-instructions">
+                <p>Use the toolbar above to format your content. Available tools:</p>
+                <ul>
+                    <li>H2 - Create headings</li>
+                    <li>¶ - Create paragraphs</li>
+                    <li>B - Bold text</li>
+                    <li>I - Italic text</li>
+                    <li>🔗 - Add links</li>
+                    <li>• - Create bullet lists</li>
+                    <li>1. - Create numbered lists</li>
+                    <li>📷 - Add images</li>
+                    <li> - Add code blocks</li>
+                </ul>
+            </div>
+
+            <div id="editor" class="wysiwyg-container"></div>
+            
+            <div class="button-group">
+                <button class="button" id="save-content">Save Content</button>
+                <button class="button" id="export-current">Export Current Page</button>
+                <button class="button" id="update-site">Update Site</button>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="/index.html?html-proxy&amp;index=0.js"></script>
+
+ 
             </body>
             </html>
         
