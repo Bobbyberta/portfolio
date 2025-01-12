@@ -28,32 +28,59 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for proper versioning
 
       - name: Update Content
         env:
           CONTENT_UPDATE: ${{ github.event.client_payload.content }}
           PAGE_ID: ${{ github.event.client_payload.pageId }}
         run: |
+          # Ensure directory exists and create backup
+          FILE_PATH="src/pages/${PAGE_ID}.html"
+          BACKUP_PATH="src/pages/${PAGE_ID}.backup.html"
           mkdir -p "src/pages/$(dirname ${PAGE_ID})"
-          echo "${CONTENT_UPDATE}" > "src/pages/${PAGE_ID}.html"
+          if [ -f "$FILE_PATH" ]; then
+            cp "$FILE_PATH" "$BACKUP_PATH"
+          fi
+          # Update the file
+          echo "${CONTENT_UPDATE}" > "$FILE_PATH"
+          # Verify file was written correctly
+          if [ ! -f "$FILE_PATH" ]; then
+            echo "Failed to write file"
+            if [ -f "$BACKUP_PATH" ]; then
+              cp "$BACKUP_PATH" "$FILE_PATH"
+            fi
+            exit 1
+          fi
 
       - name: Commit changes
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add .
-          git commit -m "Update content for ${{ github.event.client_payload.pageId }}"
-          git push
+          # Check if there are any changes to commit
+          if git diff --quiet; then
+            echo "No changes to commit"
+          else
+            git add .
+            git commit -m "Update content for ${{ github.event.client_payload.pageId }} [skip ci]"
+            git push
+          fi
 
   build-and-deploy:
-    needs: [update-content]
-    if: always()
+    needs: update-content
+    if: |
+      always() && 
+      (needs.update-content.result == 'success' || github.event_name != 'repository_dispatch')
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1  # Shallow clone for build
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -61,13 +88,23 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
+        env:
+          NODE_ENV: production
         run: npm ci
 
       - name: Build website
         env:
           BASE_URL: '/portfolio'
         run: |
+          # Clean dist directory
+          rm -rf dist
+          # Build site
           npm run build
+          # Verify build output
+          if [ ! -f "dist/index.html" ]; then
+            echo "Build failed - index.html not found"
+            exit 1
+          fi
           cp dist/index.html dist/404.html
 
       - name: Deploy to gh-pages branch
@@ -76,6 +113,7 @@ jobs:
           folder: dist
           branch: gh-pages
           clean: true
+          commit-message: "Deploy to GitHub Pages [skip ci]"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
