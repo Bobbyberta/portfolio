@@ -6,7 +6,7 @@ export class ContentManager {
     static loadContent(pageId) {
         // First try to load from localStorage (for unsaved changes)
         const savedContent = localStorage.getItem(`page_${pageId}`);
-        if (savedContent) {
+        if (savedContent && pageId !== 'about') {  // Skip cache for about page
             return savedContent;
         }
 
@@ -16,25 +16,33 @@ export class ContentManager {
 
     static async fetchPageContent(pageId) {
         try {
-            const pagePath = `/website-content/${pageId}.html`;
+            // Clear localStorage for about page
+            if (pageId === 'about') {
+                localStorage.removeItem('page_about');
+                console.log('Cleared about page from localStorage');
+            }
+
+            let pagePath = `/website-content/${pageId}.html`;
+            console.log('Attempting to fetch page:', pagePath);
+            
             const response = await fetch(pagePath, {
                 headers: {
                     'Accept': 'text/plain'
                 }
             });
             
-            console.log('Fetching page:', pagePath);
-            
             if (!response.ok) {
                 console.error('Failed to fetch:', pagePath, response.status);
-                throw new Error(`Failed to load page: ${pagePath}`);
+                throw new Error(`Failed to load page: ${pageId}`);
             }
 
             const html = await response.text();
-            console.log('Received HTML content:', html.substring(0, 200));
+            console.log('Raw HTML content:', html.substring(0, 200) + '...');
             
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
+            console.log('Parsed head:', doc.head.innerHTML.substring(0, 200) + '...');
+            console.log('Parsed body:', doc.body.innerHTML.substring(0, 200) + '...');
             
             // Create a container for the entire document
             const container = document.createElement('div');

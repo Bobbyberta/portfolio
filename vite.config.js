@@ -34,7 +34,6 @@ export default defineConfig({
         'pages/blog/deepest-ocean-case-study': resolve(__dirname, 'src/pages/blog/deepest-ocean-case-study.html'),
         'pages/case-study/bubble-function-case-study': resolve(__dirname, 'src/pages/case-study/bubble-function-case-study.html'),
         'pages/blog/bubble-function-blog': resolve(__dirname, 'src/pages/blog/bubble-function-blog.html'),
-        'editor/index': resolve(__dirname, 'src/editor/index.html'),
       },
       output: {
         dir: 'dist',
@@ -74,6 +73,36 @@ export default defineConfig({
         )
       } catch (err) {
         console.warn('Warning: Could not copy assets directory', err)
+      }
+
+      // Copy pages to editor's website-content directory
+      try {
+        // Create the website-content directory
+        mkdirSync(resolve(__dirname, 'dist/editor/website-content'), { recursive: true })
+        
+        // Copy all HTML files from src/pages to website-content
+        function copyPages(src, dest) {
+          const entries = readdirSync(src, { withFileTypes: true })
+          
+          for (const entry of entries) {
+            const srcPath = join(src, entry.name)
+            const destPath = join(dest, entry.name)
+            
+            if (entry.isDirectory()) {
+              mkdirSync(destPath, { recursive: true })
+              copyPages(srcPath, destPath)
+            } else if (entry.name.endsWith('.html')) {
+              copyFileSync(srcPath, destPath)
+            }
+          }
+        }
+        
+        copyPages(
+          resolve(__dirname, 'src/pages'),
+          resolve(__dirname, 'dist/editor/website-content')
+        )
+      } catch (err) {
+        console.warn('Warning: Could not copy pages to website-content', err)
       }
 
       // Copy images to root images directory

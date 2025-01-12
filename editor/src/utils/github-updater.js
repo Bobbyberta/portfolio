@@ -35,8 +35,48 @@ export class GitHubUpdater {
         // GitHub configuration
         const { githubToken: token, owner, repo } = config;
 
+        // For about page reset, use the original content from src/pages
+        let contentToUpdate = content;
+        if (pageId === 'about') {
+            try {
+                console.log('Attempting to fetch original about page...');
+                const response = await fetch('/website-content/about.html');
+                if (response.ok) {
+                    contentToUpdate = await response.text();
+                    console.log('Original about page content:', contentToUpdate.substring(0, 200) + '...');
+                    
+                    // Parse and process the content like normal page load
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(contentToUpdate, 'text/html');
+                    console.log('Parsed head content:', doc.head.innerHTML.substring(0, 200) + '...');
+                    console.log('Parsed body content:', doc.body.innerHTML.substring(0, 200) + '...');
+                    
+                    // Create container with head and body sections
+                    const container = document.createElement('div');
+                    
+                    const headSection = document.createElement('div');
+                    headSection.className = 'head-section';
+                    headSection.innerHTML = doc.head.innerHTML;
+                    container.appendChild(headSection);
+                    
+                    const bodySection = document.createElement('div');
+                    bodySection.className = 'body-section';
+                    bodySection.innerHTML = doc.body.innerHTML;
+                    container.appendChild(bodySection);
+                    
+                    contentToUpdate = container.innerHTML;
+                    console.log('Processed content for update:', contentToUpdate.substring(0, 200) + '...');
+                } else {
+                    console.error('Failed to fetch about page:', response.status);
+                }
+            } catch (error) {
+                console.error('Failed to fetch original about page:', error);
+                throw error;
+            }
+        }
+
         // Get the full page content
-        const fullPageContent = ContentManager.getFullPageContent(content);
+        const fullPageContent = ContentManager.getFullPageContent(contentToUpdate);
 
         console.log('Sending repository dispatch event to:', `${owner}/${repo}`);
         console.log('Event payload:', {
@@ -104,6 +144,75 @@ export class GitHubUpdater {
                 repo,
                 tokenLength: token.length
             });
+            throw error;
+        }
+    }
+
+    // Add version tracking
+    static async getPageVersions(pageId) {
+        const { githubToken: token, owner, repo } = config;
+        
+        try {
+            const response = await fetch(
+                `https://api.github.com/repos/${owner}/${repo}/commits?path=src/pages/${pageId}.html`,
+                {
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                }
+            );
+            
+            if (!response.ok) {
+                throw new Error('Failed to fetch page versions');
+            }
+            
+            const commits = await response.json();
+            return commits.map(commit => ({
+                sha: commit.sha,
+                date: new Date(commit.commit.author.date),
+                message: commit.commit.message,
+                author: commit.commit.author.name
+            }));
+        } catch (error) {
+            console.error('Failed to get page versions:', error);
+            throw error;
+        }
+    }
+
+    static async getPageContent(pageId, version) {
+        const { githubToken: token, owner, repo } = config;
+        
+        try {
+            const response = await fetch(
+                `https://api.github.com/repos/${owner}/${repo}/contents/src/pages/${pageId}.html?ref=${version}`,
+                {
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                }
+            );
+            
+            if (!response.ok) {
+                throw new Error('Failed to fetch page content');
+            }
+            
+            const data = await response.json();
+            const content = atob(data.content);
+            return content;
+        } catch (error) {
+            console.error('Failed to get page content:', error);
+            throw error;
+        }
+    }
+
+    static async rollbackToVersion(pageId, version) {
+        try {
+            const content = await this.getPageContent(pageId, version);
+            return this.updateContent(pageId, content);
+        } catch (error) {
+            console.error('Failed to rollback:', error);
             throw error;
         }
     }

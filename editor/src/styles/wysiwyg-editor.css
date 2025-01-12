@@ -142,3 +142,19 @@
     font-family: monospace;
     margin-bottom: var(--spacing-sm);
 } 
+
+.version-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--bg-light);
+    border-radius: var(--border-radius-small);
+}
+
+#version-select {
+    min-width: 300px;
+    padding: var(--spacing-xsm) var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+} 

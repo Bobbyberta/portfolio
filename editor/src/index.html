@@ -121,9 +121,15 @@
                         </optgroup>
                     </select>
                 </div>
+                <div class="version-controls" style="display: none;">
+                    <label for="version-select">Version:</label>
+                    <select id="version-select"></select>
+                    <button id="rollback-version" class="button">Rollback to Selected Version</button>
+                </div>
                 <button class="button" id="export-content">Export All Content</button>
                 <button class="button" id="import-content">Import Content</button>
                 <input type="file" id="import-file" accept=".json" style="display: none">
+                <button id="reload-about" style="display: none;">Reload About Page</button>
             </div>
 
             <div class="editor-instructions">
@@ -275,6 +281,66 @@
             } catch (error) {
                 console.error('Update failed:', error);
                 alert(`Failed to update site: ${error.message}`);
+            }
+        });
+
+        // Add reload button handler
+        const reloadButton = document.getElementById('reload-about');
+        pageSelect.addEventListener('change', () => {
+            reloadButton.style.display = pageSelect.value === 'about' ? 'block' : 'none';
+        });
+        
+        reloadButton.addEventListener('click', async () => {
+            localStorage.removeItem('page_about');
+            const content = await ContentManager.fetchPageContent('about');
+            editor.setContent(content);
+        });
+
+        // Handle version management
+        const versionControls = document.querySelector('.version-controls');
+        const versionSelect = document.getElementById('version-select');
+        
+        async function loadPageVersions(pageId) {
+            try {
+                const versions = await GitHubUpdater.getPageVersions(pageId);
+                versionSelect.innerHTML = versions.map(v => `
+                    <option value="${v.sha}">
+                        ${new Date(v.date).toLocaleString()} - ${v.message}
+                    </option>
+                `).join('');
+                versionControls.style.display = 'block';
+            } catch (error) {
+                console.error('Failed to load versions:', error);
+                versionControls.style.display = 'none';
+            }
+        }
+        
+        // Update version list when page changes
+        pageSelect.addEventListener('change', async () => {
+            await loadPageVersions(pageSelect.value);
+            // ... existing page change code ...
+        });
+        
+        // Handle rollback
+        document.getElementById('rollback-version').addEventListener('click', async () => {
+            const pageId = pageSelect.value;
+            const version = versionSelect.value;
+            
+            if (!confirm('Are you sure you want to rollback to this version?')) {
+                return;
+            }
+            
+            try {
+                await GitHubUpdater.rollbackToVersion(pageId, version);
+                alert('Rollback successful! The page will update shortly.');
+                
+                // Reload the editor content
+                localStorage.removeItem(`page_${pageId}`);
+                const content = await ContentManager.fetchPageContent(pageId);
+                editor.setContent(content);
+            } catch (error) {
+                console.error('Rollback failed:', error);
+                alert('Failed to rollback. Check console for details.');
             }
         });
     </script>

@@ -43,12 +43,10 @@ function websiteContentPlugin() {
 export default defineConfig({
   base: '/',
   build: {
-    outDir: resolve(__dirname, 'dist-editor'),
+    outDir: resolve(__dirname, 'dist/editor'),
     emptyOutDir: true,
     rollupOptions: {
-      input: {
-        main: resolve(__dirname, './editor/src/index.html')
-      }
+      input: resolve(__dirname, 'editor/src/index.html')
     }
   },
   root: resolve(__dirname, 'editor/src'),
