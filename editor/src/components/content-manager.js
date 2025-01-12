@@ -22,7 +22,15 @@ export class ContentManager {
                 console.log('Cleared about page from localStorage');
             }
 
-            let pagePath = `/website-content/${pageId}.html`;
+            // Handle special cases for index files
+            let pagePath;
+            if (pageId === 'index') {
+                pagePath = `/website-content/index.html`;
+            } else if (pageId === 'blog/index') {
+                pagePath = `/website-content/blog.html`;  // Map blog/index to blog.html
+            } else {
+                pagePath = `/website-content/${pageId}.html`;
+            }
             console.log('Attempting to fetch page:', pagePath);
             
             const response = await fetch(pagePath, {
@@ -114,17 +122,28 @@ export class ContentManager {
 
     static getAllPages() {
         return {
-            pages: ['about', 'blog', 'contact'],
-            blogPosts: ['blog/bubble-function-blog', 'blog/deepest-ocean-case-study'],
-            caseStudies: ['case-study/bubble-function-case-study']
+            pages: [
+                'about',
+                'blog/index',
+                'contact',
+                'index'
+            ],
+            blogPosts: [
+                'blog/bubble-function-blog',
+                'blog/deepest-ocean-case-study'
+            ],
+            caseStudies: [
+                'case-study/bubble-function-case-study'
+            ]
         };
     }
 
     static getPageTitle(pageId) {
         const titles = {
             'about': 'About',
-            'blog': 'Blog',
+            'blog/index': 'Blog Home',
             'contact': 'Contact',
+            'index': 'Home Page',
             'blog/bubble-function-blog': 'Bubble Function Blog',
             'blog/deepest-ocean-case-study': 'Deepest Ocean Case Study',
             'case-study/bubble-function-case-study': 'Bubble Function Case Study'

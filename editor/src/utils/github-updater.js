@@ -32,6 +32,13 @@ export class GitHubUpdater {
         // Test access first
         await this.testAccess();
 
+        // Map page IDs to file paths
+        const getFilePath = (id) => {
+            if (id === 'index') return 'src/index.html';
+            if (id === 'blog/index') return 'src/pages/blog.html';
+            return `src/pages/${id}.html`;
+        };
+
         // GitHub configuration
         const { githubToken: token, owner, repo } = config;
 
@@ -82,7 +89,7 @@ export class GitHubUpdater {
         console.log('Event payload:', {
             event_type: 'content-update',
             client_payload: {
-                pageId: pageId,
+                pageId: getFilePath(pageId),
                 contentLength: content.length // Don't log full content
             }
         });
@@ -99,7 +106,7 @@ export class GitHubUpdater {
                 body: JSON.stringify({
                     event_type: 'content-update',
                     client_payload: {
-                        pageId: pageId,
+                        pageId: getFilePath(pageId),
                         content: fullPageContent
                     }
                 })

@@ -97,10 +97,24 @@ export default defineConfig({
           }
         }
         
+        // Copy pages from src/pages
         copyPages(
           resolve(__dirname, 'src/pages'),
           resolve(__dirname, 'dist/editor/website-content')
         )
+
+        // Copy index.html to website-content
+        copyFileSync(
+          resolve(__dirname, 'src/index.html'),
+          resolve(__dirname, 'dist/editor/website-content/index.html')
+        )
+
+        // Copy blog.html to website-content
+        copyFileSync(
+          resolve(__dirname, 'src/pages/blog.html'),
+          resolve(__dirname, 'dist/editor/website-content/blog.html')
+        )
+
       } catch (err) {
         console.warn('Warning: Could not copy pages to website-content', err)
       }

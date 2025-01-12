@@ -16,8 +16,16 @@ function websiteContentPlugin() {
               const portfolioRoot = path.resolve(__dirname);
               // Get the requested file path
               const requestedFile = req.url.replace('/website-content/', '');
-              // Construct full path to the file
-              const filePath = path.join(portfolioRoot, 'src', 'pages', requestedFile);
+              
+              // Determine the correct source file path
+              let filePath;
+              if (requestedFile === 'index.html') {
+                filePath = path.join(portfolioRoot, 'src', 'index.html');
+              } else if (requestedFile === 'blog.html') {
+                filePath = path.join(portfolioRoot, 'src', 'pages', 'blog.html');
+              } else {
+                filePath = path.join(portfolioRoot, 'src', 'pages', requestedFile);
+              }
               
               console.log('Attempting to read:', filePath);
               
