@@ -158,3 +158,160 @@
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-small);
 } 
+
+/* Editor Layout */
+.editor-wrapper {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    background: var(--bg);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-md);
+}
+
+/* Control Panel */
+.editor-controls {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+    background: var(--bg-light);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-medium);
+    border: 1px solid var(--border-color);
+}
+
+/* HTML Structure Sections */
+.head-section,
+.body-section {
+    border: 2px dashed var(--border-color);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--border-radius-medium);
+    position: relative;
+}
+
+.head-section {
+    background-color: rgba(var(--primary-rgb), 0.05);
+}
+
+.body-section {
+    background-color: rgba(var(--primary-rgb), 0.02);
+}
+
+.head-section::before,
+.body-section::before {
+    display: block;
+    color: var(--text-light);
+    font-family: monospace;
+    margin-bottom: var(--spacing-sm);
+    position: absolute;
+    top: -12px;
+    left: var(--spacing-sm);
+    background: var(--bg);
+    padding: 0 var(--spacing-sm);
+    border-radius: var(--border-radius-small);
+    border: 1px solid var(--border-color);
+    font-size: var(--small-font-size);
+}
+
+/* CSS Class Annotations */
+.css-annotation {
+    display: block;
+    padding: var(--spacing-xsm) var(--spacing-sm);
+    margin: var(--spacing-sm) 0;
+    background-color: rgba(var(--primary-rgb), 0.1);
+    color: var(--primary);
+    font-family: monospace;
+    font-size: var(--small-font-size);
+    border-radius: var(--border-radius-small);
+    cursor: default;
+    user-select: none;
+    border-left: 3px solid var(--primary);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    padding-right: 100px;
+}
+
+.css-annotation::before {
+    content: '🎨';
+    margin-right: var(--spacing-xxs);
+}
+
+.css-annotation::after {
+    content: 'CSS Class';
+    position: absolute;
+    right: var(--spacing-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+/* Version Controls */
+.version-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: var(--bg-light);
+    border-radius: var(--border-radius-small);
+    border: 1px solid var(--border-color);
+    margin-top: var(--spacing-sm);
+}
+
+#version-select {
+    min-width: 300px;
+    padding: var(--spacing-xsm) var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+    background: var(--bg);
+}
+
+/* Editor Instructions */
+.editor-instructions {
+    background: rgba(var(--primary-rgb), 0.05);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-medium);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
+}
+
+.editor-instructions h3 {
+    color: var(--primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.editor-instructions ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+    list-style: none;
+    padding: 0;
+}
+
+.editor-instructions li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--bg);
+    border-radius: var(--border-radius-small);
+    border: 1px solid var(--border-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .editor-controls {
+        flex-direction: column;
+    }
+    
+    .version-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    #version-select {
+        width: 100%;
+    }
+} 

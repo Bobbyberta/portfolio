@@ -37,6 +37,7 @@ export default defineConfig({
       },
       output: {
         dir: 'dist',
+        preserveEntrySignatures: 'strict',
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.')
           const extType = info[info.length - 1]
@@ -55,6 +56,10 @@ export default defineConfig({
           return 'assets/[name]-[hash][extname]'
         }
       }
+    },
+    html: {
+      inject: true,
+      minify: false
     },
     cssCodeSplit: false, // Prevent CSS code splitting
     cssMinify: true
