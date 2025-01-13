@@ -67,11 +67,43 @@ jobs:
             git push
           fi
 
+  update-content:
+    if: github.event_name == 'repository_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug Event
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Event type: ${{ github.event.action }}"
+          echo "Payload: ${{ toJSON(github.event.client_payload) }}"
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update Content
+        env:
+          CONTENT_UPDATE: ${{ github.event.client_payload.content }}
+          PAGE_ID: ${{ github.event.client_payload.pageId }}
+        run: |
+          echo "Updating page: $PAGE_ID"
+          mkdir -p "src/pages/$(dirname ${PAGE_ID})"
+          echo "$CONTENT_UPDATE" > "src/pages/${PAGE_ID}.html"
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Update content for ${{ github.event.client_payload.pageId }}"
+          git push
+
   build-and-deploy:
     needs: update-content
     if: |
       always() && 
       (needs.update-content.result == 'success' || github.event_name != 'repository_dispatch')
+    needs: [update-content]
+    if: always()
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -81,6 +113,7 @@ jobs:
         with:
           fetch-depth: 1  # Shallow clone for build
 
+      - uses: actions/checkout@v4
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:

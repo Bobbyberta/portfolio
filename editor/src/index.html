@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Editor</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/wysiwyg-editor.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Content Editor</div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="editor-wrapper">
+            <div class="breadcrumb">
+                <span>Editing:</span>
+                <strong id="current-page">No page selected</strong>
+            </div>
+            <div class="editor-controls">
+                <div class="page-selector">
+                    <label for="page-select">Select Page:</label>
+                    <select id="page-select">
+                        <optgroup label="Pages">
+                            <option value="about">About</option>
+                            <option value="index">Home Page</option>
+                            <option value="blog/index">Blog Home</option>
+                            <option value="contact">Contact</option>
+                        </optgroup>
+                        <optgroup label="Blog Posts">
+                            <option value="blog/bubble-function-blog">Bubble Function Blog</option>
+                            <option value="blog/deepest-ocean-case-study">Deepest Ocean Case Study</option>
+                        </optgroup>
+                        <optgroup label="Case Studies">
+                            <option value="case-study/bubble-function-case-study">Bubble Function Case Study</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="version-controls" style="display: none;">
+                    <label for="version-select">Version:</label>
+                    <select id="version-select"></select>
+                    <button id="rollback-version" class="button">Rollback to Selected Version</button>
+                </div>
+                <button class="button" id="export-content">Export All Content</button>
+                <button class="button" id="import-content">Import Content</button>
+                <input type="file" id="import-file" accept=".json" style="display: none">
+                <button id="reload-about" style="display: none;">Reload About Page</button>
+            </div>
+
+            <div class="editor-instructions">
+                <p>Use the toolbar above to format your content. Available tools:</p>
+                <ul>
+                    <li>H2 - Create headings</li>
+                    <li>¶ - Create paragraphs</li>
+                    <li>B - Bold text</li>
+                    <li>I - Italic text</li>
+                    <li>🔗 - Add links</li>
+                    <li>• - Create bullet lists</li>
+                    <li>1. - Create numbered lists</li>
+                    <li>📷 - Add images</li>
+                    <li> - Add code blocks</li>
+                </ul>
+            </div>
+
+            <div id="editor" class="wysiwyg-container"></div>
+            
+            <div class="button-group">
+                <button class="button" id="save-content">Save Content</button>
+                <button class="button" id="export-current">Export Current Page</button>
+                <button class="button" id="update-site">Update Site</button>
+            </div>
+        </div>
+    </main>
+
+    <script type="module">
+        import { WYSIWYGEditor } from './components/wysiwyg-editor.js';
+        import { ContentManager } from './components/content-manager.js';
+        import { ContentExport } from './components/content-export.js';
+        import { ContentUpdater } from './utils/content-updater.js';
+        import { GitHubUpdater } from './utils/github-updater.js';
+        import { config } from './config.js';
+
+        // Initialize editor
+        const editor = new WYSIWYGEditor('#editor', {
+            customStyles: [
+                {
+                    name: 'content-card',
+                    label: 'Content Card',
+                    html: '<div class="content-card"><div class="content-card-content"></div></div>'
+                },
+                {
+                    name: 'cta-button',
+                    label: 'CTA Button',
+                    html: '<a href="#" class="cta-button primary">Button Text</a>'
+                }
+            ]
+        });
+
+        // Handle page selection
+        const pageSelect = document.getElementById('page-select');
+        const currentPageElement = document.getElementById('current-page');
+        
+        pageSelect.addEventListener('change', async () => {
+            currentPageElement.textContent = ContentManager.getPageTitle(pageSelect.value);
+            
+            // Show loading state
+            editor.setContent('Loading...');
+            
+            const content = await ContentManager.loadContent(pageSelect.value);
+            if (content) {
+                editor.setContent(content);
+            } else {
+                editor.setContent('');
+            }
+        });
+
+        // Handle save button
+        document.getElementById('save-content').addEventListener('click', () => {
+            const content = editor.getContent();
+            ContentManager.saveContent(pageSelect.value, content);
+            alert('Content saved!');
+        });
+
+        // Handle export current page
+        document.getElementById('export-current').addEventListener('click', () => {
+            const pageId = pageSelect.value;
+            if (!pageId) {
+                alert('Please select a page first');
+                return;
+            }
+            ContentExport.exportPage(pageId);
+        });
+
+        // Handle export all content
+        document.getElementById('export-content').addEventListener('click', async () => {
+            try {
+                await ContentExport.exportContent();
+            } catch (error) {
+                console.error('Export failed:', error);
+                alert('Export failed. Check console for details.');
+            }
+        });
+
+        // Handle content import
+        document.getElementById('import-content').addEventListener('click', () => {
+            document.getElementById('import-file').click();
+        });
+
+        document.getElementById('import-file').addEventListener('change', async (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            try {
+                const success = await ContentUpdater.updatePage(file);
+                if (success) {
+                    alert('Content updated successfully!');
+                } else {
+                    alert('Failed to update content. Check console for details.');
+                }
+            } catch (error) {
+                console.error('Import failed:', error);
+                alert('Import failed. Check console for details.');
+            }
+
+            // Reset the file input
+            event.target.value = '';
+        });
+
+        // Load initial content
+        (async () => {
+            const initialContent = await ContentManager.loadContent(pageSelect.value);
+            if (initialContent) {
+                editor.setContent(initialContent);
+            }
+        })();
+
+        // Handle site update
+        document.getElementById('update-site').addEventListener('click', async () => {
+            const pageId = pageSelect.value;
+            if (!pageId) {
+                alert('Please select a page first');
+                return;
+            }
+
+            try {
+                // Test repository access first
+                await GitHubUpdater.testAccess();
+                
+                const content = editor.getContent();
+                const success = await GitHubUpdater.updateContent(pageId, content);
+                if (success) {
+                    alert('Content update triggered! Check GitHub Actions for build progress.');
+                    // Open GitHub Actions page
+                    window.open(`https://github.com/${config.owner}/${config.repo}/actions`, '_blank');
+                }
+            } catch (error) {
+                console.error('Update failed:', error);
+                alert(`Failed to update site: ${error.message}`);
+            }
+        });
+
+        // Add reload button handler
+        const reloadButton = document.getElementById('reload-about');
+        pageSelect.addEventListener('change', () => {
+            reloadButton.style.display = pageSelect.value === 'about' ? 'block' : 'none';
+        });
+        
+        reloadButton.addEventListener('click', async () => {
+            localStorage.removeItem('page_about');
+            const content = await ContentManager.fetchPageContent('about');
+            editor.setContent(content);
+        });
+
+        // Handle version management
+        const versionControls = document.querySelector('.version-controls');
+        const versionSelect = document.getElementById('version-select');
+        
+        async function loadPageVersions(pageId) {
+            try {
+                const versions = await GitHubUpdater.getPageVersions(pageId);
+                versionSelect.innerHTML = versions.map(v => `
+                    <option value="${v.sha}">
+                        ${new Date(v.date).toLocaleString()} - ${v.message}
+                    </option>
+                `).join('');
+                versionControls.style.display = 'block';
+            } catch (error) {
+                console.error('Failed to load versions:', error);
+                versionControls.style.display = 'none';
+            }
+        }
+        
+        // Update version list when page changes
+        pageSelect.addEventListener('change', async () => {
+            await loadPageVersions(pageSelect.value);
+            // ... existing page change code ...
+        });
+        
+        // Handle rollback
+        document.getElementById('rollback-version').addEventListener('click', async () => {
+            const pageId = pageSelect.value;
+            const version = versionSelect.value;
+            
+            if (!confirm('Are you sure you want to rollback to this version?')) {
+                return;
+            }
+            
+            try {
+                await GitHubUpdater.rollbackToVersion(pageId, version);
+                alert('Rollback successful! The page will update shortly.');
+                
+                // Reload the editor content
+                localStorage.removeItem(`page_${pageId}`);
+                const content = await ContentManager.fetchPageContent(pageId);
+                editor.setContent(content);
+            } catch (error) {
+                console.error('Rollback failed:', error);
+                alert('Failed to rollback. Check console for details.');
+            }
+        });
+    </script>
+</body>
+</html> 

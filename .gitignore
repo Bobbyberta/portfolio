@@ -22,6 +22,5 @@ dist/
 .DS_Store
 Thumbs.db 
 
-# GitHub
-config.js
-editor/src/config.jseditor/src/config.js
+# Editor specific
+editor/src/config.js 

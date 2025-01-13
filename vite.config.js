@@ -84,6 +84,50 @@ export default defineConfig({
         console.warn('Warning: Could not copy assets directory', err)
       }
 
+      // Copy pages to editor's website-content directory
+      try {
+        // Create the website-content directory
+        mkdirSync(resolve(__dirname, 'dist/editor/website-content'), { recursive: true })
+        
+        // Copy all HTML files from src/pages to website-content
+        function copyPages(src, dest) {
+          const entries = readdirSync(src, { withFileTypes: true })
+          
+          for (const entry of entries) {
+            const srcPath = join(src, entry.name)
+            const destPath = join(dest, entry.name)
+            
+            if (entry.isDirectory()) {
+              mkdirSync(destPath, { recursive: true })
+              copyPages(srcPath, destPath)
+            } else if (entry.name.endsWith('.html')) {
+              copyFileSync(srcPath, destPath)
+            }
+          }
+        }
+        
+        // Copy pages from src/pages
+        copyPages(
+          resolve(__dirname, 'src/pages'),
+          resolve(__dirname, 'dist/editor/website-content')
+        )
+
+        // Copy index.html to website-content
+        copyFileSync(
+          resolve(__dirname, 'src/index.html'),
+          resolve(__dirname, 'dist/editor/website-content/index.html')
+        )
+
+        // Copy blog.html to website-content
+        copyFileSync(
+          resolve(__dirname, 'src/pages/blog.html'),
+          resolve(__dirname, 'dist/editor/website-content/blog.html')
+        )
+
+      } catch (err) {
+        console.warn('Warning: Could not copy pages to website-content', err)
+      }
+
       // Copy images to root images directory
       try {
         copyDir(
