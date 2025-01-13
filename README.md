@@ -15,6 +15,18 @@ The site is automatically deployed to GitHub Pages via GitHub Actions when chang
 
 Visit the live site at: https://bobbyberta.github.io/portfolio/
 
+## Editor Setup
+
+To use the content editor:
+
+1. Copy `editor/src/config.example.js` to `editor/src/config.js`
+2. Update the values in `config.js` with your:
+    - GitHub username
+    - Repository name
+    - Personal access token
+    - Branch name (usually 'main')
+3. Run `npm run editor` to start the editor
+
 ```bash
 npm run build
 ```
