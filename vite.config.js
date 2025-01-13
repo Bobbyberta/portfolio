@@ -1,6 +1,6 @@
 import { resolve } from 'path'
-import { copyFileSync, mkdirSync, readdirSync } from 'fs'
-import { join } from 'path'
+import { copyFileSync, mkdirSync, readdirSync, readFileSync } from 'fs'
+import { join, dirname } from 'path'
 import { defineConfig } from 'vite'
 
 function copyDir(src, dest) {
@@ -20,143 +20,143 @@ function copyDir(src, dest) {
   }
 }
 
+// Plugin to handle HTML imports
+function htmlImportsPlugin() {
+  return {
+    name: 'vite-plugin-html-imports',
+    enforce: 'pre',
+    transformIndexHtml(html, { filename }) {
+      // Skip processing for non-HTML files
+      if (!filename.endsWith('.html')) {
+        return html;
+      }
+
+      // For pages that import index.html, return just the content
+      if (filename.includes('/pages/') && html.includes('index.html')) {
+        return {
+          html,
+          tags: []
+        };
+      }
+
+      return html;
+    }
+  };
+}
+
 export default defineConfig({
   base: process.env.BASE_URL || '/',
   build: {
     outDir: resolve(__dirname, 'dist'),
     emptyOutDir: true,
     rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'src/index.html'),
-        'pages/about': resolve(__dirname, 'src/pages/about.html'),
-        'pages/blog': resolve(__dirname, 'src/pages/blog.html'),
-        'pages/contact': resolve(__dirname, 'src/pages/contact.html'),
-        'pages/blog/deepest-ocean-case-study': resolve(__dirname, 'src/pages/blog/deepest-ocean-case-study.html'),
-        'pages/case-study/bubble-function-case-study': resolve(__dirname, 'src/pages/case-study/bubble-function-case-study.html'),
-        'pages/blog/bubble-function-blog': resolve(__dirname, 'src/pages/blog/bubble-function-blog.html'),
-      },
+      input: [
+        resolve(__dirname, 'src/index.html'),
+        resolve(__dirname, 'src/pages/about.html'),
+        resolve(__dirname, 'src/pages/blog.html'),
+        resolve(__dirname, 'src/pages/contact.html'),
+        resolve(__dirname, 'src/pages/blog/deepest-ocean-case-study.html'),
+        resolve(__dirname, 'src/pages/case-study/bubble-function-case-study.html'),
+        resolve(__dirname, 'src/pages/blog/bubble-function-blog.html'),
+      ],
       output: {
         dir: 'dist',
-        preserveModules: true,
-        assetFileNames: (assetInfo) => {
-          const info = assetInfo.name.split('.')
-          const extType = info[info.length - 1]
-          // Keep original paths for images and favicons
-          if (assetInfo.name.includes('images/') || assetInfo.name.includes('favicon/')) {
-            return assetInfo.name
-          }
-          // Other assets
-          if (extType === 'css') {
-            // Don't hash CSS files to maintain consistent names
-            return 'styles/[name][extname]'
-          }
-          if (extType === 'js') {
-            return 'js/[name][extname]'
-          }
+        preserveEntrySignatures: 'strict',
+        assetFileNames: ({ name }) => {
+          if (name.endsWith('.css')) return 'styles/[name][extname]'
+          if (name.endsWith('.js')) return 'js/[name][extname]'
+          if (/\.(woff2?|ttf|eot)$/.test(name)) return 'fonts/[name][extname]'
+          if (/\.(png|jpe?g|gif|svg|webp|ico)$/.test(name)) return 'images/[name][extname]'
           return 'assets/[name]-[hash][extname]'
         }
       }
     },
-    cssCodeSplit: false, // Prevent CSS code splitting
-    cssMinify: true,
     html: {
       inject: true,
       minify: false
+    },
+    cssCodeSplit: false,
+    cssMinify: true,
+    css: {
+      modules: false,
+      postcss: null,
+      preprocessorOptions: {
+        css: {
+          charset: false
+        }
+      }
     }
   },
   publicDir: false,
   root: resolve(__dirname, 'src'),
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src')
-    }
-  },
-  plugins: [{
-    name: 'copy-assets',
-    closeBundle() {
-      // Copy entire assets directory structure
-      try {
-        copyDir(
-          resolve(__dirname, 'src/assets'),
-          resolve(__dirname, 'dist/assets')
-        )
-      } catch (err) {
-        console.warn('Warning: Could not copy assets directory', err)
-      }
+  plugins: [
+    htmlImportsPlugin(),
+    {
+      name: 'copy-assets',
+      closeBundle() {
+        // Copy entire assets directory structure
+        try {
+          copyDir(
+            resolve(__dirname, 'src/assets'),
+            resolve(__dirname, 'dist/assets')
+          )
+        } catch (err) {
+          console.warn('Warning: Could not copy assets directory', err)
+        }
 
-      // Copy pages to editor's website-content directory
-      try {
-        // Create the website-content directory
-        mkdirSync(resolve(__dirname, 'dist/editor/website-content'), { recursive: true })
-        
-        // Copy all HTML files from src/pages to website-content
-        function copyPages(src, dest) {
-          const entries = readdirSync(src, { withFileTypes: true })
+        // Copy pages to editor's website-content directory
+        try {
+          // Create the website-content directory
+          mkdirSync(resolve(__dirname, 'dist/editor/website-content'), { recursive: true })
           
-          for (const entry of entries) {
-            const srcPath = join(src, entry.name)
-            const destPath = join(dest, entry.name)
+          // Copy all HTML files from src/pages to website-content
+          function copyPages(src, dest) {
+            const entries = readdirSync(src, { withFileTypes: true })
             
-            if (entry.isDirectory()) {
-              mkdirSync(destPath, { recursive: true })
-              copyPages(srcPath, destPath)
-            } else if (entry.name.endsWith('.html')) {
-              copyFileSync(srcPath, destPath)
+            for (const entry of entries) {
+              const srcPath = join(src, entry.name)
+              const destPath = join(dest, entry.name)
+              
+              if (entry.isDirectory()) {
+                mkdirSync(destPath, { recursive: true })
+                copyPages(srcPath, destPath)
+              } else if (entry.name.endsWith('.html')) {
+                copyFileSync(srcPath, destPath)
+              }
             }
           }
+          
+          // Copy pages from src/pages
+          copyPages(
+            resolve(__dirname, 'src/pages'),
+            resolve(__dirname, 'dist/editor/website-content')
+          )
+
+          // Copy index.html to website-content
+          copyFileSync(
+            resolve(__dirname, 'src/index.html'),
+            resolve(__dirname, 'dist/editor/website-content/index.html')
+          )
+
+          // Copy blog.html to website-content
+          copyFileSync(
+            resolve(__dirname, 'src/pages/blog.html'),
+            resolve(__dirname, 'dist/editor/website-content/blog.html')
+          )
+
+        } catch (err) {
+          console.warn('Warning: Could not copy pages to website-content', err)
         }
-        
-        // Copy pages from src/pages
-        copyPages(
-          resolve(__dirname, 'src/pages'),
-          resolve(__dirname, 'dist/editor/website-content')
-        )
 
-        // Copy index.html to website-content
-        copyFileSync(
-          resolve(__dirname, 'src/index.html'),
-          resolve(__dirname, 'dist/editor/website-content/index.html')
-        )
-
-        // Copy blog.html to website-content
-        copyFileSync(
-          resolve(__dirname, 'src/pages/blog.html'),
-          resolve(__dirname, 'dist/editor/website-content/blog.html')
-        )
-
-      } catch (err) {
-        console.warn('Warning: Could not copy pages to website-content', err)
-      }
-
-      // Copy images to root images directory
-      try {
-        copyDir(
-          resolve(__dirname, 'src/assets/images'),
-          resolve(__dirname, 'dist/images')
-        )
-      } catch (err) {
-        console.warn('Warning: Could not copy images directory', err)
-      }
-
-      // Copy favicon to root favicon directory
-      try {
-        copyDir(
-          resolve(__dirname, 'src/assets/favicon'),
-          resolve(__dirname, 'dist/favicon')
-        )
-      } catch (err) {
-        console.warn('Warning: Could not copy favicon directory', err)
-      }
-
-      // Copy styles directory
-      try {
-        copyDir(
-          resolve(__dirname, 'src/styles'),
-          resolve(__dirname, 'dist/styles')
-        )
-      } catch (err) {
-        console.warn('Warning: Could not copy styles directory', err)
+        // Copy remaining assets
+        try {
+          copyDir(resolve(__dirname, 'src/assets/images'), resolve(__dirname, 'dist/images'))
+          copyDir(resolve(__dirname, 'src/assets/favicon'), resolve(__dirname, 'dist/favicon'))
+          copyDir(resolve(__dirname, 'src/styles'), resolve(__dirname, 'dist/styles'))
+        } catch (err) {
+          console.warn('Warning: Could not copy assets', err)
+        }
       }
     }
-  }]
+  ]
 })
