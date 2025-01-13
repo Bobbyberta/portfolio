@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Deep dive into the development of Bubble Function - An educational math game designed for Mangahigh. Learn about the design process, challenges, and insights gained.">
+    <title>The Making of Bubble Function - Bobbie Allsop</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script type="module" src="../../js/main.js" defer></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/portfolio/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/portfolio/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/portfolio/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/portfolio/favicon/site.webmanifest">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bobbieallsop.github.io/portfolio/pages/blog/bubble-function-blog.html">
+    <meta property="og:title" content="The Making of Bubble Function - Bobbie Allsop">
+    <meta property="og:description" content="Deep dive into the development of Bubble Function - An educational math game designed for Mangahigh. Learn about the design process, challenges, and insights gained.">
+    <meta property="og:image" content="https://bobbieallsop.github.io/portfolio/images/bubble-function-social.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bobbieallsop.github.io/portfolio/pages/blog/bubble-function-blog.html">
+    <meta property="twitter:title" content="The Making of Bubble Function - Bobbie Allsop">
+    <meta property="twitter:description" content="Deep dive into the development of Bubble Function - An educational math game designed for Mangahigh.">
+    <meta property="twitter:image" content="https://bobbieallsop.github.io/portfolio/images/bubble-function-social.png">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Bobbie Allsop</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="sr-only">Menu</span>
+                ☰
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/portfolio/">Home</a></li>
+                <li><a href="/portfolio/pages/about.html">About</a></li>
+                <li><a href="/portfolio/pages/blog.html">Blog</a></li>
+                <li><a href="/portfolio/pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-wrapper">
+            <article class="blog-post section-standard">
+                <div class="page-header">
+                    <h1>Bubble Function: A Game Design Case Study</h1>
+                    <div class="page-meta">
+                        <span class="meta-item date">November 6, 2019</span>
+                        <span class="meta-item read-time">4 min read</span>
+                    </div>
+                </div>
+
+                <div class="blog-post-content">
+                    <p class="lead">
+                        Bubble Function is a TIGA shortlisted, maths game aimed at 9-12 year olds to help develop their understanding of function machines.
+                    </p>
+
+                    <p>
+                        It is written in HTM5 and uses the phaser engine on the Mangahigh platform.
+                        It can be played on mobile, tablet or on a desktop.
+                    </p>
+
+                    <div class="cta-buttons">
+                        <a href="#" class="cta-button primary">PLAY</a>
+                    </div>
+
+                    <section class="project-overview">
+                        <div class="overview-grid">
+                            <!-- Team Section -->
+                            <div class="content-card team-card">
+                                <div class="card-header">
+                                    <h2>The Team</h2>
+                                    <span class="subtitle">Agile, Cross Discipline</span>
+                                </div>
+                                <ul class="team-members">
+                                    <li>
+                                        <span class="role">CEO</span>
+                                        <span class="role-type">Leadership</span>
+                                    </li>
+                                    <li>
+                                        <span class="role">Maths Specialist</span>
+                                        <span class="role-type">Education</span>
+                                    </li>
+                                    <li>
+                                        <span class="role">Developers</span>
+                                        <span class="role-type">In house and remote</span>
+                                    </li>
+                                    <li>
+                                        <span class="role">Artist/Animator</span>
+                                        <span class="role-type">Remote contractor</span>
+                                    </li>
+                                    <li>
+                                        <span class="role">Games Designer</span>
+                                        <span class="role-type">Design</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Role Section -->
+                            <div class="content-card role-card">
+                                <div class="card-header">
+                                    <h2>My Role</h2>
+                                    <span class="subtitle">Design Lead</span>
+                                </div>
+                                <ul class="responsibilities">
+                                    <li>
+                                        <span class="responsibility-icon">🎨</span>
+                                        <span class="responsibility-text">Concept Creation</span>
+                                    </li>
+                                    <li>
+                                        <span class="responsibility-icon">📊</span>
+                                        <span class="responsibility-text">Manage development of MVP</span>
+                                    </li>
+                                    <li>
+                                        <span class="responsibility-icon">✏️</span>
+                                        <span class="responsibility-text">First iteration of visuals</span>
+                                    </li>
+                                    <li>
+                                        <span class="responsibility-icon">🔍</span>
+                                        <span class="responsibility-text">Testing</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Timeline Section -->
+                            <div class="content-card timeline-card">
+                                <div class="card-header">
+                                    <h2>Timeline</h2>
+                                    <span class="subtitle">3 months total</span>
+                                </div>
+                                <div class="timeline-container">
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <span class="timeline-date">Month 1</span>
+                                            <h3>Discovery & Research</h3>
+                                            <p>Initial research and concept development phase</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <span class="timeline-date">Month 2</span>
+                                            <h3>MVP Development</h3>
+                                            <p>Core gameplay and basic functionality</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <span class="timeline-date">Month 3</span>
+                                            <h3>MLP & Art</h3>
+                                            <p>Final polish and visual improvements</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="design-process-section">
+                        <h2>My Design Process</h2>
+                        <div class="design-process">
+                            <!-- Define Step -->
+                            <div class="process-step">
+                                <h3>1. Define</h3>
+                                <div class="process-content">
+                                    <div class="process-description">
+                                        <p>
+                                            Replacing an old game - Mangahigh were discontinuing Algebra Meltdown and wanted a new algebra game to take its place.
+                                            After speaking with sales and support, users loved the function machine element but found the game as a whole too difficult.
+                                        </p>
+                                        <p>
+                                            I focused on the function machine element and started looking at a way to simplify the mechanic.
+                                        </p>
+                                    </div>
+                                    <div class="img-container process-image">
+                                        <img src="../../images/bubble-function-algebra-meltdown.PNG" 
+                                             alt="Original Algebra Meltdown game screenshot" 
+                                             class="img-responsive"
+                                             loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Ideate Step -->
+                            <div class="process-step">
+                                <h3>2. Ideate</h3>
+                                <div class="process-content">
+                                    <div class="process-description">
+                                        <h4>Concept Sketches</h4>
+                                        <p>
+                                            The idea of a function machine is when a number passes through the machine a change happens. 
+                                            I combined this with the classic bubble shooter mechanic.
+                                        </p>
+                                    </div>
+                                    <div class="img-container process-image">
+                                        <img src="../../images/bubble-function-sketch.png" 
+                                             alt="Early concept sketches of Bubble Function" 
+                                             class="img-responsive"
+                                             loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Prototype Step -->
+                            <div class="process-step">
+                                <h3>3. Prototype</h3>
+                                <div class="process-content">
+                                    <div class="process-description">
+                                        <h4>Paper prototypes</h4>
+                                        <p>
+                                            Testing out the concept on paper first I planned out puzzle levels and tested it with colleagues 
+                                            to get a feel for how fun and intuitive it would be.
+                                        </p>
+                                    </div>
+                                    <div class="img-container process-image">
+                                        <img src="../../images/bubble-function-paper.png" 
+                                             alt="Paper prototypes and early digital mockups" 
+                                             class="img-responsive"
+                                             loading="lazy">
+                                    </div>
+                                </div>
+
+                                <div class="process-content">
+                                    <div class="process-description">
+                                        <h4>Standard Game Assets</h4>
+                                        <p>
+                                            While creating the basic bubble function assets I used these as a base for a games template 
+                                            which contained all the standard screens. This allowed us to quickly prototype future games.
+                                        </p>
+                                    </div>
+                                    <div class="img-container process-image">
+                                        <img src="../../images/bubble-function-basic-graphics.png" 
+                                             alt="Reusable basic graphics for future games" 
+                                             class="img-responsive"
+                                             loading="lazy">
+                                    </div>
+                                </div>
+
+                                <div class="process-content">
+                                    <div class="process-description">
+                                        <h4>Games Design Document</h4>
+                                        <p>
+                                            The document was given to developers to finish off the code while I stared on the next project. 
+                                            I continued to test in house with each new release.
+                                        </p>
+                                    </div>
+                                    <div class="img-container process-image">
+                                        <img src="../../images/bubble-function-games-design-document.png" 
+                                             alt="Games Design Document" 
+                                             class="img-responsive"
+                                             loading="lazy">
+                                    </div>
+                                </div>
+                                <div class="cta-buttons">
+                                    <a href="https://drive.google.com/file/d/1nUw2n4UL9g1ul10NO-AlsJHdkp7QkCFQ/view?usp=sharing" class="cta-button primary">View Games Design Document</a>
+                                </div>
+                            </div>
+
+                            <!-- Test Step -->
+                            <div class="process-step">
+                                <h3>4. Test</h3>
+                                <div class="process-content">
+                                    <div class="process-description">
+                                        <h4>Testing</h4>
+                                        <p>
+                                            I went into a school with a small team and we tested bubble function on a range of students 
+                                            we had around 10 levels to test. This provided useful feedback and we did lots of minor adjustments.
+                                        </p>
+                                    </div>
+                                    <div class="img-container process-image">
+                                        <img src="../../images/bubble-function-mvp.png" 
+                                             alt="Students testing the game in a classroom" 
+                                             class="img-responsive"
+                                             loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="project-conclusion">
+                        <div class="conclusion-grid">
+                            <div class="conclusion-card">
+                                <h2>MVP</h2>
+                                <p>
+                                    Once the MVP was released I finished working full time on Bubble Function to start a new project.
+                                    I supported the handover process to ensure new members fully understood the game which allowed them to develop it further.
+                                </p>
+                            </div>
+
+                            <div class="conclusion-card">
+                                <h2>Release</h2>
+                                <p>The game was released again a couple of months later with updated graphics</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="blog-cta">
+                        <div class="cta-content">
+                            <h2>Thank you for reading my case study!</h2>
+                            <div class="cta-text">
+                                <p>Want to work with me? Feel free to contact me!</p>
+                                <p>...or just say hello on my social media.</p>
+                            </div>
+                            <div class="cta-buttons">
+                                <a href="/portfolio/pages/contact.html" class="cta-button primary">Contact Me</a>
+                                <a href="/portfolio/pages/blog.html" class="cta-button secondary">Back to Blog</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Bobbie Allsop. All rights reserved.</p>
+    </footer>
+</body>
+</html> 
