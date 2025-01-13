@@ -37,6 +37,7 @@ export default defineConfig({
       },
       output: {
         dir: 'dist',
+        preserveModules: true,
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.')
           const extType = info[info.length - 1]
@@ -57,11 +58,19 @@ export default defineConfig({
       }
     },
     cssCodeSplit: false, // Prevent CSS code splitting
-    cssMinify: true
+    cssMinify: true,
+    html: {
+      inject: true,
+      minify: false
+    }
   },
   publicDir: false,
   root: resolve(__dirname, 'src'),
-  
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src')
+    }
+  },
   plugins: [{
     name: 'copy-assets',
     closeBundle() {
