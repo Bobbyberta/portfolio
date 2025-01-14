@@ -62,9 +62,10 @@ export class GitHubUpdater {
                 }
             }
             
-            // Format the document with proper indentation
+            // Format and sanitize the document
             const beautified = this.formatHTML(doc.documentElement.outerHTML);
-            const updatedContent = `<!DOCTYPE html>\n${beautified}`;
+            const sanitized = this.sanitizeContent(beautified);
+            const updatedContent = `<!DOCTYPE html>\n${sanitized}`;
             
             // Create the event payload
             const payload = {
@@ -315,5 +316,21 @@ export class GitHubUpdater {
         });
 
         return result;
+    }
+
+    static sanitizeContent(html) {
+        return html
+            // Replace problematic characters
+            .replace(/â°/g, '☰')  // Replace menu icon
+            .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '') // Remove control characters
+            // Replace other potentially problematic characters
+            .replace(/[\u2018\u2019]/g, "'")  // Smart quotes
+            .replace(/[\u201C\u201D]/g, '"')  // Smart double quotes
+            .replace(/\u2026/g, '...')  // Ellipsis
+            .replace(/\u2013/g, '-')    // En dash
+            .replace(/\u2014/g, '--')   // Em dash
+            // Ensure proper line endings
+            .replace(/\r\n/g, '\n')
+            .replace(/\r/g, '\n');
     }
 } 
