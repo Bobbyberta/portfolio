@@ -4,6 +4,11 @@ export class ContentManager {
     }
 
     static loadContent(pageId) {
+        if (!pageId) {
+            console.log('No page selected');
+            return '';
+        }
+
         // First try to load from localStorage (for unsaved changes)
         const savedContent = localStorage.getItem(`page_${pageId}`);
         if (savedContent && pageId !== 'about') {  // Skip cache for about page
@@ -16,70 +21,55 @@ export class ContentManager {
 
     static async fetchPageContent(pageId) {
         try {
-            // Clear localStorage for about page
-            if (pageId === 'about') {
-                localStorage.removeItem('page_about');
-                console.log('Cleared about page from localStorage');
-            }
-
-            // Handle special cases for index files
+            console.log('Fetching page:', pageId);
+            
+            // Map page IDs to file paths
             let pagePath;
             if (pageId === 'index') {
-                pagePath = `/website-content/index.html`;
+                pagePath = '/website-content/index.html';
             } else if (pageId === 'blog/index') {
-                pagePath = `/website-content/blog.html`;  // Map blog/index to blog.html
+                pagePath = '/website-content/blog.html';
             } else {
                 pagePath = `/website-content/${pageId}.html`;
             }
-            console.log('Attempting to fetch page:', pagePath);
             
-            const response = await fetch(pagePath, {
-                headers: {
-                    'Accept': 'text/plain'
-                }
-            });
-            
+            console.log('Request path:', pagePath);
+
+            const response = await fetch(pagePath);
+            console.log('Response status:', response.status);
+
             if (!response.ok) {
-                console.error('Failed to fetch:', pagePath, response.status);
-                throw new Error(`Failed to load page: ${pageId}`);
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
 
             const html = await response.text();
-            console.log('Raw HTML content:', html.substring(0, 200) + '...');
-            
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            console.log('Parsed head:', doc.head.innerHTML.substring(0, 200) + '...');
-            console.log('Parsed body:', doc.body.innerHTML.substring(0, 200) + '...');
-            
-            // Create a container for the entire document
-            const container = document.createElement('div');
-            
-            // Add head content
-            const headSection = document.createElement('div');
-            headSection.className = 'head-section';
-            headSection.innerHTML = doc.head.innerHTML;
-            container.appendChild(headSection);
-            
-            // Add body content
-            const bodySection = document.createElement('div');
-            bodySection.className = 'body-section';
-            bodySection.innerHTML = doc.body.innerHTML;
-            container.appendChild(bodySection);
+            console.log('Received content length:', html.length);
 
-            // Process each element to add class annotations
-            const processedContent = this.annotateContent(container);
-           
-            // Check if we got content
-            if (!processedContent) {
-                console.error('No processed content generated');
-                return '';
+            // Create a unique ID for this template
+            const templateId = `original-content-${pageId.replace('/', '-')}`;
+            
+            // Remove any existing template for this page
+            const existingTemplate = document.getElementById(templateId);
+            if (existingTemplate) {
+                existingTemplate.remove();
             }
 
-            console.log('Processed content:', processedContent.substring(0, 200) + '...');
-            return processedContent;
+            // Create and store the new template
+            const template = document.createElement('template');
+            template.id = templateId;
+            template.innerHTML = html;
+            document.body.appendChild(template);
+            console.log('Stored template with ID:', templateId);
+
+            // Extract main content for editor
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const mainContent = doc.querySelector('main')?.innerHTML || '';
+            console.log('Extracted main content length:', mainContent.length);
+
+            return mainContent;
         } catch (error) {
-            console.error('Error loading page:', error);
+            console.error('Error:', error);
             return '';
         }
     }
@@ -152,25 +142,37 @@ export class ContentManager {
     }
 
     static getFullPageContent(content) {
+        if (!content) {
+            console.error('No content provided to getFullPageContent');
+            return '';
+        }
+        
+        console.log('Getting full page content from:', content);
+        
+        // If content is already a full HTML document, return it
+        if (content.trim().startsWith('<!DOCTYPE html>')) {
+            return content;
+        }
+        
+        // Get the original template
+        const originalContent = document.querySelector('template.original-content');
+        if (!originalContent) {
+            console.error('Original content template not found');
+            return content;
+        }
+        
+        // Parse the original template
         const parser = new DOMParser();
-        const doc = parser.parseFromString(content, 'text/html');
+        const doc = parser.parseFromString(originalContent.innerHTML, 'text/html');
         
-        // Extract head and body content
-        const headContent = doc.querySelector('.head-section')?.innerHTML || '';
-        const bodyContent = doc.querySelector('.body-section')?.innerHTML || '';
+        // Find the main section
+        const mainSection = doc.querySelector('main');
+        if (mainSection) {
+            // Update the main content
+            mainSection.innerHTML = content;
+        }
         
-        // Create a new HTML document
-        const fullPage = `
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                ${headContent}
-            </head>
-            <body>
-                ${bodyContent}
-            </body>
-            </html>
-        `;
-        return fullPage;
+        // Return the full document
+        return doc.documentElement.outerHTML;
     }
 } 

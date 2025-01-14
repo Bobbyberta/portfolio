@@ -1,3 +1,5 @@
+import { ContentManager } from './content-manager.js';
+
 export class WYSIWYGEditor {
     constructor(selector, options = {}) {
         this.container = document.querySelector(selector);
@@ -25,6 +27,16 @@ export class WYSIWYGEditor {
         this.createToolbar();
         this.createEditor();
         this.attachEventListeners();
+        // Initialize with empty state
+        this.setInitialState();
+    }
+
+    setInitialState() {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'editor-placeholder';
+        placeholder.textContent = 'Select a page to begin editing';
+        placeholder.contentEditable = false;
+        this.editor.appendChild(placeholder);
     }
 
     createToolbar() {
@@ -123,27 +135,47 @@ export class WYSIWYGEditor {
         return icons[type] || type;
     }
 
-    getContent() {
-        // Convert visible spans back to comments when saving
+    async getContent() {
+        console.log('Getting editor content...');
         const content = this.editor.innerHTML;
-        return content.replace(
-            /<div class="css-annotation"[^>]*>🎨\s*([^<]+)<\/div>/g,
-            '<!-- CSS Classes: $1 -->'
-        );
+        console.log('Raw editor content:', content);
+        
+        // Return just the edited content
+        return content.trim();
     }
 
     setContent(html) {
         if (!html || typeof html !== 'string') {
             console.error('Invalid content received:', html);
-            this.editor.innerHTML = '';
+            this.setInitialState();
             return;
         }
 
-        // Convert class annotations to visible spans
-        const processedHtml = html.replace(
-            /<!--\s*CSS Classes:\s*([^>]+?)\s*-->/g,
-            '<div class="css-annotation" contenteditable="false">🎨 $1</div>'
-        );
-        this.editor.innerHTML = processedHtml;
+        // Clear any existing content including placeholder
+        this.editor.innerHTML = '';
+
+        if (html === 'Loading...') {
+            const loading = document.createElement('div');
+            loading.className = 'editor-loading';
+            loading.textContent = html;
+            this.editor.appendChild(loading);
+            return;
+        }
+
+        // Parse the HTML to extract main content
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        
+        // Get the main content section
+        const mainContent = doc.querySelector('main');
+        if (mainContent) {
+            console.log('Setting main content in editor');
+            this.editor.innerHTML = mainContent.innerHTML;
+        } else {
+            console.log('Setting full content in editor');
+            this.editor.innerHTML = html;
+        }
+        
+        console.log('Editor content set');
     }
 } 

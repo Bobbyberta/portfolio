@@ -5,46 +5,52 @@ import path from 'path'
 
 // Plugin to serve website content
 function websiteContentPlugin() {
+  console.log('Plugin created');
+
   return {
     name: 'website-content',
     configureServer(server) {
-      return () => {
-        server.middlewares.use((req, res, next) => {
-          // Let Vite handle all non-website-content requests
-          if (!req.url?.startsWith('/website-content/')) {
-            return next();
-          }
+      console.log('Configure server called');
+      
+      server.middlewares.use((req, res, next) => {
+        // Basic request logging
+        console.log(`Request: ${req.url}`);
 
-          // Handle website content
-          try {
-            const portfolioRoot = path.resolve(__dirname);
-            const requestedFile = req.url.replace('/website-content/', '');
-            
-            let filePath;
-            if (requestedFile === 'index.html') {
-              filePath = path.join(portfolioRoot, 'src', 'index.html');
-            } else if (requestedFile === 'blog.html') {
-              filePath = path.join(portfolioRoot, 'src', 'pages', 'blog.html');
-            } else {
-              filePath = path.join(portfolioRoot, 'src', 'pages', requestedFile);
-            }
-            
-            console.log('Attempting to read:', filePath);
-            
-            if (fs.existsSync(filePath)) {
-              const content = fs.readFileSync(filePath, 'utf-8');
-              res.setHeader('Content-Type', 'text/plain');
-              res.end(content);
-              return;
-            } else {
-              console.error('File not found:', filePath);
-            }
-          } catch (error) {
-            console.error('Error serving file:', error);
-          }
+        if (!req.url?.startsWith('/website-content/')) {
+          return next();
+        }
+
+        // Simple file serving
+        const rootDir = process.cwd();
+        const requestedFile = req.url.replace('/website-content/', '');
+        
+        // Handle different file paths
+        let filePath;
+        if (requestedFile === 'index.html') {
+          // Index is in the root src directory
+          filePath = path.join(rootDir, 'src', 'index.html');
+        } else if (requestedFile === 'blog.html' || requestedFile === 'blog/index.html') {
+          // Blog index can be accessed either way
+          filePath = path.join(rootDir, 'src', 'pages', 'blog.html');
+        } else {
+          // All other files are in pages
+          filePath = path.join(rootDir, 'src', 'pages', requestedFile);
+        }
+
+        console.log('Looking for file:', filePath);
+
+        if (fs.existsSync(filePath)) {
+          const content = fs.readFileSync(filePath, 'utf-8');
+          console.log('Found file:', filePath);
+          res.setHeader('Content-Type', 'text/plain');
+          res.end(content);
+        } else {
+          console.log('File not found:', filePath);
+          console.log('Available files in src:', fs.readdirSync(path.join(rootDir, 'src')));
+          console.log('Available files in pages:', fs.readdirSync(path.join(rootDir, 'src', 'pages')));
           next();
-        });
-      };
+        }
+      });
     }
   };
 }
@@ -64,7 +70,7 @@ export default defineConfig({
     port: 3000,
     fs: {
       strict: false,
-      allow: ['..']
+      allow: ['..', '../..']
     }
   },
   optimizeDeps: {
