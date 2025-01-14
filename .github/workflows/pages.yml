@@ -36,20 +36,39 @@ jobs:
           CONTENT_UPDATE: ${{ github.event.client_payload.content }}
           PAGE_ID: ${{ github.event.client_payload.pageId }}
         run: |
-          # Ensure directory exists and create backup
-          FILE_PATH="src/pages/${PAGE_ID}.html"
-          BACKUP_PATH="src/pages/${PAGE_ID}.backup.html"
-          mkdir -p "src/pages/$(dirname ${PAGE_ID})"
-          if [ -f "$FILE_PATH" ]; then
-            cp "$FILE_PATH" "$BACKUP_PATH"
+          # Debug info
+          echo "Updating content for page: $PAGE_ID"
+          
+          # Determine file path
+          if [ "$PAGE_ID" = "index" ]; then
+            FILE_PATH="src/index.html"
+          elif [ "$PAGE_ID" = "blog/index" ]; then
+            FILE_PATH="src/pages/blog.html"
+          else
+            FILE_PATH="src/pages/${PAGE_ID}.html"
           fi
-          # Update the file
-          echo "${CONTENT_UPDATE}" > "$FILE_PATH"
-          # Verify file was written correctly
-          if [ ! -f "$FILE_PATH" ]; then
+          
+          echo "Writing to file: $FILE_PATH"
+          
+          # Ensure directory exists
+          mkdir -p "$(dirname "$FILE_PATH")"
+          
+          # Create backup
+          if [ -f "$FILE_PATH" ]; then
+            cp "$FILE_PATH" "${FILE_PATH}.backup"
+          fi
+          
+          # Write content
+          echo "$CONTENT_UPDATE" > "$FILE_PATH"
+          
+          # Verify file was written
+          if [ -f "$FILE_PATH" ]; then
+            echo "File updated successfully"
+            cat "$FILE_PATH" | head -n 5
+          else
             echo "Failed to write file"
-            if [ -f "$BACKUP_PATH" ]; then
-              cp "$BACKUP_PATH" "$FILE_PATH"
+            if [ -f "${FILE_PATH}.backup" ]; then
+              cp "${FILE_PATH}.backup" "$FILE_PATH"
             fi
             exit 1
           fi
