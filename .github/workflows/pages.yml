@@ -121,6 +121,11 @@ jobs:
           # Install prettier
           npm install --save-dev prettier@^3.1.0
           
+          # Fix menu icons in all HTML files
+          echo "Fixing menu icons..."
+          find src -name "*.html" -exec sed -i 's/â°/☰/g' {} \;
+          find src -name "*.html" -exec sed -i 's/&#x2260;/☰/g' {} \;
+          
           # Format HTML files before build
           echo "Formatting HTML files..."
           npx prettier --write "src/**/*.html"
