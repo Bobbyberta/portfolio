@@ -67,10 +67,6 @@ export default defineConfig({
           if (name.endsWith('.js')) return 'js/[name][extname]'
           if (/\.(woff2?|ttf|eot)$/.test(name)) return 'fonts/[name][extname]'
           if (/\.(png|jpe?g|gif|svg|webp|ico)$/.test(name)) {
-            // Keep the same directory structure for images and icons
-            if (name.includes('icons/')) {
-              return name  // This preserves the icons directory structure
-            }
             return 'images/[name][extname]'
           }
           return 'assets/[name]-[hash][extname]'
@@ -100,16 +96,6 @@ export default defineConfig({
     {
       name: 'copy-assets',
       closeBundle() {
-        // Copy icons directory
-        try {
-          copyDir(
-            resolve(__dirname, 'src/icons'),
-            resolve(__dirname, 'dist/icons')
-          )
-        } catch (err) {
-          console.warn('Warning: Could not copy icons directory', err)
-        }
-
         // Copy entire assets directory structure
         try {
           copyDir(
@@ -167,6 +153,7 @@ export default defineConfig({
         // Copy remaining assets
         try {
           copyDir(resolve(__dirname, 'src/assets/images'), resolve(__dirname, 'dist/images'))
+          copyDir(resolve(__dirname, 'src/assets/icons'), resolve(__dirname, 'dist/images/icons'))
           copyDir(resolve(__dirname, 'src/assets/favicon'), resolve(__dirname, 'dist/favicon'))
           copyDir(resolve(__dirname, 'src/styles'), resolve(__dirname, 'dist/styles'))
         } catch (err) {
