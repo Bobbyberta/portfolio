@@ -111,6 +111,17 @@ jobs:
           npm install
           npm install --frozen-lockfile
 
+      - name: Fix menu icons
+        run: |
+          # Create a temporary file with the correct menu structure
+          echo '<button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+            <span class="sr-only">Menu</span>
+            &#9776;
+          </button>' > menu-template.txt
+          
+          # Find all HTML files and replace the menu button
+          find src -name "*.html" -exec sed -i '/<button class="mobile-menu-btn"/,/<\/button>/c\<button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">\n            <span class="sr-only">Menu</span>\n            \&#9776;\n          </button>' {} \;
+
       - name: Build website
         env:
           BASE_URL: '/portfolio'
@@ -120,25 +131,6 @@ jobs:
           
           # Install prettier
           npm install --save-dev prettier@^3.1.0
-          
-          # Create prettier config for HTML
-          echo '{
-            "printWidth": 120,
-            "tabWidth": 2,
-            "useTabs": false,
-            "semi": true,
-            "singleQuote": true,
-            "bracketSpacing": true,
-            "htmlWhitespaceSensitivity": "strict",
-            "preserveNewlines": true,
-            "endOfLine": "lf",
-            "embeddedLanguageFormatting": "auto"
-          }' > .prettierrc
-          
-          # Fix menu icons in all HTML files
-          echo "Fixing menu icons..."
-          find src -name "*.html" -exec sed -i 's/â°/☰/g' {} \;
-          find src -name "*.html" -exec sed -i 's/&#x2260;/☰/g' {} \;
           
           # Format HTML files before build
           echo "Formatting HTML files..."

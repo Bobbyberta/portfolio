@@ -297,14 +297,15 @@ export class GitHubUpdater {
     }
 
     static sanitizeContent(html) {
-        // First preserve the menu button structure with exact menu icon
-        const preservedMenu = '<span class="sr-only">Menu</span>\n            ☰';
+        // Use HTML entity for menu icon
+        const preservedMenu = '<span class="sr-only">Menu</span>\n            &#9776;';
         
         return html
             // Fix menu button structure first
-            .replace(/<span class="sr-only">\s*Menu\s*<\/span>[\s\n]*[☰â°°]+/g, preservedMenu)
+            .replace(/<span class="sr-only">\s*Menu\s*<\/span>[\s\n]*[☰â°°\u2630]/g, preservedMenu)
             // Replace problematic characters
-            .replace(/â°/g, '☰')  // Replace menu icon
+            .replace(/â°/g, '&#9776;')  // Replace menu icon with HTML entity
+            .replace(/☰/g, '&#9776;')   // Replace menu icon with HTML entity
             .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '') // Remove control characters
             .replace(/Â©/g, '©')  // Fix copyright symbol
             .replace(/ÃÂ©/g, '©') // Fix double-encoded copyright
