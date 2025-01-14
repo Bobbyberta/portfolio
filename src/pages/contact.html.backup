@@ -40,8 +40,10 @@
                                     Bobbie Allsop
                                 </div>
                                 <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-                                    <span class="sr-only">Menu</span>
-                                    &#9776;
+                                    <span class="sr-only">
+                                        Menu
+                                    </span>
+                                    â°
                                 </button>
                                 <ul class="nav-links" id="nav-links">
                                     <li>
@@ -97,7 +99,7 @@
                         </main>
                         <footer>
                             <p>
-                                Â© 2024 Bobbie Allsop. All rights reserved.
+                                © 2024 Bobbie Allsop. All rights reserved.
                             </p>
                         </footer>
                     </body>
