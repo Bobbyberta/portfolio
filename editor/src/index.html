@@ -49,6 +49,7 @@
                 <button class="button" id="import-content">Import Content</button>
                 <input type="file" id="import-file" accept=".json" style="display: none">
                 <button id="reload-about" style="display: none;">Reload About Page</button>
+                <button id="preview-changes" class="button">Preview Changes</button>
             </div>
 
             <div class="editor-instructions">
@@ -75,6 +76,69 @@
             </div>
         </div>
     </main>
+
+    <div id="preview-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Preview Changes</h2>
+            <div id="diff-preview" style="white-space: pre; font-family: monospace;"></div>
+            <div class="modal-buttons">
+                <button id="confirm-update" class="button">Update Site</button>
+                <button id="cancel-update" class="button">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        max-width: 80%;
+        max-height: 80%;
+        overflow: auto;
+    }
+
+    #diff-preview {
+        background: #f5f5f5;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 3px;
+        overflow: auto;
+    }
+
+    #diff-preview .removed {
+        background: #ffecec;
+        color: #bd2c00;
+    }
+
+    #diff-preview .added {
+        background: #eaffea;
+        color: #55a532;
+    }
+
+    .full-content {
+        background: #f8f8f8;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        max-height: 300px;
+        overflow: auto;
+        font-size: 12px;
+    }
+    </style>
 
     <script type="module">
         import { WYSIWYGEditor } from './components/wysiwyg-editor.js';
@@ -173,6 +237,81 @@
                 console.error('Update failed:', error);
                 alert(`Failed to update site: ${error.message}`);
             }
+        });
+
+        document.getElementById('preview-changes').addEventListener('click', async () => {
+            const pageId = pageSelect.value;
+            if (!pageId) {
+                alert('Please select a page first');
+                return;
+            }
+
+            try {
+                // Test repository access first
+                await GitHubUpdater.testAccess();
+                
+                // Get the editor content
+                const content = await editor.getContent();
+                
+                // Generate preview
+                const preview = await GitHubUpdater.previewChanges(pageId, content);
+                
+                // Show the diff in the modal
+                const diffPreview = document.getElementById('diff-preview');
+                
+                // Add a section showing the exact content that will be sent
+                diffPreview.innerHTML = `
+                    <h3>Changes:</h3>
+                    ${preview.diff
+                        .map(line => {
+                            if (line.startsWith('+')) {
+                                return `<div class="added">${line}</div>`;
+                            } else if (line.startsWith('-')) {
+                                return `<div class="removed">${line}</div>`;
+                            }
+                            return `<div>${line}</div>`;
+                        })
+                        .join('\n')}
+                    <h3>Full content to be sent:</h3>
+                    <pre class="full-content">${preview.updated}</pre>
+                `;
+                
+                // Show the modal
+                document.getElementById('preview-modal').style.display = 'flex';
+                
+                // Store the content for later use
+                window.pendingUpdate = { pageId, content };
+            } catch (error) {
+                console.error('Preview failed:', error);
+                alert(`Failed to generate preview: ${error.message}`);
+            }
+        });
+
+        document.getElementById('confirm-update').addEventListener('click', async () => {
+            if (!window.pendingUpdate) {
+                alert('No pending update found');
+                return;
+            }
+
+            try {
+                const { pageId, content } = window.pendingUpdate;
+                const success = await GitHubUpdater.updateContent(pageId, content);
+                if (success) {
+                    alert('Content update triggered! Check GitHub Actions for build progress.');
+                    window.open(`https://github.com/${config.owner}/${config.repo}/actions`, '_blank');
+                }
+            } catch (error) {
+                console.error('Update failed:', error);
+                alert(`Failed to update site: ${error.message}`);
+            } finally {
+                document.getElementById('preview-modal').style.display = 'none';
+                window.pendingUpdate = null;
+            }
+        });
+
+        document.getElementById('cancel-update').addEventListener('click', () => {
+            document.getElementById('preview-modal').style.display = 'none';
+            window.pendingUpdate = null;
         });
 
         // ... rest of your event listeners ...

@@ -31,41 +31,12 @@ export class GitHubUpdater {
     static async updateContent(pageId, content) {
         try {
             console.log('Updating content for page:', pageId);
-            console.log('Content length:', content.length);
+            console.log('Raw content length:', content.length);
             
-            // Get the current file content first
-            const originalContent = await this.fetchOriginalContent(pageId);
-            
-            // Create a new document from the original content
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(originalContent.content, 'text/html');
-            
-            // Find and update the main content
-            const mainSection = doc.querySelector('main');
-            if (mainSection) {
-                // Create a wrapper div to parse the content
-                const wrapper = document.createElement('div');
-                wrapper.innerHTML = content;
-                
-                // Clean up the content structure
-                const mainWrapper = wrapper.querySelector('.main-wrapper');
-                if (mainWrapper) {
-                    // Fix nested sections
-                    this.fixNestedSections(mainWrapper);
-                    
-                    // Clean up whitespace and structure
-                    const cleanContent = this.cleanupContent(mainWrapper.innerHTML);
-                    
-                    mainSection.innerHTML = cleanContent;
-                } else {
-                    mainSection.innerHTML = content;
-                }
-            }
-            
-            // Format and sanitize the document
-            const beautified = this.formatHTML(doc.documentElement.outerHTML);
-            const sanitized = this.sanitizeContent(beautified);
-            const updatedContent = `<!DOCTYPE html>\n${sanitized}`;
+            // Process the content
+            const updatedContent = await this.processContentForUpdate(pageId, content);
+            console.log('Processed content length:', updatedContent.length);
+            console.log('Content preview:', updatedContent.substring(0, 500));
             
             // Create the event payload
             const payload = {
@@ -75,6 +46,13 @@ export class GitHubUpdater {
                     content: updatedContent
                 }
             };
+
+            console.log('Sending payload:', {
+                pageId,
+                contentLength: updatedContent.length,
+                contentStart: updatedContent.substring(0, 100),
+                contentEnd: updatedContent.substring(updatedContent.length - 100)
+            });
 
             console.log('Sending repository dispatch event to:', `${config.owner}/${config.repo}`);
             console.log('Event payload:', {
@@ -332,5 +310,93 @@ export class GitHubUpdater {
             // Ensure proper line endings
             .replace(/\r\n/g, '\n')
             .replace(/\r/g, '\n');
+    }
+
+    static async previewChanges(pageId, content) {
+        try {
+            // Get the current file content first
+            const originalContent = await this.fetchOriginalContent(pageId);
+            
+            // Process the content exactly as we would in updateContent
+            const processedContent = await this.processContentForUpdate(pageId, content);
+            
+            return {
+                original: originalContent.content,
+                updated: processedContent,
+                diff: this.generateDiff(originalContent.content, processedContent)
+            };
+        } catch (error) {
+            console.error('Error generating preview:', error);
+            throw error;
+        }
+    }
+
+    // New method to process content consistently for both preview and update
+    static async processContentForUpdate(pageId, content) {
+        // Get the current file content first
+        const originalContent = await this.fetchOriginalContent(pageId);
+        
+        // Create a new document from the original content
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(originalContent.content, 'text/html');
+        
+        // Find and update the main content
+        const mainSection = doc.querySelector('main');
+        if (mainSection) {
+            // Create a wrapper div to parse the content
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = content;
+            
+            // Clean up the content structure
+            const mainWrapper = wrapper.querySelector('.main-wrapper');
+            if (mainWrapper) {
+                // Fix nested sections
+                this.fixNestedSections(mainWrapper);
+                
+                // Clean up whitespace and structure
+                const cleanContent = this.cleanupContent(mainWrapper.innerHTML);
+                
+                mainSection.innerHTML = cleanContent;
+            } else {
+                mainSection.innerHTML = content;
+            }
+        }
+        
+        // Format and sanitize the document
+        const beautified = this.formatHTML(doc.documentElement.outerHTML);
+        const sanitized = this.sanitizeContent(beautified);
+        return `<!DOCTYPE html>\n${sanitized}`;
+    }
+
+    static generateDiff(original, updated) {
+        const originalLines = original.split('\n');
+        const updatedLines = updated.split('\n');
+        const diff = [];
+        let inChangedBlock = false;
+
+        for (let i = 0; i < Math.max(originalLines.length, updatedLines.length); i++) {
+            const originalLine = originalLines[i] || '';
+            const updatedLine = updatedLines[i] || '';
+
+            if (originalLine !== updatedLine) {
+                if (!inChangedBlock) {
+                    diff.push('...');
+                    inChangedBlock = true;
+                }
+                if (originalLine) {
+                    diff.push(`- ${originalLine}`);
+                }
+                if (updatedLine) {
+                    diff.push(`+ ${updatedLine}`);
+                }
+            } else {
+                if (inChangedBlock) {
+                    diff.push('...');
+                    inChangedBlock = false;
+                }
+            }
+        }
+
+        return diff;
     }
 } 

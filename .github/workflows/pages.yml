@@ -38,6 +38,7 @@ jobs:
         run: |
           # Debug info
           echo "Updating content for page: $PAGE_ID"
+          echo "Content length: ${#CONTENT_UPDATE}"
           
           # Determine file path
           if [ "$PAGE_ID" = "index" ]; then
@@ -53,25 +54,21 @@ jobs:
           # Ensure directory exists
           mkdir -p "$(dirname "$FILE_PATH")"
           
-          # Create backup
-          if [ -f "$FILE_PATH" ]; then
-            cp "$FILE_PATH" "${FILE_PATH}.backup"
-          fi
-          
-          # Write content
+          # Write content with proper escaping
           echo "$CONTENT_UPDATE" > "$FILE_PATH"
           
           # Verify file was written
           if [ -f "$FILE_PATH" ]; then
             echo "File updated successfully"
-            cat "$FILE_PATH" | head -n 5
+            echo "First 5 lines of updated file:"
+            head -n 5 "$FILE_PATH"
           else
             echo "Failed to write file"
-            if [ -f "${FILE_PATH}.backup" ]; then
-              cp "${FILE_PATH}.backup" "$FILE_PATH"
-            fi
             exit 1
           fi
+          
+          # Show git status
+          git status
 
       - name: Commit changes
         run: |
