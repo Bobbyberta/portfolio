@@ -30,4 +30,37 @@
 @import './pages/bubble-function.css';
 @import './pages/contact.css';
 
-/* Add other component imports as needed */ 
+/* Add other component imports as needed */
+
+/* Add these styles to your existing CSS */
+.responsibilities {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.responsibilities li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.responsibility-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    color: var(--primary);
+}
+
+.responsibility-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.responsibility-text {
+    font-size: var(--body-font-size);
+    color: var(--text);
+} 

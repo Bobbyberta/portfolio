@@ -45,7 +45,7 @@ function htmlImportsPlugin() {
 }
 
 export default defineConfig({
-  base: process.env.BASE_URL || '/',
+  base: '/portfolio/',
   build: {
     outDir: resolve(__dirname, 'dist'),
     emptyOutDir: true,
@@ -158,5 +158,25 @@ export default defineConfig({
         }
       }
     }
-  ]
+  ],
+  server: {
+    fs: {
+      // Allow serving files from one level up from the package root
+      allow: ['..']
+    }
+  },
+  resolve: {
+    alias: {
+      // Create an alias for the src directory
+      '/@src': resolve(__dirname, '../src'),
+      '@': resolve(__dirname, 'src')
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      css: {
+        additionalData: `@import "/@src/styles/base/variables.css";`
+      }
+    }
+  }
 })

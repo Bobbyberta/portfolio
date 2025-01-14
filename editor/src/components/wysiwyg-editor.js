@@ -68,7 +68,25 @@ export class WYSIWYGEditor {
         editor.setAttribute('aria-multiline', 'true');
         editor.setAttribute('spellcheck', 'false');
         
-        this.container.appendChild(editor);
+        // Add website styles to editor using Vite alias
+        const websiteStyles = document.createElement('link');
+        websiteStyles.rel = 'stylesheet';
+        websiteStyles.href = '/@src/styles/main.css';  // Use Vite alias
+        
+        // Add editor-specific styles
+        const editorStyles = document.createElement('link');
+        editorStyles.rel = 'stylesheet';
+        editorStyles.href = '/@editor/styles/wysiwyg-editor.css';  // Use Vite alias
+        
+        this.container.appendChild(websiteStyles);
+        this.container.appendChild(editorStyles);
+        
+        // Add a wrapper to match website structure
+        const editorWrapper = document.createElement('div');
+        editorWrapper.className = 'editor-wrapper';
+        editorWrapper.appendChild(editor);
+        
+        this.container.appendChild(editorWrapper);
         this.editor = editor;
     }
 
@@ -144,7 +162,7 @@ export class WYSIWYGEditor {
             /<span class="sr-only">\s*Menu\s*<\/span>[\s\n]*[☰â°°\u2630]+/g,
             '<span class="sr-only">Menu</span>\n            &#9776;'
         );
-        
+
         console.log('Processed editor content:', content);
         return content.trim();
     }
@@ -180,6 +198,11 @@ export class WYSIWYGEditor {
             /<span class="sr-only">\s*Menu\s*<\/span>[\s\n]*[☰â°°\u2630]+/g,
             '<span class="sr-only">Menu</span>\n            &#9776;'
         );
+
+        // Wrap content in main-wrapper if not already wrapped
+        if (!html.includes('main-wrapper')) {
+            html = `<div class="main-wrapper">${html}</div>`;
+        }
 
         // Set the content
         console.log('Setting editor content:', {

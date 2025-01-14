@@ -57,13 +57,6 @@ function websiteContentPlugin() {
 
 export default defineConfig({
   base: '/portfolio/',
-  build: {
-    outDir: resolve(__dirname, 'dist/editor'),
-    emptyOutDir: true,
-    rollupOptions: {
-      input: resolve(__dirname, 'editor/src/index.html')
-    }
-  },
   root: resolve(__dirname, 'editor/src'),
   publicDir: false,
   server: {
@@ -71,6 +64,20 @@ export default defineConfig({
     fs: {
       strict: false,
       allow: ['..', '../..']
+    }
+  },
+  resolve: {
+    alias: {
+      // Create an alias for the src directory
+      '/@src': resolve(__dirname, 'src'),
+      '@editor': resolve(__dirname, 'editor/src')
+    }
+  },
+  build: {
+    outDir: resolve(__dirname, 'dist/editor'),
+    emptyOutDir: true,
+    rollupOptions: {
+      input: resolve(__dirname, 'editor/src/index.html')
     }
   },
   optimizeDeps: {
@@ -83,8 +90,15 @@ export default defineConfig({
       './config.js'
     ]
   },
+  css: {
+    preprocessorOptions: {
+      css: {
+        additionalData: `@import "/@src/styles/base/variables.css";`
+      }
+    }
+  },
   define: {
     'process.env.BASE_URL': JSON.stringify('/portfolio/')
   },
   plugins: [websiteContentPlugin()]
-}) 
+})

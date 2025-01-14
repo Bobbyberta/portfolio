@@ -300,23 +300,24 @@ export class GitHubUpdater {
         // Use HTML entity for menu icon
         const preservedMenu = '<span class="sr-only">Menu</span>\n            &#9776;';
         
+        // Only preserve our specific emojis
+        const preservedEmojis = {
+            '🎨': '🎨', // Art palette
+            '📊': '📊', // Bar chart
+            '✏️': '✏️', // Pencil
+            '🔍': '🔍'  // Magnifying glass
+        };
+
         return html
             // Fix menu button structure first
             .replace(/<span class="sr-only">\s*Menu\s*<\/span>[\s\n]*[☰â°°\u2630]/g, preservedMenu)
             // Replace problematic characters
             .replace(/â°/g, '&#9776;')  // Replace menu icon with HTML entity
             .replace(/☰/g, '&#9776;')   // Replace menu icon with HTML entity
+            // Preserve only our specific emojis
+            .replace(/🎨|📊|✏️|🔍/g, match => preservedEmojis[match] || match)
             .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '') // Remove control characters
             .replace(/Â©/g, '©')  // Fix copyright symbol
-            .replace(/ÃÂ©/g, '©') // Fix double-encoded copyright
-            // Replace other potentially problematic characters
-            .replace(/[\u2018\u2019]/g, "'")  // Smart quotes
-            .replace(/[\u201C\u201D]/g, '"')  // Smart double quotes
-            .replace(/\u2026/g, '...')  // Ellipsis
-            .replace(/\u2013/g, '-')    // En dash
-            .replace(/\u2014/g, '--')   // Em dash
-            // Ensure proper line endings
-            .replace(/\r\n/g, '\n')
             .replace(/\r/g, '\n');
     }
 

@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Editor</title>
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/wysiwyg-editor.css">
+    <base href="/portfolio/">
+    <link rel="stylesheet" href="/@src/styles/main.css">
+    <link rel="stylesheet" href="/@editor/styles/wysiwyg-editor.css">
+    <link rel="icon" type="image/x-icon" href="editor/favicon.ico">
 </head>
 <body>
     <header>
@@ -16,11 +17,14 @@
     </header>
 
     <main>
-        <div class="editor-wrapper">
-            <div class="breadcrumb">
-                <span>Editing:</span>
-                <strong id="current-page">No page selected</strong>
+        <div class="editor-container">
+            <div class="editor-header">
+                <div class="breadcrumb">
+                    <span>Editing:</span>
+                    <strong id="current-page">No page selected</strong>
+                </div>
             </div>
+
             <div class="editor-controls">
                 <div class="page-selector">
                     <label for="page-select-main">Select Page:</label>
@@ -40,39 +44,16 @@
                         </optgroup>
                     </select>
                 </div>
-                <div class="version-controls" style="display: none;">
-                    <label for="version-select">Version:</label>
-                    <select id="version-select"></select>
-                    <button id="rollback-version" class="button">Rollback to Selected Version</button>
+                <div class="button-group">
+                    <button id="preview-changes" class="button">Preview Changes</button>
+                    <button id="update-site" class="button">Update Site</button>
                 </div>
-                <button class="button" id="export-content">Export All Content</button>
-                <button class="button" id="import-content">Import Content</button>
-                <input type="file" id="import-file" accept=".json" style="display: none">
-                <button id="reload-about" style="display: none;">Reload About Page</button>
-                <button id="preview-changes" class="button">Preview Changes</button>
             </div>
-
-            <div class="editor-instructions">
-                <p>Use the toolbar above to format your content. Available tools:</p>
-                <ul>
-                    <li>H2 - Create headings</li>
-                    <li>¶ - Create paragraphs</li>
-                    <li>B - Bold text</li>
-                    <li>I - Italic text</li>
-                    <li>🔗 - Add links</li>
-                    <li>• - Create bullet lists</li>
-                    <li>1. - Create numbered lists</li>
-                    <li>📷 - Add images</li>
-                    <li> - Add code blocks</li>
-                </ul>
-            </div>
-
-            <div id="editor" class="wysiwyg-container"></div>
             
-            <div class="button-group">
-                <button class="button" id="save-content">Save Content</button>
-                <button class="button" id="export-current">Export Current Page</button>
-                <button class="button" id="update-site">Update Site</button>
+            <div class="wysiwyg-container">
+                <div id="editor" class="wysiwyg-content">
+                    <!-- Editor will be initialized here -->
+                </div>
             </div>
         </div>
     </main>
@@ -148,7 +129,7 @@
         import { GitHubUpdater } from './utils/github-updater.js';
         import { config } from './config.js';
 
-        // Initialize editor first
+        // Initialize editor with the correct selector
         const editor = new WYSIWYGEditor('#editor', {
             customStyles: [
                 {
@@ -195,50 +176,7 @@
             }
         });
 
-        // Initialize other event listeners
-        document.getElementById('save-content').addEventListener('click', () => {
-            const content = editor.getContent();
-            ContentManager.saveContent(pageSelect.value, content);
-            alert('Content saved!');
-        });
-
-        document.getElementById('export-current').addEventListener('click', () => {
-            const pageId = pageSelect.value;
-            if (!pageId) {
-                alert('Please select a page first');
-                return;
-            }
-            ContentExport.exportPage(pageId);
-        });
-
-        // Handle site update
-        document.getElementById('update-site').addEventListener('click', async () => {
-            const pageId = pageSelect.value;
-            if (!pageId) {
-                alert('Please select a page first');
-                return;
-            }
-
-            try {
-                // Test repository access first
-                await GitHubUpdater.testAccess();
-                
-                // Get the editor content (now awaiting the async call)
-                const content = await editor.getContent();
-                console.log('Editor content to update:', content);
-                
-                // Update the content
-                const success = await GitHubUpdater.updateContent(pageId, content);
-                if (success) {
-                    alert('Content update triggered! Check GitHub Actions for build progress.');
-                    window.open(`https://github.com/${config.owner}/${config.repo}/actions`, '_blank');
-                }
-            } catch (error) {
-                console.error('Update failed:', error);
-                alert(`Failed to update site: ${error.message}`);
-            }
-        });
-
+        // Only keep the event listeners for elements that exist
         document.getElementById('preview-changes').addEventListener('click', async () => {
             const pageId = pageSelect.value;
             if (!pageId) {
@@ -247,19 +185,11 @@
             }
 
             try {
-                // Test repository access first
                 await GitHubUpdater.testAccess();
-                
-                // Get the editor content
                 const content = await editor.getContent();
-                
-                // Generate preview
                 const preview = await GitHubUpdater.previewChanges(pageId, content);
                 
-                // Show the diff in the modal
                 const diffPreview = document.getElementById('diff-preview');
-                
-                // Add a section showing the exact content that will be sent
                 diffPreview.innerHTML = `
                     <h3>Changes:</h3>
                     ${preview.diff
@@ -276,10 +206,7 @@
                     <pre class="full-content">${preview.updated}</pre>
                 `;
                 
-                // Show the modal
                 document.getElementById('preview-modal').style.display = 'flex';
-                
-                // Store the content for later use
                 window.pendingUpdate = { pageId, content };
             } catch (error) {
                 console.error('Preview failed:', error);
@@ -287,6 +214,28 @@
             }
         });
 
+        document.getElementById('update-site').addEventListener('click', async () => {
+            const pageId = pageSelect.value;
+            if (!pageId) {
+                alert('Please select a page first');
+                return;
+            }
+
+            try {
+                await GitHubUpdater.testAccess();
+                const content = await editor.getContent();
+                const success = await GitHubUpdater.updateContent(pageId, content);
+                if (success) {
+                    alert('Content update triggered! Check GitHub Actions for build progress.');
+                    window.open(`https://github.com/${config.owner}/${config.repo}/actions`, '_blank');
+                }
+            } catch (error) {
+                console.error('Update failed:', error);
+                alert(`Failed to update site: ${error.message}`);
+            }
+        });
+
+        // Modal event listeners
         document.getElementById('confirm-update').addEventListener('click', async () => {
             if (!window.pendingUpdate) {
                 alert('No pending update found');
@@ -313,8 +262,6 @@
             document.getElementById('preview-modal').style.display = 'none';
             window.pendingUpdate = null;
         });
-
-        // ... rest of your event listeners ...
     </script>
 </body>
 </html> 

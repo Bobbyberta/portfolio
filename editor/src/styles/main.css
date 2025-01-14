@@ -1,233 +1,52 @@
-/* Reset */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* Import website styles using alias */
+@import '/@src/styles/base/reset.css';
+@import '/@src/styles/base/variables.css';
+@import '/@src/styles/base/typography.css';
+@import '/@src/styles/layouts/header.css';
+@import '/@src/styles/layouts/footer.css';
+@import '/@src/styles/components/buttons.css';
+@import '/@src/styles/components/navigation.css';
+@import '/@src/styles/pages/about.css';
+@import '/@src/styles/pages/blog.css';
+@import '/@src/styles/pages/contact.css';
+
+/* Editor-specific overrides */
+.wysiwyg-content {
+    /* Inherit website styles while maintaining editability */
+    font-family: var(--font-family);
+    line-height: var(--body-line-height);
+    color: var(--text);
 }
 
-/* Variables */
-:root {
-  /* Colors */
-  --primary: #3B82F6;
-  --primary-dark: #2563EB;
-  --primary-light: #93C5FD;
-  --primary-rgb: 59, 130, 246;
-  --text-dark: #1F2937;
-  --text-light: #6B7280;
-  --bg: #FFFFFF;
-  --bg-light: #F3F4F6;
-  --border-color: #E5E7EB;
-  
-  /* Spacing */
-  --spacing-xxs: 0.25rem;
-  --spacing-xsm: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
-  
-  /* Typography */
-  --font-family: system-ui, -apple-system, sans-serif;
-  --body-font-size: 1rem;
-  --small-font-size: 0.875rem;
-  --font-weight-medium: 500;
-  
-  /* Layout */
-  --max-width: 1200px;
-  --border-radius-small: 4px;
-  --border-radius-medium: 8px;
-  --border-radius-large: 12px;
-  
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+.wysiwyg-content .main-wrapper {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-lg);
 }
 
-/* Base styles */
-body {
-  font-family: var(--font-family);
-  font-size: var(--body-font-size);
-  line-height: 1.5;
-  color: var(--text-dark);
-  background: var(--bg);
+.wysiwyg-content section {
+    padding: var(--section-padding);
+    margin: var(--spacing-md) 0;
 }
 
-/* Layout */
-.editor-wrapper {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: var(--spacing-md);
+.wysiwyg-content h1 {
+    font-size: var(--h1-font-size);
+    margin-bottom: var(--h1-margin-bottom);
 }
 
-/* Navigation */
-header nav {
-  padding: var(--spacing-sm);
-  background: var(--bg-light);
-  border-bottom: 1px solid var(--border-color);
+.wysiwyg-content h2 {
+    font-size: var(--h2-font-size);
+    margin: var(--spacing-md) 0;
 }
 
-.logo {
-  font-weight: var(--font-weight-medium);
-  color: var(--text-dark);
+.wysiwyg-content p {
+    margin: var(--spacing-sm) 0;
 }
 
-/* Controls */
-.editor-controls {
-  display: flex;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
-  flex-wrap: wrap;
-  background: var(--bg-light);
-  padding: var(--spacing-md);
-  border-radius: var(--border-radius-medium);
-  border: 1px solid var(--border-color);
-}
-
-.page-selector {
-  flex: 1;
-}
-
-/* Buttons */
-.button {
-  padding: var(--spacing-xsm) var(--spacing-sm);
-  background: var(--bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-small);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.button:hover {
-  background: var(--bg-light);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
-}
-
-#update-site {
-  background-color: var(--primary);
-  color: white;
-}
-
-#update-site:hover {
-  background-color: var(--primary-dark);
-}
-
-/* Version Controls */
-.version-controls {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-md);
-  background: var(--bg-light);
-  border-radius: var(--border-radius-small);
-  border: 1px solid var(--border-color);
-}
-
-#version-select {
-  min-width: 300px;
-  padding: var(--spacing-xsm) var(--spacing-sm);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-small);
-}
-
-/* Editor Instructions */
-.editor-instructions {
-  background: rgba(var(--primary-rgb), 0.05);
-  padding: var(--spacing-md);
-  border-radius: var(--border-radius-medium);
-  margin-bottom: var(--spacing-md);
-  border: 1px solid rgba(var(--primary-rgb), 0.2);
-}
-
-.editor-instructions ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: var(--spacing-sm);
-  list-style: none;
-  padding: 0;
-}
-
-.editor-instructions li {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm);
-  background: var(--bg);
-  border-radius: var(--border-radius-small);
-  border: 1px solid var(--border-color);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .editor-controls {
-    flex-direction: column;
-  }
-  
-  .version-controls {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  #version-select {
-    width: 100%;
-  }
-}
-
-/* Button Group */
-.button-group {
-  display: flex;
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-md);
-}
-
-/* Breadcrumb */
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xsm);
-  margin-bottom: var(--spacing-sm);
-  padding: var(--spacing-sm);
-  background: var(--bg-light);
-  border-radius: var(--border-radius-small);
-}
-
-.breadcrumb span {
-  color: var(--text-light);
-}
-
-.breadcrumb strong {
-  color: var(--text-dark);
-}
-
-/* WYSIWYG Editor */
-.wysiwyg-container {
-  min-height: 500px;
-  background: var(--bg);
-  margin: var(--spacing-md) 0;
-  border: 2px solid var(--border-color);
-}
-
-.wysiwyg-content:empty::before {
-  content: 'Select a page and start editing...';
-  color: var(--text-light);
-  font-style: italic;
-  padding: var(--spacing-sm);
-  display: block;
-}
-
-.wysiwyg-toolbar {
-  padding: var(--spacing-sm);
-  background: var(--bg-light);
-  border-bottom: 2px solid var(--border-color);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-/* Form Elements */
-#page-select {
-  padding: var(--spacing-xsm) var(--spacing-sm);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-small);
-  width: 100%;
-  max-width: 300px;
+.wysiwyg-content .cta-button {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-small);
+    text-decoration: none;
+    margin: var(--spacing-sm);
 }
