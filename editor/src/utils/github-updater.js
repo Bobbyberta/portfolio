@@ -301,6 +301,8 @@ export class GitHubUpdater {
             // Replace problematic characters
             .replace(/â°/g, '☰')  // Replace menu icon
             .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '') // Remove control characters
+            .replace(/Â©/g, '©')  // Fix copyright symbol
+            .replace(/ÃÂ©/g, '©') // Fix double-encoded copyright
             // Replace other potentially problematic characters
             .replace(/[\u2018\u2019]/g, "'")  // Smart quotes
             .replace(/[\u201C\u201D]/g, '"')  // Smart double quotes
@@ -333,39 +335,56 @@ export class GitHubUpdater {
 
     // New method to process content consistently for both preview and update
     static async processContentForUpdate(pageId, content) {
-        // Get the current file content first
-        const originalContent = await this.fetchOriginalContent(pageId);
-        
-        // Create a new document from the original content
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(originalContent.content, 'text/html');
-        
-        // Find and update the main content
-        const mainSection = doc.querySelector('main');
-        if (mainSection) {
-            // Create a wrapper div to parse the content
-            const wrapper = document.createElement('div');
-            wrapper.innerHTML = content;
+        try {
+            // Get the current file content first
+            const originalContent = await this.fetchOriginalContent(pageId);
             
-            // Clean up the content structure
-            const mainWrapper = wrapper.querySelector('.main-wrapper');
-            if (mainWrapper) {
-                // Fix nested sections
-                this.fixNestedSections(mainWrapper);
-                
-                // Clean up whitespace and structure
-                const cleanContent = this.cleanupContent(mainWrapper.innerHTML);
-                
-                mainSection.innerHTML = cleanContent;
-            } else {
-                mainSection.innerHTML = content;
+            // Create a new document from the original content
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(originalContent.content, 'text/html');
+            
+            // Ensure UTF-8 encoding
+            const meta = doc.querySelector('meta[charset]');
+            if (meta) {
+                meta.setAttribute('charset', 'UTF-8');
             }
+            
+            // Find and update the main content
+            const mainSection = doc.querySelector('main');
+            if (mainSection) {
+                // Create a wrapper div to parse the content
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = content;
+                
+                // Clean up the content structure
+                const mainWrapper = wrapper.querySelector('.main-wrapper');
+                if (mainWrapper) {
+                    // Fix nested sections
+                    this.fixNestedSections(mainWrapper);
+                    
+                    // Clean up whitespace and structure
+                    const cleanContent = this.cleanupContent(mainWrapper.innerHTML);
+                    
+                    mainSection.innerHTML = cleanContent;
+                } else {
+                    mainSection.innerHTML = content;
+                }
+            }
+            
+            // Format and sanitize the document
+            const beautified = this.formatHTML(doc.documentElement.outerHTML);
+            const sanitized = this.sanitizeContent(beautified);
+            
+            // Verify no control characters remain
+            if (/[\x00-\x08\x0B\x0C\x0E-\x1F]/.test(sanitized)) {
+                console.warn('Warning: Control characters found in processed content');
+            }
+            
+            return `<!DOCTYPE html>\n${sanitized}`;
+        } catch (error) {
+            console.error('Error processing content:', error);
+            throw error;
         }
-        
-        // Format and sanitize the document
-        const beautified = this.formatHTML(doc.documentElement.outerHTML);
-        const sanitized = this.sanitizeContent(beautified);
-        return `<!DOCTYPE html>\n${sanitized}`;
     }
 
     static generateDiff(original, updated) {
