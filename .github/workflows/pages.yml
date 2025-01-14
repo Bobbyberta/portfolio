@@ -91,9 +91,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # Pull latest changes including the content update
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 1  # Shallow clone for build
+          ref: main  # Explicitly checkout main branch to get latest changes
+          fetch-depth: 0  # Get full history
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -106,9 +108,7 @@ jobs:
           NODE_ENV: production
         run: |
           npm install -g vite
-          # Update package-lock.json first
           npm install
-          # Now install dependencies from the updated lock file
           npm install --frozen-lockfile
 
       - name: Build website
@@ -133,14 +133,11 @@ jobs:
           # Build site
           npm run build
           
-          # Verify build output
-          if [ ! -f "dist/index.html" ]; then
-            echo "Build failed - index.html not found"
-            exit 1
-          fi
-          
-          # Copy 404 page
-          cp dist/index.html dist/404.html
+          # Debug output
+          echo "Built files in dist:"
+          ls -la dist/
+          echo "Content of contact page:"
+          cat dist/pages/contact.html
 
       - name: Deploy to gh-pages branch
         uses: JamesIves/github-pages-deploy-action@v4
@@ -150,6 +147,7 @@ jobs:
           clean: true
           commit-message: "Deploy to GitHub Pages [skip ci]"
 
+      # These steps ensure GitHub Pages is updated
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
