@@ -27,7 +27,21 @@
     "bracketSpacing": true,
     "arrowParens": "avoid",
     "proseWrap": "preserve",
-    "htmlWhitespaceSensitivity": "css",
-    "endOfLine": "lf"
+    "htmlWhitespaceSensitivity": "strict",
+    "preserveNewlines": true,
+    "endOfLine": "lf",
+    "embeddedLanguageFormatting": "auto",
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "html",
+          "htmlWhitespaceSensitivity": "strict",
+          "preserveNewlines": true,
+          "printWidth": 120,
+          "bracketSameLine": true
+        }
+      }
+    ]
   }
 }

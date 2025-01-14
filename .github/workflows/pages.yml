@@ -121,6 +121,20 @@ jobs:
           # Install prettier
           npm install --save-dev prettier@^3.1.0
           
+          # Create prettier config for HTML
+          echo '{
+            "printWidth": 120,
+            "tabWidth": 2,
+            "useTabs": false,
+            "semi": true,
+            "singleQuote": true,
+            "bracketSpacing": true,
+            "htmlWhitespaceSensitivity": "strict",
+            "preserveNewlines": true,
+            "endOfLine": "lf",
+            "embeddedLanguageFormatting": "auto"
+          }' > .prettierrc
+          
           # Fix menu icons in all HTML files
           echo "Fixing menu icons..."
           find src -name "*.html" -exec sed -i 's/â°/☰/g' {} \;
