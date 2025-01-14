@@ -297,6 +297,11 @@ export class GitHubUpdater {
     }
 
     static sanitizeContent(html) {
+        // First preserve the menu button structure
+        const preservedMenu = `<span class="sr-only">Menu</span>
+                    ☰`;
+        const menuRegex = /<span class="sr-only">\s*Menu\s*<\/span>\s*[☰â°]/g;
+        
         return html
             // Replace problematic characters
             .replace(/â°/g, '☰')  // Replace menu icon
@@ -309,6 +314,8 @@ export class GitHubUpdater {
             .replace(/\u2026/g, '...')  // Ellipsis
             .replace(/\u2013/g, '-')    // En dash
             .replace(/\u2014/g, '--')   // Em dash
+            // Fix menu button structure
+            .replace(menuRegex, preservedMenu)
             // Ensure proper line endings
             .replace(/\r\n/g, '\n')
             .replace(/\r/g, '\n');

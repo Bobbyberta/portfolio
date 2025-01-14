@@ -137,10 +137,13 @@ export class WYSIWYGEditor {
 
     async getContent() {
         console.log('Getting editor content...');
-        const content = this.editor.innerHTML;
-        console.log('Raw editor content:', content);
+        let content = this.editor.innerHTML;
         
-        // Return just the edited content
+        // Fix menu button structure if it exists
+        const menuRegex = /<span class="sr-only">\s*Menu\s*<\/span>\s*[☰â°]/g;
+        content = content.replace(menuRegex, '<span class="sr-only">Menu</span>\n                    ☰');
+        
+        console.log('Processed editor content:', content);
         return content.trim();
     }
 
@@ -170,7 +173,11 @@ export class WYSIWYGEditor {
             return;
         }
 
-        // Set the raw HTML content
+        // Fix menu button structure if it exists
+        const menuRegex = /<span class="sr-only">\s*Menu\s*<\/span>\s*[☰â°]/g;
+        html = html.replace(menuRegex, '<span class="sr-only">Menu</span>\n                    ☰');
+
+        // Set the content
         console.log('Setting editor content:', {
             html: html.substring(0, 500),
             length: html.length
