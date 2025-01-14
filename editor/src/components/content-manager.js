@@ -1,75 +1,115 @@
+import { config } from '../config.js';
+
 export class ContentManager {
     static saveContent(pageId, content) {
         localStorage.setItem(`page_${pageId}`, content);
     }
 
-    static loadContent(pageId) {
+    static async loadContent(pageId) {
         if (!pageId) {
             console.log('No page selected');
             return '';
         }
 
-        // First try to load from localStorage (for unsaved changes)
-        const savedContent = localStorage.getItem(`page_${pageId}`);
-        if (savedContent && pageId !== 'about') {  // Skip cache for about page
-            return savedContent;
+        try {
+            console.log('Loading content for page:', pageId);
+            
+            // Always fetch the actual page from GitHub
+            const content = await this.fetchPageContent(pageId);
+            
+            // Store in localStorage for backup
+            if (content) {
+                localStorage.setItem(`page_${pageId}`, content);
+                console.log('Content cached in localStorage');
+            }
+            
+            return content;
+        } catch (error) {
+            console.error('Error loading content:', error);
+            
+            // Try to load from localStorage as fallback
+            const savedContent = localStorage.getItem(`page_${pageId}`);
+            if (savedContent) {
+                console.log('Using cached content from localStorage');
+                return savedContent;
+            }
+            
+            return '';
         }
-
-        // If no saved content, fetch the actual page
-        return this.fetchPageContent(pageId);
     }
 
     static async fetchPageContent(pageId) {
         try {
-            console.log('Fetching page:', pageId);
+            console.log('Starting content fetch for page:', pageId);
             
-            // Map page IDs to file paths
+            // First try to fetch from src/pages
             let pagePath;
             if (pageId === 'index') {
-                pagePath = '/website-content/index.html';
+                pagePath = 'src/index.html';
             } else if (pageId === 'blog/index') {
-                pagePath = '/website-content/blog.html';
+                pagePath = 'src/pages/blog.html';
             } else {
-                pagePath = `/website-content/${pageId}.html`;
+                pagePath = `src/pages/${pageId}.html`;
             }
             
-            console.log('Request path:', pagePath);
-
-            const response = await fetch(pagePath);
-            console.log('Response status:', response.status);
-
+            console.log('Attempting to fetch from GitHub:', pagePath);
+            
+            // Construct the GitHub API URL
+            const apiUrl = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${pagePath}`;
+            console.log('GitHub API URL:', apiUrl);
+            
+            // Fetch from GitHub API
+            const response = await fetch(apiUrl, {
+                headers: {
+                    'Authorization': `token ${config.githubToken}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+            
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                console.error('GitHub API Error:', {
+                    status: response.status,
+                    statusText: response.statusText,
+                    url: apiUrl
+                });
+                return '';
             }
-
-            const html = await response.text();
-            console.log('Received content length:', html.length);
-
-            // Create a unique ID for this template
-            const templateId = `original-content-${pageId.replace('/', '-')}`;
             
-            // Remove any existing template for this page
-            const existingTemplate = document.getElementById(templateId);
-            if (existingTemplate) {
-                existingTemplate.remove();
-            }
-
-            // Create and store the new template
-            const template = document.createElement('template');
-            template.id = templateId;
-            template.innerHTML = html;
-            document.body.appendChild(template);
-            console.log('Stored template with ID:', templateId);
-
-            // Extract main content for editor
+            // Parse the response
+            const data = await response.json();
+            console.log('GitHub response:', {
+                path: data.path,
+                size: data.size,
+                sha: data.sha
+            });
+            
+            // Decode the content
+            const html = atob(data.content);
+            console.log('Decoded HTML length:', html.length);
+            
+            // Parse and extract main content
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
-            const mainContent = doc.querySelector('main')?.innerHTML || '';
-            console.log('Extracted main content length:', mainContent.length);
-
-            return mainContent;
+            
+            // Find the main section
+            const mainSection = doc.querySelector('main');
+            if (!mainSection) {
+                console.error('No main tag found in HTML');
+                console.log('Document structure:', doc.documentElement.outerHTML.substring(0, 500));
+                return '';
+            }
+            
+            // Get the content
+            const content = mainSection.innerHTML;
+            console.log('Extracted content preview:', {
+                length: content.length,
+                preview: content.substring(0, 200)
+            });
+            
+            return content;
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Content fetch error:', error);
+            console.error('Error stack:', error.stack);
             return '';
         }
     }

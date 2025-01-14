@@ -125,7 +125,7 @@ export class GitHubUpdater {
     static async fetchOriginalContent(pageId) {
         console.log('Attempting to fetch original content for page:', pageId);
         
-        // Map page IDs to correct file paths in the repository
+        // Map page IDs to correct file paths in the source directory
         let filePath;
         if (pageId === 'index') {
             filePath = 'src/index.html';
@@ -343,15 +343,14 @@ export class GitHubUpdater {
             const parser = new DOMParser();
             const doc = parser.parseFromString(originalContent.content, 'text/html');
             
-            // Ensure UTF-8 encoding
-            const meta = doc.querySelector('meta[charset]');
-            if (meta) {
-                meta.setAttribute('charset', 'UTF-8');
-            }
-            
             // Find and update the main content
             const mainSection = doc.querySelector('main');
             if (mainSection) {
+                // If content doesn't have main-wrapper, wrap it
+                if (!content.includes('main-wrapper')) {
+                    content = `<div class="main-wrapper">${content}</div>`;
+                }
+                
                 // Create a wrapper div to parse the content
                 const wrapper = document.createElement('div');
                 wrapper.innerHTML = content;
@@ -364,7 +363,6 @@ export class GitHubUpdater {
                     
                     // Clean up whitespace and structure
                     const cleanContent = this.cleanupContent(mainWrapper.innerHTML);
-                    
                     mainSection.innerHTML = cleanContent;
                 } else {
                     mainSection.innerHTML = content;
@@ -374,11 +372,6 @@ export class GitHubUpdater {
             // Format and sanitize the document
             const beautified = this.formatHTML(doc.documentElement.outerHTML);
             const sanitized = this.sanitizeContent(beautified);
-            
-            // Verify no control characters remain
-            if (/[\x00-\x08\x0B\x0C\x0E-\x1F]/.test(sanitized)) {
-                console.warn('Warning: Control characters found in processed content');
-            }
             
             return `<!DOCTYPE html>\n${sanitized}`;
         } catch (error) {

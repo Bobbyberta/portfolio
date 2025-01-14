@@ -54,21 +54,19 @@ jobs:
           # Ensure directory exists
           mkdir -p "$(dirname "$FILE_PATH")"
           
-          # Write content with proper escaping
-          echo "$CONTENT_UPDATE" > "$FILE_PATH"
+          # Format content before writing
+          # Remove any extra whitespace and ensure proper indentation
+          echo "$CONTENT_UPDATE" | sed 's/^[ \t]*//;s/[ \t]*$//' > "$FILE_PATH"
           
           # Verify file was written
           if [ -f "$FILE_PATH" ]; then
             echo "File updated successfully"
-            echo "First 5 lines of updated file:"
-            head -n 5 "$FILE_PATH"
+            echo "Content preview:"
+            head -n 20 "$FILE_PATH"
           else
             echo "Failed to write file"
             exit 1
           fi
-          
-          # Show git status
-          git status
 
       - name: Commit changes
         run: |
@@ -116,14 +114,23 @@ jobs:
         run: |
           # Clean dist directory
           rm -rf dist
-          # Build site
+          
+          # Install dependencies
           npm install
+          
+          # Format HTML files before build
+          find src -name "*.html" -exec npx prettier --write {} \;
+          
+          # Build site
           npm run build
+          
           # Verify build output
           if [ ! -f "dist/index.html" ]; then
             echo "Build failed - index.html not found"
             exit 1
           fi
+          
+          # Copy 404 page
           cp dist/index.html dist/404.html
 
       - name: Deploy to gh-pages branch

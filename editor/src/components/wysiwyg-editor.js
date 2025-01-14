@@ -145,37 +145,41 @@ export class WYSIWYGEditor {
     }
 
     setContent(html) {
+        console.log('WYSIWYGEditor.setContent called with:', {
+            type: typeof html,
+            length: html?.length,
+            preview: html?.substring(0, 200)
+        });
+
         if (!html || typeof html !== 'string') {
             console.error('Invalid content received:', html);
             this.setInitialState();
             return;
         }
 
-        // Clear any existing content including placeholder
+        // Clear any existing content
         this.editor.innerHTML = '';
+        console.log('Editor cleared');
 
         if (html === 'Loading...') {
             const loading = document.createElement('div');
             loading.className = 'editor-loading';
             loading.textContent = html;
             this.editor.appendChild(loading);
+            console.log('Loading state set');
             return;
         }
 
-        // Parse the HTML to extract main content
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
+        // Set the raw HTML content
+        console.log('Setting editor content:', {
+            html: html.substring(0, 500),
+            length: html.length
+        });
         
-        // Get the main content section
-        const mainContent = doc.querySelector('main');
-        if (mainContent) {
-            console.log('Setting main content in editor');
-            this.editor.innerHTML = mainContent.innerHTML;
-        } else {
-            console.log('Setting full content in editor');
-            this.editor.innerHTML = html;
-        }
-        
-        console.log('Editor content set');
+        this.editor.innerHTML = html;
+        console.log('Editor content set, final innerHTML:', {
+            preview: this.editor.innerHTML.substring(0, 200),
+            length: this.editor.innerHTML.length
+        });
     }
 } 
