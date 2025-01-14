@@ -139,9 +139,11 @@ export class WYSIWYGEditor {
         console.log('Getting editor content...');
         let content = this.editor.innerHTML;
         
-        // Fix menu button structure if it exists
-        const menuRegex = /<span class="sr-only">\s*Menu\s*<\/span>\s*[☰â°]/g;
-        content = content.replace(menuRegex, '<span class="sr-only">Menu</span>\n                    ☰');
+        // Fix menu button structure with exact menu icon
+        content = content.replace(
+            /<span class="sr-only">\s*Menu\s*<\/span>[\s\n]*[☰â°°]+/g,
+            '<span class="sr-only">Menu</span>\n            ☰'
+        );
         
         console.log('Processed editor content:', content);
         return content.trim();
@@ -173,9 +175,11 @@ export class WYSIWYGEditor {
             return;
         }
 
-        // Fix menu button structure if it exists
-        const menuRegex = /<span class="sr-only">\s*Menu\s*<\/span>\s*[☰â°]/g;
-        html = html.replace(menuRegex, '<span class="sr-only">Menu</span>\n                    ☰');
+        // Fix menu button structure with exact menu icon
+        html = html.replace(
+            /<span class="sr-only">\s*Menu\s*<\/span>[\s\n]*[☰â°°]+/g,
+            '<span class="sr-only">Menu</span>\n            ☰'
+        );
 
         // Set the content
         console.log('Setting editor content:', {
