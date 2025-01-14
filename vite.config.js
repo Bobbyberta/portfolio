@@ -66,7 +66,13 @@ export default defineConfig({
           if (name.endsWith('.css')) return 'styles/[name][extname]'
           if (name.endsWith('.js')) return 'js/[name][extname]'
           if (/\.(woff2?|ttf|eot)$/.test(name)) return 'fonts/[name][extname]'
-          if (/\.(png|jpe?g|gif|svg|webp|ico)$/.test(name)) return 'images/[name][extname]'
+          if (/\.(png|jpe?g|gif|svg|webp|ico)$/.test(name)) {
+            // Keep the same directory structure for images and icons
+            if (name.includes('icons/')) {
+              return name  // This preserves the icons directory structure
+            }
+            return 'images/[name][extname]'
+          }
           return 'assets/[name]-[hash][extname]'
         }
       }
@@ -94,6 +100,16 @@ export default defineConfig({
     {
       name: 'copy-assets',
       closeBundle() {
+        // Copy icons directory
+        try {
+          copyDir(
+            resolve(__dirname, 'src/icons'),
+            resolve(__dirname, 'dist/icons')
+          )
+        } catch (err) {
+          console.warn('Warning: Could not copy icons directory', err)
+        }
+
         // Copy entire assets directory structure
         try {
           copyDir(
