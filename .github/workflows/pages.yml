@@ -106,7 +106,10 @@ jobs:
           NODE_ENV: production
         run: |
           npm install -g vite
-          npm ci
+          # Update package-lock.json first
+          npm install
+          # Now install dependencies from the updated lock file
+          npm install --frozen-lockfile
 
       - name: Build website
         env:
@@ -115,11 +118,12 @@ jobs:
           # Clean dist directory
           rm -rf dist
           
-          # Install dependencies
-          npm install
+          # Install prettier
+          npm install --save-dev prettier@^3.1.0
           
           # Format HTML files before build
-          find src -name "*.html" -exec npx prettier --write {} \;
+          echo "Formatting HTML files..."
+          npx prettier --write "src/**/*.html"
           
           # Build site
           npm run build
