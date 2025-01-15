@@ -36,6 +36,7 @@ export default defineConfig({
         'pages/blog/bubble-function-blog': resolve(__dirname, 'src/pages/blog/bubble-function-blog.html'),
         'pages/blog/coding-education-blog': resolve(__dirname, 'src/pages/blog/coding-education-blog.html'),
         'pages/blog/google-integration-blog': resolve(__dirname, 'src/pages/blog/google-integration-blog.html'),
+        'pages/blog/bulk-actions-blog': resolve(__dirname, 'src/pages/blog/bulk-actions-blog.html'),
       },
       output: {
         dir: 'dist',

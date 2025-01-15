@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the UX design process behind enhancing bulk actions functionality in healthcare software, improving efficiency and user experience for healthcare professionals.">
+    <title>Expanding Functionality: Enhancing the Usability of Bulk Actions in Health Tech - Bobbie Allsop</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script type="module" src="../../js/main.js" defer></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/portfolio/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/portfolio/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/portfolio/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/portfolio/favicon/site.webmanifest">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bobbieallsop.github.io/portfolio/pages/blog/bulk-actions-blog.html">
+    <meta property="og:title" content="Expanding Functionality: Enhancing the Usability of Bulk Actions in Health Tech">
+    <meta property="og:description" content="Explore the UX design process behind enhancing bulk actions functionality in healthcare software, improving efficiency and user experience for healthcare professionals.">
+    <meta property="og:image" content="https://bobbieallsop.github.io/portfolio/images/bulk-actions-social.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bobbieallsop.github.io/portfolio/pages/blog/bulk-actions-blog.html">
+    <meta property="twitter:title" content="Expanding Functionality: Enhancing the Usability of Bulk Actions in Health Tech">
+    <meta property="twitter:description" content="Explore the UX design process behind enhancing bulk actions functionality in healthcare software, improving efficiency and user experience for healthcare professionals.">
+    <meta property="twitter:image" content="https://bobbieallsop.github.io/portfolio/images/bulk-actions-social.png">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Bobbie Allsop</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="sr-only">Menu</span>
+                ☰
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/portfolio/">Home</a></li>
+                <li><a href="/portfolio/pages/about.html">About</a></li>
+                <li><a href="/portfolio/pages/blog.html">Blog</a></li>
+                <li><a href="/portfolio/pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-wrapper">
+            <article class="blog-post section-standard">
+                <div class="page-header">
+                    <h1>Expanding Functionality: Enhancing the Usability of Bulk Actions in Health Tech</h1>
+                    <div class="page-meta">
+                        <span class="meta-item category">UX Design</span>
+                        <span class="meta-item date">September 2023</span>
+                        <span class="meta-item read-time">5 min read</span>
+                    </div>
+                </div>
+
+                <div class="blog-post-content">
+                    <p>
+                        When it comes to designing in the health tech space, each decision has the potential to improve 
+                        efficiency, reduce errors, and streamline care. Recently, I had the opportunity to work on 
+                        expanding the functionality of a feature in an electronic patient record (EPR) system developed 
+                        by Mayden. This project, undertaken in September 2023, was both challenging and rewarding, 
+                        requiring a blend of research, collaboration, and iteration.
+                    </p>
+
+                    <!-- <div class="img-container content-image">
+                        <img src="../../images/bulk-actions-hero.png" 
+                             alt="Overview of the bulk actions workflow" 
+                             class="img-responsive"
+                             loading="lazy">
+                    </div> -->
+
+                    <h2>Setting the Stage</h2>
+                    <p>
+                        The system already offered a robust tool for users to send patient information to other online 
+                        services. However, this functionality was limited to handling one patient at a time. As needs 
+                        evolved, so did the demand: users needed a way to process multiple patients simultaneously. The 
+                        solution? Leverage the existing bulk actions feature while maintaining familiarity and ease of use.
+                    </p>
+
+                    <p>
+                        To tackle this, I worked as part of an agile team comprising six developers, a project owner, 
+                        and a scrum master, contributing as the UX designer and researcher. Over eight weeks, we explored, 
+                        designed, tested, and iterated on the feature to deliver a seamless solution.
+                    </p>
+
+                    <h2>Understanding the Problem</h2>
+                    <p>
+                        To kick things off, I documented the current workflows for both single and bulk actions. Using 
+                        demo instances and tapping into the expertise of my colleagues, I mapped out the intricacies of 
+                        how these features functioned and identified the users who relied on them most.
+                    </p>
+
+                    <!-- <div class="img-container content-image">
+                        <img src="../../images/bulk-actions-research.png" 
+                             alt="Workflow mapping and user research documentation" 
+                             class="img-responsive"
+                             loading="lazy">
+                    </div> -->
+
+                    <p>
+                        Key insight: While the single-action flow was straightforward, integrating it into the bulk 
+                        actions flow introduced complexities that needed careful consideration.
+                    </p>
+
+                    <h2>Designing the Solution</h2>
+                    <p>
+                        The design process began with creating a prototype that expanded bulk actions to support multiple 
+                        referrals. This prototype retained familiar elements from the existing workflows, ensuring users 
+                        felt confident navigating the updated process.
+                    </p>
+
+                    <!-- <div class="img-container content-image">
+                        <img src="../../images/bulk-actions-prototype.png" 
+                             alt="Figma prototypes and design iterations" 
+                             class="img-responsive"
+                             loading="lazy">
+                    </div> -->
+
+                    <p>
+                        Tools used:
+                    </p>
+                    <ul>
+                        <li>Miro for collaboration</li>
+                        <li>Figma for high-fidelity prototypes</li>
+                        <li>Maze for usability testing</li>
+                    </ul>
+
+                    <h2>Testing and Iterating</h2>
+                    <p>
+                        With the prototype in hand, I conducted usability tests to validate the design. The first round, 
+                        conducted on high-fidelity wireframes, provided invaluable insights.
+                    </p>
+
+                    <!-- <div class="img-container content-image">
+                        <img src="../../images/bulk-actions-testing.png" 
+                             alt="Usability testing heatmaps and feedback" 
+                             class="img-responsive"
+                             loading="lazy">
+                    </div> -->
+
+                    <ul>
+                        <li>Heatmaps showed where users clicked and highlighted areas of confusion.</li>
+                        <li>Feedback: Users found the feature name unclear, prompting collaboration with the product team to refine terminology.</li>
+                    </ul>
+
+                    <h2>Development Challenges</h2>
+                    <p>
+                        As development progressed, legacy code presented unexpected technical limitations. One critical 
+                        issue emerged: the additional fields for selecting online providers couldn't dynamically load 
+                        without refreshing the page.
+                    </p>
+
+                    <!-- <div class="img-container content-image">
+                        <img src="../../images/bulk-actions-final.png" 
+                             alt="Final implementation and solution" 
+                             class="img-responsive"
+                             loading="lazy">
+                    </div> -->
+
+                    <h2>Key Takeaways</h2>
+                    <ul>
+                        <li>Rapid prototyping fostered collaboration, ensuring the entire team shared a unified vision</li>
+                        <li>Agile iteration allowed us to quickly adapt to technical constraints without sacrificing user experience</li>
+                        <li>User testing early and often helped identify and address issues before they became problems</li>
+                        <li>Sometimes, practical compromises are necessary to deliver value while maintaining quality</li>
+                    </ul>
+
+                    <h2>Looking Forward</h2>
+                    <p>
+                        As the feature undergoes a pilot study, there are exciting opportunities for iteration. 
+                        Addressing accessibility and heuristic issues within the broader bulk actions framework will 
+                        be a priority for future improvements.
+                    </p>
+
+                    <section class="blog-cta">
+                        <div class="cta-content">
+                            <h2>Thank you for reading!</h2>
+                            <div class="cta-text">
+                                <p>Want to work with me? Feel free to contact me!</p>
+                                <p>...or just say hello on my social media.</p>
+                            </div>
+                            <div class="cta-buttons">
+                                <a href="/portfolio/pages/contact.html" class="cta-button primary">Contact Me</a>
+                                <a href="/portfolio/pages/blog.html" class="cta-button secondary">Back to Blog</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Bobbie Allsop. All rights reserved.</p>
+    </footer>
+</body>
+</html> 
