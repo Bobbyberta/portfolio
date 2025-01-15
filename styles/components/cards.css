@@ -15,7 +15,7 @@
 }
 
 .content-card-content {
-    padding: var(--spacing-md);
+    padding: 0;
 }
 
 .content-card h2,
