@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover how Mangahigh transformed its platform to become more accessible, improving the learning experience for students with diverse needs through thoughtful UX design.">
+    <title>How Mangahigh Became More Accessible: A UX Journey - Bobbie Allsop</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script type="module" src="../../js/main.js" defer></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/portfolio/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/portfolio/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/portfolio/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/portfolio/favicon/site.webmanifest">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bobbieallsop.github.io/portfolio/pages/blog/accessibility-journey-blog.html">
+    <meta property="og:title" content="How Mangahigh Became More Accessible: A UX Journey">
+    <meta property="og:description" content="Discover how Mangahigh transformed its platform to become more accessible, improving the learning experience for students with diverse needs through thoughtful UX design.">
+    <meta property="og:image" content="https://bobbieallsop.github.io/portfolio/images/accessibility-journey-social.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bobbieallsop.github.io/portfolio/pages/blog/accessibility-journey-blog.html">
+    <meta property="twitter:title" content="How Mangahigh Became More Accessible: A UX Journey">
+    <meta property="twitter:description" content="Discover how Mangahigh transformed its platform to become more accessible, improving the learning experience for students with diverse needs through thoughtful UX design.">
+    <meta property="twitter:image" content="https://bobbieallsop.github.io/portfolio/images/accessibility-journey-social.png">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Bobbie Allsop</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="sr-only">Menu</span>
+                ☰
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/portfolio/">Home</a></li>
+                <li><a href="/portfolio/pages/about.html">About</a></li>
+                <li><a href="/portfolio/pages/blog.html">Blog</a></li>
+                <li><a href="/portfolio/pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-wrapper">
+            <article class="blog-post section-standard">
+                <div class="page-header">
+                    <h1>How Mangahigh Became More Accessible: A UX Journey</h1>
+                    <div class="page-meta">
+                        <span class="meta-item category">UX Design</span>
+                        <span class="meta-item date">September 20, 2020</span>
+                        <span class="meta-item read-time">6 min read</span>
+                    </div>
+                </div>
+
+                <div class="blog-post-content">
+                    <p>
+                        When it comes to online education, accessibility is often the key to transforming an experience 
+                        from exclusive to inclusive. At Mangahigh, an innovative math-learning platform for students aged 
+                        5 to 17, accessibility had taken a backseat during its initial design. This limited its usability 
+                        for students with diverse learning needs and, ultimately, the platform's market potential.
+                    </p>
+
+                    <!-- <div class="img-container content-image">
+                        <img src="../../images/accessibility-journey-hero.png" 
+                             alt="Overview of Mangahigh's accessible features" 
+                             class="img-responsive"
+                             loading="lazy">
+                    </div> -->
+
+                    <p>
+                        As the Lead Designer working closely with our CEO and a small team of developers, I took on the 
+                        challenge of reshaping Mangahigh to become a more inclusive and student-friendly product. What 
+                        started as a daunting task turned into a journey of breaking down complex problems, designing 
+                        thoughtful solutions, and learning how accessibility benefits everyone.
+                    </p>
+
+                    <h2>Understanding the Problem</h2>
+                    <p>
+                        Mangahigh's platform is designed to engage students through games, quizzes, leaderboards, and 
+                        personalized dashboards. Its global reach meant it was already translated into multiple languages 
+                        and locales. However, the platform's accessibility fell short, excluding students with disabilities 
+                        and limiting its usability for educators supporting diverse learning needs.
+                    </p>
+
+                    <p>
+                        We needed to redefine how Mangahigh could meet accessibility standards and reimagine the platform 
+                        to support every student. My role involved researching the problem, proposing solutions, and 
+                        integrating accessibility principles into our design system.
+                    </p>
+
+                    <!-- <div class="img-container content-image">
+                        <img src="../../images/accessibility-research.png" 
+                             alt="Research findings and user insights" 
+                             class="img-responsive"
+                             loading="lazy">
+                    </div> -->
+
+                    <h2>Laying the Groundwork</h2>
+                    <p>
+                        The first step was research. I conducted interviews with four education specialists who worked 
+                        with students facing a variety of challenges. Their insights highlighted a common theme: 
+                        customization. Every classroom is different, and educators need tools that can adapt to the 
+                        specific needs of their students.
+                    </p>
+
+                    <p>
+                        I also analyzed competitors in the EdTech space, focusing on platforms recognized for their 
+                        accessibility. Some used built-in solutions, while others relied on third-party tools. Testing 
+                        these tools on Mangahigh's platform helped me understand what worked and what didn't. Additionally, 
+                        I delved into accessibility guidelines, particularly those from the W3C, to establish a solid 
+                        framework for our design decisions.
+                    </p>
+
+                    <h2>Breaking Down the Challenge</h2>
+                    <p>
+                        The scope of the project initially felt overwhelming. To tackle it effectively, I proposed 
+                        splitting the work into four focus areas: keyboard navigation, text-to-speech, an accessible 
+                        style guide, and a customizable user interface.
+                    </p>
+
+                    <!-- <div class="img-container content-image">
+                        <img src="../../images/accessibility-components.png" 
+                             alt="Style guide components and accessibility features" 
+                             class="img-responsive"
+                             loading="lazy">
+                    </div> -->
+
+                    <p>
+                        Keyboard navigation ensured that users with motor impairments could navigate the platform without 
+                        a mouse. This required rewriting parts of the codebase to improve HTML semantics and designing 
+                        clear focus and hover states for buttons.
+                    </p>
+
+                    <p>
+                        For students with visual impairments, we integrated text-to-speech functionality. A native screen 
+                        reader was combined with a custom solution for reading math notation, ensuring students could 
+                        easily understand complex content.
+                    </p>
+
+                    <h2>Designing the Solution</h2>
+                    <p>
+                        The accessible style guide was one of the most rewarding aspects of the project. It began with 
+                        a thorough audit of Mangahigh's content and platform. Using the design checklist, I identified 
+                        areas needing improvement and collaborated with the marketing and design teams to implement changes.
+                    </p>
+
+                    <!-- <div class="img-container content-image">
+                        <img src="../../images/accessibility-testing.png" 
+                             alt="Testing sessions with users" 
+                             class="img-responsive"
+                             loading="lazy">
+                    </div> -->
+
+                    <p>
+                        Customizing the user interface was another transformative step. While the React rebuild ensured 
+                        responsiveness, I also explored ways to give students more control. Concept sketches included 
+                        features for adjusting typography and color schemes, empowering students or their educators to 
+                        tailor the experience to their unique needs.
+                    </p>
+
+                    <h2>Key Takeaways</h2>
+                    <ul>
+                        <li>Accessibility benefits all users, not just those with specific needs</li>
+                        <li>Breaking down large challenges into focused areas makes them manageable</li>
+                        <li>Collaboration between design and development is crucial for success</li>
+                        <li>User testing with diverse groups provides invaluable insights</li>
+                    </ul>
+
+                    <h2>Looking Forward</h2>
+                    <p>
+                        Making Mangahigh more accessible wasn't just about redesigning a platform—it was about 
+                        reimagining how students engage with math education. Through research, thoughtful design, and 
+                        collaboration, we've taken meaningful steps toward inclusivity. And while there's still more to 
+                        do, this journey proves that when accessibility is prioritized, everyone benefits.
+                    </p>
+
+                    <section class="blog-cta">
+                        <div class="cta-content">
+                            <h2>Thank you for reading!</h2>
+                            <div class="cta-text">
+                                <p>Want to work with me? Feel free to contact me!</p>
+                                <p>...or just say hello on my social media.</p>
+                            </div>
+                            <div class="cta-buttons">
+                                <a href="/portfolio/pages/contact.html" class="cta-button primary">Contact Me</a>
+                                <a href="/portfolio/pages/blog.html" class="cta-button secondary">Back to Blog</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Bobbie Allsop. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

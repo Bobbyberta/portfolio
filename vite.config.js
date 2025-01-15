@@ -38,6 +38,7 @@ export default defineConfig({
         'pages/blog/google-integration-blog': resolve(__dirname, 'src/pages/blog/google-integration-blog.html'),
         'pages/blog/bulk-actions-blog': resolve(__dirname, 'src/pages/blog/bulk-actions-blog.html'),
         'pages/blog/usability-testing-blog': resolve(__dirname, 'src/pages/blog/usability-testing-blog.html'),
+        'pages/blog/accessibility-journey-blog': resolve(__dirname, 'src/pages/blog/accessibility-journey-blog.html'),
       },
       output: {
         dir: 'dist',
