@@ -35,6 +35,7 @@ export default defineConfig({
         'pages/case-study/bubble-function-case-study': resolve(__dirname, 'src/pages/case-study/bubble-function-case-study.html'),
         'pages/blog/bubble-function-blog': resolve(__dirname, 'src/pages/blog/bubble-function-blog.html'),
         'pages/blog/coding-education-blog': resolve(__dirname, 'src/pages/blog/coding-education-blog.html'),
+        'pages/blog/google-integration-blog': resolve(__dirname, 'src/pages/blog/google-integration-blog.html'),
       },
       output: {
         dir: 'dist',
