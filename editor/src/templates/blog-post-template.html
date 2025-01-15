@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{description}}">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bobbieallsop.github.io/portfolio/pages/blog/{{slug}}.html">
+    <meta property="og:title" content="{{title}} - Bobbie Allsop">
+    <meta property="og:description" content="{{description}}">
+    <meta property="og:image" content="https://bobbieallsop.github.io/portfolio/images/{{slug}}-social.png">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bobbieallsop.github.io/portfolio/pages/blog/{{slug}}.html">
+    <meta property="twitter:title" content="{{title}} - Bobbie Allsop">
+    <meta property="twitter:description" content="{{description}}">
+    <meta property="twitter:image" content="https://bobbieallsop.github.io/portfolio/images/{{slug}}-social.png">
+    <title>{{title}} - Bobbie Allsop</title>
+    <!-- ... rest of head section ... -->
+</head>
+<body>
+    <!-- ... navigation ... -->
+    <main>
+        <div class="main-wrapper">
+            <article class="blog-post section-standard">
+                <div class="page-header">
+                    <h1>{{title}}</h1>
+                    <div class="page-meta">
+                        <span class="meta-item date">{{date}}</span>
+                        <span class="meta-item read-time">{{readTime}} min read</span>
+                    </div>
+                </div>
+
+                <div class="blog-post-content">
+                    {{content}}
+                </div>
+            </article>
+        </div>
+    </main>
+    <!-- ... footer ... -->
+</body>
+</html> 

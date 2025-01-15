@@ -58,6 +58,7 @@ export default defineConfig({
         resolve(__dirname, 'src/pages/blog/deepest-ocean-case-study.html'),
         resolve(__dirname, 'src/pages/case-study/bubble-function-case-study.html'),
         resolve(__dirname, 'src/pages/blog/bubble-function-blog.html'),
+        ...getBlogPosts()
       ],
       output: {
         dir: 'dist',
@@ -183,3 +184,14 @@ export default defineConfig({
     }
   }
 })
+
+function getBlogPosts() {
+    const blogDir = resolve(__dirname, 'src/pages/blog');
+    const blogFiles = readdirSync(blogDir).filter(file => file.endsWith('.html'));
+    
+    return blogFiles.reduce((acc, file) => {
+        const name = file.replace('.html', '');
+        acc[name] = resolve(blogDir, file);
+        return acc;
+    }, {});
+}
