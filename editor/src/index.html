@@ -5,263 +5,360 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Editor</title>
     <base href="/portfolio/">
-    <link rel="stylesheet" href="/@src/styles/main.css">
-    <link rel="stylesheet" href="/@editor/styles/wysiwyg-editor.css">
-    <link rel="icon" type="image/x-icon" href="editor/favicon.ico">
+    <!-- Import base styles -->
+    <link rel="stylesheet" href="/src/styles/base/variables.css">
+    <link rel="stylesheet" href="/src/styles/base/reset.css">
+    <link rel="stylesheet" href="/src/styles/base/typography.css">
+    <!-- Import main website styles -->
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <!-- Editor styles -->
+    <link rel="stylesheet" href="/editor/src/styles/editor.css">
+    <link rel="stylesheet" href="/editor/src/styles/main.css">
+    <link rel="icon" type="image/x-icon" href="/editor/favicon.ico">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Content Editor</div>
-        </nav>
-    </header>
+    <div class="editor-app">
+        <header>
+            <nav>
+                <div class="logo">Content Editor</div>
+            </nav>
+        </header>
 
-    <main>
-        <div class="editor-container">
-            <div class="editor-header">
-                <div class="breadcrumb">
-                    <span>Editing:</span>
-                    <strong id="current-page">No page selected</strong>
+        <main>
+            <div class="editor-container">
+                <div class="editor-header">
+                    <div class="breadcrumb">
+                        <span>Editing:</span>
+                        <strong id="current-page">No page selected</strong>
+                    </div>
+                </div>
+
+                <div class="editor-controls">
+                    <div class="page-selector">
+                        <label for="page-select-main">Select Page:</label>
+                        <select id="page-select-main">
+                            <optgroup label="Pages">
+                                <option value="about">About</option>
+                                <option value="index">Home Page</option>
+                                <option value="blog/index">Blog Home</option>
+                                <option value="contact">Contact</option>
+                            </optgroup>
+                            <optgroup label="Blog Posts">
+                                <option value="blog/bubble-function-blog">Bubble Function Blog</option>
+                                <option value="blog/deepest-ocean-case-study">Deepest Ocean Case Study</option>
+                            </optgroup>
+                            <optgroup label="Case Studies">
+                                <option value="case-study/bubble-function-case-study">Bubble Function Case Study</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="button-group">
+                        <button id="new-blog-post" class="button">New Blog Post</button>
+                        <button id="preview-changes" class="button">Preview Changes</button>
+                        <button id="update-site" class="button">Update Site</button>
+                    </div>
+                </div>
+                
+                <div class="wysiwyg-container">
+                    <div id="editor" class="wysiwyg-content">
+                        <!-- Editor will be initialized here -->
+                    </div>
                 </div>
             </div>
+        </main>
 
-            <div class="editor-controls">
-                <div class="page-selector">
-                    <label for="page-select-main">Select Page:</label>
-                    <select id="page-select-main">
-                        <optgroup label="Pages">
-                            <option value="about">About</option>
-                            <option value="index">Home Page</option>
-                            <option value="blog/index">Blog Home</option>
-                            <option value="contact">Contact</option>
-                        </optgroup>
-                        <optgroup label="Blog Posts">
-                            <option value="blog/bubble-function-blog">Bubble Function Blog</option>
-                            <option value="blog/deepest-ocean-case-study">Deepest Ocean Case Study</option>
-                        </optgroup>
-                        <optgroup label="Case Studies">
-                            <option value="case-study/bubble-function-case-study">Bubble Function Case Study</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <div class="button-group">
-                    <button id="preview-changes" class="button">Preview Changes</button>
-                    <button id="update-site" class="button">Update Site</button>
-                </div>
-            </div>
-            
-            <div class="wysiwyg-container">
-                <div id="editor" class="wysiwyg-content">
-                    <!-- Editor will be initialized here -->
+        <div id="preview-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h2>Preview Changes</h2>
+                <div id="diff-preview" style="white-space: pre; font-family: monospace;"></div>
+                <div class="modal-buttons">
+                    <button id="confirm-update" class="button">Update Site</button>
+                    <button id="cancel-update" class="button">Cancel</button>
                 </div>
             </div>
         </div>
-    </main>
 
-    <div id="preview-modal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <h2>Preview Changes</h2>
-            <div id="diff-preview" style="white-space: pre; font-family: monospace;"></div>
-            <div class="modal-buttons">
-                <button id="confirm-update" class="button">Update Site</button>
-                <button id="cancel-update" class="button">Cancel</button>
+        <div id="blog-form-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h2>Create New Blog Post</h2>
+                <div id="blog-form-container"></div>
             </div>
         </div>
-    </div>
 
-    <style>
-    .modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.5);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+        <style>
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .modal-content {
-        background: white;
-        padding: 20px;
-        border-radius: 5px;
-        max-width: 80%;
-        max-height: 80%;
-        overflow: auto;
-    }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow: auto;
+        }
 
-    #diff-preview {
-        background: #f5f5f5;
-        padding: 10px;
-        margin: 10px 0;
-        border-radius: 3px;
-        overflow: auto;
-    }
+        #diff-preview {
+            background: #f5f5f5;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 3px;
+            overflow: auto;
+        }
 
-    #diff-preview .removed {
-        background: #ffecec;
-        color: #bd2c00;
-    }
+        #diff-preview .removed {
+            background: #ffecec;
+            color: #bd2c00;
+        }
 
-    #diff-preview .added {
-        background: #eaffea;
-        color: #55a532;
-    }
+        #diff-preview .added {
+            background: #eaffea;
+            color: #55a532;
+        }
 
-    .full-content {
-        background: #f8f8f8;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #ddd;
-        border-radius: 3px;
-        max-height: 300px;
-        overflow: auto;
-        font-size: 12px;
-    }
-    </style>
+        .full-content {
+            background: #f8f8f8;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            max-height: 300px;
+            overflow: auto;
+            font-size: 12px;
+        }
+        </style>
 
-    <script type="module">
-        import { WYSIWYGEditor } from './components/wysiwyg-editor.js';
-        import { ContentManager } from './components/content-manager.js';
-        import { ContentExport } from './components/content-export.js';
-        import { ContentUpdater } from './utils/content-updater.js';
-        import { GitHubUpdater } from './utils/github-updater.js';
-        import { config } from './config.js';
+        <script type="module">
+            import { WYSIWYGEditor } from './components/wysiwyg-editor.js';
+            import { ContentManager } from './components/content-manager.js';
+            import { ContentExport } from './components/content-export.js';
+            import { ContentUpdater } from './utils/content-updater.js';
+            import { GitHubUpdater } from './utils/github-updater.js';
+            import { BlogCreator } from './components/blog-creator.js';
+            import { BlogForm } from './components/blog-form.js';
+            import { BlogPublisher } from './utils/blog-publisher.js';
+            import { config } from './config.js';
+            import { testGitHubToken } from './utils/github-test.js';
 
-        // Initialize editor with the correct selector
-        const editor = new WYSIWYGEditor('#editor', {
-            customStyles: [
-                {
-                    name: 'content-card',
-                    label: 'Content Card',
-                    html: '<div class="content-card"><div class="content-card-content"></div></div>'
-                },
-                {
-                    name: 'cta-button',
-                    label: 'CTA Button',
-                    html: '<a href="#" class="cta-button primary">Button Text</a>'
+            // Initialize editor with the correct selector
+            const editor = new WYSIWYGEditor('#editor', {
+                customStyles: [
+                    {
+                        name: 'content-card',
+                        label: 'Content Card',
+                        html: '<div class="content-card"><div class="content-card-content"></div></div>'
+                    },
+                    {
+                        name: 'cta-button',
+                        label: 'CTA Button',
+                        html: '<a href="#" class="cta-button primary">Button Text</a>'
+                    }
+                ]
+            });
+
+            // Get DOM elements
+            const pageSelect = document.getElementById('page-select-main');
+            const currentPageElement = document.getElementById('current-page');
+
+            // Handle page selection
+            pageSelect.addEventListener('change', async () => {
+                try {
+                    const selectedPage = pageSelect.value;
+                    console.log('Page selected:', selectedPage);
+                    currentPageElement.textContent = ContentManager.getPageTitle(selectedPage);
+                    
+                    // Show loading state
+                    editor.setContent('Loading...');
+                    
+                    // Load the content
+                    const content = await ContentManager.loadContent(selectedPage);
+                    console.log('Content loaded:', content ? 'yes' : 'no');
+                    
+                    if (content) {
+                        editor.setContent(content);
+                        console.log('Content set in editor');
+                    } else {
+                        editor.setContent('Failed to load content');
+                        console.error('No content returned for page:', selectedPage);
+                    }
+                } catch (error) {
+                    console.error('Error loading page:', error);
+                    editor.setContent('Error loading content');
                 }
-            ]
-        });
+            });
 
-        // Get DOM elements
-        const pageSelect = document.getElementById('page-select-main');
-        const currentPageElement = document.getElementById('current-page');
-
-        // Handle page selection
-        pageSelect.addEventListener('change', async () => {
-            try {
-                const selectedPage = pageSelect.value;
-                console.log('Page selected:', selectedPage);
-                currentPageElement.textContent = ContentManager.getPageTitle(selectedPage);
-                
-                // Show loading state
-                editor.setContent('Loading...');
-                
-                // Load the content
-                const content = await ContentManager.loadContent(selectedPage);
-                console.log('Content loaded:', content ? 'yes' : 'no');
-                
-                if (content) {
-                    editor.setContent(content);
-                    console.log('Content set in editor');
-                } else {
-                    editor.setContent('Failed to load content');
-                    console.error('No content returned for page:', selectedPage);
+            // Only keep the event listeners for elements that exist
+            document.getElementById('preview-changes').addEventListener('click', async () => {
+                const pageId = pageSelect.value;
+                if (!pageId) {
+                    alert('Please select a page first');
+                    return;
                 }
-            } catch (error) {
-                console.error('Error loading page:', error);
-                editor.setContent('Error loading content');
-            }
-        });
 
-        // Only keep the event listeners for elements that exist
-        document.getElementById('preview-changes').addEventListener('click', async () => {
-            const pageId = pageSelect.value;
-            if (!pageId) {
-                alert('Please select a page first');
-                return;
-            }
-
-            try {
-                await GitHubUpdater.testAccess();
-                const content = await editor.getContent();
-                const preview = await GitHubUpdater.previewChanges(pageId, content);
-                
-                const diffPreview = document.getElementById('diff-preview');
-                diffPreview.innerHTML = `
-                    <h3>Changes:</h3>
-                    ${preview.diff
-                        .map(line => {
-                            if (line.startsWith('+')) {
-                                return `<div class="added">${line}</div>`;
-                            } else if (line.startsWith('-')) {
-                                return `<div class="removed">${line}</div>`;
-                            }
-                            return `<div>${line}</div>`;
-                        })
-                        .join('\n')}
-                    <h3>Full content to be sent:</h3>
-                    <pre class="full-content">${preview.updated}</pre>
-                `;
-                
-                document.getElementById('preview-modal').style.display = 'flex';
-                window.pendingUpdate = { pageId, content };
-            } catch (error) {
-                console.error('Preview failed:', error);
-                alert(`Failed to generate preview: ${error.message}`);
-            }
-        });
-
-        document.getElementById('update-site').addEventListener('click', async () => {
-            const pageId = pageSelect.value;
-            if (!pageId) {
-                alert('Please select a page first');
-                return;
-            }
-
-            try {
-                await GitHubUpdater.testAccess();
-                const content = await editor.getContent();
-                const success = await GitHubUpdater.updateContent(pageId, content);
-                if (success) {
-                    alert('Content update triggered! Check GitHub Actions for build progress.');
-                    window.open(`https://github.com/${config.owner}/${config.repo}/actions`, '_blank');
+                try {
+                    await GitHubUpdater.testAccess();
+                    const content = await editor.getContent();
+                    const preview = await GitHubUpdater.previewChanges(pageId, content);
+                    
+                    const diffPreview = document.getElementById('diff-preview');
+                    diffPreview.innerHTML = `
+                        <h3>Changes:</h3>
+                        ${preview.diff
+                            .map(line => {
+                                if (line.startsWith('+')) {
+                                    return `<div class="added">${line}</div>`;
+                                } else if (line.startsWith('-')) {
+                                    return `<div class="removed">${line}</div>`;
+                                }
+                                return `<div>${line}</div>`;
+                            })
+                            .join('\n')}
+                        <h3>Full content to be sent:</h3>
+                        <pre class="full-content">${preview.updated}</pre>
+                    `;
+                    
+                    document.getElementById('preview-modal').style.display = 'flex';
+                    window.pendingUpdate = { pageId, content };
+                } catch (error) {
+                    console.error('Preview failed:', error);
+                    alert(`Failed to generate preview: ${error.message}`);
                 }
-            } catch (error) {
-                console.error('Update failed:', error);
-                alert(`Failed to update site: ${error.message}`);
-            }
-        });
+            });
 
-        // Modal event listeners
-        document.getElementById('confirm-update').addEventListener('click', async () => {
-            if (!window.pendingUpdate) {
-                alert('No pending update found');
-                return;
-            }
-
-            try {
-                const { pageId, content } = window.pendingUpdate;
-                const success = await GitHubUpdater.updateContent(pageId, content);
-                if (success) {
-                    alert('Content update triggered! Check GitHub Actions for build progress.');
-                    window.open(`https://github.com/${config.owner}/${config.repo}/actions`, '_blank');
+            document.getElementById('update-site').addEventListener('click', async () => {
+                const pageId = pageSelect.value;
+                if (!pageId) {
+                    alert('Please select a page first');
+                    return;
                 }
-            } catch (error) {
-                console.error('Update failed:', error);
-                alert(`Failed to update site: ${error.message}`);
-            } finally {
+
+                try {
+                    await GitHubUpdater.testAccess();
+                    const content = await editor.getContent();
+                    const success = await GitHubUpdater.updateContent(pageId, content);
+                    if (success) {
+                        alert('Content update triggered! Check GitHub Actions for build progress.');
+                        window.open(`https://github.com/${config.owner}/${config.repo}/actions`, '_blank');
+                    }
+                } catch (error) {
+                    console.error('Update failed:', error);
+                    alert(`Failed to update site: ${error.message}`);
+                }
+            });
+
+            // Modal event listeners
+            document.getElementById('confirm-update').addEventListener('click', async () => {
+                if (!window.pendingUpdate) {
+                    alert('No pending update found');
+                    return;
+                }
+
+                try {
+                    const { pageId, content } = window.pendingUpdate;
+                    const success = await GitHubUpdater.updateContent(pageId, content);
+                    if (success) {
+                        alert('Content update triggered! Check GitHub Actions for build progress.');
+                        window.open(`https://github.com/${config.owner}/${config.repo}/actions`, '_blank');
+                    }
+                } catch (error) {
+                    console.error('Update failed:', error);
+                    alert(`Failed to update site: ${error.message}`);
+                } finally {
+                    document.getElementById('preview-modal').style.display = 'none';
+                    window.pendingUpdate = null;
+                }
+            });
+
+            document.getElementById('cancel-update').addEventListener('click', () => {
                 document.getElementById('preview-modal').style.display = 'none';
                 window.pendingUpdate = null;
-            }
-        });
+            });
 
-        document.getElementById('cancel-update').addEventListener('click', () => {
-            document.getElementById('preview-modal').style.display = 'none';
-            window.pendingUpdate = null;
-        });
-    </script>
+            // Add New Blog Post functionality
+            document.getElementById('new-blog-post').addEventListener('click', () => {
+                const blogFormModal = document.getElementById('blog-form-modal');
+                const blogFormContainer = document.getElementById('blog-form-container');
+                blogFormContainer.innerHTML = ''; // Clear existing content
+
+                try {
+                    const blogCreator = new BlogCreator();
+                    const publisher = new BlogPublisher();
+                    
+                    // Create the blog content editor container first
+                    const editorContainer = document.createElement('div');
+                    editorContainer.id = 'blog-content-editor';
+                    blogFormContainer.appendChild(editorContainer);
+                    
+                    // Initialize form
+                    new BlogForm(blogFormContainer, async (data) => {
+                        try {
+                            // Get the content from the editor
+                            const editorContent = document.querySelector('#blog-content-editor .wysiwyg-content');
+                            if (!editorContent) {
+                                throw new Error('Editor content area not found');
+                            }
+                            data.content = editorContent.innerHTML;
+                            
+                            const blogPost = blogCreator.createBlogPost(data);
+                            const success = await publisher.publishBlog(blogPost);
+
+                            if (success) {
+                                alert('Blog post published successfully!');
+                                blogFormModal.style.display = 'none';
+                                window.location.href = `/portfolio/pages/blog/${blogPost.slug}.html`;
+                            } else {
+                                alert('Failed to publish blog post. Please try again.');
+                            }
+                        } catch (error) {
+                            console.error('Error creating blog post:', error);
+                            alert('An error occurred while creating the blog post.');
+                        }
+                    });
+
+                    // Initialize the WYSIWYG editor after the form is created
+                    const contentEditor = new WYSIWYGEditor('#blog-content-editor', {
+                        customStyles: [
+                            {
+                                name: 'content-card',
+                                label: 'Content Card',
+                                html: '<div class="content-card"><div class="content-card-content"></div></div>'
+                            },
+                            {
+                                name: 'cta-button',
+                                label: 'CTA Button',
+                                html: '<a href="#" class="cta-button primary">Button Text</a>'
+                            }
+                        ]
+                    });
+
+                    blogFormModal.style.display = 'flex';
+                } catch (error) {
+                    console.error('Failed to initialize blog creation:', error);
+                    alert(`Failed to initialize blog creation: ${error.message}`);
+                }
+            });
+
+            // Test GitHub connection on load
+            document.addEventListener('DOMContentLoaded', async () => {
+                try {
+                    const isValid = await testGitHubToken();
+                    if (!isValid) {
+                        alert('GitHub token is invalid or expired. Please check your configuration.');
+                    }
+                } catch (error) {
+                    console.error('Failed to test GitHub token:', error);
+                }
+            });
+        </script>
+    </div>
 </body>
 </html> 

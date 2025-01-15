@@ -1,117 +1,79 @@
 import { config } from '../config.js';
+import { Octokit } from '@octokit/rest';
 
 export class ContentManager {
+    static octokit = new Octokit({
+        auth: config.token,
+        baseUrl: 'https://api.github.com'
+    });
+
     static saveContent(pageId, content) {
         localStorage.setItem(`page_${pageId}`, content);
     }
 
     static async loadContent(pageId) {
-        if (!pageId) {
-            console.log('No page selected');
-            return '';
-        }
-
         try {
             console.log('Loading content for page:', pageId);
-            
-            // Always fetch the actual page from GitHub
             const content = await this.fetchPageContent(pageId);
-            
-            // Store in localStorage for backup
-            if (content) {
-                localStorage.setItem(`page_${pageId}`, content);
-                console.log('Content cached in localStorage');
+            if (!content) {
+                throw new Error('No content returned from GitHub');
             }
-            
             return content;
         } catch (error) {
-            console.error('Error loading content:', error);
-            
-            // Try to load from localStorage as fallback
-            const savedContent = localStorage.getItem(`page_${pageId}`);
-            if (savedContent) {
-                console.log('Using cached content from localStorage');
-                return savedContent;
+            console.error('Error in loadContent:', error);
+            if (error.status === 401) {
+                alert('GitHub authentication failed. Please check your token.');
+            } else {
+                alert(`Failed to load content: ${error.message}`);
             }
-            
-            return '';
+            return null;
         }
     }
 
     static async fetchPageContent(pageId) {
+        const path = this.getPagePath(pageId);
+        console.log('Fetching content from path:', path);
+        
         try {
-            console.log('Starting content fetch for page:', pageId);
-            
-            // First try to fetch from src/pages
-            let pagePath;
-            if (pageId === 'index') {
-                pagePath = 'src/index.html';
-            } else if (pageId === 'blog/index') {
-                pagePath = 'src/pages/blog.html';
-            } else {
-                pagePath = `src/pages/${pageId}.html`;
-            }
-            
-            console.log('Attempting to fetch from GitHub:', pagePath);
-            
-            // Construct the GitHub API URL
-            const apiUrl = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${pagePath}`;
-            console.log('GitHub API URL:', apiUrl);
-            
-            // Fetch from GitHub API
-            const response = await fetch(apiUrl, {
-                headers: {
-                    'Authorization': `token ${config.githubToken}`,
-                    'Accept': 'application/vnd.github.v3+json'
-                }
+            const { data } = await this.octokit.repos.getContent({
+                owner: config.owner,
+                repo: config.repo,
+                path: path,
+                ref: config.branch || 'main'
             });
-            
-            if (!response.ok) {
-                console.error('GitHub API Error:', {
-                    status: response.status,
-                    statusText: response.statusText,
-                    url: apiUrl
-                });
-                return '';
+
+            if (!data.content) {
+                throw new Error('No content returned from GitHub');
             }
-            
-            // Parse the response
-            const data = await response.json();
-            console.log('GitHub response:', {
-                path: data.path,
-                size: data.size,
-                sha: data.sha
-            });
-            
-            // Decode the content
-            const html = atob(data.content);
-            console.log('Decoded HTML length:', html.length);
-            
-            // Parse and extract main content
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            
-            // Find the main section
-            const mainSection = doc.querySelector('main');
-            if (!mainSection) {
-                console.error('No main tag found in HTML');
-                console.log('Document structure:', doc.documentElement.outerHTML.substring(0, 500));
-                return '';
-            }
-            
-            // Get the content
-            const content = mainSection.innerHTML;
-            console.log('Extracted content preview:', {
-                length: content.length,
-                preview: content.substring(0, 200)
-            });
-            
-            return content;
+
+            return atob(data.content);
         } catch (error) {
-            console.error('Content fetch error:', error);
-            console.error('Error stack:', error.stack);
-            return '';
+            console.error('GitHub API Error:', error);
+            throw error;
         }
+    }
+
+    static getPagePath(pageId) {
+        let path;
+        
+        // Map page IDs to correct file paths
+        switch (pageId) {
+            case 'index':
+                path = 'src/index.html';
+                break;
+            case 'blog/index':
+                path = 'src/pages/blog.html';  // Blog index is actually blog.html
+                break;
+            case 'blog':
+                path = 'src/pages/blog.html';  // Alternative way to reference blog index
+                break;
+            default:
+                // Handle other pages (blog posts, case studies, etc.)
+                path = `src/pages/${pageId}.html`;
+        }
+        
+        console.log(`Mapping page ID "${pageId}" to path "${path}"`);
+        return path;
     }
 
     static annotateContent(element) {

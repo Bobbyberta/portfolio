@@ -1,66 +1,47 @@
 /* Base */
-@import './base/reset.css';
 @import './base/variables.css';
+@import './base/reset.css';
 @import './base/typography.css';
 
 /* Layouts */
+@import './layouts/header.css';
 @import './layouts/footer.css';
 @import './layouts/grid.css';
-@import './layouts/sections.css';
-@import './layouts/wrapper.css';
-
-/* Utils */
-@import './utils/helpers.css';
 
 /* Components */
 @import './components/navigation.css';
-@import './components/buttons.css';
-@import './components/cards.css';
-@import './components/design-process.css';
-@import './components/hero-title.css';
-@import './components/overview.css';
-@import './components/page-header.css';
-@import './components/tag-items.css';
-@import './components/timeline.css';
 
-/* Pages */
-@import './pages/about.css';
-@import './pages/blog.css';
-@import './pages/blog-post.css';
-@import './pages/bubble-function.css';
-@import './pages/contact.css';
-
-/* Add other component imports as needed */
-
-/* Add these styles to your existing CSS */
-.responsibilities {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0;
+/* Add any additional component styles directly here until you create the component files */
+.button, .cta-button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-small);
+    background: var(--primary);
+    color: var(--text-light);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
 }
 
-.responsibilities li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.75rem;
+.card {
+    background: var(--bg-light);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
 }
 
-.responsibility-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
-    color: var(--primary);
+.form-group {
+    margin-bottom: var(--spacing-md);
 }
 
-.responsibility-icon svg {
-    width: 20px;
-    height: 20px;
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
 }
 
-.responsibility-text {
-    font-size: var(--body-font-size);
-    color: var(--text);
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-small);
 } 

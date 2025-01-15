@@ -1,18 +1,24 @@
 import { Octokit } from '@octokit/rest';
 import { Base64 } from 'js-base64';
-import { config } from '../config.js';  // Import your actual config
+import { config } from '../config.js';
 
 export class BlogPublisher {
     constructor() {
+        // Check if config exists and has required properties
+        if (!config?.token) {
+            throw new Error('GitHub token not found in config. Please check your configuration.');
+        }
+
         // Initialize Octokit with your GitHub token from config
         this.octokit = new Octokit({
-            auth: config.github.token
+            auth: `Bearer ${config.token}`,
+            baseUrl: 'https://api.github.com'
         });
         
         // Get GitHub details from config
-        this.owner = config.github.owner;
-        this.repo = config.github.repo;
-        this.branch = config.github.branch || 'main';
+        this.owner = config.owner;
+        this.repo = config.repo;
+        this.branch = config.branch || 'main';
     }
 
     async publishBlog(blogData) {

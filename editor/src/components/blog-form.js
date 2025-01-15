@@ -27,7 +27,7 @@ export class BlogForm {
             </div>
             <div class="form-group">
                 <label for="blog-content-editor">Content</label>
-                <div id="blog-content-editor"></div>
+                <div id="blog-content-editor" class="wysiwyg-container"></div>
             </div>
             <button type="submit" class="submit-btn">Create Blog Post</button>
         `;
