@@ -18,3 +18,11 @@ p {
     font-size: var(--h3-font-size);
     margin-bottom: var(--spacing-sm);
 }
+
+/* Blog Content Headers */
+.blog-post-content h2 {
+    color: var(--text-dark);
+    font-size: var(--h2-font-size);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+}
