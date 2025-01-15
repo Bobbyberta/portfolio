@@ -1,151 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore the design journey of Deepest Ocean - An educational game teaching mathematical concepts through underwater adventure. Discover the process from concept to successful implementation.">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://bobbieallsop.github.io/portfolio/pages/blog/deepest-ocean-case-study.html">
-    <meta property="og:title" content="Deepest Ocean: A Game Design Case Study - Bobbie Allsop">
-    <meta property="og:description" content="Explore the design journey of Deepest Ocean - An educational game teaching mathematical concepts through underwater adventure.">
-    <meta property="og:image" content="https://bobbieallsop.github.io/portfolio/images/deepest-ocean-social.png">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://bobbieallsop.github.io/portfolio/pages/blog/deepest-ocean-case-study.html">
-    <meta property="twitter:title" content="Deepest Ocean: A Game Design Case Study - Bobbie Allsop">
-    <meta property="twitter:description" content="Explore the design journey of Deepest Ocean - An educational game teaching mathematical concepts through underwater adventure.">
-    <meta property="twitter:image" content="https://bobbieallsop.github.io/portfolio/images/deepest-ocean-social.png">
-
-    <title>Deepest Ocean: A Game Design Case Study - Bobbie Allsop</title>
-    <link rel="stylesheet" href="../../styles/main.css">
-    <script type="module" src="../../js/main.js" defer></script>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
-    <link rel="manifest" href="../../favicon/site.webmanifest">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explore the design journey of Deepest Ocean - An educational game teaching mathematical concepts through underwater adventure. Discover the process from concept to successful implementation.">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://bobbieallsop.github.io/portfolio/pages/blog/deepest-ocean-case-study.html">
+<meta property="og:title" content="Deepest Ocean: A Game Design Case Study - Bobbie Allsop">
+<meta property="og:description" content="Explore the design journey of Deepest Ocean - An educational game teaching mathematical concepts through underwater adventure.">
+<meta property="og:image" content="https://bobbieallsop.github.io/portfolio/images/deepest-ocean-social.png">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://bobbieallsop.github.io/portfolio/pages/blog/deepest-ocean-case-study.html">
+<meta property="twitter:title" content="Deepest Ocean: A Game Design Case Study - Bobbie Allsop">
+<meta property="twitter:description" content="Explore the design journey of Deepest Ocean - An educational game teaching mathematical concepts through underwater adventure.">
+<meta property="twitter:image" content="https://bobbieallsop.github.io/portfolio/images/deepest-ocean-social.png">
+<title>
+Deepest Ocean: A Game Design Case Study - Bobbie Allsop
+</title>
+<link rel="stylesheet" href="../../styles/main.css">
+<script type="module" src="../../js/main.js" defer="">
+</script>
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
+<link rel="manifest" href="../../favicon/site.webmanifest">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Bobbie Allsop</div>
-            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-                <span class="sr-only">Menu</span>
-                ☰
-            </button>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="/portfolio/">Home</a></li>
-                <li><a href="/portfolio/pages/about.html">About</a></li>
-                <li><a href="/portfolio/pages/blog.html">Blog</a></li>
-                <li><a href="/portfolio/pages/contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <div class="main-wrapper">
-            <article class="blog-post section-standard">
-                <div class="page-header">
-                    <h1>Deepest Ocean: A Dive into Educational Game Design</h1>
-                    <div class="page-meta">
-                        <span class="meta-item category">Game Design</span>
-                        <span class="meta-item date">February 15, 2017</span>
-                        <span class="meta-item read-time">2 min read</span>
-                    </div>
-                </div>
-
-                <div class="blog-post-content">
-                    <p>
-                        The challenge was clear: create a math game that not only taught children about greater than and less than 
-                        but also captivated their imaginations. I wanted to build something more than just flashcards – I wanted 
-                        to create an underwater adventure that would make learning fun.
-                    </p>
-
-                    <p>
-                        The inspiration struck when I was playing Agar.io, a popular game where players control a growing blob. 
-                        Could this core mechanic – growth and competition – be adapted to teach math? The idea began to take shape.
-                    </p>
-
-                    <p>
-                        I started with paper prototypes, sketching out simple games on paper and testing them with friends. 
-                        These early iterations helped me refine the core mechanic, ensuring it was both engaging and aligned 
-                        with the educational objectives.
-                    </p>
-
-                    <p>
-                        Next, I transitioned to a digital prototype, built using JavaScript. This allowed for more dynamic 
-                        testing and iteration, enabling me to quickly experiment with different gameplay elements and gather 
-                        feedback from colleagues.
-                    </p>
-
-                    <p>
-                        With the core gameplay established, it was time to bring the underwater world to life. I collaborated 
-                        closely with an artist, exploring various art styles and themes. We ultimately settled on a vibrant 
-                        and colorful underwater environment, teeming with life and inviting exploration.
-                    </p>
-
-                    <p>
-                        Developing the math curriculum was a collaborative effort with a math specialist. We worked together 
-                        to create a series of challenging yet accessible levels, incorporating adaptive difficulty to ensure 
-                        the game remained engaging for players of all skill levels.
-                    </p>
-
-                    <p>
-                        Throughout the development process, I conducted rigorous playtesting with children aged 7-11. Observing 
-                        their interactions with the game provided invaluable insights. I watched as they navigated the challenges, 
-                        celebrated their successes, and even offered their own creative suggestions. This feedback was crucial in 
-                        refining the game's difficulty, improving the user interface, and ensuring a truly enjoyable and rewarding 
-                        experience.
-                    </p>
-
-                    <p>
-                        Finally, after months of hard work and dedication, Deepest Ocean was ready to launch. The game was 
-                        well-received, providing a valuable learning resource for children worldwide. It was a rewarding experience 
-                        to see how children interacted with the game and how it helped them develop a deeper understanding of 
-                        mathematical concepts.
-                    </p>
-
-                    <p>
-                        This project reinforced the importance of user-centered design, iterative development, and the power of 
-                        collaboration. It also highlighted the potential of games to make learning engaging and enjoyable for 
-                        children of all ages.
-                    </p>
-
-                    <h2>Key Takeaways:</h2>
-                    <ul>
-                        <li>The importance of user-centered design and iterative development.</li>
-                        <li>The power of collaboration in achieving project goals.</li>
-                        <li>The potential of games to make learning fun and engaging.</li>
-                    </ul>
-                </div>
-
-                    <section class="blog-cta">
-                        <div class="cta-content">
-                            <h2>Thank you for reading!</h2>
-                            <div class="cta-text">
-                                <p>Want to work with me? Feel free to contact me!</p>
-                                <p>...or just say hello on my social media.</p>
-                            </div>
-                            <div class="cta-buttons">
-                                <a href="/portfolio/pages/contact.html" class="cta-button primary">Contact Me</a>
-                                <a href="/portfolio/pages/blog.html" class="cta-button secondary">Back to Blog</a>
-                            </div>
-                        </div>
-                    </section>
-            </article>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Bobbie Allsop. All rights reserved.</p>
-    </footer>
+<header>
+<nav>
+<div class="logo">
+Bobbie Allsop
+</div>
+<button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+<span class="sr-only">Menu</span>
+&#9776;°
+</button>
+<ul class="nav-links" id="nav-links">
+<li>
+<a href="/portfolio/">
+Home
+</a>
+</li>
+<li>
+<a href="/portfolio/pages/about.html">
+About
+</a>
+</li>
+<li>
+<a href="/portfolio/pages/blog.html">
+Blog
+</a>
+</li>
+<li>
+<a href="/portfolio/pages/contact.html">
+Contact
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main>
+<article class="blog-post section-standard">
+<div class="page-header">
+<h1>
+Deepest Ocean: A Dive into Educational Game Design
+</h1>
+<div class="page-meta">
+<span class="meta-item category">
+Game Design
+</span>
+<span class="meta-item date">
+February 15, 2017
+</span>
+<span class="meta-item read-time">
+2 min read
+</span>
+</div>
+</div>
+<div class="blog-post-content">
+<p>
+I wanted to create a math game that not only taught children about greater than and less than
+but also captivated their imaginations. I wanted to build something more than just flashcards. I wanted
+to create an underwater adventure that would make learning fun.
+</p>
+<p>
+The inspiration struck when I was playing Agar.io, a popular game where players control a growing blob.
+Could this core mechanic - growth and competition - be adapted to teach math? The idea began to take shape.
+</p>
+<p>
+I started with paper prototypes, sketching out simple games on paper and testing them with friends.
+These early iterations helped me refine the core mechanic, ensuring it was both engaging and aligned
+with the educational objectives.
+</p>
+<p>
+Next, I transitioned to a digital prototype, built using JavaScript. This allowed for more dynamic
+testing and iteration, enabling me to quickly experiment with different gameplay elements and gather
+feedback from colleagues.
+</p>
+<p>
+With the core gameplay established, it was time to bring the underwater world to life. I collaborated
+closely with an artist, exploring various art styles and themes. We ultimately settled on a vibrant
+and colorful underwater environment, teeming with life and inviting exploration.
+</p>
+<p>
+Developing the math curriculum was a collaborative effort with a math specialist. We worked together
+to create a series of challenging yet accessible levels, incorporating adaptive difficulty to ensure
+the game remained engaging for players of all skill levels.
+</p>
+<p>
+Throughout the development process, I conducted rigorous playtesting with children aged 7-11. Observing
+their interactions with the game provided invaluable insights. I watched as they navigated the challenges,
+celebrated their successes, and even offered their own creative suggestions. This feedback was crucial in
+refining the game's difficulty, improving the user interface, and ensuring a truly enjoyable and rewarding
+experience.
+</p>
+<p>
+Finally, after months of hard work and dedication, Deepest Ocean was ready to launch. The game was
+well-received, providing a valuable learning resource for children worldwide. It was a rewarding experience
+to see how children interacted with the game and how it helped them develop a deeper understanding of
+mathematical concepts.
+</p>
+<p>
+This project reinforced the importance of user-centered design, iterative development, and the power of
+collaboration. It also highlighted the potential of games to make learning engaging and enjoyable for
+children of all ages.
+</p>
+<h2>
+Key Takeaways:
+</h2>
+<ul>
+<li>
+The importance of user-centered design and iterative development.
+</li>
+<li>
+The power of collaboration in achieving project goals.
+</li>
+<li>
+The potential of games to make learning fun and engaging.
+</li>
+</ul>
+</div>
+<section class="blog-cta">
+<div class="cta-content">
+<h2>
+Thank you for reading!
+</h2>
+<div class="cta-text">
+<p>
+Want to work with me? Feel free to contact me!
+</p>
+<p>
+...or just say hello on my social media.
+</p>
+</div>
+<div class="cta-buttons">
+<a href="/portfolio/pages/contact.html" class="cta-button primary">
+Contact Me
+</a>
+<a href="/portfolio/pages/blog.html" class="cta-button secondary">
+Back to Blog
+</a>
+</div>
+</div>
+</section>
+</article>
+</main>
+<footer>
+<p>
+© 2024 Bobbie Allsop. All rights reserved.
+</p>
+</footer>
 </body>
-</html> 
+</html>
+
