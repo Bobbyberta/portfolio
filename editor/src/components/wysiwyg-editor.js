@@ -159,9 +159,12 @@ export class WYSIWYGEditor {
         
         // Fix menu button structure with HTML entity
         content = content.replace(
-            /<span class="sr-only">\s*Menu\s*<\/span>[\s\n]*[☰â°°\u2630]+/g,
+            /<span class="sr-only">\s*Menu\s*<\/span>[\s\n]*[☰\u2630]/g,
             '<span class="sr-only">Menu</span>\n            &#9776;'
         );
+
+        // Fix dashes
+        content = content.replace(/–/g, '&ndash;');
 
         console.log('Processed editor content:', content);
         return content.trim();
@@ -195,9 +198,12 @@ export class WYSIWYGEditor {
 
         // Fix menu button structure with HTML entity
         html = html.replace(
-            /<span class="sr-only">\s*Menu\s*<\/span>[\s\n]*[☰â°°\u2630]+/g,
+            /<span class="sr-only">\s*Menu\s*<\/span>[\s\n]*[☰\u2630]/g,
             '<span class="sr-only">Menu</span>\n            &#9776;'
         );
+
+        // Fix dashes
+        html = html.replace(/–/g, '&ndash;');
 
         // Wrap content in main-wrapper if not already wrapped
         if (!html.includes('main-wrapper')) {
