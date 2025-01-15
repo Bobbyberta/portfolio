@@ -3,6 +3,17 @@ import { copyFileSync, mkdirSync, readdirSync, readFileSync } from 'fs'
 import { join, dirname } from 'path'
 import { defineConfig } from 'vite'
 
+function getBlogPosts() {
+    const blogDir = resolve(__dirname, 'src/pages/blog');
+    try {
+        const blogFiles = readdirSync(blogDir).filter(file => file.endsWith('.html'));
+        return blogFiles.map(file => resolve(blogDir, file));
+    } catch (error) {
+        console.warn('Warning: Could not read blog directory', error);
+        return []; // Return empty array if directory doesn't exist or can't be read
+    }
+}
+
 function copyDir(src, dest) {
   mkdirSync(dest, { recursive: true })
   
@@ -184,14 +195,3 @@ export default defineConfig({
     }
   }
 })
-
-function getBlogPosts() {
-    const blogDir = resolve(__dirname, 'src/pages/blog');
-    const blogFiles = readdirSync(blogDir).filter(file => file.endsWith('.html'));
-    
-    return blogFiles.reduce((acc, file) => {
-        const name = file.replace('.html', '');
-        acc[name] = resolve(blogDir, file);
-        return acc;
-    }, {});
-}
