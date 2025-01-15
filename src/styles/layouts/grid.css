@@ -1,8 +1,8 @@
 .blog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-sm);
-    padding: var(--spacing-md) 0;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-md) 0;
 }
 
 .overview-grid {
