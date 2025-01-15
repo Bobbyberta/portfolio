@@ -39,6 +39,7 @@ export default defineConfig({
         'pages/blog/bulk-actions-blog': resolve(__dirname, 'src/pages/blog/bulk-actions-blog.html'),
         'pages/blog/usability-testing-blog': resolve(__dirname, 'src/pages/blog/usability-testing-blog.html'),
         'pages/blog/accessibility-journey-blog': resolve(__dirname, 'src/pages/blog/accessibility-journey-blog.html'),
+        'pages/blog/little-raincloud-blog': resolve(__dirname, 'src/pages/blog/little-raincloud-blog.html'),
       },
       output: {
         dir: 'dist',
