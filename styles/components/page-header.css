@@ -1,0 +1,40 @@
+/* Page Header Component */
+.page-header {
+    text-align: left;
+    margin-bottom: var(--spacing-lg);
+}
+
+.page-header h1 {
+    font-size: var(--h1-font-size);
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Meta information for headers */
+.page-meta {
+    display: flex;
+    gap: var(--spacing-sm-md);
+    color: var(--text-light);
+    font-size: var(--small-font-size);
+    margin-bottom: var(--spacing-sm);
+    line-height: var(--body-line-height);
+    align-items: center;
+}
+
+/* Add separator between meta items */
+.page-meta .meta-item:not(:first-child)::before {
+    content: '•';
+    margin-right: var(--spacing-sm-md);
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .page-meta {
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+} 

@@ -1,0 +1,133 @@
+/* Header */
+header {
+    background-color: var(--bg);
+    box-shadow: var(--shadow-sm);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: var(--header-height);
+}
+
+/* Navigation Container */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--section-padding);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    height: 100%;
+}
+
+/* Logo */
+.logo {
+    font-weight: var(--font-weight-medium);
+    color: var(--text-dark);
+    font-size: var(--body-font-size);
+    line-height: var(--body-line-height);
+    text-decoration: none;
+}
+
+/* Navigation Links - Desktop Default */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-sm-md);
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links li a {
+    color: var(--text);
+    text-decoration: none;
+    padding: var(--nav-link-padding);
+    transition: color 0.3s ease;
+    font-size: var(--body-font-size);
+    line-height: var(--body-line-height);
+    position: relative;
+}
+
+/* Active and Hover states */
+.nav-links li a[aria-current="page"],
+.nav-links li a:hover {
+    color: var(--primary);
+}
+
+/* Underline effect on hover */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a[aria-current="page"]::after {
+    width: 100%;
+}
+
+/* Mobile Menu Button - Always Hidden by Default */
+.mobile-menu-btn {
+    display: none;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    /* Show mobile menu button */
+    .mobile-menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        font-size: var(--h3-font-size);
+        cursor: pointer;
+        color: var(--text);
+        padding: calc(var(--section-padding) / 4);
+        line-height: var(--body-line-height);
+    }
+
+    /* Hide desktop navigation */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: var(--bg);
+        box-shadow: var(--shadow-sm);
+        padding: var(--section-padding);
+        gap: var(--spacing-sm);
+        z-index: 1000;
+    }
+
+    /* Show mobile navigation when active */
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* Mobile navigation items */
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: var(--spacing-sm);
+        text-align: center;
+    }
+
+    /* Remove hover underline effect on mobile */
+    .nav-links li a::after {
+        display: none;
+    }
+} 

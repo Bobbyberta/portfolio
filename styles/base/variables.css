@@ -1,0 +1,68 @@
+:root {
+    /* Colors */
+    --primary: #00A7E1;
+    --primary-dark: #0089B8;
+    --primary-light: rgba(var(--primary-rgb), 0.1);
+    --accent: #FF5722;
+    --accent-dark: #E64A19;
+    --text: #333;
+    --text-light: #666;
+    --text-dark: #2c3e50;
+    --bg: #fff;
+    --bg-light: #f8f9fa;
+    --border: #ddd;
+    --skill-bg: rgba(0, 167, 225, 0.05);
+
+    /* Typography */
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 2rem;
+    --h3-font-size: 1.5rem;
+    --h4-font-size: 1.2rem;
+    --body-font-size: 1.1rem;
+    --small-font-size: 0.875rem;
+    --xs-font-size: 0.75rem;
+    --h1-margin-bottom: 2rem;
+    --h1-mobile-font-size: 2rem;
+    --body-line-height: 1.6;
+    --body-color: var(--text);
+    --footer-font-size: 0.9rem;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --font-weight-light: 300;
+    /* Layout */
+    --max-width: 800px;
+    --header-height: 60px;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+
+     /* Spacing */
+    --spacing-xxs: 0.25rem;
+    --spacing-xsm: 0.75rem;
+    --spacing-sm: 1rem;
+    --spacing-sm-md: 1.5rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+
+    /* Section Layout */
+    --section-padding: 2rem;
+    --section-max-width: var(--max-width);
+    
+    /* Section Header */
+    --section-header-margin: 0 0 var(--h1-margin-bottom) 0;
+    --section-header-align: left;
+
+    /* Navigation */
+    --nav-link-padding: 0.25rem 0;
+
+    /* Border */
+    --border-color: #e0e0e0;
+    --border-radius-small: 4px;
+    --border-radius-medium: 12px;
+    --border-radius-large: 24px;
+
+    /* Component-specific sizes */
+    --menu-icon-size: 1.4rem;
+} 

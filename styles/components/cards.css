@@ -1,0 +1,99 @@
+/* Content Cards (Blog & Case Studies) */
+.content-card {
+    background: var(--bg);
+    border-radius: var(--border-radius-medium);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border);
+    padding: var(--spacing-md);
+}
+
+.content-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.content-card-content {
+    padding: var(--spacing-md);
+}
+
+.content-card h2,
+.content-card h3 {
+    color: var(--text-dark);
+    font-size: var(--h3-font-size);
+    margin-bottom: var(--spacing-sm);
+}
+
+.content-card p {
+    color: var(--text-light);
+    margin-bottom: var(--spacing-sm-md);
+    line-height: var(--body-line-height);
+    font-size: var(--body-font-size);
+}
+
+/* Card Category/Tag */
+.content-category {
+    display: inline-block;
+    padding: var(--spacing-xxs) var(--spacing-xsm);
+    background-color: var(--primary-light);
+    color: var(--primary);
+    border-radius: (--border-radius-medium);
+    font-size: var(--small-font-size);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Card Meta Information */
+.content-meta {
+    display: flex;
+    gap: var(--spacing-sm-md);
+    margin-bottom: var(--spacing-sm-md);
+    font-size: var(--small-font-size);
+    color: var(--text-light);
+}
+
+/* Card Link */
+.content-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xxsm);
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: color 0.3s ease;
+}
+
+.content-link:hover {
+    color: var(--accent);
+}
+
+.content-link .arrow-icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    transition: transform 0.3s ease;
+}
+
+.content-link:hover .arrow-icon {
+    transform: translateX(4px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+    .content-card-content {
+        padding: var(--spacing-sm-md);
+    }
+
+    .content-card {
+        padding: var(--spacing-sm-md);
+    }
+} 
+
+@media (max-width: 480px) {
+    .content-card {
+        padding: var(--spacing-sm);
+    }
+}

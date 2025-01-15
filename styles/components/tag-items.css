@@ -1,0 +1,65 @@
+/* Tag Items */
+.tag-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-large);
+    padding: var(--spacing-xsm) var(--spacing-sm);
+    cursor: pointer;
+    transition: all 0.3s ease, transform 0.1s ease;
+    user-select: none;
+}
+
+.tag-item:hover {
+    background-color: var(--bg-light);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.tag-item:active {
+    transform: scale(0.97);
+}
+
+.tag-text {
+    cursor: pointer;
+    font-size: var(--small-font-size);
+    color: var(--text-light);
+    transition: color 0.3s ease;
+    padding: var(--spacing-xxsm) 0;
+    display: block;
+}
+
+/* Active state styling */
+.tag-item.active {
+    background-color: var(--primary-light);
+    border-color: var(--primary);
+}
+
+.tag-item.active .tag-text {
+    color: var(--primary);
+}
+
+/* Grid Layout */
+.tags-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+    margin: var(--spacing-sm) 0;
+}
+
+/* Alternative List Layout */
+.tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xsm);
+    padding: var(--spacing-xsm) 0;
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+    .tags-grid {
+        grid-template-columns: 1fr;
+    }
+} 
