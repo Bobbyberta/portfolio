@@ -7,6 +7,8 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid var(--border);
     padding: var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-md);
 }
 
 .content-card:hover {
@@ -16,6 +18,20 @@
 
 .content-card-content {
     padding: 0;
+    flex: 1;
+}
+
+.content-card-image {
+    flex: 0 0 200px;
+    background-color: var(--bg-dark);
+    border-radius: var(--border-radius-small);
+    overflow: hidden;
+}
+
+.content-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .content-card h2,
@@ -91,3 +107,18 @@
         padding: var(--spacing-sm);
     }
 } 
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .content-card {
+        flex-direction: column;
+    }
+
+    .content-card-image {
+        flex: 0 0 150px;
+    }
+}
+
+.card-background {
+    background-image: url('../assets/images/card-bg.png');
+}
