@@ -88,12 +88,6 @@
     }
 
     .content-card {
-        padding: var(--spacing-sm-md);
-    }
-} 
-
-@media (max-width: 480px) {
-    .content-card {
         padding: var(--spacing-sm);
     }
-}
+} 
