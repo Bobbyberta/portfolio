@@ -1,0 +1,219 @@
+name: Portfolio Website
+description: A portfolio website built with Vite and hosted on GitHub Pages
+files:
+  - pattern: src/**/*.html
+    language: html
+    context:
+      - src/index.html
+      - src/pages/**/*.html
+    symbols:
+      - head
+      - meta
+      - link
+      - script
+      - header
+      - nav
+      - main
+      - section
+      - footer
+      - div
+      - h1
+      - h2
+      - h3
+      - p
+      - a
+      - img
+      - button
+      - ul
+      - li
+  - pattern: src/styles/**/*.css
+    language: css
+    context:
+      - src/styles/base/reset.css
+      - src/styles/base/typography.css
+      - src/styles/base/variables.css
+      - src/styles/components/buttons.css
+      - src/styles/components/cards.css
+      - src/styles/components/design-process.css
+      - src/styles/components/hero-title.css
+      - src/styles/components/images.css
+      - src/styles/components/navigation.css
+      - src/styles/components/overview.css
+      - src/styles/components/page-header.css
+      - src/styles/components/tag-items.css
+      - src/styles/components/timeline.css
+      - src/styles/layouts/footer.css
+      - src/styles/layouts/grid.css
+      - src/styles/layouts/sections.css
+      - src/styles/layouts/wrapper.css
+      - src/styles/main.css
+    symbols:
+      - '--primary'
+      - '--accent'
+      - '--text'
+      - '--bg'
+      - '--spacing'
+      - '--border-radius'
+      - .button
+      - .8rem
+      - .5rem
+      - .3s
+      - .cta-buttons
+      - .cta-button
+      - .primary
+      - .arrow-icon
+      - .secondary
+      - .content-card
+      - .content-card-content
+      - .content-category
+      - .content-meta
+      - .content-link
+      - .design-process-section
+      - .design-process
+      - .process-step
+      - .process-content
+      - .process-description
+      - .process-image
+      - .5fr
+      - .hero-content
+      - .hero-image
+      - .hero-title
+      - .hero-name
+      - .first-name
+      - .last-name
+      - '.1'
+      - .hero-subtitle
+      - .05em
+      - .highlight
+      - .img-container
+      - .img-responsive
+      - '.02'
+      - .content-image
+      - .case-study-image-container
+      - .case-study-hero
+      - .role-image
+      - .challenge-image
+      - .outcomes-image
+      - '.25'
+      - .image-modal
+      - '.9'
+      - .active
+      - .modal-content
+      - .modal-close
+      - .logo
+      - .nav-links
+      - .mobile-menu-btn
+      - .overview
+      - .overview-card
+      - .collapsible-section
+      - .collapsible-trigger
+      - .chevron
+      - .collapsible-content
+      - .experience-bar
+      - .bar
+      - .segment
+      - .games
+      - .product
+      - .ux
+      - .segment-label
+      - .experience-key
+      - .key-item
+      - .key-dot
+      - .key-label
+      - .key-years
+      - .total
+      - '.2'
+      - .2s
+      - .page-header
+      - .page-meta
+      - .meta-item
+      - .tag-item
+      - .1s
+      - '.97'
+      - .tag-text
+      - .tags-grid
+      - .tags-list
+      - .timeline-card
+      - .timeline-container
+      - .timeline-item
+      - .timeline-marker
+      - .timeline-content
+      - .timeline-date
+      - .6rem
+      - .blog-grid
+      - .overview-grid
+      - .case-studies-grid
+      - .about-content
+      - .conclusion-grid
+      - .approach-grid
+      - .section-standard
+      - .blog-section
+      - .hero
+      - .main-wrapper
+      - '.6'
+      - .section-header
+      - .blog-post-content
+      - .content-card-title
+      - '.3'
+      - .content-card-subtitle
+      - '.4'
+      - '.05'
+      - .2rem
+      - .1rem
+      - .875rem
+      - .75rem
+      - .9rem
+      - .25rem
+      - .4rem
+  - pattern: src/js/**/*.js
+    language: javascript
+    context:
+      - src/js/main.js
+      - src/js/components/*.js
+    symbols:
+      - Navigation
+      - ImageModal
+      - init
+      - toggleMenu
+      - closeMenu
+      - openModal
+      - closeModal
+  - pattern: vite.config.js
+    language: javascript
+    context:
+      - package.json
+      - package-lock.json
+    symbols:
+      - defineConfig
+      - resolve
+      - build
+      - plugins
+rules:
+  - name: css-class-naming
+    description: Follow BEM-like naming convention for CSS classes
+    pattern: '[a-z]+((-|__)[a-z]+)*'
+  - name: file-organization
+    description: Maintain separation of concerns between components, layouts, and utilities
+    locations:
+      - src/styles/components/
+      - src/styles/layouts/
+      - src/styles/utils/
+  - name: build-process
+    description: Files are processed through Vite and output to dist directory
+    locations:
+      - dist/
+      - src/
+dependencies:
+  - vite
+  - serve
+output:
+  directory: dist
+  assets:
+    - images
+    - styles
+    - js
+    - favicon
+deployment:
+  platform: github-pages
+  branch: gh-pages
+  workflow: .github/workflows/pages.yml
