@@ -138,4 +138,8 @@
     .design-process-section {
         margin: var(--spacing-lg) 0;
     }
+}
+
+.process-background {
+    background-image: url('../assets/images/process-bg.png');
 } 

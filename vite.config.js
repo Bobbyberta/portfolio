@@ -21,7 +21,7 @@ function copyDir(src, dest) {
 }
 
 export default defineConfig({
-  base: process.env.BASE_URL || '/',
+  base: '/portfolio/',
   build: {
     outDir: resolve(__dirname, 'dist'),
     emptyOutDir: true,
@@ -46,17 +46,14 @@ export default defineConfig({
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.')
           const extType = info[info.length - 1]
-          // Keep original paths for images and favicons
-          if (assetInfo.name.includes('images/') || assetInfo.name.includes('favicon/')) {
-            return assetInfo.name
-          }
-          // Other assets
           if (extType === 'css') {
-            // Don't hash CSS files to maintain consistent names
             return 'styles/[name][extname]'
           }
           if (extType === 'js') {
             return 'js/[name][extname]'
+          }
+          if (/\.(png|jpe?g|gif|svg|ico)$/.test(extType)) {
+            return assetInfo.name // Preserve original asset paths
           }
           return 'assets/[name]-[hash][extname]'
         }
@@ -65,27 +62,17 @@ export default defineConfig({
     cssCodeSplit: false, // Prevent CSS code splitting
     cssMinify: true
   },
-  publicDir: false,
+  publicDir: 'src/assets',
   root: resolve(__dirname, 'src'),
   
   plugins: [{
     name: 'copy-assets',
     closeBundle() {
-      // Copy entire assets directory structure
-      try {
-        copyDir(
-          resolve(__dirname, 'src/assets'),
-          resolve(__dirname, 'dist/assets')
-        )
-      } catch (err) {
-        console.warn('Warning: Could not copy assets directory', err)
-      }
-
       // Copy images to root images directory
       try {
         copyDir(
           resolve(__dirname, 'src/assets/images'),
-          resolve(__dirname, 'dist/images')
+          resolve(__dirname, 'dist/assets/images')
         )
       } catch (err) {
         console.warn('Warning: Could not copy images directory', err)

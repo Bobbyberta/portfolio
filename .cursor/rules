@@ -65,9 +65,12 @@ files:
       - .secondary
       - .content-card
       - .content-card-content
+      - .content-card-image
       - .content-category
       - .content-meta
       - .content-link
+      - .card-background
+      - .png
       - .design-process-section
       - .design-process
       - .process-step
@@ -75,6 +78,7 @@ files:
       - .process-description
       - .process-image
       - .5fr
+      - .process-background
       - .hero-content
       - .hero-image
       - .hero-title
@@ -85,6 +89,7 @@ files:
       - .hero-subtitle
       - .05em
       - .highlight
+      - .hero-background
       - .img-container
       - .img-responsive
       - '.02'
