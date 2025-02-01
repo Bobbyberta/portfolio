@@ -11,7 +11,7 @@
     "update-cursor": "node scripts/update-cursor-rules.js",
     "watch-cursor": "node scripts/watch-cursor-rules.js",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build-storybook": "storybook build -o dist/storybook",
     "generate-stories": "node scripts/generate-stories.js",
     "watch-storybook": "node scripts/watch-storybook.js",
     "update-storybook": "node scripts/update-storybook.js"

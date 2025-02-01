@@ -121,6 +121,8 @@ npm run preview
 
 Visit the live site at: https://bobbyberta.github.io/portfolio/
 
+View the component documentation at: https://bobbyberta.github.io/portfolio/storybook/
+
 ## Project Structure
 
 ```
