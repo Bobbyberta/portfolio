@@ -56,6 +56,7 @@ files:
       - src/styles/components/navigation.css
       - src/styles/components/overview.css
       - src/styles/components/page-header.css
+      - src/styles/components/section-cta.css
       - src/styles/components/tag-items.css
       - src/styles/components/timeline.css
       - src/styles/layouts/footer.css
@@ -148,6 +149,9 @@ files:
       - .page-header
       - .page-meta
       - .meta-item
+      - .section-cta
+      - .cta-content
+      - .cta-text
       - .tag-item
       - .1s
       - '.97'

@@ -131,10 +131,6 @@
         margin: var(--spacing-lg) 0;
     }
 
-    .blog-cta {
-        padding: var(--spacing-lg) var(--spacing-sm);
-        margin: var(--spacing-lg) 0;
-    }
 }
 
 /* Responsive Adjustments */
@@ -195,34 +191,6 @@
     color: var(--text-light);
     line-height: var(--body-line-height);
     max-width: 600px;  /* Limit text width for better readability */
-}
-
-/* Updated CTA Section - keep this styled as a card for emphasis */
-.blog-cta {
-    text-align: center;
-    background-color: var(--bg-light);
-    border-radius: var(--border-radius-medium);
-    margin: var(--spacing-xl) 0;
-}
-
-.cta-content {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.blog-cta h2 {
-    color: var(--text-dark);
-    font-size: var(--h2-font-size);
-    margin-bottom: var(--spacing-sm-md);
-}
-
-.cta-text {
-    margin-bottom: var(--spacing-md);
-}
-
-.cta-text p {
-    color: var(--text-light);
-    margin-bottom: var(--spacing-xsm);
 }
 
     /* Adjust team members list spacing */
