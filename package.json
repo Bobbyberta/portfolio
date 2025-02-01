@@ -9,7 +9,12 @@
     "clean": "rm -rf dist",
     "update-cursor-rules": "node scripts/update-cursor-rules.js",
     "update-cursor": "node scripts/update-cursor-rules.js",
-    "watch-cursor": "node scripts/watch-cursor-rules.js"
+    "watch-cursor": "node scripts/watch-cursor-rules.js",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "generate-stories": "node scripts/generate-stories.js",
+    "watch-storybook": "node scripts/watch-storybook.js",
+    "update-storybook": "node scripts/update-storybook.js"
   },
   "dependencies": {
     "serve": "^14.2.1"
@@ -18,7 +23,16 @@
     "chokidar": "^3.6.0",
     "husky": "^8.0.3",
     "js-yaml": "^4.1.0",
-    "vite": "^5.4.11"
+    "vite": "^5.4.11",
+    "@storybook/html": "^7.6.17",
+    "@storybook/html-vite": "^7.6.17",
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/test": "^7.6.17",
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/addon-docs": "^7.6.17",
+    "storybook": "^7.6.17"
   },
   "husky": {
     "hooks": {

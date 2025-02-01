@@ -1,0 +1,107 @@
+import { Meta, ColorPalette, ColorItem, Title, Subtitle } from '@storybook/blocks';
+
+<Meta title="Style Guide" />
+
+<Title>Style Guide</Title>
+
+<Subtitle>Design tokens and visual guidelines for the portfolio website</Subtitle>
+
+## Colors
+
+<ColorPalette>
+  <ColorItem 
+    title="Primary Colors" 
+    colors={{
+  "--primary": "#00A7E1",
+  "--primary-dark": "#0089B8",
+  "--primary-light": "rgba(var(--primary-rgb), 0.1)"
+}} 
+  />
+  <ColorItem 
+    title="Accent Colors" 
+    colors={{
+  "--accent": "#FF5722",
+  "--accent-dark": "#E64A19"
+}} 
+  />
+  <ColorItem 
+    title="Text Colors" 
+    colors={{
+  "--text": "#333",
+  "--text-light": "#666",
+  "--text-dark": "#2c3e50"
+}} 
+  />
+  <ColorItem 
+    title="Background Colors" 
+    colors={{
+  "--bg": "#fff",
+  "--bg-light": "#f8f9fa",
+  "--border": "#ddd"
+}} 
+  />
+</ColorPalette>
+
+## Spacing
+
+The spacing system uses a consistent scale:
+
+- `--spacing-xxs`: 0.25rem
+- `--spacing-xsm`: 0.75rem
+- `--spacing-sm`: 1rem
+- `--spacing-sm-md`: 1.5rem
+- `--spacing-md`: 2rem
+- `--spacing-lg`: 3rem
+- `--spacing-xl`: 4rem
+
+## Border Radius
+
+Three levels of border radius are available:
+
+- `--border-radius-small`: 4px
+- `--border-radius-medium`: 12px
+- `--border-radius-large`: 24px
+
+## Shadows
+
+Shadow variants for depth:
+
+- `--shadow-sm`: 0 2px 5px rgba(0,0,0,0.1)
+- `--shadow-md`: 0 4px 12px rgba(0,0,0,0.1)
+
+## Typography
+
+The site uses Roboto as its primary font family:
+
+```css
+font-family: 'Roboto', sans-serif;
+```
+
+### Font Sizes
+
+- Headings:
+  - H1: 2.5rem (40px)
+  - H2: 2rem (32px)
+  - H3: 1.75rem (28px)
+  - H4: 1.5rem (24px)
+  
+- Body Text:
+  - Regular: 1rem (16px)
+  - Small: 0.875rem (14px)
+  - XSmall: 0.75rem (12px)
+
+### Line Heights
+
+- Headings: 1.2
+- Body Text: 1.5
+- Tight: 1.3
+
+## Transitions
+
+Common animation durations:
+
+- Fast: 0.2s
+- Regular: 0.3s
+- Slow: 0.5s
+
+Default easing: `ease-in-out`

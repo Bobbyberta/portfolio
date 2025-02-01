@@ -26,6 +26,22 @@ files:
       - button
       - ul
       - li
+  - pattern: src/stories/**/*.stories.js
+    language: javascript
+    context:
+      - src/stories/utils/placeholders.js
+      - .storybook/preview.js
+      - .storybook/main.js
+    symbols:
+      - export default
+      - title
+      - tags
+      - parameters
+      - componentSubtitle
+      - argTypes
+      - render
+      - args
+      - PLACEHOLDER_IMAGE
   - pattern: src/styles/**/*.css
     language: css
     context:
@@ -193,6 +209,30 @@ files:
       - resolve
       - build
       - plugins
+  - pattern: .storybook/**/*.js
+    language: javascript
+    context:
+      - package.json
+      - vite.config.js
+    symbols:
+      - stories
+      - addons
+      - framework
+      - docs
+      - parameters
+      - decorators
+      - viteFinal
+      - mergeConfig
+  - pattern: scripts/**/*.js
+    language: javascript
+    context:
+      - package.json
+      - package-lock.json
+    symbols:
+      - generateStories
+      - createStoryTemplate
+      - generateStoriesForComponent
+      - toPascalCase
 rules:
   - name: css-class-naming
     description: Follow BEM-like naming convention for CSS classes
@@ -203,6 +243,11 @@ rules:
       - src/styles/components/
       - src/styles/layouts/
       - src/styles/utils/
+  - name: storybook-organization
+    description: Maintain consistent story file structure and naming
+    locations:
+      - src/stories/
+      - .storybook/
   - name: build-process
     description: Files are processed through Vite and output to dist directory
     locations:
@@ -211,6 +256,14 @@ rules:
 dependencies:
   - vite
   - serve
+  - storybook
+  - '@storybook/html'
+  - '@storybook/html-vite'
+  - '@storybook/addon-essentials'
+  - '@storybook/addon-interactions'
+  - '@storybook/addon-links'
+  - '@storybook/test'
+  - '@storybook/blocks'
 output:
   directory: dist
   assets:

@@ -2,6 +2,7 @@ import { resolve } from 'path'
 import { copyFileSync, mkdirSync, readdirSync } from 'fs'
 import { join } from 'path'
 import { defineConfig } from 'vite'
+import { fileURLToPath } from 'url'
 
 function copyDir(src, dest) {
   mkdirSync(dest, { recursive: true })
@@ -98,5 +99,10 @@ export default defineConfig({
         console.warn('Warning: Could not copy styles directory', err)
       }
     }
-  }]
+  }],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
 })

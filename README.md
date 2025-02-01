@@ -7,6 +7,7 @@ Personal portfolio website showcasing UX, Games & UI Design work.
 Built with:
 - Vite
 - HTML/CSS/JavaScript
+- Storybook for component documentation
 - GitHub Pages for hosting
 
 ### Setup
@@ -17,7 +18,71 @@ npm install
 
 # Start development server
 npm run dev
+
+# Start Storybook
+npm run storybook
 ```
+
+## Component Documentation
+
+The project uses Storybook to document and test UI components in isolation.
+
+### Running Storybook
+
+```bash
+# Start Storybook development server
+npm run storybook
+
+# Build static Storybook
+npm run build-storybook
+```
+
+### Managing Component Documentation
+
+There are three ways to manage component documentation:
+
+```bash
+# 1. One-time update of all stories and style guide
+npm run update-storybook
+
+# 2. Watch for changes during development
+npm run watch-storybook
+
+# 3. Manually generate component stories
+npm run generate-stories
+```
+
+#### Update Storybook
+- Updates the style guide with current design tokens
+- Generates stories for new components
+- Removes stories for deleted components
+- Best for initial setup or major updates
+
+#### Watch Storybook
+- Watches CSS files for changes in real-time
+- Automatically updates stories and style guide
+- Best for active development
+
+#### Generate Stories
+- Core functionality used by other scripts
+- Manually generate stories from CSS components
+- Useful for targeted updates
+
+Stories are located in `src/stories/` and follow these conventions:
+- One story file per component
+- Stories show individual CSS classes
+- Interactive controls for configurable components
+- Visual documentation of component variants
+
+### Style Guide
+
+The style guide (`StyleGuide.mdx`) documents design tokens:
+- Colors
+- Spacing
+- Typography
+- Shadows
+- Border radius
+- Transitions
 
 ## Cursor Rules
 
@@ -61,14 +126,20 @@ Visit the live site at: https://bobbyberta.github.io/portfolio/
 ```
 .
 ├── .cursor/          # Cursor rules configuration
+├── .storybook/       # Storybook configuration
 ├── scripts/          # Build and utility scripts
+│   ├── generate-stories.js    # Core story generation
+│   ├── update-storybook.js    # One-time updates
+│   └── watch-storybook.js     # Development watcher
 ├── src/
 │   ├── assets/      # Static assets
 │   ├── js/          # JavaScript files
 │   ├── pages/       # HTML pages
+│   ├── stories/     # Storybook component stories
+│   │   └── StyleGuide.mdx    # Design system documentation
 │   ├── styles/      # CSS styles
 │   └── index.html   # Main entry point
 └── dist/            # Production build output
 ```
 
-Last updated: 31.1.25
+Last updated: 13.3.24
