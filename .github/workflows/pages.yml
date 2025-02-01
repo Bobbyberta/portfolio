@@ -29,12 +29,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build website
+      - name: Build website and Storybook
         env:
           BASE_URL: '/portfolio'
         run: |
           npm run build
+          npm run build-storybook
           cp dist/index.html dist/404.html
+
+      # Combine website and Storybook builds
+      - name: Prepare combined deployment
+        run: |
+          # Move Storybook build into dist/storybook
+          mv dist/storybook dist/storybook-temp
+          mkdir -p dist/storybook
+          mv dist/storybook-temp/* dist/storybook/
 
       # Deploy to gh-pages branch to preserve file structure
       - name: Deploy to gh-pages branch
