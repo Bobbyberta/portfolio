@@ -1,32 +1,58 @@
-name: Deploy to GitHub Pages
+name: GitHub Pages Deployment
 
 on:
   push:
-    branches: [ main ]
+    branches: ["main"]
   workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v3
-      
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
-          
-      - name: Install Dependencies
-        run: npm install
-        
-      - name: Build Website
-        run: npm run build
-        
-      - name: Build Storybook
-        run: npm run build-storybook
-        
-      - name: Deploy to GitHub Pages
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build website
+        env:
+          BASE_URL: '/portfolio'
+        run: |
+          npm run build
+          cp dist/index.html dist/404.html
+
+      # Deploy to gh-pages branch to preserve file structure
+      - name: Deploy to gh-pages branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
           folder: dist
+          branch: gh-pages
+          clean: true
+
+      # Deploy to GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
