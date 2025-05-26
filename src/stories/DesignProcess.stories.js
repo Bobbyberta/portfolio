@@ -6,48 +6,9 @@ export default {
   parameters: {
     componentSubtitle: 'design-process component styles',
   },
-  
 };
 
-// Available classes from design-process.css:
-// design-process-section, design-process, process-step, process-content, process-image, process-description, process-background
-
-export const DesignApproachSection = (args) => {
-  const { sectionTitle, steps } = args;
-  return `
-    <section class="case-study-approach">
-      <h2>${sectionTitle}</h2>
-      <div class="approach-grid">
-        ${steps.map(step => `
-          <div class="approach-item">
-            <h3>${step.title}</h3>
-            <p>${step.description}</p>
-          </div>
-        `).join('')}
-      </div>
-    </section>
-  `;
-};
-
-DesignApproachSection.args = {
-  sectionTitle: 'My Approach',
-  steps: [
-    { title: 'Understanding the User', description: 'Analyzing existing user feedback and collaborating with sales and support teams.' },
-    { title: 'Conceptualization', description: 'Combining function machine concept with bubble shooter mechanic.' },
-    { title: 'Rapid Prototyping', description: 'Utilizing paper prototypes and a reusable game template.' },
-    { title: 'User Testing', description: 'Conducting sessions with target users in school settings.' },
-  ],
-};
-
-DesignApproachSection.argTypes = {
-  sectionTitle: { control: 'text', name: 'Section Title' },
-  steps: {
-    control: 'object',
-    name: 'Steps',
-    description: 'Array of approach steps (title and description)',
-  },
-};
-
+// Interactive ProcessStepSection
 export const ProcessStepSection = (args) => {
   const { stepNumber, stepTitle, descriptionParagraphs, imageSrc, imageAlt } = args;
   return `
