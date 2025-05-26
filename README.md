@@ -119,9 +119,9 @@ npm run build
 npm run preview
 ```
 
-Visit the live site at: https://bobbyberta.github.io/portfolio/
+Visit the live site at: https://bobbyberta.github.io/
 
-View the component documentation at: https://bobbyberta.github.io/portfolio/storybook/
+View the component documentation at: https://bobbyberta.github.io/storybook/
 
 ## Project Structure
 

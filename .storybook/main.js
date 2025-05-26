@@ -18,7 +18,7 @@ const config = {
   },
   viteFinal: async (config) => {
     return mergeConfig(config, {
-      base: '/portfolio/storybook/',
+      base: '/storybook/',
       resolve: {
         alias: {
           '@': '/src',

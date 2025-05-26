@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Personal portfolio website",
   "scripts": {
-    "dev": "vite --base=/portfolio/",
+    "dev": "vite --base=/",
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
