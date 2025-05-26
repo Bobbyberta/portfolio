@@ -45,6 +45,10 @@ jobs:
           mkdir -p dist/storybook
           mv dist/storybook-temp/* dist/storybook/
 
+      # Add CNAME file for custom domain
+      - name: Add CNAME file for custom domain
+        run: echo 'bobbieallsop.co.uk' > dist/CNAME
+
       # Deploy to gh-pages branch to preserve file structure
       - name: Deploy to gh-pages branch
         uses: JamesIves/github-pages-deploy-action@v4
