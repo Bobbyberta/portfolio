@@ -22,7 +22,7 @@ function copyDir(src, dest) {
 }
 
 export default defineConfig({
-  base: '/portfolio/',
+  base: '/',
   build: {
     outDir: resolve(__dirname, 'dist'),
     emptyOutDir: true,
