@@ -1,5 +1,4 @@
 import { PLACEHOLDER_IMAGE } from './utils/placeholders';
-import { within } from '@storybook/testing-library';
 
 export default {
   title: 'Components/Images',
@@ -16,28 +15,13 @@ export default {
 
 export const ExpandableImage = {
   render: (args) => `
-    <style>
-      .modal-overlay {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0; top: 0; width: 100vw; height: 100vh;
-        background: rgba(0,0,0,0.7);
-        justify-content: center;
-        align-items: center;
-      }
-      .modal-overlay.active { display: flex; }
-      .modal-content { background: #fff; padding: 1rem; border-radius: 8px; max-width: 90vw; max-height: 90vh; }
-      .modal-content img { max-width: 80vw; max-height: 80vh; }
-      .modal-close { position: absolute; top: 2rem; right: 2rem; font-size: 2rem; color: #fff; cursor: pointer; }
-      .img-thumb { cursor: pointer; border: 2px solid #eee; border-radius: 4px; transition: box-shadow 0.2s; }
-      .img-thumb:hover { box-shadow: 0 0 0 2px #007bff; }
-    </style>
     <div>
-      <img src="${args.thumbSrc}" alt="${args.thumbAlt}" class="img-thumb" width="200" />
-      <div class="modal-overlay" id="modal" role="dialog">
-        <span class="modal-close" id="closeBtn">&times;</span>
+      <div class="img-container">
+        <img src="${args.thumbSrc}" alt="${args.thumbAlt}" class="img-responsive" id="story-img-thumb" />
+      </div>
+      <div class="image-modal" id="modal" role="dialog">
         <div class="modal-content">
+          <button class="modal-close" id="closeBtn" aria-label="Close image">&times;</button>
           <img src="${args.fullSrc}" alt="${args.fullAlt}" />
         </div>
       </div>
@@ -55,8 +39,8 @@ export const ExpandableImage = {
     fullSrc: { control: 'text', name: 'Full Image Source' },
     fullAlt: { control: 'text', name: 'Full Image Alt Text' },
   },
-  play: async ({ canvasElement, args }) => {
-    const thumb = canvasElement.querySelector('.img-thumb');
+  play: async ({ canvasElement }) => {
+    const thumb = canvasElement.querySelector('#story-img-thumb');
     const modal = canvasElement.querySelector('#modal');
     const closeBtn = canvasElement.querySelector('#closeBtn');
     if (!thumb || !modal || !closeBtn) return;
