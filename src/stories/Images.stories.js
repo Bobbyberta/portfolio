@@ -1,4 +1,5 @@
 import { PLACEHOLDER_IMAGE } from './utils/placeholders';
+import { within } from '@storybook/testing-library';
 
 export default {
   title: 'Components/Images',
@@ -34,21 +35,13 @@ export const ExpandableImage = {
     </style>
     <div>
       <img src="${args.thumbSrc}" alt="${args.thumbAlt}" class="img-thumb" width="200" />
-      <div class="modal-overlay" id="modal">
+      <div class="modal-overlay" id="modal" role="dialog">
         <span class="modal-close" id="closeBtn">&times;</span>
         <div class="modal-content">
           <img src="${args.fullSrc}" alt="${args.fullAlt}" />
         </div>
       </div>
     </div>
-    <script>
-      const thumb = document.currentScript.previousElementSibling.querySelector('.img-thumb');
-      const modal = document.currentScript.previousElementSibling.querySelector('#modal');
-      const closeBtn = document.currentScript.previousElementSibling.querySelector('#closeBtn');
-      thumb.onclick = () => { modal.classList.add('active'); };
-      closeBtn.onclick = () => { modal.classList.remove('active'); };
-      modal.onclick = (e) => { if (e.target === modal) modal.classList.remove('active'); };
-    </script>
   `,
   args: {
     thumbSrc: '../../assets/images/bubble-function-sketch.png',
@@ -62,4 +55,13 @@ export const ExpandableImage = {
     fullSrc: { control: 'text', name: 'Full Image Source' },
     fullAlt: { control: 'text', name: 'Full Image Alt Text' },
   },
+  play: async ({ canvasElement, args }) => {
+    const thumb = canvasElement.querySelector('.img-thumb');
+    const modal = canvasElement.querySelector('#modal');
+    const closeBtn = canvasElement.querySelector('#closeBtn');
+    if (!thumb || !modal || !closeBtn) return;
+    thumb.onclick = () => { modal.classList.add('active'); };
+    closeBtn.onclick = () => { modal.classList.remove('active'); };
+    modal.onclick = (e) => { if (e.target === modal) modal.classList.remove('active'); };
+  }
 };
