@@ -78,6 +78,12 @@ NavigationHeader.argTypes = {
   menuOpen: { control: 'boolean', name: 'Menu Open (default)' },
 };
 
+NavigationHeader.parameters = {
+  viewport: {
+    defaultViewport: 'responsive',
+  },
+};
+
 export const NavigationHeaderMobile = (args) => {
   const { logoText, navLinks, menuOpen } = args;
   return `
