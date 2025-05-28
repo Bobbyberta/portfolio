@@ -31,10 +31,10 @@ export const ProcessStepSection = (args) => {
 
 ProcessStepSection.args = {
   stepNumber: 1,
-  stepTitle: 'Define',
+  stepTitle: 'Name of stage',
   descriptionParagraphs: [
-    'Replacing an old game - Mangahigh were discontinuing Algebra Meltdown and wanted a new algebra game to take its place. After speaking with sales and support, users loved the function machine element but found the game as a whole too difficult.',
-    'I focused on the function machine element and started looking at a way to simplify the mechanic.'
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat sem in quam porta, quis ullamcorper turpis pharetra. Nam augue mauris, tristique id sem eu, ultricies pellentesque erat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+    'Praesent tristique eleifend tortor at hendrerit. Nulla sapien lorem, fermentum non dolor a, malesuada iaculis ante. Curabitur efficitur est non.',
   ],
   imageSrc: '../../assets/images/bubble-function-algebra-meltdown.PNG',
   imageAlt: 'Original Algebra Meltdown game screenshot',

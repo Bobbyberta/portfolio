@@ -13,37 +13,67 @@ export default {
 // logo, nav-links, mobile-menu-btn, active
 
 
-export const Logo = {
-  render: () => `
-    <div class="logo">
-      logo component
-    </div>
-  `,
+export const NavigationHeader = (args) => {
+  const { logoText, navLinks, menuOpen } = args;
+  return `
+    <style>
+      .nav-links {
+        display: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .nav-links.active {
+        display: block;
+      }
+      @media (min-width: 600px) {
+        .nav-links { display: flex !important; }
+        .mobile-menu-btn { display: none; }
+      }
+      .mobile-menu-btn {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+    </style>
+    <header>
+      <nav>
+        <div class="logo">${logoText}</div>
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="${menuOpen}" aria-controls="nav-links" id="menuBtn">
+          <span class="sr-only">Menu</span>
+          ☰
+        </button>
+        <ul class="nav-links${menuOpen ? ' active' : ''}" id="nav-links">
+          ${navLinks.map(link => `<li><a href="${link.href}"${link.current ? ' aria-current=\"page\"' : ''}>${link.label}</a></li>`).join('')}
+        </ul>
+      </nav>
+    </header>
+    <script>
+      const navLinks = document.currentScript.previousElementSibling.querySelector('#nav-links');
+      const menuBtn = document.currentScript.previousElementSibling.querySelector('#menuBtn');
+      menuBtn.onclick = () => {
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', !expanded);
+        navLinks.classList.toggle('active');
+      };
+    </script>
+  `;
 };
 
-
-export const NavLinks = {
-  render: () => `
-    <div class="nav-links">
-      nav-links component
-    </div>
-  `,
+NavigationHeader.args = {
+  logoText: 'Bobbie Allsop',
+  navLinks: [
+    { href: '/', label: 'Home', current: true },
+    { href: '/pages/about.html', label: 'About', current: false },
+    { href: '/pages/blog.html', label: 'Blog', current: false },
+    { href: '/pages/contact.html', label: 'Contact', current: false },
+  ],
+  menuOpen: false,
 };
 
-
-export const MobileMenuBtn = {
-  render: () => `
-    <div class="mobile-menu-btn">
-      mobile-menu-btn component
-    </div>
-  `,
-};
-
-
-export const Active = {
-  render: () => `
-    <div class="active">
-      active component
-    </div>
-  `,
+NavigationHeader.argTypes = {
+  logoText: { control: 'text', name: 'Logo Text' },
+  navLinks: { control: 'object', name: 'Navigation Links' },
+  menuOpen: { control: 'boolean', name: 'Menu Open (default)' },
 };

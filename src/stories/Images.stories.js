@@ -13,100 +13,53 @@ export default {
 // img-container, img-responsive, content-image, case-study-image-container, case-study-hero, hero-image, outcomes-image, image-modal, active, modal-content, modal-close
 
 
-export const ImgContainer = {
-  render: () => `
-    <div class="img-container">
-      img-container component
+export const ExpandableImage = {
+  render: (args) => `
+    <style>
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0; top: 0; width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.7);
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-overlay.active { display: flex; }
+      .modal-content { background: #fff; padding: 1rem; border-radius: 8px; max-width: 90vw; max-height: 90vh; }
+      .modal-content img { max-width: 80vw; max-height: 80vh; }
+      .modal-close { position: absolute; top: 2rem; right: 2rem; font-size: 2rem; color: #fff; cursor: pointer; }
+      .img-thumb { cursor: pointer; border: 2px solid #eee; border-radius: 4px; transition: box-shadow 0.2s; }
+      .img-thumb:hover { box-shadow: 0 0 0 2px #007bff; }
+    </style>
+    <div>
+      <img src="${args.thumbSrc}" alt="${args.thumbAlt}" class="img-thumb" width="200" />
+      <div class="modal-overlay" id="modal">
+        <span class="modal-close" id="closeBtn">&times;</span>
+        <div class="modal-content">
+          <img src="${args.fullSrc}" alt="${args.fullAlt}" />
+        </div>
+      </div>
     </div>
+    <script>
+      const thumb = document.currentScript.previousElementSibling.querySelector('.img-thumb');
+      const modal = document.currentScript.previousElementSibling.querySelector('#modal');
+      const closeBtn = document.currentScript.previousElementSibling.querySelector('#closeBtn');
+      thumb.onclick = () => { modal.classList.add('active'); };
+      closeBtn.onclick = () => { modal.classList.remove('active'); };
+      modal.onclick = (e) => { if (e.target === modal) modal.classList.remove('active'); };
+    </script>
   `,
-};
-
-
-export const ImgResponsive = {
-  render: () => `
-    <div class="img-responsive">
-      img-responsive component
-    </div>
-  `,
-};
-
-
-export const ContentImage = {
-  render: () => `
-    <div class="content-image">
-      content-image component
-    </div>
-  `,
-};
-
-
-export const CaseStudyImageContainer = {
-  render: () => `
-    <div class="case-study-image-container">
-      case-study-image-container component
-    </div>
-  `,
-};
-
-
-export const CaseStudyHero = {
-  render: () => `
-    <div class="case-study-hero">
-      case-study-hero component
-    </div>
-  `,
-};
-
-
-export const HeroImage = {
-  render: () => `
-    <div class="hero-image">
-      hero-image component
-    </div>
-  `,
-};
-
-
-export const OutcomesImage = {
-  render: () => `
-    <div class="outcomes-image">
-      outcomes-image component
-    </div>
-  `,
-};
-
-
-export const ImageModal = {
-  render: () => `
-    <div class="image-modal">
-      image-modal component
-    </div>
-  `,
-};
-
-
-export const Active = {
-  render: () => `
-    <div class="active">
-      active component
-    </div>
-  `,
-};
-
-
-export const ModalContent = {
-  render: () => `
-    <div class="modal-content">
-      modal-content component
-    </div>
-  `,
-};
-
-
-export const ModalClose = {
-  render: () => `
-    <div class="modal-close">
-      modal-close component
-    </div>
-  `,
+  args: {
+    thumbSrc: '../../assets/images/bubble-function-sketch.png',
+    thumbAlt: 'Design process visualization (thumbnail)',
+    fullSrc: '../../assets/images/bubble-function-sketch.png',
+    fullAlt: 'Design process visualization (full size)',
+  },
+  argTypes: {
+    thumbSrc: { control: 'text', name: 'Thumbnail Image Source' },
+    thumbAlt: { control: 'text', name: 'Thumbnail Alt Text' },
+    fullSrc: { control: 'text', name: 'Full Image Source' },
+    fullAlt: { control: 'text', name: 'Full Image Alt Text' },
+  },
 };
