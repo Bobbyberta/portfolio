@@ -12,56 +12,25 @@ export default {
 // Available classes from navigation.css:
 // logo, nav-links, mobile-menu-btn, active
 
-
-export const NavigationHeader = (args) => {
-  const { logoText, navLinks, menuOpen } = args;
+export const NavHeaderSection = (args) => {
+  const { logoText, navLinks } = args;
   return `
-    <style>
-      .nav-links {
-        display: none;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      .nav-links.active {
-        display: block;
-      }
-      @media (min-width: 600px) {
-        .nav-links { display: flex !important; }
-        .mobile-menu-btn { display: none; }
-      }
-      .mobile-menu-btn {
-        background: none;
-        border: none;
-        font-size: 2rem;
-        cursor: pointer;
-      }
-    </style>
     <header>
       <nav>
         <div class="logo">${logoText}</div>
-        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="${menuOpen}" aria-controls="nav-links" id="menuBtn">
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links" id="menuBtnSection">
           <span class="sr-only">Menu</span>
           ☰
         </button>
-        <ul class="nav-links${menuOpen ? ' active' : ''}" id="nav-links">
-          ${navLinks.map(link => `<li><a href="${link.href}"${link.current ? ' aria-current=\"page\"' : ''}>${link.label}</a></li>`).join('')}
+        <ul class="nav-links" id="nav-links-section">
+          ${navLinks.map(link => `<li><a href="${link.href}"${link.current ? ' aria-current="page"' : ''}>${link.label}</a></li>`).join('')}
         </ul>
       </nav>
     </header>
-    <script>
-      const navLinks = document.currentScript.previousElementSibling.querySelector('#nav-links');
-      const menuBtn = document.currentScript.previousElementSibling.querySelector('#menuBtn');
-      menuBtn.onclick = () => {
-        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-        menuBtn.setAttribute('aria-expanded', !expanded);
-        navLinks.classList.toggle('active');
-      };
-    </script>
   `;
 };
 
-NavigationHeader.args = {
+NavHeaderSection.args = {
   logoText: 'Bobbie Allsop',
   navLinks: [
     { href: '/', label: 'Home', current: true },
@@ -69,20 +38,13 @@ NavigationHeader.args = {
     { href: '/pages/blog.html', label: 'Blog', current: false },
     { href: '/pages/contact.html', label: 'Contact', current: false },
   ],
-  menuOpen: false,
 };
 
-NavigationHeader.argTypes = {
+NavHeaderSection.argTypes = {
   logoText: { control: 'text', name: 'Logo Text' },
   navLinks: { control: 'object', name: 'Navigation Links' },
-  menuOpen: { control: 'boolean', name: 'Menu Open (default)' },
 };
 
-NavigationHeader.parameters = {
-  viewport: {
-    defaultViewport: 'responsive',
-  },
-};
 
 export const NavigationHeaderMobile = (args) => {
   const { logoText, navLinks, menuOpen } = args;

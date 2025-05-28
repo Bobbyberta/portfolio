@@ -12,47 +12,34 @@ export default {
 // Available classes from tag-items.css:
 // tag-item, tag-text, active, tags-grid, tags-list
 
-
-export const TagItem = {
-  render: () => `
-    <div class="tag-item">
-      tag-item component
+export const TagsSection = (args) => {
+  const { heading, tags } = args;
+  return `
+    <div class="skills">
+      <h2>${heading}</h2>
+      <ul class="tags-grid">
+        ${tags.map(tag => `<li class="tag-item"><span class="tag-text">${tag}</span></li>`).join('')}
+      </ul>
     </div>
-  `,
+  `;
 };
 
-
-export const TagText = {
-  render: () => `
-    <div class="tag-text">
-      tag-text component
-    </div>
-  `,
+TagsSection.args = {
+  heading: 'Skills & Expertise',
+  tags: [
+    'Strong Communication',
+    'Visual Thinking',
+    'Workshop Facilitation',
+    'User Research',
+    'Collaborative Tools (Miro)',
+    'Usability Testing (Maze)',
+    'UI/UX Design',
+    'Game Design',
+    'Basic Coding Knowledge',
+  ],
 };
 
-
-export const Active = {
-  render: () => `
-    <div class="active">
-      active component
-    </div>
-  `,
-};
-
-
-export const TagsGrid = {
-  render: () => `
-    <div class="tags-grid">
-      tags-grid component
-    </div>
-  `,
-};
-
-
-export const TagsList = {
-  render: () => `
-    <div class="tags-list">
-      tags-list component
-    </div>
-  `,
+TagsSection.argTypes = {
+  heading: { control: 'text', name: 'Section Heading' },
+  tags: { control: 'object', name: 'Tags' },
 };
