@@ -1,4 +1,4 @@
-const d={title:"Components/Navigation",tags:["autodocs"],parameters:{componentSubtitle:"navigation component styles"}},o=l=>{const{logoText:i,navLinks:n,menuOpen:a}=l;return`
+const d={title:"Components/Navigation",tags:["autodocs"],parameters:{componentSubtitle:"navigation component styles"}},i=l=>{const{logoText:o,navLinks:n,menuOpen:a}=l;return`
     <style>
       .nav-links {
         display: none;
@@ -22,7 +22,7 @@ const d={title:"Components/Navigation",tags:["autodocs"],parameters:{componentSu
     </style>
     <header>
       <nav>
-        <div class="logo">${i}</div>
+        <div class="logo">${o}</div>
         <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="${a}" aria-controls="nav-links" id="menuBtn">
           <span class="sr-only">Menu</span>
           ☰
@@ -41,7 +41,7 @@ const d={title:"Components/Navigation",tags:["autodocs"],parameters:{componentSu
         navLinks.classList.toggle('active');
       };
     <\/script>
-  `};o.args={logoText:"Bobbie Allsop",navLinks:[{href:"/",label:"Home",current:!0},{href:"/pages/about.html",label:"About",current:!1},{href:"/pages/blog.html",label:"Blog",current:!1},{href:"/pages/contact.html",label:"Contact",current:!1}],menuOpen:!1};o.argTypes={logoText:{control:"text",name:"Logo Text"},navLinks:{control:"object",name:"Navigation Links"},menuOpen:{control:"boolean",name:"Menu Open (default)"}};const e=l=>{const{logoText:i,navLinks:n,menuOpen:a}=l;return`
+  `};i.args={logoText:"Bobbie Allsop",navLinks:[{href:"/",label:"Home",current:!0},{href:"/pages/about.html",label:"About",current:!1},{href:"/pages/blog.html",label:"Blog",current:!1},{href:"/pages/contact.html",label:"Contact",current:!1}],menuOpen:!1};i.argTypes={logoText:{control:"text",name:"Logo Text"},navLinks:{control:"object",name:"Navigation Links"},menuOpen:{control:"boolean",name:"Menu Open (default)"}};i.parameters={viewport:{defaultViewport:"responsive"}};const e=l=>{const{logoText:o,navLinks:n,menuOpen:a}=l;return`
     <style>
       .nav-links {
         display: none;
@@ -65,7 +65,7 @@ const d={title:"Components/Navigation",tags:["autodocs"],parameters:{componentSu
     </style>
     <header>
       <nav>
-        <div class="logo">${i}</div>
+        <div class="logo">${o}</div>
         <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="${a}" aria-controls="nav-links" id="menuBtnMobile">
           <span class="sr-only">Menu</span>
           ☰
@@ -75,7 +75,7 @@ const d={title:"Components/Navigation",tags:["autodocs"],parameters:{componentSu
         </ul>
       </nav>
     </header>
-  `};e.args={logoText:"Bobbie Allsop",navLinks:[{href:"/",label:"Home",current:!0},{href:"/pages/about.html",label:"About",current:!1},{href:"/pages/blog.html",label:"Blog",current:!1},{href:"/pages/contact.html",label:"Contact",current:!1}],menuOpen:!1};e.argTypes={logoText:{control:"text",name:"Logo Text"},navLinks:{control:"object",name:"Navigation Links"},menuOpen:{control:"boolean",name:"Menu Open (default)"}};e.parameters={viewport:{defaultViewport:"mobile1"}};e.play=async({canvasElement:l})=>{const i=l.querySelector("#nav-links-mobile"),n=l.querySelector("#menuBtnMobile");!i||!n||(n.onclick=()=>{const a=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",!a),i.classList.toggle("active")})};var r,s,c;o.parameters={...o.parameters,docs:{...(r=o.parameters)==null?void 0:r.docs,source:{originalSource:`args => {
+  `};e.args={logoText:"Bobbie Allsop",navLinks:[{href:"/",label:"Home",current:!0},{href:"/pages/about.html",label:"About",current:!1},{href:"/pages/blog.html",label:"Blog",current:!1},{href:"/pages/contact.html",label:"Contact",current:!1}],menuOpen:!1};e.argTypes={logoText:{control:"text",name:"Logo Text"},navLinks:{control:"object",name:"Navigation Links"},menuOpen:{control:"boolean",name:"Menu Open (default)"}};e.parameters={viewport:{defaultViewport:"mobile1"}};e.play=async({canvasElement:l})=>{const o=l.querySelector("#nav-links-mobile"),n=l.querySelector("#menuBtnMobile");!o||!n||(n.onclick=()=>{const a=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",!a),o.classList.toggle("active")})};var r,s,c;i.parameters={...i.parameters,docs:{...(r=i.parameters)==null?void 0:r.docs,source:{originalSource:`args => {
   const {
     logoText,
     navLinks,
@@ -125,7 +125,7 @@ const d={title:"Components/Navigation",tags:["autodocs"],parameters:{componentSu
       };
     <\/script>
   \`;
-}`,...(c=(s=o.parameters)==null?void 0:s.docs)==null?void 0:c.source}}};var u,p,m;e.parameters={...e.parameters,docs:{...(u=e.parameters)==null?void 0:u.docs,source:{originalSource:`args => {
+}`,...(c=(s=i.parameters)==null?void 0:s.docs)==null?void 0:c.source}}};var u,p,m;e.parameters={...e.parameters,docs:{...(u=e.parameters)==null?void 0:u.docs,source:{originalSource:`args => {
   const {
     logoText,
     navLinks,
@@ -166,4 +166,4 @@ const d={title:"Components/Navigation",tags:["autodocs"],parameters:{componentSu
       </nav>
     </header>
   \`;
-}`,...(m=(p=e.parameters)==null?void 0:p.docs)==null?void 0:m.source}}};const b=["NavigationHeader","NavigationHeaderMobile"];export{o as NavigationHeader,e as NavigationHeaderMobile,b as __namedExportsOrder,d as default};
+}`,...(m=(p=e.parameters)==null?void 0:p.docs)==null?void 0:m.source}}};const b=["NavigationHeader","NavigationHeaderMobile"];export{i as NavigationHeader,e as NavigationHeaderMobile,b as __namedExportsOrder,d as default};
