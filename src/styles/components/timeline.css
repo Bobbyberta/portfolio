@@ -4,6 +4,7 @@
     padding: var(--spacing-md);
     width: 100%;          /* Ensure card takes full width */
     box-sizing: border-box; /* Include padding in width calculation */
+    display: block;
 }
 
 /* Timeline Styles */
@@ -119,6 +120,7 @@
         margin: 0;        /* Remove any margins */
         width: 100%;      /* Ensure full width on mobile */
         max-width: 100%;  /* Prevent overflow */
+        display: block;
     }
 
     .timeline-container {
