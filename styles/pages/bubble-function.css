@@ -26,6 +26,7 @@
     color: var(--text-dark);
     font-size: var(--h2-font-size);
     margin-bottom: var(--spacing-xsm);
+    margin-top: var(--spacing-xsm);
 }
 
 .subtitle {
@@ -129,6 +130,10 @@
 @media (max-width: 767px) {
     .project-conclusion {
         margin: var(--spacing-lg) 0;
+    }
+
+    .card-header {
+        margin-bottom: var(--spacing-xxsm);
     }
 
 }
