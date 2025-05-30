@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How I used Storybook to build a maintainable, playful design system for my portfolio. Insights on structure, design, and lessons learned from the process.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JH7G6ZCBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-8JH7G6ZCBQ');
+    </script>
+    
+    <title>Using Storybook as a Design System for My Portfolio - Bobbie Allsop</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script type="module" src="../../js/main.js" defer></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bobbieallsop.co.uk/pages/blog/using-storybook-as-a-design-system.html">
+    <meta property="og:title" content="Using Storybook as a Design System for My Portfolio">
+    <meta property="og:description" content="How I used Storybook to build a maintainable, playful design system for my portfolio. Insights on structure, design, and lessons learned from the process.">
+    <meta property="og:image" content="https://bobbieallsop.co.uk/images/storybook-design-system-social.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bobbieallsop.co.uk/pages/blog/using-storybook-as-a-design-system.html">
+    <meta property="twitter:title" content="Using Storybook as a Design System for My Portfolio">
+    <meta property="twitter:description" content="How I used Storybook to build a maintainable, playful design system for my portfolio. Insights on structure, design, and lessons learned from the process.">
+    <meta property="twitter:image" content="https://bobbieallsop.co.uk/images/storybook-design-system-social.png">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Bobbie Allsop</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="sr-only">Menu</span>
+                ☰
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/blog.html">Blog</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-wrapper">
+            <article class="blog-post section-standard">
+                <div class="page-header">
+                    <h1>Using Storybook as a Design System for My Portfolio</h1>
+                    <div class="page-meta">
+                        <span class="meta-item category">Design Systems</span>
+                        <span class="meta-item date">30th May 2025</span>
+                        <span class="meta-item read-time">5 min read</span>
+                    </div>
+                </div>
+
+                <div class="blog-post-content">
+                    <h2>Using Storybook as a Design System for My Portfolio</h2>
+                    <p>I've always wanted to explore Storybook in a more hands-on way, but the software I work with professionally tends to be pretty complex, making it hard to test out in a contained environment. So when it came time to rebuild my portfolio, it felt like the perfect opportunity: a simple, self-contained project where I could finally get stuck into Storybook and build something that actually felt cohesive and maintainable.</p>
+
+                    <h2>Planning the Structure</h2>
+                    <p>The planning phase was surprisingly fluid. I used Cursor AI to write the code—prompting and tweaking as I went—which turned out to be quite a creative process. I didn't go in with a strict blueprint, but as I honed the visual style, the structure began to form organically. Once I had something I liked aesthetically, I took a step back and started simplifying the code into reusable components.</p>
+                    <p>In terms of structure, I looked at a lot of typical portfolio layouts and leaned on my old UX Folio content for direction. I already had most of the text and case study material, so this project was more about reshaping it to fit a structure I actually enjoyed using and could maintain more freely.</p>
+                    <p>The site ended up having two core areas:</p>
+                    <ul>
+                        <li><strong>Case Studies:</strong> aimed at potential employers</li>
+                        <li><strong>Blog:</strong> a more casual space for me to reflect on the work I'm doing in real time</li>
+                    </ul>
+                    <p>I also did a bit of research into job applications to get a better understanding of what recruiters might be looking for in a portfolio. That helped guide some of the content choices.</p>
+
+                    <h2>🎨 Designing With Playfulness</h2>
+                    <p>I wanted the visual design to feel clean and readable—but also playful. I've always loved colour and geometry, so I leaned into that while keeping everything accessible and minimal.</p>
+                    <p>The red and blue palette comes from my uni days (and, honestly, from my wardrobe). It's stuck with me as a bit of a personal brand. And when it comes to design systems, I've always appreciated Google's Material Design for how structured yet expressive it can be, so I borrowed quite a bit from that—especially in typography.</p>
+                    <p>Roboto is the main font, paired with greys and an off-black background to keep things legible and soft on the eyes.</p>
+
+                    <h2>📚 Building the Design System in Storybook</h2>
+                    <p>The goal with the design system was simple: consistency and maintainability. I didn't want to have to rebuild or restyle components on every new page. Storybook gave me a centralised place to design once and reuse everywhere.</p>
+                    <p>Most of the design work happened directly in Cursor. I did try shifting things into Figma at one point, but I found it easier to manipulate the code directly and push it to Storybook. So, in a way, I did the whole design process backwards.</p>
+                    <p>The system includes:</p>
+                    <ul>
+                        <li>Basic components like cards and buttons</li>
+                        <li>Page sections like footers and call-to-actions</li>
+                        <li>Custom bits like the hero image and collapsible overview</li>
+                    </ul>
+                    <p>👉 You can explore the full Storybook design system here: <a href="https://bobbieallsop.co.uk/storybook/">https://bobbieallsop.co.uk/storybook/</a></p>
+
+                    <h2>Challenges Along the Way</h2>
+                    <p>It wasn't all smooth sailing. One of the early missteps was writing a script to pull all the CSS into Storybook, which turned into a complete mess. The CSS had been written custom per page, so moving to a component-based structure required a full site restructure.</p>
+                    <p>I also had a lot of duplicate code from generating things with AI. At a certain point, I had to stop and refactor large chunks to make it manageable. The "Overview" component was particularly temperamental—it kept breaking, and it took multiple rounds of tweaking to get it to function like the prototype.</p>
+                    <p>Even now, not all components are integrated into the design system. Some are still custom, living only in specific pages. But that's fine. It's a work in progress.</p>
+
+                    <h2>The Final Site</h2>
+                    <p>In the end, I'm proud of how it turned out. The site feels simple and consistent, and the code is easy enough for me to update using free tools and my current skill level.</p>
+                    <p>Some highlights for me:</p>
+                    <ul>
+                        <li>The hero image feels bold and distinctive</li>
+                        <li>The collapsible overview is a fun, quirky addition</li>
+                        <li>And the Storybook interface actually looks like a proper design system—neat, structured, and easy to navigate</li>
+                    </ul>
+                    <p>Using Storybook has really helped give the whole portfolio a more professional polish.</p>
+
+                    <h2>What's Next?</h2>
+                    <p>Because I've got full control over the code, I can expand the system with more custom components whenever I want—something most website builders just don't allow. For now, my main goal is to test how easy it is to publish new blog posts and keep the content fresh.</p>
+                    <p>Looking ahead, I hope this site encourages me to share my learnings more regularly. I've already picked up so much about structuring a design system, and this experience with Storybook will absolutely inform how I approach similar challenges in future professional projects.</p>
+                
+                    <section class="section-cta">
+                        <div class="cta-content">
+                            <h2>Thank you for reading!</h2>
+                            <div class="cta-text">
+                                <p>Want to work with me? Feel free to contact me!</p>
+                                <p>...or just say hello on my social media.</p>
+                            </div>
+                            <div class="cta-buttons">
+                                <a href="/pages/contact.html" class="cta-button primary">Contact Me</a>
+                                <a href="/pages/blog.html" class="cta-button secondary">Back to Blog</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bobbie Allsop. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

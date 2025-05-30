@@ -41,6 +41,7 @@ export default defineConfig({
         'pages/blog/usability-testing-blog': resolve(__dirname, 'src/pages/blog/usability-testing-blog.html'),
         'pages/blog/accessibility-journey-blog': resolve(__dirname, 'src/pages/blog/accessibility-journey-blog.html'),
         'pages/blog/little-raincloud-blog': resolve(__dirname, 'src/pages/blog/little-raincloud-blog.html'),
+        'pages/blog/using-storybook-as-a-design-system': resolve(__dirname, 'src/pages/blog/using-storybook-as-a-design-system.html'),
       },
       output: {
         dir: 'dist',
