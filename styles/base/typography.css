@@ -23,7 +23,7 @@ p {
 .blog-post-content h2 {
     color: var(--text-dark);
     font-size: var(--h2-font-size);
-    margin-top: var(--spacing-xl);
+    margin-top: var(--spacing-xsm);
     margin-bottom: var(--spacing-md);
 }
 
@@ -41,4 +41,13 @@ p {
     margin-bottom: var(--spacing-sm);
     font-weight: 400;
     line-height: 1.4;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+
+    /* Blog Content Headers */
+    .blog-post-content h2 {
+        margin-top: var(--spacing-lg);
+    }
 }
