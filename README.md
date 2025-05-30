@@ -84,6 +84,76 @@ The style guide (`StyleGuide.mdx`) documents design tokens:
 - Border radius
 - Transitions
 
+## Blog Post Management
+
+The blog section uses a template-based system for creating new posts. Here's how to add a new blog post:
+
+### 1. Create a New Blog Post
+
+1. Copy the template file:
+```bash
+cp src/pages/blog/blog-post-template.html src/pages/blog/your-post-name.html
+```
+
+2. Update the following in your new blog post file:
+   - Meta description
+   - Title
+   - Open Graph and Twitter card metadata
+   - Blog post content
+   - Category, date, and read time
+   - Social share image (place in `src/assets/images/`)
+
+### 2. Update the Blog Listing
+
+Add your new post to `src/pages/blog.html`:
+1. Copy an existing article card
+2. Update the content:
+   - Title and subtitle
+   - Date and read time
+   - Blog excerpt
+   - Link to your new post
+   - Optional: Add a featured image
+
+### 3. Update Build Configuration
+
+Add your new blog post to `vite.config.js`:
+1. Add a new entry in the `rollupOptions.input` object:
+```javascript
+'pages/blog/your-post-name': resolve(__dirname, 'src/pages/blog/your-post-name.html'),
+```
+
+### 4. Preview and Test
+
+```bash
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+### Blog Post Structure
+
+Each blog post should include:
+- Clear title and subtitle
+- Category tag
+- Publication date
+- Estimated read time
+- Engaging introduction
+- Well-structured content with headings
+- Images (if applicable)
+- Call-to-action section at the end
+
+### Best Practices
+
+- Keep blog posts focused and concise
+- Use clear, descriptive headings
+- Include relevant images with alt text
+- Link to related content when appropriate
+- Maintain consistent formatting
+- Test all links and images
+- Preview on different devices
+
 ## Cursor Rules
 
 The project uses automated Cursor rules to improve code suggestions. The rules are automatically updated when files change.
