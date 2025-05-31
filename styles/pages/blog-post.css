@@ -76,17 +76,6 @@
 }
 
 /* Role Section */
-.responsibility-list {
-    list-style: none;
-    padding: 0;
-    margin: var(--spacing-md) 0;
-}
-
-.responsibility-list li {
-    padding: var(--spacing-xsm) 0;
-    border-bottom: 1px solid var(--border-color);
-    color: var(--text-light);
-}
 
 .approach-item {
     padding: var(--spacing-md);
@@ -100,19 +89,6 @@
 }
 
 .approach-item p {
-    color: var(--text-light);
-}
-
-/* Outcomes */
-.outcomes-list {
-    list-style: none;
-    padding: 0;
-    margin: var(--spacing-md) 0;
-}
-
-.outcomes-list li {
-    padding: var(--spacing-sm) 0;
-    border-bottom: 1px solid var(--border-color);
     color: var(--text-light);
 }
 
