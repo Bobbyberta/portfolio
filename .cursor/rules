@@ -54,6 +54,7 @@ files:
       - src/styles/components/design-process.css
       - src/styles/components/hero-title.css
       - src/styles/components/images.css
+      - src/styles/components/list.css
       - src/styles/components/navigation.css
       - src/styles/components/overview.css
       - src/styles/components/page-header.css
@@ -142,6 +143,7 @@ files:
       - .active
       - .modal-content
       - .modal-close
+      - .lined-list
       - .logo
       - .nav-links
       - .mobile-menu-btn
