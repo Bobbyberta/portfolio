@@ -50,6 +50,7 @@ files:
       - src/styles/base/variables.css
       - src/styles/components/buttons.css
       - src/styles/components/cards.css
+      - src/styles/components/code-snippet.css
       - src/styles/components/design-process.css
       - src/styles/components/hero-title.css
       - src/styles/components/images.css
@@ -88,6 +89,26 @@ files:
       - .content-link
       - .card-background
       - .png
+      - .code-snippet
+      - '.1'
+      - .875rem
+      - '.6'
+      - .keyword
+      - .string
+      - .comment
+      - .property
+      - .value
+      - .operator
+      - .code-block
+      - .code-header
+      - .75rem
+      - '.7'
+      - .2em
+      - .4em
+      - .875em
+      - .code-copy-btn
+      - .25rem
+      - .2s
       - .design-process-section
       - .design-process
       - .process-step
@@ -102,7 +123,6 @@ files:
       - .hero-name
       - .first-name
       - .last-name
-      - '.1'
       - .hero-subtitle
       - .05em
       - .highlight
@@ -145,7 +165,6 @@ files:
       - .key-years
       - .total
       - '.2'
-      - .2s
       - .page-header
       - .page-meta
       - .meta-item
@@ -175,7 +194,6 @@ files:
       - .blog-section
       - .hero
       - .main-wrapper
-      - '.6'
       - .section-header
       - .blog-post-content
       - .content-card-title
@@ -185,10 +203,7 @@ files:
       - '.05'
       - .2rem
       - .1rem
-      - .875rem
-      - .75rem
       - .9rem
-      - .25rem
       - .4rem
   - pattern: src/js/**/*.js
     language: javascript

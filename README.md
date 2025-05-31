@@ -132,6 +132,9 @@ npm run dev
 npm run build
 ```
 
+### Adding new styling or components
+Don't forget to add it to main.css
+
 ### Blog Post Structure
 
 Each blog post should include:
