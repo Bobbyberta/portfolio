@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn how I built a modern developer portfolio using AI-assisted development with Cursor.ai and automated deployment with GitHub Actions and GitHub Pages.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JH7G6ZCBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-8JH7G6ZCBQ');
+    </script>
+    
+    <title>AI-Powered Portfolio: Building a Developer Site with Cursor.ai and GitHub Actions - Bobbie Allsop</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bobbieallsop.co.uk/pages/blog/ai-powered-portfolio.html">
+    <meta property="og:title" content="AI-Powered Portfolio: Building a Developer Site with Cursor.ai and GitHub Actions">
+    <meta property="og:description" content="Learn how I built a modern developer portfolio using AI-assisted development with Cursor.ai and automated deployment with GitHub Actions and GitHub Pages.">
+    <meta property="og:image" content="https://bobbieallsop.co.uk/assets/images/blog/ai-portfolio-social.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bobbieallsop.co.uk/pages/blog/ai-powered-portfolio.html">
+    <meta property="twitter:title" content="AI-Powered Portfolio: Building a Developer Site with Cursor.ai and GitHub Actions">
+    <meta property="twitter:description" content="Learn how I built a modern developer portfolio using AI-assisted development with Cursor.ai and automated deployment with GitHub Actions and GitHub Pages.">
+    <meta property="twitter:image" content="https://bobbieallsop.co.uk/assets/images/blog/ai-portfolio-social.png">
+  <script type="module" crossorigin src="/assets/main-BmhlVOc1.js"></script>
+  <link rel="stylesheet" crossorigin href="/styles/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Bobbie Allsop</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="sr-only">Menu</span>
+                ☰
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/blog.html">Blog</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-wrapper">
+            <article class="blog-post section-standard">
+                <div class="page-header">
+                    <h1>AI-Powered Portfolio: Building a Developer Site with Cursor.ai and GitHub Actions</h1>
+                    <div class="page-meta">
+                        <span class="meta-item category">Development</span>
+                        <span class="meta-item date">January 2025</span>
+                        <span class="meta-item read-time">8 min read</span>
+                    </div>
+                </div>
+
+                <div class="blog-post-content">
+                    <p>In an effort to modernise my developer portfolio while reducing hosting costs and setup complexity, I explored an AI-assisted workflow using Cursor.ai for development and GitHub Pages with GitHub Actions for deployment. The result is a clean, cost-effective portfolio that is simple to maintain and easy to scale.</p>
+
+                    <p>This article outlines the process I followed—from initial planning through to deployment—along with the lessons learned and practical insights for anyone considering a similar approach.</p>
+
+                    <h2>Motivation</h2>
+                    <p>My previous portfolio was hosted on a paid platform and updated infrequently. I had a basic design template I was happy to reuse, but I wanted to streamline both the build and deployment process. The goal was to create a modern static website that could be hosted for free, without sacrificing flexibility or maintainability.</p>
+
+                    <p>While I've built websites before, I often found the setup phase—especially around bundling, hosting, and deployment—to be the most time-consuming. This project was an opportunity to explore how much AI could accelerate that process.</p>
+
+                    <h2>Why Cursor.ai?</h2>
+                    <p>I had used traditional AI tools like ChatGPT in the past to generate small code snippets. However, Cursor.ai stood out by integrating AI directly into the IDE, allowing code to be written straight into files—minimising context-switching and copy-paste errors.</p>
+
+                    <p>Cursor supports a range of AI models. I initially worked with Claude 3.4 and transitioned to Claude 3.7 after its release. Each brought distinct strengths in terms of code clarity and responsiveness. Cursor's ability to generate boilerplate, suggest component structures, and assist with debugging proved especially useful throughout the project.</p>
+
+                    <p>There was a short adjustment period to learn the interface, particularly around when to use Cursor's agent, chat, or editor. However, once understood, the workflow became intuitive and efficient.</p>
+
+                    <h2>Hosting with GitHub Pages and Automating with GitHub Actions</h2>
+                    <p>Choosing GitHub Pages was primarily driven by cost—it's free—and prior experience. I had previously used AWS S3 for static site hosting, but found the build and deployment process more cumbersome.</p>
+
+                    <p>In contrast, GitHub Actions offered a straightforward and powerful way to automate the build and deployment process. It enabled the site to be deployed directly from a separate branch, significantly reducing manual overhead.</p>
+
+                    <p>I briefly experimented with an in-browser editor connected to the repository. Although the editor proved more complex than necessary for this project, GitHub Actions demonstrated how easily such integrations could be supported.</p>
+
+                    <h2>Development Workflow</h2>
+
+                    <h3>Starting with Cursor.ai</h3>
+                    <p>I began with a general prompt:</p>
+                    <blockquote>
+                        <p>"I want to create a portfolio website that can be hosted on GitHub Pages."</p>
+                    </blockquote>
+
+                    <p>Keeping prompts high-level proved effective for generating initial structure and ideas. For more specific tasks—such as implementing navigation or refining layout—I found it best to focus each prompt on a single topic.</p>
+
+                    <p>One particularly notable moment was when I asked Cursor to recreate a hero section I had previously designed but struggled to implement in CSS. Cursor produced a solution that was almost complete, requiring only minor adjustments.</p>
+
+                    <h3>Scope and Features</h3>
+                    <p>The portfolio was designed to be clear, accessible, and easy to navigate. Core sections included:</p>
+                    <ul>
+                        <li>A landing page with key details</li>
+                        <li>An "About" section</li>
+                        <li>A blog for documenting projects and ideas</li>
+                        <li>A contact page</li>
+                    </ul>
+
+                    <p>Cursor generated much of the initial styling, often using Material Design principles. This aligned well with my own design preferences—clean lines, readable typography, and a focus on usability.</p>
+
+                    <p>The project progressed in two main phases: design exploration and code implementation. During the first phase, the codebase became disorganised as I prioritised layout experimentation. Once the design was settled, I refactored and rewrote the code for clarity and maintainability—a process that significantly improved my understanding of the architecture.</p>
+
+                    <h2>GitHub Configuration and Deployment</h2>
+
+                    <h3>Repository Setup</h3>
+                    <p>Setting up GitHub Pages was relatively straightforward. The main challenge was ensuring that the correct folder was being referenced during the deployment process, especially when using Vite, which manages output paths differently from other build tools.</p>
+
+                    <h3>GitHub Actions Workflow</h3>
+                    <p>The GitHub Actions pipeline performs the following steps:</p>
+                    <ol>
+                        <li>Checks out the code</li>
+                        <li>Sets up the Node.js environment</li>
+                        <li>Installs dependencies</li>
+                        <li>Builds the project</li>
+                        <li>Deploys the dist folder to the gh-pages branch</li>
+                    </ol>
+
+                    <p>A simplified version of the workflow is as follows:</p>
+
+                    <pre><code>name: GitHub Pages Deployment
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build website
+        run: npm run build
+
+      - name: Add CNAME file for custom domain
+        run: echo 'bobbieallsop.co.uk' > dist/CNAME
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          path: dist</code></pre>
+
+                    <p>Debugging the workflow involved resolving issues with relative paths and folder structures, which were largely related to Vite rather than GitHub Actions. Cursor.ai was helpful in identifying and correcting these issues.</p>
+
+                    <h2>Outcomes</h2>
+                    <p>The final result is a fully functional, maintainable portfolio site deployed via GitHub Pages and updated automatically through GitHub Actions. The codebase is readable and adaptable—something I could not have produced in the same timeframe without AI support.</p>
+
+                    <p>While it does not offer the same level of simplicity as a website builder, it is significantly more flexible and entirely free to run. I now feel confident creating new pages or components as needed.</p>
+
+                    <h2>Reflections and Learnings</h2>
+
+                    <h3>Benefits of Using Cursor.ai</h3>
+                    <ul>
+                        <li>Significantly accelerated development</li>
+                        <li>Generated maintainable boilerplate</li>
+                        <li>Provided effective debugging support</li>
+                    </ul>
+
+                    <h3>Advantages of GitHub Pages and Actions</h3>
+                    <ul>
+                        <li>Free hosting with custom domain support</li>
+                        <li>Automates deployment process from code to live site</li>
+                        <li>Introduces practical CI/CD principles</li>
+                    </ul>
+
+                    <h3>Advice for Others</h3>
+                    <ul>
+                        <li>Allow AI to assist with initial prototypes, but be prepared to refactor</li>
+                        <li>Use focused prompts for better results</li>
+                        <li>Visual design can emerge from experimentation—don't over-plan early</li>
+                    </ul>
+
+                    <p>In future projects, I would continue using this toolset. I'm also exploring the possibility of building a simplified content editor for easier updates—now made more feasible thanks to the underlying automation.</p>
+
+                    <h2>Final Thoughts</h2>
+                    <p>This project demonstrated how AI can meaningfully support the development process—from design to deployment—especially for developers working independently. The combination of Cursor.ai, GitHub Pages, and GitHub Actions offers a streamlined, cost-effective workflow for building and maintaining personal websites.</p>
+
+                    <p>If you're looking to modernise your portfolio or experiment with AI in development, this approach offers both speed and flexibility.</p>
+
+                    <section class="section-cta">
+                        <div class="cta-content">
+                            <h2>Thank you for reading!</h2>
+                            <div class="cta-text">
+                                <p>Want to work with me? Feel free to contact me!</p>
+                                <p>...or just say hello on my social media.</p>
+                            </div>
+                            <div class="cta-buttons">
+                                <a href="/pages/contact.html" class="cta-button primary">Contact Me</a>
+                                <a href="/pages/blog.html" class="cta-button secondary">Back to Blog</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bobbie Allsop. All rights reserved.</p>
+    </footer>
+</body>
+</html> 
