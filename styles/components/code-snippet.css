@@ -1,0 +1,161 @@
+/* Code Snippet Styling */
+.code-snippet {
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    border: 1px solid #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.code-snippet code {
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: #d4d4d4;
+    display: block;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+/* Syntax highlighting colors */
+.code-snippet .keyword {
+    color: #569cd6;
+    font-weight: 500;
+}
+
+.code-snippet .string {
+    color: #ce9178;
+}
+
+.code-snippet .comment {
+    color: #6a9955;
+    font-style: italic;
+}
+
+.code-snippet .property {
+    color: #9cdcfe;
+}
+
+.code-snippet .value {
+    color: #ce9178;
+}
+
+.code-snippet .operator {
+    color: #d4d4d4;
+}
+
+/* Code block with header */
+.code-block {
+    margin: 2rem 0;
+}
+
+.code-header {
+    background: #2d2d2d;
+    color: #cccccc;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px 8px 0 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid #333;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.code-header::before {
+    content: "⚡";
+    opacity: 0.7;
+}
+
+.code-block .code-snippet {
+    margin: 0;
+    border-radius: 0 0 8px 8px;
+    border-top: none;
+}
+
+/* Inline code */
+code:not(.code-snippet code) {
+    background: #f5f5f5;
+    color: #e83e8c;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+    font-size: 0.875em;
+    font-weight: 500;
+}
+
+/* Dark theme inline code */
+@media (prefers-color-scheme: dark) {
+    code:not(.code-snippet code) {
+        background: #333;
+        color: #ff6b9d;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .code-snippet {
+        padding: 1rem;
+        margin: 1rem -1rem;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .code-header {
+        padding: 0.5rem 1rem;
+        margin: 0 -1rem;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .code-block .code-snippet {
+        border-radius: 0;
+    }
+    
+    .code-snippet code {
+        font-size: 0.8rem;
+    }
+}
+
+/* Copy button styling (for future enhancement) */
+.code-copy-btn {
+    background: #404040;
+    border: 1px solid #666;
+    color: #cccccc;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    margin-left: auto;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.code-copy-btn:hover {
+    opacity: 1;
+    background: #505050;
+}
+
+/* Scrollbar styling for code blocks */
+.code-snippet::-webkit-scrollbar {
+    height: 8px;
+}
+
+.code-snippet::-webkit-scrollbar-track {
+    background: #2d2d2d;
+    border-radius: 4px;
+}
+
+.code-snippet::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+.code-snippet::-webkit-scrollbar-thumb:hover {
+    background: #666;
+} 
