@@ -136,7 +136,9 @@
 
                     <p>A simplified version of the workflow is as follows:</p>
 
-                    <pre><code>name: GitHub Pages Deployment
+                    <div class="code-block">
+                        <div class="code-header">GitHub Actions Workflow (.github/workflows/pages.yml)</div>
+                        <pre class="code-snippet"><code>name: GitHub Pages Deployment
 
 on:
   push:
@@ -174,6 +176,7 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           path: dist</code></pre>
+                    </div> 
 
                     <p>Debugging the workflow involved resolving issues with relative paths and folder structures, which were largely related to Vite rather than GitHub Actions. Cursor.ai was helpful in identifying and correcting these issues.</p>
 
