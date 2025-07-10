@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover how I built an interactive live music visualizer that transforms audio into mesmerizing visual art using Web Audio API, Canvas 2D, and creative algorithms.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JH7G6ZCBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-8JH7G6ZCBQ');
+    </script>
+    
+    <title>Live Music Visualizer: Transforming Sound into Interactive Art - Bobbie Allsop</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script type="module" src="../../js/main.js" defer></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bobbieallsop.co.uk/pages/blog/live-music-visualizer-blog.html">
+    <meta property="og:title" content="Live Music Visualizer: Transforming Sound into Interactive Art">
+    <meta property="og:description" content="Discover how I built an interactive live music visualizer that transforms audio into mesmerizing visual art using Web Audio API, Canvas 2D, and creative algorithms.">
+    <meta property="og:image" content="https://bobbieallsop.co.uk/assets/images/social-share.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bobbieallsop.co.uk/pages/blog/live-music-visualizer-blog.html">
+    <meta property="twitter:title" content="Live Music Visualizer: Transforming Sound into Interactive Art">
+    <meta property="twitter:description" content="Discover how I built an interactive live music visualizer that transforms audio into mesmerizing visual art using Web Audio API, Canvas 2D, and creative algorithms.">
+    <meta property="twitter:image" content="https://bobbieallsop.co.uk/assets/images/social-share.png">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Bobbie Allsop</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="sr-only">Menu</span>
+                ☰
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/blog.html">Blog</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-wrapper">
+            <article class="blog-post section-standard">
+                <div class="page-header">
+                    <h1>Live Music Visualizer: Transforming Sound into Interactive Art</h1>
+                    <div class="page-meta">
+                        <span class="meta-item category">Creative Coding</span>
+                        <span class="meta-item date">July 2025</span>
+                        <span class="meta-item read-time">7 min read</span>
+                    </div>
+                </div>
+
+                <div class="blog-post-content">
+                    <p>Music has the power to move us, but what if we could literally see that movement? That's the question that drove me to create an interactive live music visualizer that transforms audio into mesmerizing visual art in real-time. Using the Web Audio API, Canvas 2D rendering, and creative algorithms, I built a tool that bridges the gap between sound and sight.</p>
+
+                    <p>You can experience the live visualizer here: <a href="https://bobbyberta.github.io/live_music_artwork/" target="_blank" rel="noopener noreferrer">Live Music Visualizer</a></p>
+
+                    <h2>The Inspiration</h2>
+                    <p>Music visualization has fascinated me since the early days of WinAmp and Windows Media Player visualizations. There's something magical about seeing music—watching how different frequencies create patterns, how bass lines generate pulses, and how melodies translate into flowing shapes. I wanted to create something that wasn't just passive eye candy, but an interactive experience that responded dynamically to any audio input.</p>
+
+                    <p>The goal was to create a visualizer that could work with both live microphone input and uploaded audio files, making it versatile for different use cases—from live performances to personal music listening experiences.</p>
+
+                    <h2>Technical Architecture</h2>
+
+                    <h3>Web Audio API Foundation</h3>
+                    <p>At the heart of the visualizer lies the Web Audio API, which provides powerful tools for audio processing in web browsers. The API allows me to:</p>
+
+                    <ul class="lined-list">
+                        <li>Capture audio from microphone input</li>
+                        <li>Process uploaded audio files</li>
+                        <li>Analyze frequency data using Fast Fourier Transform (FFT)</li>
+                        <li>Extract real-time audio characteristics</li>
+                    </ul>
+
+                    <div class="code-block">
+                        <div class="code-header">Setting up Audio Context and Analyzer</div>
+                        <pre class="code-snippet"><code>// Initialize audio context
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+const analyser = audioContext.createAnalyser();
+
+// Configure analyzer for optimal visualization
+analyser.fftSize = 2048;
+analyser.smoothingTimeConstant = 0.8;
+
+// Connect audio source to analyzer
+navigator.mediaDevices.getUserMedia({ audio: true })
+    .then(stream => {
+        const source = audioContext.createMediaStreamSource(stream);
+        source.connect(analyser);
+        startVisualization();
+    });</code></pre>
+                    </div>
+
+                    <h3>Canvas 2D Rendering Engine</h3>
+                    <p>The visual component uses HTML5 Canvas with 2D context for high-performance rendering. This approach allows for complex animations while maintaining smooth framerates across different devices.</p>
+
+                    <div class="code-block">
+                        <div class="code-header">Animation Loop Structure</div>
+                        <pre class="code-snippet"><code>function animate() {
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Get frequency data
+    analyser.getByteFrequencyData(dataArray);
+    
+    // Process audio data into visual elements
+    processAudioData(dataArray);
+    
+    // Render visual components
+    renderVisuals();
+    
+    // Continue animation loop
+    requestAnimationFrame(animate);
+}</code></pre>
+                    </div>
+
+                    <h2>Visualization Algorithms</h2>
+
+                    <h3>Frequency-Based Particle Systems</h3>
+                    <p>One of the core visual elements is a particle system that responds to different frequency ranges. Bass frequencies control the size and intensity of particles, while higher frequencies influence their movement patterns and colors.</p>
+
+                    <h3>Dynamic Color Mapping</h3>
+                    <p>The visualizer uses dynamic color mapping based on audio characteristics:</p>
+
+                    <ul class="lined-list">
+                        <li><strong>Hue:</strong> Mapped to dominant frequency</li>
+                        <li><strong>Saturation:</strong> Based on audio volume</li>
+                        <li><strong>Brightness:</strong> Influenced by frequency distribution</li>
+                    </ul>
+
+                    <h3>Geometric Pattern Generation</h3>
+                    <p>Different audio patterns trigger various geometric visualizations—from radial burst patterns for percussive sounds to flowing wave forms for melodic content. The system adapts in real-time to the musical characteristics it detects.</p>
+
+                    <h2>Interactive Features</h2>
+
+                    <h3>Multiple Input Sources</h3>
+                    <p>The visualizer supports various audio input methods:</p>
+
+                    <ul class="lined-list">
+                        <li>Live microphone input for real-time performance</li>
+                        <li>Audio file upload for personal music libraries</li>
+                        <li>Drag-and-drop functionality for easy file handling</li>
+                    </ul>
+
+                    <h3>Real-Time Controls</h3>
+                    <p>Users can customize the visualization experience through interactive controls:</p>
+
+                    <ul class="lined-list">
+                        <li>Sensitivity adjustment for different audio levels</li>
+                        <li>Color scheme selection</li>
+                        <li>Visualization mode switching</li>
+                        <li>Full-screen mode for immersive experiences</li>
+                    </ul>
+
+                    <h2>Performance Optimization</h2>
+
+                    <h3>Efficient Data Processing</h3>
+                    <p>Working with real-time audio data requires careful performance optimization. I implemented several strategies to maintain smooth animations:</p>
+
+                    <ul class="lined-list">
+                        <li>Efficient FFT analysis with optimized buffer sizes</li>
+                        <li>Canvas optimization techniques for smooth rendering</li>
+                        <li>Selective redrawing to minimize computational overhead</li>
+                        <li>Frame rate monitoring and dynamic quality adjustment</li>
+                    </ul>
+
+                    <h3>Cross-Browser Compatibility</h3>
+                    <p>The project includes fallbacks and polyfills to ensure compatibility across modern browsers while gracefully handling older browser limitations.</p>
+
+                    <h2>Creative Challenges</h2>
+
+                    <h3>Balancing Responsiveness and Aesthetics</h3>
+                    <p>One of the main challenges was finding the right balance between visual responsiveness to audio and aesthetic appeal. Too much sensitivity creates chaotic visuals, while too little makes the visualization feel disconnected from the music.</p>
+
+                    <h3>Handling Different Musical Styles</h3>
+                    <p>Different genres of music have vastly different audio characteristics. Electronic music with clear bass lines behaves differently than acoustic guitar or classical orchestration. The visualizer needed to adapt to these variations while maintaining visual coherence.</p>
+
+                    <h2>Technical Implementation Highlights</h2>
+
+                    <div class="code-block">
+                        <div class="code-header">Audio Analysis and Visual Mapping</div>
+                        <pre class="code-snippet"><code>function processAudioData(frequencyData) {
+    // Calculate average volume
+    const volume = frequencyData.reduce((a, b) => a + b) / frequencyData.length;
+    
+    // Extract frequency bands
+    const bass = getFrequencyRange(frequencyData, 0, 60);
+    const mids = getFrequencyRange(frequencyData, 60, 200);
+    const highs = getFrequencyRange(frequencyData, 200, 1024);
+    
+    // Map to visual properties
+    particleSystem.intensity = bass / 255;
+    colorScheme.hue = (mids / 255) * 360;
+    animationSpeed = (highs / 255) * 5;
+}</code></pre>
+                    </div>
+
+                    <h2>Future Enhancements</h2>
+
+                    <p>The visualizer is an ongoing project with several planned improvements:</p>
+
+                    <ul class="lined-list">
+                        <li>3D visualization modes using WebGL</li>
+                        <li>Machine learning-based pattern recognition</li>
+                        <li>Social sharing capabilities for created visuals</li>
+                        <li>MIDI controller integration for live performance</li>
+                        <li>Video export functionality</li>
+                    </ul>
+
+                    <h2>Key Learnings</h2>
+
+                    <h3>Web Audio API Mastery</h3>
+                    <p>This project deepened my understanding of digital audio processing, frequency analysis, and the capabilities of modern web browsers for creative applications.</p>
+
+                    <h3>Performance in Creative Coding</h3>
+                    <p>Balancing creative expression with technical performance constraints taught me valuable lessons about optimization in real-time graphics applications.</p>
+
+                    <h3>User Experience in Interactive Art</h3>
+                    <p>Creating an intuitive interface for an artistic tool required careful consideration of user workflows and accessibility across different skill levels.</p>
+
+                    <h2>Experience It Yourself</h2>
+
+                    <p>The best way to understand this project is to experience it firsthand. Visit the <a href="https://bobbyberta.github.io/live_music_artwork/" target="_blank" rel="noopener noreferrer">live music visualizer</a> and try it with your favorite songs or even just ambient sound from your microphone. Each piece of music creates a unique visual experience.</p>
+
+                    <p>Whether you're a musician looking to add visual elements to your performances, a developer interested in creative coding, or someone who simply enjoys the intersection of technology and art, I hope this project inspires you to explore the possibilities of transforming sound into sight.</p>
+
+                    <section class="section-cta">
+                        <div class="cta-content">
+                            <h2>Ready to see sound?</h2>
+                            <div class="cta-text">
+                                <p>Try the live music visualizer with your own music!</p>
+                                <p>Want to discuss creative coding or collaborate on a project?</p>
+                            </div>
+                            <div class="cta-buttons">
+                                <a href="https://bobbyberta.github.io/live_music_artwork/" target="_blank" rel="noopener noreferrer" class="cta-button primary">Try the Visualizer</a>
+                                <a href="/pages/contact.html" class="cta-button secondary">Contact Me</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bobbie Allsop. All rights reserved.</p>
+    </footer>
+</body>
+</html> 
