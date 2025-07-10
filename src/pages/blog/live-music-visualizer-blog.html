@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The story of how I partnered with Claude Sonnet 4 to create a real-time Celtic music visualizer for a ceilidh party. A journey into prompt engineering, AI collaboration, and creative partnership.">
+    <meta name="description" content="Exploring design-first development methodologies through creating a Celtic music visualizer for a ceilidh party. How I leveraged AI as a design tool to focus on UX decisions and rapid prototyping.">
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JH7G6ZCBQ"></script>
@@ -31,14 +31,14 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://bobbieallsop.co.uk/pages/blog/live-music-visualizer-blog.html">
     <meta property="og:title" content="Dancing with AI: How I Visualized Ceilidh Music for a Party">
-    <meta property="og:description" content="The story of how I partnered with Claude Sonnet 4 to create a real-time Celtic music visualizer for a ceilidh party. A journey into prompt engineering, AI collaboration, and creative partnership.">
+    <meta property="og:description" content="Exploring design-first development methodologies through creating a Celtic music visualizer for a ceilidh party. How I leveraged AI as a design tool to focus on UX decisions and rapid prototyping.">
     <meta property="og:image" content="https://bobbieallsop.co.uk/assets/images/social-share.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://bobbieallsop.co.uk/pages/blog/live-music-visualizer-blog.html">
     <meta property="twitter:title" content="Dancing with AI: How I Visualized Ceilidh Music for a Party">
-    <meta property="twitter:description" content="The story of how I partnered with Claude Sonnet 4 to create a real-time Celtic music visualizer for a ceilidh party. A journey into prompt engineering, AI collaboration, and creative partnership.">
+    <meta property="twitter:description" content="Exploring design-first development methodologies through creating a Celtic music visualizer for a ceilidh party. How I leveraged AI as a design tool to focus on UX decisions and rapid prototyping.">
     <meta property="twitter:image" content="https://bobbieallsop.co.uk/assets/images/social-share.png">
 </head>
 <body>
@@ -73,191 +73,174 @@
                 <div class="blog-post-content">
                     <p>What do you do when you're throwing a ceilidh party with two huge screens begging for something fun? You build a real-time music visualizer, of course! That's exactly how my "Live Music Artwork" project began – a quest to transform the vibrant energy of Celtic music into mesmerizing visuals that would literally dance with fiddles, flutes, and bodhráns.</p>
 
-                    <p>But here's the twist: I didn't write the code. My creative partner in this endeavor was Claude Sonnet 4. This project became a fascinating experiment in prompt engineering, where my primary role was to articulate a vision, refine concepts, and guide an AI to bring them to life.</p>
+                    <p>But here's where it gets exciting: this project became a fascinating exploration of design-first development, where I leveraged AI, specifically Claude Sonnet 4, as a powerful design tool to rapidly prototype and iterate. Instead of getting bogged down in the intricacies of code implementation, I was able to focus entirely on UX decisions and the creative direction, with the AI handling the heavy lifting of bringing those designs to life.</p>
 
                     <p>You can experience the live visualizer here: <a href="https://bobbyberta.github.io/live_music_artwork/" target="_blank" rel="noopener noreferrer">Live Music Artwork</a></p>
 
                     <h2>The Spark: A Party and Two Big Screens</h2>
-                    <p>The initial motivation was pure fun: a ceilidh party, large projection screens, and a desire for something visually engaging that complemented the live music. Generic visualizers wouldn't cut it; I wanted something deeply responsive and specifically tuned to the unique soul of Celtic performances.</p>
+                    <p>The initial motivation was pure fun: a ceilidh party, large projection screens, and a desire for something visually engaging that complemented the live music. Generic visualizers wouldn't cut it; I wanted something deeply responsive and specifically tuned to the unique soul of Celtic performances. This set the stage for an exciting challenge: how to articulate that creative vision through prompts and see it manifest.</p>
 
-                    <p>This set the stage for an exciting challenge: how to communicate that creative vision to an AI. I understood very little of the underlying technical implementation, but I became intimately familiar with the process of building something entirely through AI prompts.</p>
+                    <h2>Guiding the AI: From Sound to User Experience</h2>
 
-                    <h2>Guiding the AI: From Sound to Sight</h2>
-
-                    <p>The core of any music visualizer is its ability to "hear" and interpret sound. My prompts guided Claude to implement advanced audio processing specifically for Celtic instruments. This involved asking for:</p>
+                    <p>The core of any music visualizer is its ability to "hear" and interpret sound. My partnership with Claude allowed me to focus on the user experience of the audio processing rather than the underlying code. I prompted for key functionalities, focusing on what the visualizer needed to do to genuinely react to Celtic music:</p>
 
                     <ul class="lined-list">
                         <li>Real-time microphone capture using the Web Audio API</li>
                         <li>Frequency analysis (FFT) to break down the sound</li>
-                        <li>Beat detection tuned for traditional Celtic rhythms</li>
+                        <li>Beat detection specifically tuned for traditional Celtic rhythms</li>
                         <li>Musical note recognition with instrument-specific frequency ranges</li>
                     </ul>
 
-                    <p>While I don't know the lines of code that make this happen, I learned how to prompt for these functionalities and then test and refine the AI's output until the visualizer was accurately responding to the nuances of ceilidh music.</p>
-
-                    <h3>The Constant Dialogue</h3>
-                    <p>It was a constant dialogue: "Make the beat detection more responsive to a jig," or "Can we get better frequency separation for the fiddle?" This iterative process taught me that successful AI collaboration requires clear communication of intent, not just technical specifications.</p>
+                    <p>This approach meant I was always thinking from a design perspective: "How will this sound interpretation enhance the visual experience?" or "What kind of responsiveness do I need for a lively jig?" The AI then handled the implementation, freeing me to constantly test, refine, and iterate on these UX decisions.</p>
 
                     <div class="code-block">
-                        <div class="code-header">Example Prompt for Celtic Music Optimization</div>
-                        <pre class="code-snippet"><code>"I need the visualizer to be more responsive to Celtic instruments. 
-Can you optimize the frequency analysis for:
-- Bodhrán (frame drum) - typically 60-250 Hz
-- Fiddle - G3 to E7 range (196-2637 Hz)  
-- Irish flute - C4 to C7 range (262-2093 Hz)
-- Accordion - C2 to C6 range (65-1047 Hz)
+                        <div class="code-header">Example UX-Focused Prompt for Celtic Music</div>
+                        <pre class="code-snippet"><code>"I need the visualizer to feel truly connected to Celtic music. 
+The user experience should capture:
+- Bodhrán (frame drum) - the heartbeat of the music (60-250 Hz)
+- Fiddle - the melodic voice (G3 to E7 range)  
+- Irish flute - the soaring melody lines (C4 to C7 range)
+- Accordion - the harmonic foundation (C2 to C6 range)
 
-Also, jigs and reels have very specific rhythmic patterns - 
-can you tune the beat detection for traditional Celtic time signatures?"</code></pre>
+The beat detection needs to feel natural with jigs and reels - 
+users should see visual responses that match the musical energy 
+they're experiencing, not just generic audio spikes."</code></pre>
                     </div>
 
-                    <h3>Learning Through Iteration</h3>
-                    <p>Each refinement cycle involved testing with actual Celtic music, observing the visual response, and then crafting new prompts to improve specific aspects. This process taught me to think in terms of observable behaviors rather than implementation details.</p>
+                    <h2>The Creative Evolution: Rapid Prototyping a Visual Language</h2>
 
-                    <h2>The Creative Evolution: Finding the Perfect Visual</h2>
+                    <p>Before landing on the buoyant balloons, my creative journey with Claude was a prime example of rapid prototyping and iteration in action. Each step was a prompt-driven design experiment, allowing me to quickly visualize and evaluate concepts:</p>
 
-                    <p>Before landing on the buoyant balloons, my creative journey with Claude went through several iterations. This was a true design process, driven by prompts and my visual feedback:</p>
-
-                    <h3>The Visual Journey</h3>
+                    <h3>The Design Iteration Process</h3>
                     <ul class="lined-list">
-                        <li><strong>Pulse:</strong> Simple visual reactions, useful for basic responsiveness, but lacking character</li>
-                        <li><strong>Wind:</strong> More dynamic movement, but still felt too abstract for the organic feel of live music</li>
-                        <li><strong>Leaves:</strong> An attempt to add natural elements, but the motion wasn't quite right</li>
-                        <li><strong>Balloons:</strong> Finally! Playful and celebratory, perfect for a party atmosphere</li>
+                        <li><strong>Pulse:</strong> A fundamental reaction, useful for confirming basic audio input, but quickly deemed too simplistic for the dynamic music</li>
+                        <li><strong>Wind:</strong> An attempt to introduce more organic, flowing movement, but still not quite the right fit for the celebratory energy</li>
+                        <li><strong>Leaves:</strong> An exploration of natural elements, but the motion and interaction needed further refinement</li>
+                        <li><strong>Balloons:</strong> The breakthrough! Playful and celebratory, perfectly capturing the spirit I envisioned for the party</li>
                     </ul>
 
-                    <p>Each step was a prompt – "make it look like wind," "now try leaves" – followed by testing and evaluation. This iterative cycle eventually led me to the concept of balloons, which immediately felt more playful and celebratory, perfect for a party atmosphere.</p>
+                    <p>This fast-paced iteration, driven by immediate visual feedback from the AI's generated code, allowed me to quickly narrow down the possibilities. This agile design process eventually led me to the concept of balloons, which immediately felt more playful and celebratory, perfectly capturing the spirit I envisioned for the party.</p>
 
                     <div class="code-block">
-                        <div class="code-header">Example Creative Prompt Evolution</div>
-                        <pre class="code-snippet"><code>Initial prompt: "Create a simple pulse visualization"
-↓
-Refinement: "Make it more dynamic, like wind moving through grass"
-↓  
-Further iteration: "Try falling leaves that respond to the music"
-↓
-Final concept: "Create floating balloons with realistic physics - 
-they should wobble naturally and respond to the music's energy.
-Make them feel celebratory and fun for a party atmosphere."</code></pre>
+                        <div class="code-header">Rapid Prototyping Through Design Prompts</div>
+                        <pre class="code-snippet"><code>Design Brief: "Create visuals that feel joyful and musical"
+
+Iteration 1: "Simple pulse that grows with volume"
+→ Feedback: Too basic, lacks personality
+
+Iteration 2: "Wind-like movement responding to frequencies"  
+→ Feedback: More dynamic but too abstract
+
+Iteration 3: "Falling leaves that dance to Celtic rhythms"
+→ Feedback: Natural feel but motion isn't quite right
+
+Final Solution: "Floating balloons with realistic physics - 
+celebratory, whimsical, perfect for a party atmosphere"
+→ Success! Captures the exact energy needed</code></pre>
                     </div>
 
-                    <h3>Audio Test Mode: Essential for Setup</h3>
-                    <p>While developing the artistic visualizations, I also guided Claude to create an "Audio Test Mode." This was crucial not just for my own debugging, but for anyone setting up the visualizer for a party. It provides clear visual feedback on microphone input, frequency analysis, and beat detection.</p>
+                    <h2>My Favorite Feature: The Popping Bubbles (and User-Centered Refinement)</h2>
 
-                    <h3>Balloon Float: The Artistic Heart</h3>
-                    <p>The balloon visualization became the crown jewel. Claude initially suggested many of the core elements that brought the balloons to life:</p>
+                    <p>Once the "Balloon Float" visualization was in place, this became the area where my focus on UX decisions was most intense. The AI provided the initial framework for the aesthetic elements:</p>
 
-                    <h4>AI-Suggested Features</h4>
                     <ul class="lined-list">
-                        <li><strong>Realistic Physics:</strong> Natural movement, wobble effects, and string attachments</li>
-                        <li><strong>Music-Responsive Colors:</strong> Hues shifting based on dominant frequency, saturation responding to volume</li>
-                        <li><strong>Dynamic Behavior:</strong> Balloons that truly felt alive and connected to the music</li>
+                        <li><strong>Realistic balloon physics:</strong> The natural movement, wobble effects, and string attachments were all initial AI suggestions that brought the balloons to life</li>
+                        <li><strong>Music-responsive colors:</strong> The intelligent shifting of hues, saturation, and lightness based on frequency, volume, and bass energy was also an AI-driven innovation</li>
                     </ul>
 
-                    <h2>My Favorite Feature: The Popping Bubbles (and How We Refined Them)</h2>
+                    <p>However, the intelligent popping system was where my direct involvement in refining the user experience truly took center stage. I prompted Claude to develop a sophisticated, multi-layered popping mechanism that felt intuitive and musically aligned:</p>
 
-                    <p>Once the "Balloon Float" visualization was in place, this became the area I was most excited about and spent the most time refining with Claude. While the AI initially suggested the core balloon physics, the intelligent popping system was where my personal creative input and refinement truly shone.</p>
-
-                    <h3>The Multi-Layered Popping System</h3>
-                    <p>I prompted Claude to develop a sophisticated popping mechanism that would capture the exciting dynamics of live Celtic music:</p>
-
-                    <h4>Volume Spike Detection (Primary)</h4>
-                    <p>My goal was to capture the sudden, exciting accents in live music – a sharp drum hit, a sudden crescendo. I worked with the AI to refine the logic so that balloons would pop proportionally to sudden volume increases. This was incredibly satisfying to get right, making the visuals truly react to the dynamics of the music.</p>
+                    <h3>User Experience-Focused Popping Design</h3>
+                    <p><strong>Volume Spike Detection (Primary):</strong> My goal was to visually punctuate the sudden, exciting accents in live music—a sharp drum hit, a sudden crescendo. I worked with the AI to refine the logic so that balloons would pop proportionally to sudden volume increases. This focus on capturing the dynamic user experience of the music was paramount.</p>
 
                     <div class="code-block">
-                        <div class="code-header">Refining the Popping Mechanics Through Prompts</div>
-                        <pre class="code-snippet"><code>"I want the balloons to pop when there are sudden volume spikes, 
-like when a bodhrán hits hard or there's a musical accent. 
-Can you:
+                        <div class="code-header">UX-Driven Popping System Design</div>
+                        <pre class="code-snippet"><code>"The popping needs to feel musically intuitive to party guests. 
+When they hear a sharp bodhrán hit or musical accent, 
+they should immediately see balloons respond. The experience should feel:
 
-1. Track a rolling average of volume
-2. Pop balloons when volume exceeds 1.5x the average (1 balloon)
-3. Pop multiple balloons for really big spikes (3x+ average)
-4. Make sure they don't pop too frequently - space them out
+- Immediate: Visual response matches audio excitement  
+- Proportional: Bigger musical moments = more balloons popping
+- Balanced: Not overwhelming, maintains visual flow
+- Surprising: Adds delight without being predictable
 
-Also add a backup system that pops balloons on detected beats,
-but make it less frequent so the spike detection is the main driver."</code></pre>
+Technical requirements:
+- Track rolling average volume for spike detection
+- Pop 1 balloon at 1.5x average, multiple for 3x+ spikes  
+- Include beat detection backup for consistent rhythm
+- Collision detection prevents visual overcrowding"</code></pre>
                     </div>
 
-                    <h4>Beat Detection (Secondary) & Collision Prevention</h4>
-                    <p>As a backup, I prompted for balloons to also pop on detected musical beats, ensuring a consistent visual rhythm. To maintain visual balance and prevent overcrowding, I specifically asked the AI to implement a system where if three or more balloons overlapped, one would automatically pop.</p>
+                    <p><strong>Beat Detection (Secondary):</strong> As a consistent visual anchor, I prompted for balloons to also pop on detected musical beats.</p>
 
-                    <h3>The Refinement Process</h3>
-                    <p>Refining these popping mechanics was a delicate dance of prompting, testing, observing, and then prompting for adjustments. It was incredibly rewarding to see the AI implement these complex behaviors exactly as I envisioned – capturing those thrilling moments when the music crescendos and the balloons respond with explosive visual excitement.</p>
+                    <p><strong>Collision Detection:</strong> To maintain visual balance and prevent overcrowding, I specifically asked the AI to implement a system where overlapping balloons would automatically pop, ensuring a clean and engaging visual flow.</p>
 
-                    <h2>Designing for the User (and the Party Guests)</h2>
+                    <p>This process of prompting, testing, and refining these complex behaviors, always with the end-user's experience in mind, was incredibly rewarding.</p>
 
-                    <p>Even with AI generating the code, the user experience was paramount. I guided Claude to create an interface that would work seamlessly for both the technical setup and the social environment of a ceilidh party:</p>
+                    <h2>Design-First Development: Crafting the User Experience</h2>
 
-                    <h3>Essential Interactive Controls</h3>
+                    <p>Even with AI generating the code, the final user experience was paramount. I guided Claude to include:</p>
+
+                    <p><strong>An "Audio Test Mode":</strong> This was crucial for validating the AI's audio processing and for anyone setting up the visualizer for a party. It provides clear visual feedback, enabling quick troubleshooting purely from a user perspective.</p>
+
+                    <p><strong>Intuitive Interactive Controls:</strong> Simple sliders for sensitivity, mode switching, and a debug info toggle were all prompted to ensure seamless operation during a live event. Fullscreen mode and keyboard shortcuts were essential UX features for a smooth performance.</p>
+
+                    <div class="code-block">
+                        <div class="code-header">User Experience Requirements Prompt</div>
+                        <pre class="code-snippet"><code>"The interface needs to work for two distinct user scenarios:
+
+1. Setup Phase (Technical User):
+   - Audio Test Mode with clear visual feedback
+   - Sensitivity controls for different microphones/environments  
+   - Debug information for troubleshooting
+   - Easy mode switching between test and performance
+
+2. Party Phase (Social Context):
+   - Clean, distraction-free visual experience
+   - Fullscreen mode for projection systems
+   - Minimal interface during performance
+   - Keyboard shortcuts for quick control (Space = start/stop)
+
+The transition between these modes should be seamless and intuitive."</code></pre>
+                    </div>
+
+                    <h2>Exploring New Methodologies: Learning to Lead AI</h2>
+
+                    <p>While I may not be able to explain every line of JavaScript, this project has been a deep dive into exploring new methodologies for design-first development. It's taught me invaluable lessons in:</p>
+
                     <ul class="lined-list">
-                        <li><strong>Sensitivity Sliders:</strong> Simple adjustments for different microphones and environments</li>
-                        <li><strong>Mode Switching:</strong> Quick toggles between test and performance modes</li>
-                        <li><strong>Keyboard Shortcuts:</strong> Space to start/stop - essential for seamless operation during live events</li>
-                        <li><strong>Fullscreen Mode:</strong> Critical for projection on those big screens</li>
-                        <li><strong>Debug Info Toggle:</strong> Hide technical details during the party, show them during setup</li>
-                    </ul>
-
-                    <h3>Party-Ready Features</h3>
-                    <p>I specifically prompted for features that would make the visualizer party-friendly:</p>
-                    <ul class="lined-list">
-                        <li><strong>Troubleshooting Guide:</strong> Built-in help for quick microphone and audio setup issues</li>
-                        <li><strong>Clean Visual Mode:</strong> Hide all technical elements for a pure visual experience</li>
-                        <li><strong>Responsive Design:</strong> Works on everything from laptops to projection systems</li>
-                    </ul>
-
-                    <h2>Learning to Prompt, Learning to Create</h2>
-
-                    <p>While I may not be able to explain the specific lines of JavaScript that power the FFT, this project has taught me invaluable lessons in a completely new way of building:</p>
-
-                    <h3>Key Lessons in AI Collaboration</h3>
-                    <ul class="lined-list">
-                        <li><strong>Translating Abstract Ideas into Actionable Prompts:</strong> Learning to describe visual concepts and behaviors clearly enough for an AI to implement</li>
-                        <li><strong>Iterative Design and Refinement:</strong> Each improvement cycle taught me to observe, analyze, and articulate specific changes</li>
-                        <li><strong>Debugging Concepts, Not Code:</strong> Focusing on observable behaviors rather than implementation details</li>
-                        <li><strong>The Power of AI as a Creative Partner:</strong> Discovering how AI can suggest innovations while still allowing creative direction</li>
+                        <li><strong>Translating abstract design ideas into actionable AI prompts</li>
+                        <li><strong>Rapid prototyping and iterative refinement through AI collaboration</li>
+                        <li><strong>Focusing on user experience decisions over low-level implementation details</li>
+                        <li><strong>The power of AI as a strategic design partner, not just a coding assistant</li>
                     </ul>
 
                     <div class="code-block">
-                        <div class="code-header">The Prompt-Driven Development Process</div>
-                        <pre class="code-snippet"><code>1. Describe the vision: "Create balloons that dance to Celtic music"
-2. Test and observe: Watch how the AI interprets the request  
-3. Refine with specifics: "Make them pop on volume spikes"
-4. Iterate and improve: "Adjust the popping threshold"
-5. Add polish: "Ensure visual balance with collision detection"
+                        <div class="code-header">Design-First Development Methodology</div>
+                        <pre class="code-snippet"><code>Traditional Process:
+Design → Prototype → Code → Test → Refine → Deploy
 
-Repeat until the vision becomes reality!</code></pre>
+AI-Assisted Design-First Process:
+Vision → Prompt → Generate → Test → Refine Vision → Re-prompt
+
+Benefits:
+- Focus stays on UX and design decisions
+- Rapid iteration without technical bottlenecks  
+- Immediate visual feedback on design concepts
+- More ambitious creative goals become achievable</code></pre>
                     </div>
 
-                    <h2>A New Way of Building</h2>
-
-                    <p>"Live Music Artwork" isn't just a fun visualizer for my ceilidh party; it's a testament to a new way of building. It showcases how a clear vision, combined with skillful prompt engineering, can bring complex, interactive experiences to life, even without deep traditional coding knowledge.</p>
-
-                    <p>It's about directing, refining, and enjoying the magic that unfolds when human creativity meets artificial intelligence. The project is now open source, allowing others to explore both the technical implementation and the prompt-driven development approach.</p>
-
-                    <h2>Dancing with AI: What I Learned</h2>
-
-                    <p>This project fundamentally changed how I think about creating digital experiences. Here are the key insights from my journey of prompt-driven development:</p>
-
-                    <h3>The Art of Clear Communication</h3>
-                    <p>Working with AI taught me that the quality of output directly correlates with the clarity of input. Learning to articulate visual concepts, behaviors, and nuanced requirements became a crucial skill—one that's surprisingly transferable to human collaboration too.</p>
-
-                    <h3>Creative Partnership, Not Replacement</h3>
-                    <p>Claude suggested many innovations I wouldn't have thought of, while I provided the creative direction, aesthetic judgment, and iterative refinement. This collaborative dynamic felt genuinely creative rather than just transactional.</p>
-
-                    <h3>Focus on the 'What,' Not the 'How'</h3>
-                    <p>Instead of worrying about implementation details, I could focus entirely on the user experience and creative vision. This shift in perspective was liberating and allowed for more ambitious creative goals.</p>
-
-                    <h3>Iterative Refinement is Everything</h3>
-                    <p>The balloon popping system taught me that the first AI-generated solution is rarely the final one. The magic happens in the iterative refinement—observing, analyzing, and continuously improving through successive prompts.</p>
+                    <p>"Live Music Artwork" isn't just a fun visualizer for my ceilidh party; it's a testament to a new way of building. It showcases how a clear vision and a strong focus on design, combined with intelligent AI collaboration, can bring complex, interactive experiences to life, pushing the boundaries of traditional development. It's about directing, refining, and enjoying the magic that unfolds when human creativity leads AI capabilities.</p>
 
                     <h2>Bringing Ceilidh to Life</h2>
 
                     <p>The party was a success! Watching the balloons dance to live fiddle music, seeing guests' faces light up when the balloons popped in sync with the bodhrán, and experiencing the joy of technology enhancing rather than overwhelming traditional music—it was everything I'd hoped for.</p>
 
-                    <p>More importantly, this project opened my eyes to a new way of creating. The best way to understand this is to experience it yourself. Visit <a href="https://bobbyberta.github.io/live_music_artwork/" target="_blank" rel="noopener noreferrer">Live Music Artwork</a> and try it with your favorite music.</p>
+                    <p>More importantly, this project opened my eyes to a new way of creating digital experiences. By leveraging AI as a design tool rather than just a coding assistant, I was able to focus entirely on the user experience, creative vision, and iterative refinement that makes for truly engaging interactions.</p>
 
-                    <p>Whether you're curious about AI-assisted development, interested in music visualization, or just want to see balloons dance to your favorite tunes, I hope this project inspires you to explore the magical possibilities that emerge when human creativity partners with artificial intelligence.</p>
+                    <p>The best way to understand this is to experience it yourself. Visit <a href="https://bobbyberta.github.io/live_music_artwork/" target="_blank" rel="noopener noreferrer">Live Music Artwork</a> and try it with your favorite music.</p>
+
+                    <p>Whether you're a designer curious about AI-assisted workflows, interested in rapid prototyping methodologies, or just want to see balloons dance to your favorite tunes, I hope this project inspires you to explore the exciting possibilities that emerge when design-first thinking leads AI capabilities.</p>
 
                     <section class="section-cta">
                         <div class="cta-content">
