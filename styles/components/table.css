@@ -45,22 +45,16 @@
 
 /* Table header styling */
 .table-header {
-    background: var(--text-dark);
-    color: var(--bg-light);
+    background: var(--primary);
+    color: var(--bg);
     padding: var(--spacing-xsm) var(--spacing-sm-md);
     border-radius: var(--border-radius-small) var(--border-radius-small) 0 0;
     font-size: var(--small-font-size);
     font-weight: var(--font-weight-medium);
-    border: 1px solid var(--text-dark);
+    border: 1px solid var(--primary);
     border-bottom: none;
     display: flex;
     align-items: center;
-    gap: var(--spacing-xsm);
-}
-
-.table-header::before {
-    content: "📊";
-    opacity: 0.8;
 }
 
 .table-container .table-block {
@@ -132,8 +126,16 @@
 
 /* Mobile (480px and below) */
 @media (max-width: 480px) {
+    .table-container {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100vw;
+    }
+    
     .table-block {
         display: block;
+        width: 100%;
+        max-width: 100%;
     }
     
     .table-block thead {
@@ -142,22 +144,29 @@
     
     .table-block tbody {
         display: block;
+        width: 100%;
     }
     
     .table-block tr {
         display: block;
+        width: 100%;
         margin-bottom: var(--spacing-sm);
         padding: var(--spacing-sm);
         border: 1px solid var(--border-color);
         border-radius: var(--border-radius-small);
         background: var(--bg);
+        box-sizing: border-box;
     }
     
     .table-block td {
         display: block;
+        width: 100%;
         padding: var(--spacing-xsm) 0;
         border-bottom: 1px solid var(--bg-light);
         text-align: left;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     
     .table-block td:last-child {
@@ -171,6 +180,8 @@
         text-transform: uppercase;
         font-size: var(--xs-font-size);
         letter-spacing: 0.5px;
+        display: inline-block;
+        min-width: 80px;
     }
 }
 
@@ -202,9 +213,9 @@
     }
     
     .table-header {
-        background: var(--text);
-        color: var(--bg-light);
-        border-color: var(--text-dark);
+        background: var(--primary-dark);
+        color: var(--bg);
+        border-color: var(--primary-dark);
     }
 }
 
