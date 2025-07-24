@@ -156,7 +156,7 @@
     
     .table-header {
         padding: var(--spacing-xsm) var(--spacing-sm);
-        margin: 0 -1rem;
+        margin: 0 0 0 0;
         border-radius: 0;
         border-left: none;
         border-right: none;
