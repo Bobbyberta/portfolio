@@ -5,7 +5,7 @@ export default {
     componentSubtitle: 'Table component for displaying structured data',
     docs: {
       description: {
-        component: 'Table component for displaying structured data with responsive design, dark theme support, and accessibility features. Requires table.css import for full styling.'
+        component: 'Table component for displaying structured data with responsive design, accessibility features, and brand color integration. Requires table.css import for full styling.'
       }
     }
   },
@@ -24,13 +24,18 @@ export default {
 export const BasicTable = {
   render: ({ showHeader, headerText }) => `
     <style>
-      /* Inline CSS for demonstration */
+      /* Inline CSS for demonstration - matches table.css */
       .demo-table-container {
         margin: 2rem 0;
         overflow-x: auto;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         border: 1px solid #e0e0e0;
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+      .demo-table-container:focus-within {
+        outline-color: #00A7E1;
       }
       .demo-table-block {
         width: 100%;
@@ -41,20 +46,21 @@ export const BasicTable = {
       }
       .demo-table-block th {
         background: #f8f9fa;
-        color: #333333;
-        font-weight: 600;
+        color: #2c3e50;
+        font-weight: 500;
         text-align: left;
         padding: 1rem;
         border-bottom: 2px solid #e0e0e0;
         font-size: 0.875rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
+        position: relative;
       }
       .demo-table-block td {
         padding: 1rem;
-        border-bottom: 1px solid #f0f0f0;
+        border-bottom: 1px solid #f8f9fa;
         vertical-align: top;
-        color: #333333;
+        color: #333;
       }
       .demo-table-block tr:last-child td {
         border-bottom: none;
@@ -63,25 +69,34 @@ export const BasicTable = {
         background: #f8f9fa;
         transition: background-color 0.2s ease;
       }
+      .demo-table-block tr:focus-within {
+        background: #f8f9fa;
+        outline: 2px solid #00A7E1;
+        outline-offset: -2px;
+      }
+      .demo-table-block td:focus,
+      .demo-table-block th:focus {
+        outline: 2px solid #00A7E1;
+        outline-offset: -2px;
+        background: rgba(0, 167, 225, 0.1);
+      }
       .demo-table-header {
-        background: #2d2d2d;
-        color: #cccccc;
+        background: #00A7E1;
+        color: #ffffff;
         padding: 0.75rem 1.5rem;
-        border-radius: 8px 8px 0 0;
+        border-radius: 4px 4px 0 0;
         font-size: 0.875rem;
         font-weight: 500;
-        border: 1px solid #333;
+        border: 1px solid #00A7E1;
         border-bottom: none;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-      }
-      .demo-table-header::before {
-        content: "📊";
-        opacity: 0.8;
+        position: sticky;
+        top: 0;
+        z-index: 10;
       }
       .demo-table-container .demo-table-block {
-        border-radius: 0 0 8px 8px;
+        border-radius: 0 0 4px 4px;
       }
     </style>
     
@@ -172,24 +187,22 @@ export const AIToolsComparison = {
         transition: background-color 0.2s ease;
       }
       .demo-table-header {
-        background: #2d2d2d;
-        color: #cccccc;
+        background: #00A7E1;
+        color: #ffffff;
         padding: 0.75rem 1.5rem;
-        border-radius: 8px 8px 0 0;
+        border-radius: 4px 4px 0 0;
         font-size: 0.875rem;
         font-weight: 500;
-        border: 1px solid #333;
+        border: 1px solid #00A7E1;
         border-bottom: none;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-      }
-      .demo-table-header::before {
-        content: "📊";
-        opacity: 0.8;
+        position: sticky;
+        top: 0;
+        z-index: 10;
       }
       .demo-table-container .demo-table-block {
-        border-radius: 0 0 8px 8px;
+        border-radius: 0 0 4px 4px;
       }
       .col-tool { width: 20%; min-width: 120px; }
       .col-strengths { width: 40%; min-width: 200px; }
@@ -284,24 +297,22 @@ export const DataTable = {
         transition: background-color 0.2s ease;
       }
       .demo-table-header {
-        background: #2d2d2d;
-        color: #cccccc;
+        background: #00A7E1;
+        color: #ffffff;
         padding: 0.75rem 1.5rem;
-        border-radius: 8px 8px 0 0;
+        border-radius: 4px 4px 0 0;
         font-size: 0.875rem;
         font-weight: 500;
-        border: 1px solid #333;
+        border: 1px solid #00A7E1;
         border-bottom: none;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-      }
-      .demo-table-header::before {
-        content: "📊";
-        opacity: 0.8;
+        position: sticky;
+        top: 0;
+        z-index: 10;
       }
       .demo-table-container .demo-table-block {
-        border-radius: 0 0 8px 8px;
+        border-radius: 0 0 4px 4px;
       }
       .text-right { text-align: right; }
     </style>
@@ -413,65 +424,105 @@ export const ResponsiveTable = {
         border-radius: 0 0 8px 8px;
       }
       
-      /* Responsive styles for demonstration */
+      /* Responsive styles for demonstration - matches table.css */
       @media (max-width: 768px) {
         .demo-table-container {
-          margin: 1rem -1rem;
           border-radius: 0;
           border-left: none;
           border-right: none;
+          overflow-x: visible;
         }
         .demo-table-header {
           padding: 0.5rem 1rem;
-          margin: 0 -1rem;
+          margin: 0 0 0 0;
           border-radius: 0;
           border-left: none;
           border-right: none;
+          width: 100%;
+          box-sizing: border-box;
         }
         .demo-table-container .demo-table-block {
           border-radius: 0;
+          table-layout: auto;
+          width: 100%;
         }
         .demo-table-block th,
         .demo-table-block td {
-          padding: 0.75rem 0.5rem;
-          font-size: 0.8rem;
+          padding: 0.5rem 0.5rem;
+          font-size: 0.75rem;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          white-space: normal;
+          min-width: 0;
+        }
+        .demo-table-block .col-tool,
+        .demo-table-block .col-strengths,
+        .demo-table-block .col-weaknesses {
+          min-width: 0;
+          width: auto;
         }
       }
       
       @media (max-width: 480px) {
+        .demo-table-container {
+          overflow-x: hidden;
+          width: 100%;
+          max-width: 100vw;
+          background: transparent;
+          margin: 0;
+          overflow-x: auto;
+          border-radius: 0;
+          box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+          border: 0;
+          outline: 0;
+          outline-offset: 0;
+        }
         .demo-table-block {
           display: block;
+          width: 100%;
+          max-width: 100%;
+          background: transparent;
         }
         .demo-table-block thead {
           display: none;
         }
         .demo-table-block tbody {
           display: block;
+          width: 100%;
+          background: transparent;
         }
         .demo-table-block tr {
           display: block;
+          width: 100%;
           margin-bottom: 1rem;
           padding: 1rem;
           border: 1px solid #e0e0e0;
-          border-radius: 8px;
+          border-radius: 4px;
           background: #ffffff;
+          box-sizing: border-box;
         }
         .demo-table-block td {
           display: block;
+          width: 100%;
           padding: 0.5rem 0;
-          border-bottom: 1px solid #f0f0f0;
+          border-bottom: 1px solid #f8f9fa;
           text-align: left;
+          box-sizing: border-box;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
         }
         .demo-table-block td:last-child {
           border-bottom: none;
         }
         .demo-table-block td::before {
           content: attr(data-label) ": ";
-          font-weight: 600;
-          color: #666666;
+          font-weight: 500;
+          color: #666;
           text-transform: uppercase;
           font-size: 0.75rem;
           letter-spacing: 0.5px;
+          display: inline-block;
+          min-width: 80px;
         }
       }
     </style>
