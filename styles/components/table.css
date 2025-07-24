@@ -260,39 +260,7 @@
     }
 }
 
-/* Dark theme support */
-@media (prefers-color-scheme: dark) {
-    .table-container {
-        border-color: var(--text-dark);
-        box-shadow: var(--shadow-md);
-    }
-    
-    .table-block {
-        background: var(--text-dark);
-        color: var(--bg-light);
-    }
-    
-    .table-block th {
-        background: var(--text);
-        color: var(--bg-light);
-        border-bottom-color: var(--border-color);
-    }
-    
-    .table-block td {
-        border-bottom-color: var(--text-dark);
-        color: var(--bg-light);
-    }
-    
-    .table-block tr:hover {
-        background: var(--text);
-    }
-    
-    .table-header {
-        background: var(--primary-dark);
-        color: var(--bg);
-        border-color: var(--primary-dark);
-    }
-}
+
 
 /* Print styles */
 @media print {
