@@ -103,6 +103,7 @@
         border-radius: 0;
         border-left: none;
         border-right: none;
+        position: relative;
     }
     
     .table-header {
@@ -111,7 +112,10 @@
         border-radius: 0;
         border-left: none;
         border-right: none;
-        width: calc(100% + 2rem);
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
         box-sizing: border-box;
     }
     
