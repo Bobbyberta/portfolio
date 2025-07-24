@@ -5,6 +5,13 @@
     border-radius: var(--border-radius-small);
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-color);
+    /* Accessibility: Ensure sufficient contrast and focus indicators */
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.table-container:focus-within {
+    outline-color: var(--primary);
 }
 
 .table-block {
@@ -25,6 +32,31 @@
     font-size: var(--small-font-size);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    /* Accessibility: Ensure proper contrast and semantic structure */
+    position: relative;
+}
+
+/* Accessibility: Add visual indicator for sortable headers */
+.table-block th[aria-sort] {
+    cursor: pointer;
+    padding-right: calc(var(--spacing-sm) + 1rem);
+}
+
+.table-block th[aria-sort]::after {
+    content: "↕";
+    position: absolute;
+    right: var(--spacing-sm);
+    opacity: 0.5;
+}
+
+.table-block th[aria-sort="ascending"]::after {
+    content: "↑";
+    opacity: 1;
+}
+
+.table-block th[aria-sort="descending"]::after {
+    content: "↓";
+    opacity: 1;
 }
 
 .table-block td {
@@ -41,6 +73,21 @@
 .table-block tr:hover {
     background: var(--bg-light);
     transition: background-color 0.2s ease;
+}
+
+/* Accessibility: Ensure hover states work with keyboard navigation */
+.table-block tr:focus-within {
+    background: var(--bg-light);
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+}
+
+/* Accessibility: Add focus styles for table cells */
+.table-block td:focus,
+.table-block th:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+    background: var(--primary-light);
 }
 
 /* Table header styling */
@@ -99,7 +146,6 @@
 /* Tablet (768px and below) */
 @media (max-width: 768px) {
     .table-container {
-        margin: var(--spacing-sm) -1rem;
         border-radius: 0;
         border-left: none;
         border-right: none;
@@ -135,6 +181,8 @@
         background: transparent;
         padding-left: var(--spacing-sm);
         padding-right: var(--spacing-sm);
+        /* Accessibility: Ensure mobile table is navigable */
+        tabindex: 0;
     }
     
     .table-block {
@@ -189,6 +237,26 @@
         letter-spacing: 0.5px;
         display: inline-block;
         min-width: 80px;
+        /* Accessibility: Ensure screen readers can access labels */
+        speak-as: spell-out;
+    }
+    
+    /* Accessibility: Add skip link for large tables */
+    .table-skip-link {
+        position: absolute;
+        top: -40px;
+        left: 6px;
+        background: var(--primary);
+        color: var(--bg);
+        padding: 8px;
+        text-decoration: none;
+        border-radius: 4px;
+        z-index: 100;
+        transition: top 0.3s;
+    }
+    
+    .table-skip-link:focus {
+        top: 6px;
     }
 }
 
