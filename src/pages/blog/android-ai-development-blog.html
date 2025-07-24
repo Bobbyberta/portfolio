@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="From symptoms to software: My journey building Android apps with AI assistance. Learn about using Cursor.ai, Claude Sonnet, and React Native to create mobile applications from scratch.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JH7G6ZCBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-8JH7G6ZCBQ');
+    </script>
+    
+    <title>From Symptoms to Software: My Journey Building Android Apps with AI - Bobbie Allsop</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script type="module" src="../../js/main.js" defer></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bobbieallsop.co.uk/pages/blog/android-ai-development-blog.html">
+    <meta property="og:title" content="From Symptoms to Software: My Journey Building Android Apps with AI">
+    <meta property="og:description" content="From symptoms to software: My journey building Android apps with AI assistance. Learn about using Cursor.ai, Claude Sonnet, and React Native to create mobile applications from scratch.">
+    <meta property="og:image" content="https://bobbieallsop.co.uk/assets/images/social-share.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bobbieallsop.co.uk/pages/blog/android-ai-development-blog.html">
+    <meta property="twitter:title" content="From Symptoms to Software: My Journey Building Android Apps with AI">
+    <meta property="twitter:description" content="From symptoms to software: My journey building Android apps with AI assistance. Learn about using Cursor.ai, Claude Sonnet, and React Native to create mobile applications from scratch.">
+    <meta property="twitter:image" content="https://bobbieallsop.co.uk/assets/images/social-share.png">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Bobbie Allsop</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="sr-only">Menu</span>
+                ☰
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/blog.html">Blog</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-wrapper">
+            <article class="blog-post section-standard">
+                <div class="page-header">
+                    <h1>From Symptoms to Software: My Journey Building Android Apps with AI</h1>
+                    <div class="page-meta">
+                        <span class="meta-item category">Development</span>
+                        <span class="meta-item date">January 2025</span>
+                        <span class="meta-item read-time">12 min read</span>
+                    </div>
+                </div>
+
+                <div class="blog-post-content">
+                    <h2>Why I Started This Project</h2>
+                    <p>What started as a personal health-tracking tool for my daughter became a crash course in AI-assisted Android development. Over three builds—Java, Kotlin, and finally React Native—I relied on tools like Cursor.ai and Claude Sonnet to guide me through every line of code. In this post, I'll share what worked, what didn't, and key takeaways for anyone curious about using AI to build real mobile apps.</p>
+
+                    <h2>The Spark: A Personal Need for Better Health Data</h2>
+                    <p>It was December 1st, 2024. The days were darker, Christmas was looming, and I needed a creative project to fill my evenings. My daughter had been sent home from school—again—and it felt like we were in an endless cycle of Calpol and fevers.</p>
+
+                    <p>As a UX designer in health tech, I understand the power of data. I wanted to be able to show our GP patterns in her symptoms, but I needed something better than a gut feeling. So I started tracking symptoms in Google Calendar using tags and keywords. Before an appointment, I exported the data to a CSV using a Python script (my first AI-generated tool!) and visualized it with graphs.</p>
+
+                    <p>This sparked a bigger idea: Could I build an app to automate the whole thing?</p>
+
+                    <h2>First Build: Java + AI (And All the Mistakes)</h2>
+
+                    <h3>Starting from Zero</h3>
+                    <p>I had never built an Android app before (aside from a few Unity games). I knew the functionality I wanted, but not how to implement it. My plan was to lean entirely on AI to write the code while I guided the vision and UX.</p>
+
+                    <p>I started with Java because it felt like the most documented language in Android's history—perfect for an AI trained on existing code.</p>
+
+                    <h3>From ChatGPT to Cursor.ai</h3>
+                    <p>Initially, I prompted ChatGPT and manually copied code into Android Studio. Then I discovered Cursor.ai, which integrates AI directly into the IDE. This let me:</p>
+                    <ul class="lined-list">
+                        <li>Avoid copy-pasting mistakes</li>
+                        <li>Let the AI edit files in-place</li>
+                        <li>Move faster between writing, debugging, and iterating</li>
+                    </ul>
+                    <p>It felt like true pair programming—until it didn't.</p>
+
+                    <h3>Lessons Learned the Hard Way</h3>
+                    <ul class="lined-list">
+                        <li>AI looped on errors it couldn't fix. I had to learn Git basics fast—commit early, commit often.</li>
+                        <li>Gradle hell. There were two ways to reference dependencies (old/new) and AI often chose the wrong one.</li>
+                        <li>Better prompts = fewer bugs. Specific, atomic prompts produced more stable results than vague or sweeping ones.</li>
+                    </ul>
+                    <p>Eventually, I had a working version of the app on my phone.</p>
+
+                    <p>But I hit a wall with data migration and database management. Things got messy. AI couldn't untangle the logic I had built—and honestly, neither could I.</p>
+
+                    <p>It was time to start over.</p>
+
+                    <h2>Second Build: Kotlin + Cleaner Architecture</h2>
+
+                    <h3>Why Kotlin?</h3>
+                    <p>Some persistent Java-related bugs—especially around date and time handling—nudged me toward Kotlin. I also wanted a cleaner codebase, and by this point, I knew enough to make smarter architectural decisions.</p>
+
+                    <h3>A Smoother Ride (Mostly)</h3>
+                    <p>I used Claude Sonnet 3.7, which was noticeably more consistent than 3.4.</p>
+                    <ul class="lined-list">
+                        <li>Cursor rules helped me maintain structure and keep the AI on track.</li>
+                        <li>I committed often, kept features small, and avoided "just one more change" before testing.</li>
+                    </ul>
+
+                    <p>But the build wasn't without issues:</p>
+                    <ul class="lined-list">
+                        <li>Gradle continued to be a pain.</li>
+                        <li>The UI didn't always render as expected—even with Material Design guidelines.</li>
+                        <li>I tried writing tests, but it was overkill for a personal project. Still, I learned a lot just by attempting it.</li>
+                    </ul>
+
+                    <p>My laptop was running out of space, so I devised a clever workaround:</p>
+                    <ul class="lined-list">
+                        <li>Uninstalled Android Studio</li>
+                        <li>Wrote scripts to build and deploy wirelessly to my phone</li>
+                        <li>Read error logs in Cursor and refined the outputs</li>
+                    </ul>
+                    <p>This lean setup let me keep working on a very limited machine.</p>
+
+                    <h2>Final Build: React Native + Smarter AI</h2>
+
+                    <h3>Starting Fresh (Again)</h3>
+                    <p>A couple of months later, I started over—again—but this time in React Native, and for a simpler application.</p>
+
+                    <p>By now, I had:</p>
+                    <ul class="lined-list">
+                        <li>Better prompting habits</li>
+                        <li>Experience navigating AI quirks</li>
+                        <li>More confidence in guiding architecture</li>
+                    </ul>
+
+                    <p>This time:</p>
+                    <ul class="lined-list">
+                        <li>I built only a single screen (to avoid navigation bugs and speed up my MVP release)</li>
+                        <li>Skipped the backend entirely</li>
+                        <li>Used terminal scripts to build, avoiding Android Studio altogether</li>
+                    </ul>
+
+                    <h3>Enter Claude Sonnet 4</h3>
+                    <p>The biggest game-changer was Claude Sonnet 4. Compared to 3.7:</p>
+                    <ul class="lined-list">
+                        <li>Fewer hallucinations</li>
+                        <li>Faster code generation</li>
+                        <li>More consistent bug-fixing</li>
+                        <li>Often got things right in one prompt instead of ten</li>
+                    </ul>
+                    <p>I was able to get a basic app up and running within a few hours.</p>
+
+                    <h2>Comparing the AI Tools</h2>
+                    <div class="code-block">
+                        <div class="code-header">AI Tool Comparison</div>
+                        <pre class="code-snippet"><code>Tool                    Strengths                                    Weaknesses
+Cursor.ai              IDE integration, file-level editing,         Sometimes over-eager to modify Gradle files
+                       prompt history
+
+Claude Sonnet 3.4      Creative, exploratory                         Prone to error loops, inconsistent
+
+Claude Sonnet 3.7      More stable, useful for structure            Still struggled with complex workflows
+
+Claude Sonnet 4        Best for debugging, accuracy, concise fixes  Needs fewer—but smarter—prompts</code></pre>
+                    </div>
+
+                    <h2>Key Takeaways for AI-Driven App Dev</h2>
+
+                    <h3>1. AI Can Help—But You're Still the Pilot</h3>
+                    <p>The AI is your assistant, not your architect. You have to guide it, structure the work, and catch when it's going off-track.</p>
+
+                    <h3>2. Git is Non-Negotiable</h3>
+                    <p>AI will break things. Commit often, roll back when necessary, and learn to love version control.</p>
+
+                    <h3>3. Gradle is a Beast</h3>
+                    <p>Most errors came from incorrect dependency setups. Once I learned the patterns, I stopped letting AI touch build.gradle files without a second opinion.</p>
+
+                    <h3>4. Prompt Craft Matters</h3>
+                    <p>Small, focused prompts work best. Overly broad requests usually led to broken code or confusion.</p>
+
+                    <h3>5. Performance Varies by Language</h3>
+                    <p>Kotlin was a better AI companion than Java. React Native (with Claude 4) was the smoothest experience by far.</p>
+
+                    <h2>What's Next</h2>
+                    <p>I'm planning to open-source my React Native boilerplate so others can get started quickly using a similar AI-driven workflow. Keep an eye out—or reach out if you want to collaborate.</p>
+
+                    <p>This project started with tracking my daughter's health and ended up being one of the most educational dev experiences I've had. If you've been curious about building something with AI, I highly recommend starting small and seeing how far you can go.</p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bobbie Allsop. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

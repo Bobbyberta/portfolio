@@ -44,6 +44,7 @@ export default defineConfig({
         'pages/blog/using-storybook-as-a-design-system': resolve(__dirname, 'src/pages/blog/using-storybook-as-a-design-system.html'),
         'pages/blog/ai-powered-portfolio': resolve(__dirname, 'src/pages/blog/ai-powered-portfolio.html'),
         'pages/blog/live-music-visualizer-blog': resolve(__dirname, 'src/pages/blog/live-music-visualizer-blog.html'),
+        'pages/blog/android-ai-development-blog': resolve(__dirname, 'src/pages/blog/android-ai-development-blog.html'),
       },
       output: {
         dir: 'dist',
