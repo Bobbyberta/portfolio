@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the creation of a sci-fi interactive storytelling experience, blending AI conversation, narrative design, and web development. Learn about the challenges and insights from building a chat-based mystery game.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JH7G6ZCBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-8JH7G6ZCBQ');
+    </script>
+    
+    <title>Crafting a Sci-Fi Storytelling Experience: A UX Journey - Bobbie Allsop</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-Dn1JfcJ7.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon-HRWaJjT2.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32-BfBza51Y.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16-Dnq67z4G.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bobbieallsop.github.io/pages/blog/sci-fi-storytelling-blog.html">
+    <meta property="og:title" content="Crafting a Sci-Fi Storytelling Experience: A UX Journey">
+    <meta property="og:description" content="Explore the creation of a sci-fi interactive storytelling experience, blending AI conversation, narrative design, and web development.">
+    <meta property="og:image" content="https://bobbieallsop.github.io/images/sci-fi-storytelling-social.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bobbieallsop.github.io/pages/blog/sci-fi-storytelling-blog.html">
+    <meta property="twitter:title" content="Crafting a Sci-Fi Storytelling Experience: A UX Journey">
+    <meta property="twitter:description" content="Explore the creation of a sci-fi interactive storytelling experience, blending AI conversation, narrative design, and web development.">
+    <meta property="twitter:image" content="https://bobbieallsop.github.io/images/sci-fi-storytelling-social.png">
+  <script type="module" crossorigin src="/assets/main-BmhlVOc1.js"></script>
+  <link rel="stylesheet" crossorigin href="/styles/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Bobbie Allsop</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="sr-only">Menu</span>
+                ☰
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/blog.html">Blog</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-wrapper">
+            <article class="blog-post section-standard">
+                <div class="page-header">
+                    <h1>Crafting a Sci-Fi Storytelling Experience: A UX Journey</h1>
+                    <div class="page-meta">
+                        <span class="meta-item category">Interactive Design</span>
+                        <span class="meta-item date">August 2025</span>
+                        <span class="meta-item read-time">8 min read</span>
+                    </div>
+                </div>
+
+                <div class="blog-post-content">
+                    <p>
+                        Artificial intelligence has become a significant part of my recent work, and I've found myself 
+                        fascinated by the conversational nature of our interactions. This sparked an idea: what if I could 
+                        capture this experience within a narrative? I envisioned a story where the AI wasn't just a tool 
+                        but an active participant, a character that converses with you, shaping the unfolding story. This 
+                        concept became the foundation for my latest project—a sci-fi mystery exploring the subversion of 
+                        information and the quest for hidden truths.
+                    </p>
+
+                    <h2>The Concept: AI as Character</h2>
+                    <p>
+                        The story is set in a future where a critical piece of history has been erased, and a small group 
+                        of individuals must uncover it. Their primary method? AI hacking techniques, inspired by real-world 
+                        methods documented before 2025. I wanted to create a narrative that not only delved into the 
+                        technical aspects of AI but also emphasized the human element. The journey to truth requires more 
+                        than just hacking the machine; it requires connecting with people, asking the right questions, and 
+                        piecing together the puzzle from both human and artificial sources.
+                    </p>
+
+                    <p>
+                        This led to the creation of four distinct characters, each playing a vital role in unraveling the 
+                        mystery. My initial ambition was to build a branching narrative, allowing the player to make choices 
+                        that would alter the story's direction. While I developed this in Twine, the complexity of translating 
+                        it to JSON for the web app proved to be a significant hurdle. For now, the story follows a more 
+                        linear path, but the branching logic remains a potential future enhancement.
+                    </p>
+
+                    <h2>Collaborative Writing with AI</h2>
+                    <p>
+                        To bring this world to life, I collaborated with Gemini, using it as a writing partner to map out 
+                        the story, flesh out the script, and even critique and refine various sections. Once the narrative 
+                        began to take shape, I moved to Figma to sketch out a minimalist UI, focusing on a design that would 
+                        allow for rapid prototyping. From there, I used Cursor to translate my designs into a functional web 
+                        app, building the game engine to deliver the narrative in a compelling, chat-based format.
+                    </p>
+
+                    <h2>Technical Challenges: From Twine to Web</h2>
+                    <p>
+                        One of the most significant technical challenges was converting the 9,900-word story from Twine's 
+                        format into a structured JSON file that the web app could understand. With the help of Cursor, I 
+                        wrote Python scripts to transform the narrative into approximately 500 individual chat messages. 
+                        The non-linear way Twine stores story elements required several iterations to perfect the numbering 
+                        system and ensure a seamless flow.
+                    </p>
+
+                    <p>
+                        My initial plan was to develop this project in Unity to create a dedicated app experience. However, 
+                        the complexity of setting up the UI in Unity, compared to the streamlined process of web development, 
+                        led me to pivot. The web app allowed for quicker testing and iteration of the narrative, and the JSON 
+                        structure I created can still be adapted for the Unity version in the future.
+                    </p>
+
+                    <h2>Design Philosophy: Minimalism Meets Functionality</h2>
+                    <p>
+                        The design approach centered on creating a chat-based interface that would feel familiar to users 
+                        while maintaining the immersive quality of the sci-fi setting. I focused on minimalist aesthetics 
+                        that wouldn't distract from the narrative while ensuring the interface could handle the complexity 
+                        of multiple character conversations and branching dialogue paths.
+                    </p>
+
+                    <p>
+                        The UI needed to support rapid prototyping and easy content updates, which influenced my choice of 
+                        web technologies over more complex game engines. This decision proved valuable during the iterative 
+                        process of refining the story flow and character interactions.
+                    </p>
+
+                    <h2>Deployment and Iteration</h2>
+                    <p>
+                        Hosting the project on GitHub Pages was a natural choice. It's a free, straightforward solution for 
+                        projects without a back-end, and I had already used it to host the original Twine prototype. This 
+                        approach has made it easy to share the experience with friends and gather valuable feedback.
+                    </p>
+
+                    <p>
+                        The deployment process also allowed for rapid iteration. As I received feedback on the narrative 
+                        flow and character development, I could quickly implement changes and redeploy, making the 
+                        development cycle much more agile than traditional game development approaches.
+                    </p>
+
+                    <h2>Key Insights and Learnings</h2>
+                    <ul class="lined-list">
+                        <li>AI can serve as both subject matter and creative collaborator in narrative design</li>
+                        <li>Web technologies offer significant advantages for narrative prototyping and iteration</li>
+                        <li>Converting between narrative tools requires careful planning of data structure</li>
+                        <li>Minimalist UI design allows the story to take center stage</li>
+                        <li>Rapid deployment enables continuous feedback and improvement cycles</li>
+                    </ul>
+
+                    <h2>Looking Forward</h2>
+                    <p>
+                        This project has been a rewarding journey through narrative design, UI development, and the overall 
+                        user experience. It's a testament to the power of AI as a creative partner and the importance of 
+                        agile development in bringing a complex vision to life. I'm excited to continue refining the story 
+                        and exploring new ways to blend technology and storytelling.
+                    </p>
+
+                    <p>
+                        The experience has opened up new possibilities for interactive narrative design, particularly in 
+                        how AI can be integrated not just as a tool but as a character within the story itself. As AI 
+                        technology continues to evolve, the opportunities for creating immersive, conversational experiences 
+                        will only expand.
+                    </p>
+
+                    <section class="section-cta">
+                        <div class="cta-content">
+                            <h2>Thank you for reading!</h2>
+                            <div class="cta-text">
+                                <p>Want to work with me? Feel free to contact me!</p>
+                                <p>...or just say hello on my social media.</p>
+                            </div>
+                            <div class="cta-buttons">
+                                <a href="/pages/contact.html" class="cta-button primary">Contact Me</a>
+                                <a href="/pages/blog.html" class="cta-button secondary">Back to Blog</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bobbie Allsop. All rights reserved.</p>
+    </footer>
+</body>
+</html>
