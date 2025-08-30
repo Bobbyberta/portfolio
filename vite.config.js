@@ -45,7 +45,7 @@ export default defineConfig({
         'pages/blog/ai-powered-portfolio': resolve(__dirname, 'src/pages/blog/ai-powered-portfolio.html'),
         'pages/blog/live-music-visualizer-blog': resolve(__dirname, 'src/pages/blog/live-music-visualizer-blog.html'),
         'pages/blog/android-ai-development-blog': resolve(__dirname, 'src/pages/blog/android-ai-development-blog.html'),
-        'pages/blog/employee-engagement-blog': resolve(__dirname, 'src/pages/blog/employee-engagement-blog.html'),
+        'pages/blog/sci-fi-storytelling-blog': resolve(__dirname, 'src/pages/blog/sci-fi-storytelling-blog.html'),
       },
       output: {
         dir: 'dist',
