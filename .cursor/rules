@@ -271,6 +271,8 @@ files:
       - .hero-subtitle
       - .hero-title
       - .highlight
+      - .image-caption
+      - .image-caption
       - .image-modal
       - .img-container
       - .img-container
@@ -402,6 +404,7 @@ files:
       - Border
       - Button
       - CTA
+      - Caption
       - Card
       - Cards
       - Case
@@ -714,6 +717,7 @@ files:
       - highlight:hover
       - highlighting
       - hover
+      - image-caption
       - image-modal
       - images
       - img
