@@ -1,0 +1,265 @@
+# Cursor Rules for Portfolio Website
+
+## Project Overview
+This portfolio website is built with Vite, HTML/CSS/JavaScript, and uses a template-based blog system. It features:
+- Component-based styling with Storybook documentation
+- Automated build process with GitHub Pages deployment  
+- SEO-optimized blog system with social media integration
+- Responsive design with accessibility features
+
+## AI Assistant Guidelines
+When working with this codebase:
+1. ALWAYS use existing CSS classes before creating new ones
+2. Follow the established file structure and naming conventions
+3. Maintain accessibility standards (alt text, aria-labels, semantic HTML)
+4. Keep components modular and reusable
+5. Test changes in development mode before suggesting production deployment
+6. Reference the blog-post-template.html for new blog post structure
+
+## Creating New Blog Posts
+
+### Step 1: Create the Blog Post File
+
+1. **Copy the template:**
+   ```bash
+   cp src/pages/blog/blog-post-template.html src/pages/blog/your-post-name.html
+   ```
+
+2. **Update the blog post file** with the following replacements:
+   - `[Blog Post Title]` → Your actual blog post title
+   - `[Blog post description goes here]` → SEO-friendly description (150-160 characters)
+   - `[Blog post URL]` → Full URL to the blog post (e.g., https://bobbieallsop.github.io/pages/blog/your-post-name.html)
+   - `[Social share image URL]` → URL to social media image (place image in src/assets/images/)
+   - `[Category]` → Blog post category (e.g., "UX Design", "Game Design", "Development")
+   - `[Date]` → Publication date (e.g., "January 15, 2025")
+   - `[Read time]` → Estimated read time (e.g., "5 min read")
+   - `<!-- Blog post content goes here -->` → Your actual blog content
+
+### Step 2: Update the Blog Listing Page
+
+Add your new post to `src/pages/blog.html` by copying an existing article card and updating:
+
+```html
+<article class="content-card">
+    <div class="content-card-image">
+        <img src="../assets/images/your-image.png" 
+             alt="Descriptive alt text" 
+             loading="lazy">
+    </div>
+    <div class="content-card-content">
+        <h2 class="content-card-title">Your Blog Post Title</h2>
+        <p class="content-card-subtitle">Your Subtitle</p>
+        <div class="content-meta">
+            <span class="date">January 15, 2025</span>
+            <span class="read-time">5 min read</span>
+        </div>
+        <p class="blog-excerpt">
+            Your engaging excerpt that summarizes the blog post content...
+        </p>
+        <a href="/pages/blog/your-post-name.html" class="content-link">
+            Read More
+            <svg class="arrow-icon" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </a>
+    </div>
+</article>
+```
+
+**Important:** Add new posts at the top of the blog grid (after line 67) to maintain chronological order.
+
+### Step 3: Update Vite Configuration
+
+Add your new blog post to `vite.config.js` in the `rollupOptions.input` object:
+
+```javascript
+'pages/blog/your-post-name': resolve(__dirname, 'src/pages/blog/your-post-name.html'),
+```
+
+**Location:** Add this line in the input object around line 30-50, maintaining alphabetical order if possible.
+
+### Step 4: Add Assets
+
+If your blog post includes images:
+1. Place images in `src/assets/images/`
+2. Use descriptive filenames (e.g., `project-name-screenshot.png`)
+3. Reference them in HTML as `../assets/images/filename.png`
+
+## Blog Post Content Structure
+
+### Required Elements in blog post content:
+```html
+<div class="blog-post-content">
+    <section class="intro">
+        <p>Engaging introduction paragraph...</p>
+    </section>
+    
+    <section>
+        <h2>Section Heading</h2>
+        <p>Content...</p>
+    </section>
+    
+    <!-- More sections as needed -->
+    
+    <section class="conclusion">
+        <h2>Conclusion</h2>
+        <p>Wrap-up thoughts...</p>
+    </section>
+</div>
+```
+
+### Content Guidelines:
+- Use semantic HTML (`<section>`, `<h2>`, `<h3>`, etc.)
+- Include alt text for all images
+- Keep paragraphs concise and scannable
+- Use consistent heading hierarchy
+- Add loading="lazy" to images below the fold
+
+## File Structure
+
+```
+src/
+├── pages/
+│   ├── blog/
+│   │   ├── blog-post-template.html (template file)
+│   │   ├── your-post-name.html (new blog posts)
+│   │   └── ...
+│   └── blog.html (blog listing page)
+├── assets/
+│   └── images/ (blog post images)
+└── styles/
+    └── main.css (styling)
+```
+
+## Testing
+
+After creating a blog post:
+
+**Note:** Development server commands should be run manually by the user, not by AI assistants
+
+```bash
+# Start development server
+npm run dev
+
+# Test your new blog post at:
+# http://localhost:5173/pages/blog/your-post-name.html
+
+# Build for production to test
+npm run build
+```
+
+## SEO and Social Media
+
+### Required meta tags (already in template):
+- Meta description (150-160 characters)
+- Open Graph tags for Facebook
+- Twitter Card tags
+- Canonical URL
+
+### Social share image specifications:
+- Dimensions: 1200x630px (recommended)
+- Format: PNG or JPG
+- File size: Under 1MB
+- Place in `src/assets/images/`
+
+## Common CSS Classes
+
+### Blog post specific:
+- `.blog-post` - Main article container
+- `.page-header` - Title and metadata section
+- `.page-meta` - Contains category, date, read time
+- `.meta-item` - Individual metadata items
+- `.blog-post-content` - Main content area
+
+### Content cards (for blog listing):
+- `.content-card` - Blog post card container
+- `.content-card-image` - Image container
+- `.content-card-content` - Text content area
+- `.content-card-title` - Post title
+- `.content-meta` - Date and read time
+- `.blog-excerpt` - Summary text
+- `.content-link` - Read more link
+
+### General layout:
+- `.main-wrapper` - Page content wrapper
+- `.section-standard` - Standard section spacing
+- `.blog-section` - Blog listing section
+- `.blog-grid` - Grid container for blog cards
+
+## Best Practices
+
+1. **Naming Convention:** Use kebab-case for file names (e.g., `my-blog-post.html`)
+2. **URL Structure:** Keep URLs descriptive and SEO-friendly
+3. **Image Optimization:** Compress images before adding to assets
+4. **Accessibility:** Always include alt text and proper heading hierarchy
+5. **Performance:** Use lazy loading for images below the fold
+6. **Content Quality:** Write engaging, valuable content for your audience
+7. **Consistency:** Follow the established design patterns and content structure
+
+## Development Commands
+
+```bash
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start Storybook (for component documentation)
+npm run storybook
+
+# Update component documentation
+npm run update-storybook
+
+# Watch for changes in development
+npm run watch-storybook
+```
+
+## Project-Specific Context
+
+### Available CSS Components
+- Navigation (`.nav-links`, `.mobile-menu-btn`, `.logo`)
+- Content Cards (`.content-card`, `.content-card-content`, `.content-card-image`)
+- Blog Posts (`.blog-post`, `.blog-post-content`, `.page-header`, `.page-meta`)
+- Layout (`.main-wrapper`, `.section-standard`, `.blog-grid`)
+- Buttons (`.button`, `.cta-button`, `.primary`, `.secondary`)
+- Interactive Elements (`.collapsible-section`, `.image-modal`)
+
+### File Organization
+```
+src/
+├── styles/
+│   ├── base/          # Reset, typography, variables
+│   ├── components/    # Reusable UI components
+│   ├── layouts/       # Page layout styles
+│   └── pages/         # Page-specific styles
+├── pages/
+│   ├── blog/          # Blog post files
+│   └── *.html         # Main pages
+├── assets/
+│   ├── images/        # All images
+│   └── favicon/       # Favicon files
+└── js/                # JavaScript functionality
+```
+
+### Vite Configuration Context
+The build process automatically:
+- Processes all HTML files in `src/pages/`
+- Copies assets to appropriate dist directories
+- Generates optimized CSS and JS bundles
+- Handles favicon and image management
+
+### Storybook Integration
+Component documentation is auto-generated from CSS files. When adding new components:
+- Follow BEM naming conventions
+- Document variants and states
+- Include interactive examples where applicable
+
+## Key Principles
+1. **Consistency:** Maintain visual and code consistency across all pages
+2. **Performance:** Optimize images, use lazy loading, minimize bundle size
+3. **Accessibility:** Ensure WCAG compliance with proper semantics and ARIA labels
+4. **SEO:** Include proper meta tags, structured data, and semantic markup
+5. **Maintainability:** Keep styles modular and well-documented
+
+Remember: Always test blog posts in development mode before building for production, and ensure all links and images work correctly.
