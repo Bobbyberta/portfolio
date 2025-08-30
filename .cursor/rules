@@ -272,7 +272,6 @@ files:
       - .hero-title
       - .highlight
       - .image-caption
-      - .image-caption
       - .image-modal
       - .img-container
       - .img-container
