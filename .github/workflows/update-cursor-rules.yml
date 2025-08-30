@@ -1,0 +1,71 @@
+name: Update Cursor Rules
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - 'src/**/*.css'
+      - 'src/**/*.html'
+      - 'vite.config.js'
+      - 'package.json'
+      - 'scripts/update-cursor-rules.js'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-rules:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Update Cursor rules
+        run: npm run update-cursor-rules
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if ! git diff --quiet .cursor/rules .cursor/.cursorrules; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "Rules were updated"
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+            echo "No rule changes detected"
+          fi
+
+      - name: Commit and push updated rules
+        if: steps.changes.outputs.changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action - Cursor Rules Updater"
+          git add .cursor/rules .cursor/.cursorrules
+          git commit -m "🤖 Auto-update Cursor rules
+          
+          - Updated CSS classes and symbols
+          - Refreshed HTML usage patterns  
+          - Enhanced context for better AI suggestions
+          
+          [skip ci]"
+          git push
+
+      - name: Summary
+        run: |
+          if [ "${{ steps.changes.outputs.changes }}" == "true" ]; then
+            echo "✅ Cursor rules updated and committed"
+          else
+            echo "ℹ️ No updates needed - rules are current"
+          fi

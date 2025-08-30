@@ -159,26 +159,46 @@ Each blog post should include:
 
 ## Cursor Rules
 
-The project uses automated Cursor rules to improve code suggestions. The rules are automatically updated when files change.
+The project uses automated Cursor rules to improve code suggestions. The rules are automatically updated when files change and when code is pushed.
 
-### Usage
+### Automatic Updates
 
-Start the file watcher to automatically update Cursor rules:
+Cursor rules are automatically updated in three ways:
+
+1. **Pre-push hook**: Updates rules before every `git push`
+2. **GitHub Actions**: Updates rules on push to main branch
+3. **File watcher**: Real-time updates during development
+
+### Manual Usage
+
 ```bash
+# Start file watcher for real-time updates during development
 npm run watch-cursor
-```
 
-Or manually update rules:
-```bash
+# Manually update rules
 npm run update-cursor
+
+# Check if rules need updating
+npm run check-rules
 ```
 
-The rules system:
-- Scans CSS files for classes and selectors
-- Updates component and layout contexts
-- Maintains a list of common selectors
-- Auto-updates when files change
-- Provides intelligent code suggestions
+### How It Works
+
+The automated rules system:
+- **Scans 144 CSS classes** from your actual stylesheets
+- **Analyzes 86 HTML classes** in active use
+- **Captures 54 custom properties** for design tokens
+- **Indexes 570 selectors** for comprehensive context
+- **Tracks accessibility attributes** for ARIA compliance
+- **Updates on file changes** to CSS, HTML, and config files
+- **Auto-commits updates** via GitHub Actions when rules change
+
+### Git Integration
+
+- **Pre-push hook**: Ensures rules are current before pushing
+- **GitHub workflow**: Automatically commits rule updates
+- **Smart detection**: Only commits when rules actually change
+- **Skip CI**: Rule commits don't trigger unnecessary builds
 
 ## Deployment
 

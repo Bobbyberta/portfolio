@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔄 Updating Cursor rules before push..."
+npm run update-cursor-rules
+
+# Check if rules were updated and commit if needed
+if ! git diff --quiet .cursor/rules .cursor/.cursorrules; then
+  echo "📝 Cursor rules were updated. Staging changes..."
+  git add .cursor/rules .cursor/.cursorrules
+  
+  echo "💡 Tip: You may want to commit these rule updates before pushing:"
+  echo "   git commit -m 'Update Cursor rules'"
+  echo ""
+fi
+
+echo "✅ Pre-push checks completed!"

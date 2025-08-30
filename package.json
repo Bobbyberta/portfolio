@@ -10,6 +10,8 @@
     "update-cursor-rules": "node scripts/update-cursor-rules.js",
     "update-cursor": "node scripts/update-cursor-rules.js",
     "watch-cursor": "node scripts/watch-cursor-rules.js",
+    "prepare": "husky install",
+    "check-rules": "echo 'Checking if Cursor rules need updating...' && npm run update-cursor-rules",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o dist/storybook",
     "generate-stories": "node scripts/generate-stories.js",
@@ -35,8 +37,6 @@
     "storybook": "^7.6.17"
   },
   "husky": {
-    "hooks": {
-      "pre-commit": "npm run update-cursor-rules"
-    }
+    "hooks": {}
   }
 }
