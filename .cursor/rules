@@ -223,6 +223,7 @@ files:
       - .collapsible-section
       - .collapsible-trigger
       - .comment
+      - .conclusion
       - .conclusion-card
       - .conclusion-grid
       - .conclusion-grid
