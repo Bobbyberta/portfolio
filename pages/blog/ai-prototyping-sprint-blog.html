@@ -81,10 +81,10 @@
                         <p>The most critical factor for success is understanding how to prompt the AI at different stages of the design process. My findings show a clear duality.</p>
                         
                         <h3>1. Use Vague Prompts for Ideation & Core Logic</h3>
-                        <p>AI excels when given high-level, conceptual goals based on established patterns. For instance, the prompt "Create a fractal simulation that works on desktop and mobile" was incredibly effective. The AI leveraged its knowledge of fractal geometry and responsive design to generate a robust starting point in minutes. This is ideal for quickly validating the core of an idea.</p>
+                        <p>AI excels when given high-level, conceptual goals based on established patterns. For instance, the prompt <b></b>"Create a fractal simulation that works on desktop and mobile"</b> was incredibly effective. The AI leveraged its knowledge of fractal geometry and responsive design to generate a robust starting point in minutes. This is ideal for quickly validating the core of an idea.</p>
                         
                         <h3>2. Use Specific Prompts for Code Refinement</h3>
-                        <p>Conversely, AI struggles with granular, context-dependent visual tweaks. A prompt like "Increase the padding on the main container" would often fail or produce unintended side effects. The solution was to use the integrated code view. I would make the specific CSS change myself and then use a prompt like, "Refactor this component to be more efficient" or "Explain this function to me." Here, the AI acts as a coding assistant, not a visual designer.</p>
+                        <p>Conversely, AI struggles with granular, context-dependent visual tweaks. A prompt like <b></b>"Increase the padding on the main container"</b> would often fail or produce unintended side effects. The solution was to use the integrated code view. I would make the specific CSS change myself and then use a prompt like, <b>"Refactor this component to be more efficient"</b> or <b>"Explain this function to me."</b> Here, the AI acts as a coding assistant, not a visual designer.</p>
                     </section>
 
                     <section>
@@ -93,14 +93,14 @@
                         <p>This led to a strategic pivot towards simulations and data-driven tools. This is where the ROI of Figma Make became clear.</p>
                         
                         <h3>AI Strengths ✅</h3>
-                        <ul>
+                        <ul class="lined-list">
                             <li><strong>Mathematical & Algorithmic Concepts:</strong> It flawlessly generated complex visualisations like Boids flocking simulations, vector fields, and fractals.</li>
                             <li><strong>Boilerplate UI & Structure:</strong> It rapidly scaffolds standard application layouts, forms, and control panels.</li>
                             <li><strong>Rapid Idea Validation:</strong> It can create a functional proof-of-concept for a tool, like a multi-timezone scheduler, in under an hour.</li>
                         </ul>
                         
                         <h3>AI Weaknesses ❌</h3>
-                        <ul>
+                        <ul class="lined-list">
                             <li><strong>Complex, State-Dependent Logic:</strong> Not suitable for intricate game mechanics that require a dedicated engine.</li>
                             <li><strong>Bespoke Visuals & Pixel-Perfection:</strong> Struggles to integrate custom graphics or adhere to a strict design system without direct code manipulation.</li>
                             <li><strong>Performance-Intensive Tasks:</strong> High-frequency rendering or complex physics simulations quickly hit a performance ceiling.</li>
@@ -113,7 +113,7 @@
                         <h2>Full Workflow Integration: From AI to Deployment</h2>
                         <p>A prototype is useless if it exists in a vacuum. My workflow demonstrated how to integrate AI into a realistic development pipeline:</p>
                         
-                        <ol>
+                        <ol class="lined-list">
                             <li><strong>Ideation & Scaffolding (Figma Make):</strong> Generate the core prototype.</li>
                             <li><strong>Code Extraction:</strong> Download the complete project files (HTML, CSS, JS).</li>
                             <li><strong>Refactoring & Automation (Claude/Cursor):</strong> Use a second AI tool like Claude within Cursor to clean up the code. I even had it write Python scripts to automate the setup process for all nine project folders, saving hours of manual work.</li>
