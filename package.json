@@ -1,6 +1,7 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
+  "type": "module",
   "description": "Personal portfolio website",
   "scripts": {
     "dev": "vite --base=/",
@@ -16,7 +17,9 @@
     "build-storybook": "storybook build -o dist/storybook",
     "generate-stories": "node scripts/generate-stories.js",
     "watch-storybook": "node scripts/watch-storybook.js",
-    "update-storybook": "node scripts/update-storybook.js"
+    "update-storybook": "node scripts/update-storybook.js",
+    "read-time": "node scripts/calculate-read-time.js",
+    "read-time:update": "node scripts/calculate-read-time.js --update"
   },
   "dependencies": {
     "serve": "^14.2.1"
