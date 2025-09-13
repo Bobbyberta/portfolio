@@ -46,6 +46,7 @@ export default defineConfig({
         'pages/blog/live-music-visualizer-blog': resolve(__dirname, 'src/pages/blog/live-music-visualizer-blog.html'),
         'pages/blog/android-ai-development-blog': resolve(__dirname, 'src/pages/blog/android-ai-development-blog.html'),
         'pages/blog/sci-fi-storytelling-blog': resolve(__dirname, 'src/pages/blog/sci-fi-storytelling-blog.html'),
+        'pages/blog/ai-prototyping-sprint-blog': resolve(__dirname, 'src/pages/blog/ai-prototyping-sprint-blog.html'),
       },
       output: {
         dir: 'dist',
