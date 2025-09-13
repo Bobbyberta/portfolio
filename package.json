@@ -1,7 +1,6 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "type": "module",
   "description": "Personal portfolio website",
   "scripts": {
     "dev": "vite --base=/",
