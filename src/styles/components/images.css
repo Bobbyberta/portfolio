@@ -164,6 +164,55 @@
     }
 }
 
+/* Full Width Image Display (for comparisons, iterations) */
+.img-container.full-width {
+    overflow: visible;
+    background: none;
+    border-radius: 0;
+}
+
+.img-container.full-width img {
+    position: static;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    object-fit: contain;
+}
+
+/* Full Height Image Display (for workflows, diagrams) */
+.img-container.full-height {
+    overflow: visible;
+    background: none;
+    border-radius: 0;
+}
+
+.img-container.full-height img {
+    position: static;
+    width: auto;
+    height: auto;
+    max-height: none;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Natural Size Image Display (shows image at its natural dimensions) */
+.img-container.natural-size {
+    overflow: visible;
+    background: none;
+    border-radius: 0;
+    width: auto;
+    display: inline-block;
+}
+
+.img-container.natural-size img {
+    position: static;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: none;
+    object-fit: contain;
+}
+
 /* Image Modal/Lightbox */
 .image-modal {
     position: fixed;
