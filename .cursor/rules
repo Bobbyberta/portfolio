@@ -264,8 +264,6 @@ files:
       - .experience-key
       - .first-name
       - .full-height
-      - .full-height
-      - .full-width
       - .full-width
       - .games
       - .hero
