@@ -235,7 +235,6 @@ files:
       - .content-card-content
       - .content-card-image
       - .content-card-image
-      - .content-card-link
       - .content-card-subtitle
       - .content-card-subtitle
       - .content-card-title
