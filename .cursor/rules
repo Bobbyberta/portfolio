@@ -263,6 +263,10 @@ files:
       - .experience-bar
       - .experience-key
       - .first-name
+      - .full-height
+      - .full-height
+      - .full-width
+      - .full-width
       - .games
       - .hero
       - .hero-background
@@ -299,6 +303,7 @@ files:
       - .mobile-menu-btn
       - .modal-close
       - .modal-content
+      - .natural-size
       - .nav-links
       - .nav-links
       - .operator
@@ -425,14 +430,17 @@ files:
       - Description
       - Design
       - Desktop
+      - Display
       - E64A19
       - Effects
       - Ensure
       - Experience
       - FF5722
+      - Full
       - Grid
       - Header
       - Headers
+      - Height
       - Hero
       - Hidden
       - Hide
@@ -460,6 +468,7 @@ files:
       - Modal
       - Monaco
       - Mono
+      - Natural
       - Navigation
       - Outcomes
       - Overview
@@ -484,6 +493,7 @@ files:
       - Segment
       - Shadows
       - Show
+      - Size
       - Snippet
       - Source
       - Spacing
@@ -500,6 +510,7 @@ files:
       - Title
       - Typography
       - Underline
+      - Width
       - Wrapper
       - a
       - a9955
@@ -530,6 +541,7 @@ files:
       - aria-label
       - arrow-icon
       - assets
+      - at
       - attr
       - auto
       - auto-fill
@@ -611,6 +623,7 @@ files:
       - column
       - columns
       - comment
+      - comparisons
       - conclusion-grid
       - contain
       - container
@@ -641,6 +654,8 @@ files:
       - deg
       - design-process
       - desktop
+      - diagrams
+      - dimensions
       - display
       - e0e0e0
       - e1e1e
@@ -682,6 +697,8 @@ files:
       - for
       - fr
       - full
+      - full-height
+      - full-width
       - future
       - games
       - gap
@@ -718,6 +735,7 @@ files:
       - highlight:hover
       - highlighting
       - hover
+      - image
       - image-caption
       - image-modal
       - images
@@ -737,6 +755,8 @@ files:
       - is
       - italic
       - items
+      - iterations
+      - its
       - justify-content
       - key
       - key-dot
@@ -783,6 +803,8 @@ files:
       - modal-close
       - modal-content
       - monospace
+      - natural
+      - natural-size
       - nav
       - nav-link-padding
       - nav-links
@@ -869,6 +891,7 @@ files:
       - serif
       - shadow-md
       - shadow-sm
+      - shows
       - sizes
       - skew
       - skill-bg
@@ -894,6 +917,7 @@ files:
       - start
       - state
       - states
+      - static
       - steps
       - sticky
       - sticky
@@ -978,6 +1002,7 @@ files:
       - with
       - word-wrap
       - work
+      - workflows
       - wrap
       - wrapping
       - xs-font-size
