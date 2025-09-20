@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A case study on building 'Guess the Paper' - a fully functional, auto-updating daily news game in 3 hours using AI tools as collaborators with Vercel and Supabase.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JH7G6ZCBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-8JH7G6ZCBQ');
+    </script>
+    
+    <title>How I Built a Live Web App in 3 Hours Using an AI-Driven Workflow - Bobbie Allsop</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bobbieallsop.github.io/pages/blog/ai-workflow-3-hours.html">
+    <meta property="og:title" content="How I Built a Live Web App in 3 Hours Using an AI-Driven Workflow">
+    <meta property="og:description" content="A case study on building 'Guess the Paper' - a fully functional, auto-updating daily news game in 3 hours using AI tools as collaborators with Vercel and Supabase.">
+    <meta property="og:image" content="https://bobbieallsop.github.io/assets/images/ai-workflow-3-hours-share.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bobbieallsop.github.io/pages/blog/ai-workflow-3-hours.html">
+    <meta property="twitter:title" content="How I Built a Live Web App in 3 Hours Using an AI-Driven Workflow">
+    <meta property="twitter:description" content="A case study on building 'Guess the Paper' - a fully functional, auto-updating daily news game in 3 hours using AI tools as collaborators with Vercel and Supabase.">
+    <meta property="twitter:image" content="https://bobbieallsop.github.io/assets/images/ai-workflow-3-hours-share.png">
+  <script type="module" crossorigin src="/assets/main-BmhlVOc1.js"></script>
+  <link rel="stylesheet" crossorigin href="/styles/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Bobbie Allsop</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="sr-only">Menu</span>
+                ☰
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/blog.html">Blog</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-wrapper">
+            <article class="blog-post section-standard">
+                <div class="page-header">
+                    <h1>How I Built a Live Web App in 3 Hours Using an AI-Driven Workflow</h1>
+                    <div class="page-meta">
+                        <span class="meta-item category">AI & Development</span>
+                        <span class="meta-item date">September 2025</span>
+                        <span class="meta-item read-time">5 min read</span>
+                    </div>
+                </div>
+
+                <div class="blog-post-content">
+                    <section class="intro">
+                        <p>Building a new application from scratch involves many decisions, from choosing the right technology to structuring the project. This process can be time-consuming, especially when venturing into unfamiliar territory.</p>
+                        <p>This post is a case study on how I dramatically compressed that timeline. I'll walk you through the process of building "Guess the Paper," a fully functional, auto-updating daily news game, in about three hours. The key was leveraging AI tools as a collaborator, which allowed me to use a modern tech stack—Vercel and Supabase—with no prior experience. My goal is to break down this workflow so you can apply these techniques to your own projects.</p>
+                        <p><strong>🎮 <a href="https://guess-the-paper.vercel.app/" target="_blank" rel="noopener noreferrer">Try the live game here</a></strong> - Test your knowledge of British newspapers with daily puzzles!</p>
+                    </section>
+
+                    <section>
+                        <h2>Step 1: The Blueprint - Using AI as a Solutions Architect</h2>
+                        <p>Every project needs a solid plan. The first challenge was to choose the right technologies and outline the steps to bring the game to life. For this, I treated ChatGPT as a solutions architect.</p>
+                        
+                        <p>A solutions architect's job is to design the high-level structure of a project. My initial prompt was designed to get this kind of strategic advice:</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Prompt</span>
+                            </div>
+                            <pre><code>"I want to create a web based game where it takes the main headlines from the top 8 UK newsites and you have to match it with which paper the headline was from - I want this to be a daily game which is scrapping real headlines, what tech stack do I need to create this?"</code></pre>
+                        </div>
+                        
+                        <p>The AI's recommendation was a complete, modern stack:</p>
+                        
+                        <ul class="lined-list">
+                            <li><strong>Frontend:</strong> Next.js with TypeScript and Tailwind CSS</li>
+                            <li><strong>Backend/Database:</strong> Supabase</li>
+                            <li><strong>Automation:</strong> A Python script run by GitHub Actions</li>
+                            <li><strong>Deployment:</strong> Vercel</li>
+                        </ul>
+                        
+                        <p>This stack is excellent for rapid development because the technologies are designed to work well together. To make the plan actionable, I followed up with a simple request:</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Follow-up Prompt</span>
+                            </div>
+                            <pre><code>"create checklist that cursor can go through in order to set up this project"</code></pre>
+                        </div>
+                        
+                        <p>This gave me a step-by-step guide and the initial code for every part of the application, forming the foundation for the entire build process.</p>
+                        
+                        <div class="img-container">
+                            <img src="/assets/ai-workflow-initial-code-structure-C2oEBYq9.png" alt="Initial code structure generated by AI showing project files and folders" class="img-responsive" loading="lazy">
+                            <p class="image-caption">The AI-generated project structure and initial code setup</p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Step 2: The Build - An AI-Powered Development Environment</h2>
+                        <p>With a plan in place, I moved to the coding phase using Cursor, an AI-first code editor. Instead of simply writing code, Cursor allows for a more interactive development process.</p>
+                        
+                        <p>I started by importing the entire checklist from ChatGPT into a markdown file within my project. This turned my editor into an interactive to-do list. I could then instruct Cursor to execute each step:</p>
+                        
+                        <ul class="lined-list">
+                            <li>Initialize the project with the correct frameworks.</li>
+                            <li>Create the necessary files and folders, such as <code>/pages/api/today.ts</code>.</li>
+                            <li>Populate these files with the code snippets provided by ChatGPT.</li>
+                        </ul>
+                        
+                        <p>This workflow is incredibly efficient. The AI handles the repetitive, boilerplate tasks, which frees up mental energy to focus on the core logic and understand how the different pieces of the application connect.</p>
+                    </section>
+
+                    <section>
+                        <h2>Step 3: Implementation - Flattening the Learning Curve</h2>
+                        <p>The checklist required setting up a database in Supabase and deploying the app on Vercel, neither of which I had used before. This is often where a project can stall, bogged down by the need to learn new platforms.</p>
+                        
+                        <p>However, the AI-generated instructions provided a precise, step-by-step tutorial.</p>
+                        
+                        <ul class="lined-list">
+                            <li><strong>For Supabase</strong> (a backend-as-a-service platform that simplifies database and API creation), the checklist provided the exact SQL code needed to create the tables.</li>
+                            <li><strong>For Vercel</strong> (a platform for deploying web applications), it detailed exactly how to connect my GitHub repository and where to add the necessary environment variables.</li>
+                        </ul>
+                        
+                        <p>This guided approach effectively flattened the learning curve, transforming a potentially difficult task into a simple matter of following instructions. I was able to correctly configure and deploy to both platforms in minutes.</p>
+                    </section>
+
+                    <section>
+                        <h2>Step 4: Iteration - From MVP to a Polished Product</h2>
+                        <p>Following the checklist resulted in a working Minimum Viable Product (MVP) in under three hours. The site was live, fetching headlines, and the game was playable.</p>
+                        
+                        <div class="img-container">
+                            <img src="/assets/ai-workflow-first-title-page-BmKTVS6n.png" alt="First iteration of the title page showing basic layout" class="img-responsive" loading="lazy">
+                            <p class="image-caption">The first working version - basic but functional</p>
+                        </div>
+                        
+                        <p>From there, I began the crucial process of iteration.</p>
+                        
+                        <ul class="lined-list">
+                            <li><strong>UI Refinement:</strong> I applied my design skills to improve the user interface through several iterations.</li>
+                            <li><strong>Process Automation:</strong> In an interesting turn, a poorly phrased prompt about setting up checks led to the AI creating a comprehensive CI/CD (Continuous Integration/Continuous Deployment) pipeline. This "happy accident" introduced a professional-grade, automated process for testing and releasing new updates securely.</li>
+                            <li><strong>Feature Expansion:</strong> With a solid foundation, adding new game modes was straightforward.</li>
+                        </ul>
+                        
+                        <h3>UI Evolution Through Iterations</h3>
+                        <p>The design evolved significantly through multiple iterations, each improving the user experience:</p>
+                        
+                        <div class="img-container">
+                            <img src="/assets/ai-workflow-first-ui-itteration-REXjC6lv.png" alt="First UI iteration showing basic game interface" class="img-responsive" loading="lazy">
+                            <p class="image-caption">First UI iteration - functional but basic design</p>
+                        </div>
+                        
+                        <div class="img-container">
+                            <img src="/assets/ai-workflow-second-title-screen-s0vHK8bY.png" alt="Second iteration of title screen with improved styling" class="img-responsive" loading="lazy">
+                            <p class="image-caption">Second iteration - improved title screen with better styling</p>
+                        </div>
+                        
+                        <div class="img-container">
+                            <img src="/assets/ai-workflow-second-ui-itteration-DiVppoBy.png" alt="Second UI iteration with enhanced game interface" class="img-responsive" loading="lazy">
+                            <p class="image-caption">Second UI iteration - enhanced game interface and user experience</p>
+                        </div>
+                        
+                        <div class="img-container">
+                            <img src="/assets/ai-workflow-third-ui-itteration-Bt9dG2QY.png" alt="Final UI iteration showing polished game interface" class="img-responsive" loading="lazy">
+                            <p class="image-caption">Final iteration - polished interface with professional styling</p>
+                        </div>
+                        
+                        <h3>Automated CI/CD Pipeline</h3>
+                        <p>The AI also helped establish a robust continuous integration pipeline, ensuring code quality and automated deployments:</p>
+                        
+                        <div class="img-container">
+                            <img src="/assets/ai-workflow-CI-BgB9DrsB.png" alt="GitHub Actions CI/CD pipeline showing automated tests and deployments" class="img-responsive" loading="lazy">
+                            <p class="image-caption">Automated CI/CD pipeline with comprehensive testing and deployment workflows</p>
+                        </div>
+                    </section>
+
+                    <section class="conclusion">
+                        <h2>Final Thoughts: Key Learnings</h2>
+                        <p>This project served as a powerful proof of concept for an AI-driven development workflow. The key educational takeaways are:</p>
+                        
+                        <ul class="lined-list">
+                            <li><strong>AI as a Strategic Partner:</strong> Use large language models for high-level planning and architectural decisions, not just for generating simple code snippets.</li>
+                            <li><strong>Efficiency Through Integration:</strong> Combining a planning tool (ChatGPT) with an interactive code editor (Cursor) creates a seamless workflow that drastically reduces setup and boilerplate time.</li>
+                            <li><strong>Accelerated Learning:</strong> AI-generated guides can serve as personalized tutorials, making it easier than ever to adopt new technologies and platforms without formal training.</li>
+                        </ul>
+                        
+                        <p>This approach shifts the developer's role from a manual coder to a director of tools, focusing more on strategic decisions and creative problem-solving. It's a more efficient, educational, and ultimately more powerful way to build software.</p>
+                    </section>
+                </div>
+            </article>
+
+            <section class="section-cta">
+                <div class="cta-content">
+                    <h2>Thank you for reading!</h2>
+                    <div class="cta-text">
+                        <p>Ready to try the game yourself? Test your knowledge of British newspapers!</p>
+                        <p>Want to work with me? Feel free to contact me!</p>
+                        <p>...or just say hello on my social media.</p>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="https://guess-the-paper.vercel.app/" target="_blank" rel="noopener noreferrer" class="cta-button primary">🎮 Play Guess the Paper</a>
+                        <a href="/pages/contact.html" class="cta-button secondary">Contact Me</a>
+                        <a href="/pages/blog.html" class="cta-button secondary">Back to Blog</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bobbie Allsop. All rights reserved.</p>
+    </footer>
+</body>
+</html> 
