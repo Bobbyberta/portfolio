@@ -235,6 +235,7 @@ files:
       - .content-card-content
       - .content-card-image
       - .content-card-image
+      - .content-card-link
       - .content-card-subtitle
       - .content-card-subtitle
       - .content-card-title
@@ -272,6 +273,7 @@ files:
       - .hero-subtitle
       - .hero-title
       - .highlight
+      - .image-caption
       - .image-caption
       - .image-modal
       - .img-container
