@@ -21,7 +21,7 @@
     "read-time:update": "node scripts/calculate-read-time.js --update"
   },
   "dependencies": {
-    "serve": "^14.2.1"
+    "serve": "^14.2.5"
   },
   "devDependencies": {
     "chokidar": "^3.6.0",
