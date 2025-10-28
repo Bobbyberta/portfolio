@@ -48,6 +48,7 @@ export default defineConfig({
         'pages/blog/sci-fi-storytelling-blog': resolve(__dirname, 'src/pages/blog/sci-fi-storytelling-blog.html'),
         'pages/blog/ai-prototyping-sprint-blog': resolve(__dirname, 'src/pages/blog/ai-prototyping-sprint-blog.html'),
         'pages/blog/ai-workflow-3-hours': resolve(__dirname, 'src/pages/blog/ai-workflow-3-hours.html'),
+        'pages/blog/ai-shirts-blog': resolve(__dirname, 'src/pages/blog/ai-shirts-blog.html'),
       },
       output: {
         dir: 'dist',
