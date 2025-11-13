@@ -1,4 +1,4 @@
-import{j as n,M as d,T as c,S as o,C as x,a as i}from"./index-C155Tfp4.js";import{useMDXComponents as l}from"./index-BXgOq0Tu.js";import"./iframe-SocfyOLN.js";import"./index-DUtD_WXc.js";import"./index-ogSvIofg.js";function r(e){const s={code:"code",h2:"h2",h3:"h3",li:"li",p:"p",pre:"pre",ul:"ul",...l(),...e.components};return n.jsxs(n.Fragment,{children:[n.jsx(d,{title:"Style Guide"}),`
+import{j as n,M as d,T as c,S as o,C as x,a as i}from"./index-Bpjx8N-L.js";import{useMDXComponents as l}from"./index-BYJbGfiz.js";import"./iframe-DIgPEd8q.js";import"./index-C__6K5js.js";import"./index-DrFu-skq.js";function r(e){const s={code:"code",h2:"h2",h3:"h3",li:"li",p:"p",pre:"pre",ul:"ul",...l(),...e.components};return n.jsxs(n.Fragment,{children:[n.jsx(d,{title:"Style Guide"}),`
 `,n.jsx(c,{children:"Style Guide"}),`
 `,n.jsx(o,{children:"Design tokens and visual guidelines for the portfolio website"}),`
 `,n.jsx(s.h2,{id:"colors",children:"Colors"}),`

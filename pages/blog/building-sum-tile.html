@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Building Sum Tile: A modern web puzzle game that prioritizes accessibility and simplicity. Learn how vanilla JavaScript and thoughtful UX design create a delightful experience.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JH7G6ZCBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-8JH7G6ZCBQ');
+    </script>
+    
+    <title>Building Sum Tile: A Modern Web Puzzle Game That Puts Users First - Bobbie Allsop</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bobbieallsop.github.io/pages/blog/building-sum-tile.html">
+    <meta property="og:title" content="Building Sum Tile: A Modern Web Puzzle Game That Puts Users First">
+    <meta property="og:description" content="Building Sum Tile: A modern web puzzle game that prioritizes accessibility and simplicity. Learn how vanilla JavaScript and thoughtful UX design create a delightful experience.">
+    <meta property="og:image" content="https://bobbieallsop.github.io/assets/images/building-sum-tile-share.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bobbieallsop.github.io/pages/blog/building-sum-tile.html">
+    <meta property="twitter:title" content="Building Sum Tile: A Modern Web Puzzle Game That Puts Users First">
+    <meta property="twitter:description" content="Building Sum Tile: A modern web puzzle game that prioritizes accessibility and simplicity. Learn how vanilla JavaScript and thoughtful UX design create a delightful experience.">
+    <meta property="twitter:image" content="https://bobbieallsop.github.io/assets/images/building-sum-tile-share.png">
+  <script type="module" crossorigin src="/assets/main-BmhlVOc1.js"></script>
+  <link rel="stylesheet" crossorigin href="/styles/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Bobbie Allsop</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="sr-only">Menu</span>
+                ☰
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/blog.html">Blog</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-wrapper">
+            <article class="blog-post section-standard">
+                <div class="page-header">
+                    <h1>Building Sum Tile: A Modern Web Puzzle Game That Puts Users First</h1>
+                    <div class="page-meta">
+                        <span class="meta-item category">Case Study</span>
+                        <span class="meta-item date">November 2025</span>
+                        <span class="meta-item read-time">4 min read</span>
+                    </div>
+                </div>
+
+                <div class="blog-post-content">
+                    <section class="intro">
+                        <p>A new daily word puzzle game is here! It's called Sum Tile, and it's a cross between an anagram and Scrabble, where you place letter tiles to match a target score. This December, it's running as a Christmas Advent Calendar.</p>
+                        <p>I want to share the journey of building this game. It's a story about choosing simplicity, obsessing over accessibility, and proving that you don't need heavy frameworks to build a delightful web experience.</p>
+                    </section>
+
+                    <div class="cta-buttons">
+                        <a href="https://sum-tile.uk" target="_blank" class="cta-button primary">Play Sum Tile</a>
+                    </div>
+
+                    <section>
+                        <h2>The Idea: A Scrabble-Style Advent Puzzle</h2>
+                        <p>The core concept for Sum Tile is simple: Each day from December 1st to the 25th, a new puzzle unlocks. Players must arrange a set of letter tiles to form two distinct words. The catch? The total score of those two words, using standard Scrabble point values, must match a target score.</p>
+                        <p><strong>December Focus:</strong> The puzzles use Christmas-related words to celebrate the holiday season!</p>
+                        <p><strong>Post-Christmas:</strong> Starting in January, it will smoothly transition into a daily, year-round word puzzle.</p>
+                    </section>
+
+                    <section>
+                        <h2>Design Philosophy: Simple, Accessible, Delightful</h2>
+                        <p>My goal was to create a game that was clear, fast, and universally accessible. The interface needed to get out of the way so players could focus entirely on the puzzle.</p>
+
+                        <h3>Universal Accessibility: How Simple Wins</h3>
+                        <p>Accessibility wasn't an afterthought—it was the blueprint. I ensured the game is fully playable using any input method a user prefers:</p>
+
+                        <ul class="lined-list">
+                            <li><strong>Mouse/Touch:</strong> Smooth, custom drag-and-drop and touch gestures on mobile with clear visual feedback.</li>
+                            <li><strong>Keyboard:</strong> Full keyboard navigation allows players to Tab through tiles, Enter or Space to select, and Escape to deselect or remove a tile.</li>
+                            <li><strong>Screen Reader Support:</strong> Proper ARIA labels and focus management were built in from the start to ensure the game works for those using assistive technology.</li>
+                        </ul>
+
+                        <h3>User Delight: The Little Things</h3>
+                        <p>The experience is what matters. We added small, rewarding features that make playing fun:</p>
+
+                        <ul class="lined-list">
+                            <li><strong>Celebration Moments:</strong> Successfully solving a puzzle triggers a satisfying confetti animation.</li>
+                            <li><strong>Hint System:</strong> Need a nudge? Players get three hints per puzzle, revealing one letter at a time to help balance challenge and frustration.</li>
+                            <li><strong>Smart Calendar:</strong> The calendar system automatically unlocks puzzles daily, creating a sense of anticipation and progression right up to Christmas Day.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Technical Decisions: The Power of Constraints</h2>
+                        <p>To make the game fast and easy to maintain, I deliberately chose a lean tech stack. This focused approach fostered creative, focused solutions.</p>
+
+                        <h3>Vanilla JavaScript (No Frameworks)</h3>
+                        <p>Why skip the big frameworks? By using plain JavaScript with ES6 modules, the code stays incredibly fast, easy to understand, and maintainable. There are no complex build steps—just clean, modular code that loads almost instantly.</p>
+
+                        <h3>Modular Architecture</h3>
+                        <p>The code is neatly separated into focused modules, meaning each file only does one job. This approach, known as modularity, makes the project incredibly easy to work with and extend:</p>
+
+                        <ul class="lined-list">
+                            <li><strong>drag-drop.js</strong> — Handles mouse and touch interactions.</li>
+                            <li><strong>keyboard.js</strong> — Manages keyboard navigation.</li>
+                            <li><strong>scoring.js</strong> — Calculates scores and validates solutions.</li>
+                            <li><strong>ui.js</strong> — Manages the calendar and puzzle views.</li>
+                        </ul>
+
+                        <h3>Tailwind CSS for Styling</h3>
+                        <p>I used Tailwind CSS for rapid and consistent styling. The utility-first approach meant the CSS was compiled once and shipped, keeping the overall site load light and snappy.</p>
+                    </section>
+
+                    <section>
+                        <h2>The Key Lessons Learned</h2>
+                        <p>Building Sum Tile reinforced several crucial development principles that any aspiring web creator can use:</p>
+
+                        <ul class="lined-list">
+                            <li><strong>Start with Accessibility:</strong> It is infinitely easier to build accessibility features like keyboard navigation and ARIA support from the ground up than to try and retrofit them later.</li>
+                            <li><strong>Simple Can Be Powerful:</strong> Vanilla JavaScript and a light CSS library like Tailwind can deliver a fast, performant, and maintainable solution that easily competes with framework-heavy projects.</li>
+                            <li><strong>Constraints Foster Creativity:</strong> Limiting dependencies forced me to find focused, efficient solutions rather than relying on heavy external libraries.</li>
+                            <li><strong>User Experience Matters:</strong> Thoughtful design details—clear feedback, smooth animations, and helpful hints—make a massive difference in how much someone enjoys your game.</li>
+                        </ul>
+                    </section>
+
+                    <section class="conclusion">
+                        <h2>The Result: A Polished Puzzle for Everyone</h2>
+                        <p>Sum Tile is a fun, polished, and fully accessible web puzzle game that works flawlessly across every device and input method. It stands as a testament to the fact that thoughtful design, user-first development, and clean code can create a truly engaging experience without complexity.</p>
+                        <p>Whether you're a designer interested in front-end development or a developer curious about UX, I encourage you to see how this all came together.</p>
+                    </section>
+                </div>
+            </article>
+
+            <section class="section-cta">
+                <div class="cta-content">
+                    <h2>Thank you for reading!</h2>
+                    <div class="cta-text">
+                        <p>Want to work with me? Feel free to contact me!</p>
+                        <p>...or just say hello on my social media.</p>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="/pages/contact.html" class="cta-button primary">Contact Me</a>
+                        <a href="/pages/blog.html" class="cta-button secondary">Back to Blog</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bobbie Allsop. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
