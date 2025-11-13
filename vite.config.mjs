@@ -1,8 +1,11 @@
-import { resolve } from 'path'
+import { resolve, dirname } from 'path'
 import { copyFileSync, mkdirSync, readdirSync } from 'fs'
 import { join } from 'path'
 import { defineConfig } from 'vite'
 import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 function copyDir(src, dest) {
   mkdirSync(dest, { recursive: true })
@@ -115,3 +118,4 @@ export default defineConfig({
     },
   },
 })
+

@@ -36,7 +36,7 @@ Successfully updated Cursor rules with:
 **Watches**:
 - `src/**/*.css` - Stylesheet changes
 - `src/**/*.html` - Template and structure changes  
-- `vite.config.js` - Build configuration changes
+- `vite.config.mjs` - Build configuration changes
 - `package.json` - Dependency changes
 - `scripts/update-cursor-rules.js` - Script updates
 

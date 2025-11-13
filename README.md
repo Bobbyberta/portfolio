@@ -116,7 +116,7 @@ Add your new post to `src/pages/blog.html`:
 
 ### 3. Update Build Configuration
 
-Add your new blog post to `vite.config.js`:
+Add your new blog post to `vite.config.mjs`:
 1. Add a new entry in the `rollupOptions.input` object:
 ```javascript
 'pages/blog/your-post-name': resolve(__dirname, 'src/pages/blog/your-post-name.html'),
